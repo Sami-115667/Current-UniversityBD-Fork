@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">UniversityBD</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="general_university">
+        <item>University of Dhaka </item>
+        <item>Jahangirnagar University</item>
+        <item>Rajshahi University</item>
+        <item>Chittagong University</item>
+        <item>Khulna University</item>
+        <item>Islamic University, Bangladesh</item>
+        <item>Barisal University</item>
+        <item>Comilla University</item>
+        <item>Bangladesh Open University</item>
+        <item>Jagannath University</item>
+        <item>Jatiya Kabi Kazi Nazrul Islam University</item>
+        <item>Begum Rokeya University, Rangpur</item>
+        <item>Bangladesh University of Professionals</item>
+        <item>Rabindra University, Bangladesh</item>
+        <item>Sheikh Hasina University</item>
+    </string-array>
+
+    <string name="dhaka_university">
+        The University of Dhaka, commonly referred to as Dhaka University or DU, is the oldest and largest university in Bangladesh. It was established in 1921 during the British colonial period and has since become a prestigious institution of higher education in the country.
+
+                The University of Dhaka, commonly referred to as Dhaka University or DU, is the oldest and largest university in Bangladesh. It was established in 1921 during the British colonial period and has since become a prestigious institution of higher education in the country.
+                The University of Dhaka, commonly referred to as Dhaka University or DU, is the oldest and largest university in Bangladesh. It was established in 1921 during the British colonial period and has since become a prestigious institution of higher education in the country.
+                The University of Dhaka, commonly referred to as Dhaka University or DU, is the oldest and largest university in Bangladesh. It was established in 1921 during the British colonial period and has since become a prestigious institution of higher education in the country.
+                The University of Dhaka, commonly referred to as Dhaka University or DU, is the oldest and largest university in Bangladesh. It was established in 1921 during the British colonial period and has since become a prestigious institution of higher education in the country.
+
+    </string>
+
+</resources>

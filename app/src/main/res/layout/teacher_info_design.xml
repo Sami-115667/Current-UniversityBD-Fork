@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:background="@color/white"
+        android:id="@+id/cardviewid"
+        android:elevation="200dp"
+        app:cardElevation="3dp"
+        android:layout_marginLeft="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardCornerRadius="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/teacher_image"
+                    android:layout_width="90dp"
+                    android:src="@drawable/teachers_info"
+                    android:layout_height="80dp"
+                    app:civ_border_color="#80968D"
+                    app:civ_border_width="2dp" />
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:padding="5dp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/text_background"
+                        android:textStyle="bold"
+                        android:text="Call"
+                        android:gravity="center_horizontal"
+                        android:layout_width="55dp"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/teacher_info_email"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="8dp"
+                        android:padding="5dp"
+                        android:background="@drawable/text_background"
+                        android:textStyle="bold"
+                        android:text="Email"
+                        android:gravity="center_horizontal"
+                        android:layout_width="55dp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:paddingTop="6dp"
+                        android:src="@drawable/name_teacherinfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/teacher_name"
+                        android:paddingTop="9dp"
+                        android:paddingLeft="4dp"
+                        android:textStyle="bold"
+                        android:text="Rakib Hossain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:paddingTop="6dp"
+                        android:src="@drawable/department_techerinfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/teacher_dept"
+                        android:paddingTop="4dp"
+                        android:paddingLeft="4dp"
+                        android:text="Computer Science Andjdjjrjrjkkr Engineering"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:paddingTop="6dp"
+                        android:src="@drawable/email_teacherinfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/teacher_email"
+                        android:paddingTop="9dp"
+                        android:paddingLeft="4dp"
+                        android:text="bijoy18rakib@gmail.com"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:paddingTop="6dp"
+                        android:src="@drawable/call_teacherinfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/teacher_number"
+                        android:paddingTop="9dp"
+                        android:paddingLeft="4dp"
+                        android:text="01825008451"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".service.DocumentaryService">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Service"
+        app:titleTextColor="@color/black"
+        app:navigationIcon="@drawable/back_pressed"
+        android:id="@+id/documentary_service_toolbar_id"
+        android:background="@color/documentary"/>
+
+    <WebView
+        android:layout_marginTop="0dp"
+        android:id="@+id/documentary_webview_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </WebView>
+
+</LinearLayout>
