@@ -18,9 +18,6 @@
             android:name=".cgpacalculator.SemesterActivity"
             android:exported="false" />
         <activity
-            android:name=".cgpacalculator.CourseActivity"
-            android:exported="false" />
-        <activity
             android:name=".cgpacalculator.CGPAHomeActivity"
             android:exported="false" />
         <activity
