@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textColor="@color/primary"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="CGPA Calculator"
+        android:textSize="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textColor="#F43303"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Your Calculation Details"
+        android:textSize="23dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="#C5251A18"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+    <TextView
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/log_back"
+        android:id="@+id/set_semester"
+        android:textColor="#FCFBFA"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Choose Semester"
+        android:textSize="23dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:text="Sum"
+        android:textSize="16dp"
+        android:id="@+id/sum_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="4dp"
+
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:id="@+id/credit_sum_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:id="@+id/cgpa_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="18dp"
+        android:id="@+id/ok_button"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/log_back"
+        android:elevation="5dp"
+        android:padding="5dp"
+        android:text="OK"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+
+</LinearLayout>

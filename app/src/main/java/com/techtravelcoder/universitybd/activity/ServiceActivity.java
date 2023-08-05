@@ -31,7 +31,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
     Spinner specefic_spinner,common_spinner;
     Toolbar toolbar;
     String name ;
-    CardView documentary ,teachers_information ,about_hall,transportation,students_community ,pdf_books,current_news,cgpa_calculator ;
+    CardView documentary ,teachers_information ,about_hall,students_community ,pdf_books,current_news,cgpa_calculator ;
 
 
     @Override
@@ -338,7 +338,6 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         documentary=findViewById(R.id.documentary_service_id);
         teachers_information=findViewById(R.id.teachers_info_service_id);
         about_hall=findViewById(R.id.hall_service_id);
-        transportation=findViewById(R.id.transportation_service_id);
         students_community=findViewById(R.id.students_community_service_id);
         pdf_books=findViewById(R.id.pdf_books_service_id);
         current_news=findViewById(R.id.documentary_service_id);
@@ -347,7 +346,6 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         documentary.setOnClickListener(this);
         teachers_information.setOnClickListener(this);
         about_hall.setOnClickListener(this);
-        transportation.setOnClickListener(this);
         students_community.setOnClickListener(this);
         pdf_books.setOnClickListener(this);
         current_news.setOnClickListener(this);
@@ -526,9 +524,6 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
 
         }
 
-        if(v.getId()==R.id.transportation_service_id){
-
-        }
 
 
         if(v.getId()==R.id.cgpa_calculator_service_id){

@@ -42,26 +42,23 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-                    <TextView
+                    <ImageView
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="8dp"
-                        android:padding="5dp"
-                        android:textColor="@color/white"
-                        android:background="@drawable/text_background"
-                        android:textStyle="bold"
-                        android:text="Call"
+                        android:padding="3dp"
+                        android:src="@drawable/call_back"
+                        android:background="@drawable/info"
                         android:gravity="center_horizontal"
                         android:layout_width="55dp"
                         android:layout_height="wrap_content"/>
-                    <TextView
+                    <ImageView
                         android:id="@+id/teacher_info_email"
-                        android:textColor="@color/white"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="8dp"
-                        android:padding="5dp"
-                        android:background="@drawable/text_background"
+                        android:padding="3dp"
+                        android:background="@drawable/info"
+                        android:src="@drawable/email_icon"
                         android:textStyle="bold"
-                        android:text="Email"
                         android:gravity="center_horizontal"
                         android:layout_width="55dp"
                         android:layout_height="wrap_content"/>

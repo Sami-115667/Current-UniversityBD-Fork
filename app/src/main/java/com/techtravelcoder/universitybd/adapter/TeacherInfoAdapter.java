@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -76,7 +77,7 @@ public class TeacherInfoAdapter extends FirebaseRecyclerAdapter<TeacherInfoModel
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name,unidept,phone,email;
         CircleImageView img;
-        TextView emailService;
+        ImageView emailService;
 
 
         public MyViewHolder(@NonNull View itemView) {

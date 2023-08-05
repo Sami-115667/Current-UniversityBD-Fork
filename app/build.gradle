@@ -37,6 +37,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.2.2'
     implementation 'com.firebaseui:firebase-ui-database:8.0.0'
     implementation platform('com.google.firebase:firebase-bom:32.2.0')
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
+
 
     implementation("com.google.firebase:firebase-appcheck:17.0.1")
     implementation("com.google.firebase:firebase-firestore:24.7.0")
@@ -55,6 +57,13 @@ dependencies {
 
     //Image glide
     implementation 'com.github.bumptech.glide:glide:4.15.1'
+
+    //custom toasty
+    implementation 'com.github.GrenderG:Toasty:1.5.2'
+
+    //lottie animation
+    implementation "com.airbnb.android:lottie:6.1.0"
+
 
 
 
