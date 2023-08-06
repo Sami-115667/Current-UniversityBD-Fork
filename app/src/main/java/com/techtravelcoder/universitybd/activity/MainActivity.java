@@ -2,12 +2,14 @@ package com.techtravelcoder.universitybd.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -17,7 +19,10 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.techtravelcoder.universitybd.R;
+import com.techtravelcoder.universitybd.loginandsignup.UserLoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ActionBarDrawerToggle actionBarDrawerToggle; // instead of action bar we use toolbar //ActionBarDrawerToggle
     ImageSlider imageSlider;
     private CardView general ,prv,engineering ,agriculture,national,sat;
+    FirebaseAuth auth;
+    FirebaseDatabase database;
 
 
     @Override
@@ -65,6 +72,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         managementNavigationDrawerItem();
     }
 
+    @Override
+    public void onBackPressed() {
+
+
+        AlertDialog.Builder alertObj= new AlertDialog.Builder(MainActivity.this);
+        alertObj.setTitle("Confirm Exit...!");
+        alertObj.setMessage("Do you want to Exit this Application ?");
+
+        alertObj.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finishAffinity();
+            }
+        });
+        alertObj.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                 dialog.cancel();
+            }
+        });
+        AlertDialog dialog = alertObj.create();
+        alertObj.show();
+
+
+
+    }
 
     public void managementNavigationDrawerItem(){
         drawerLayout = findViewById(R.id.draw_layout);
@@ -123,6 +156,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     intent.putExtra("name","national");
                     startActivity(intent);
                     drawerLayout.closeDrawer(GravityCompat.START);
+                }
+                if(item.getItemId()==R.id.log_out_id){
+                    auth=FirebaseAuth.getInstance();
+                    auth.signOut();
+                    Intent intent= new Intent(getApplicationContext(), UserLoginActivity.class);
+                    startActivity(intent);
+
                 }
 
 

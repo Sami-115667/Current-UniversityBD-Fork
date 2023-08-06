@@ -17,20 +17,20 @@
         app:cardBackgroundColor="@color/white"
         app:cardPreventCornerOverlap="true"
         android:layout_width="match_parent"
-        android:layout_height="248dp">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/university_image"
-                android:layout_marginTop="15dp"
-                android:layout_width="145dp"
+                android:layout_margin="10dp"
+                android:layout_width="120dp"
 
                 android:scaleType="centerCrop"
-                android:layout_height="130dp"/>
+                android:layout_height="120dp"/>
 
 
 
@@ -39,9 +39,8 @@
                 android:id="@+id/university_name"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:fontFamily="casual"
-                android:layout_marginLeft="8dp"
-                android:textSize="16sp"
+                android:layout_marginLeft="10dp"
+                android:textSize="14sp"
                 android:text="University of Dhaka"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -49,10 +48,8 @@
 
                 android:textColor="@color/black"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:fontFamily="casual"
+                android:layout_marginLeft="10dp"
+                android:textSize="13sp"
                 android:text="To know more......."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -63,7 +60,7 @@
         android:layout_marginTop="0dp"
         android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="10dp"/>
 
 
 

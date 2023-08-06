@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     tools:openDrawer="start"
     android:fitsSystemWindows="true"
-    android:background="@color/white"
+    android:background="#26CACACC"
     android:id="@+id/draw_layout"
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
@@ -43,11 +43,11 @@
                     app:cardPreventCornerOverlap="true"
                     app:cardElevation="10dp"
                     android:layout_margin="12dp"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="215dp">
                     <com.denzcoskun.imageslider.ImageSlider
-                        android:layout_margin="8dp"
+                        android:layout_margin="5.6dp"
                         android:id="@+id/image_slider"
                         android:background="@drawable/image_barisal"
                         android:layout_width="match_parent"
@@ -102,7 +102,7 @@
                         <ImageView
                             android:layout_marginTop="40dp"
                             android:layout_gravity="center_horizontal"
-                            android:scaleType="fitXY"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/public_university"
                             android:layout_width="80dp"
                             android:layout_height="80dp"/>
@@ -136,7 +136,7 @@
                             android:layout_marginTop="40dp"
                             android:padding="5dp"
                             android:layout_gravity="center_horizontal"
-                            android:scaleType="fitXY"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/national_university"
                             android:layout_width="80dp"
                             android:layout_height="80dp"/>

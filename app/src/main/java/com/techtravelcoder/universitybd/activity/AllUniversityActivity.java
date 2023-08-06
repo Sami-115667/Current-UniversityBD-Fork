@@ -218,7 +218,7 @@ public class AllUniversityActivity extends AppCompatActivity {
         itemList.add(new UniversityItem(R.drawable.image_jagannath,"Jagannath University"));
         itemList.add(new UniversityItem(R.drawable.image_jkkniu,"Jatiya Kabi Kazi Nazrul Islam University"));
         itemList.add(new UniversityItem(R.drawable.image_begum_rokeya,"Begum Rokeya University, Rangpur"));
-        itemList.add(new UniversityItem(R.drawable.image_bup,"Bangladesh University of Professionals"));
+        itemList.add(new UniversityItem(R.drawable.image_bup,"Begum Rokeya University, Rangpur"));
         itemList.add(new UniversityItem(R.drawable.image_rabindra,"Rabindra University, Bangladesh"));
         itemList.add(new UniversityItem(R.drawable.image_seikh_hasina,"Sheikh Hasina University"));
 

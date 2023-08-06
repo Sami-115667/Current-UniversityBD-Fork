@@ -74,7 +74,7 @@
                 android:textStyle="bold"
                 android:layout_margin="8dp"
                 android:textColor="#006400"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:text="Specefic Service"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -218,7 +218,7 @@
                 android:textStyle="bold"
                 android:layout_margin="8dp"
                 android:textColor="#006400"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:text="Common Service"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"/>

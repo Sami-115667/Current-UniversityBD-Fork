@@ -37,11 +37,12 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_user_login);
 
 
             setContentView(R.layout.activity_user_login);
-            userKey = getIntent().getStringExtra("userKey");
+            //userKey = getIntent().getStringExtra("userKey");
             mAuth=FirebaseAuth.getInstance();
 
             emailEditText=findViewById(R.id.loginEmailId);
@@ -52,20 +53,18 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
             loginButton.setOnClickListener(this);
             signUpbutton.setOnClickListener(this);
 
+          if(mAuth.getCurrentUser() != null){
+              Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+              intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+              startActivity(intent);
+              finish();
+          }
+
 
 
         }
 
-    protected void onResume() {
-        super.onResume();
 
-        if (AuthUtils.isUserAuthenticated(this)) {
-            // User is authenticated, redirect to MainActivity
-            Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    }
 
 
     @Override
@@ -76,6 +75,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
             startActivity(intent);
         }
         if (v.getId()==R.id.loginFromLoginId){
+
             userLogin();
         }
 
@@ -117,20 +117,20 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressDialog.dismiss();
 
-                if(task.isSuccessful()){
-
-                    Toasty.success(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT, true).show();
-
+                if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
-                    AuthUtils.saveUserAuthentication(UserLoginActivity.this);
+                    if (user != null && user.isEmailVerified()) {
+                        Toasty.success(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT, true).show();
 
-                  Intent intent=new Intent(UserLoginActivity.this, MainActivity.class);
-                  startActivity(intent);
-                  finish();
-
-                }else{
+                        Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toasty.error(getApplicationContext(), "Please verify your email first.", Toast.LENGTH_LONG, true).show();
+                        mAuth.signOut();
+                    }
+                } else {
                     Toasty.error(getApplicationContext(), "Password or email is wrong..", Toast.LENGTH_SHORT, true).show();
-                    progressDialog.dismiss();
                 }
             }
         });

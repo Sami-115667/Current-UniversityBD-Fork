@@ -3,11 +3,14 @@ package com.techtravelcoder.universitybd.loginandsignup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatSpinner;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +26,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.ktx.Firebase;
 import com.techtravelcoder.universitybd.R;
+import com.techtravelcoder.universitybd.activity.MainActivity;
+import com.techtravelcoder.universitybd.cgpacalculator.SemesterActivity;
 import com.techtravelcoder.universitybd.model.UserModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import es.dmoral.toasty.Toasty;
 
@@ -37,20 +45,15 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private EditText name,email,password,reEnterPassword,phone ;
     private AppCompatButton signup;
     private ProgressDialog progressDialog;
+    private AppCompatSpinner universitySpinner,bloodSpinner ;
+    private List<String>uniName,bloodGroup ;
+    private String userUniversity,userBloodGroup ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_signup);
 
-
-
-        if(AuthUtils.isUserAuthenticated(this)){
-            setContentView(R.layout.activity_signup);
-            Intent intent = new Intent(SignupActivity.this, UserLoginActivity.class);
-            startActivity(intent);
-            finish();
-
-        }else {
 
             pageSift=findViewById(R.id.alreadySignUp);
             auth=FirebaseAuth.getInstance();
@@ -61,24 +64,69 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             email=findViewById(R.id.signUpEmail);
             password=findViewById(R.id.signUpPassword);
             reEnterPassword=findViewById(R.id.signUpReenterPassword);
-            phone=findViewById(R.id.signUpName);
+            phone=findViewById(R.id.signUpPhone);
             signup=findViewById(R.id.signUpButton);
+            universitySpinner=findViewById(R.id.signUpUniversity);
+            bloodSpinner=findViewById(R.id.signUpBlood);
 
 
-
+            manageSpinner();
 
             pageSift.setOnClickListener(this);
             signup.setOnClickListener(this);
 
-        }
 
-
+      //  Toast.makeText(this, "Fix it", Toast.LENGTH_SHORT).show();
 
 
 
     }
 
+    private void manageSpinner() {
+        uniName=new ArrayList<>();
+        bloodGroup=new ArrayList<>();
 
+        uniName.add("Choose your University");
+        uniName.add("University of Dhaka");uniName.add("University of Barisal"); uniName.add("Chittagong University");uniName.add("Jahangirnagar University");uniName.add("Rajshahi University");uniName.add("Khulna University");uniName.add("Islamic University, Bangladesh");uniName.add("University of Dhaka");uniName.add("Comilla University");
+        uniName.add("Bangladesh Open University");uniName.add("Jagannath University");uniName.add("Jatiya Kabi Kazi Nazrul Islam University");uniName.add("Begum Rokeya University, Rangpur");uniName.add("Begum Rokeya University, Rangpur");uniName.add("Rabindra University, Bangladesh");uniName.add("Sheikh Hasina University");
+
+
+        bloodGroup.add("Choose your blood group");
+        bloodGroup.add("A+");bloodGroup.add("A-");bloodGroup.add("O+");
+
+        ArrayAdapter uniAdapter= new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,uniName);
+        ArrayAdapter bloodAdapter= new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,bloodGroup);
+
+        universitySpinner.setAdapter(uniAdapter);
+        bloodSpinner.setAdapter(bloodAdapter);
+        universitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                userUniversity= (String) parent.getItemAtPosition(position);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(SignupActivity.this, "Please Choose a University", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        bloodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                userBloodGroup= (String) parent.getItemAtPosition(position);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(SignupActivity.this, "Please Choose a blood group", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
+
+    }
 
 
     @Override
@@ -105,10 +153,20 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         String userReenterPassword = reEnterPassword.getText().toString();
         String userPhoneNumber = phone.getText().toString().trim();
 
+        String regex = "^01[3-9]\\d{8}$";
+
+
+
         // Input validation
-        if (userName.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty() || userReenterPassword.isEmpty() || userPhoneNumber.isEmpty()) {
+        if (userName.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty() || userReenterPassword.isEmpty() || userPhoneNumber.isEmpty() || userUniversity.equals("Choose your University") || userBloodGroup.equals("Choose your blood group")) {
             progressDialog.dismiss();
             Toasty.info(this, "All fields are Required...", Toast.LENGTH_SHORT, true).show();
+            return;
+        }
+        if (!userPhoneNumber.matches(regex)) {
+            progressDialog.dismiss();
+            phone.setError("Invalid phone number");
+            phone.requestFocus();
             return;
         }
 
@@ -120,8 +178,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         //progressDialog.show(); // Show the ProgressDialog during registration
 
-        UserModel userModel = new UserModel(userName, userEmail, userPhoneNumber, userPassword);
-        Toast.makeText(this, "Problem fix", Toast.LENGTH_SHORT).show();
+        UserModel userModel = new UserModel(userName, userPassword,userEmail, userPhoneNumber,userUniversity,userBloodGroup);
 
 
         auth.createUserWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -130,25 +187,37 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 progressDialog.dismiss(); // Dismiss the ProgressDialog once registration is complete
 
                 if (task.isSuccessful()) {
-                   // progressDialog.dismiss();
-                    Toasty.success(SignupActivity.this, "Registration Successful..", Toast.LENGTH_SHORT, true).show();
                     FirebaseUser user = auth.getCurrentUser();
-                    addDataToFireBase(user, userModel);
-                    AuthUtils.saveUserAuthentication(SignupActivity.this);
-                    Intent intent = new Intent(SignupActivity.this, UserLoginActivity.class);
-                    intent.putExtra("userKey", key);
-                    startActivity(intent);
-                    finish(); // Optional: Close this activity after registration
-                } else {
-                    Toasty.error(getApplicationContext(), "Error :"+ task.getException().getMessage(), Toast.LENGTH_SHORT, true).show();
 
-                  //  Toast.makeText(getApplicationContext(), "Error : " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    if (user != null) {
+                        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> emailTask) {
+                                if (emailTask.isSuccessful()) {
+                                    Toasty.success(SignupActivity.this, "Registration Successful", Toast.LENGTH_SHORT, true).show();
+                                    Toasty.info(SignupActivity.this, "Verification email sent. Please check your email.", Toast.LENGTH_SHORT, true).show();
+
+                                    key = databaseReference.push().getKey();
+                                    addDataToFireBase(userModel);
+
+                                    auth.signOut();
+                                    Intent intent = new Intent(SignupActivity.this, UserLoginActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Toasty.error(SignupActivity.this, "Error sending verification email.", Toast.LENGTH_SHORT, true).show();
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    Toasty.error(getApplicationContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT, true).show();
                 }
             }
         });
     }
 
-    private void addDataToFireBase(FirebaseUser user, UserModel userModel) {
+    private void addDataToFireBase( UserModel userModel) {
         key = databaseReference.push().getKey();
         databaseReference.child(key).setValue(userModel);
         Toasty.success(this, "Information Added Successfully", Toast.LENGTH_SHORT, true).show();
