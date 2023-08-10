@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,7 +49,7 @@ public class SemesterActivity extends AppCompatActivity {
     String semester,key;
     AppCompatSpinner appCompatSpinner;
     Double sum=0.0 ,credit_sum=0.0 ;
-
+   FirebaseAuth firebaseAuth;
 
 
     @Override
@@ -70,6 +71,7 @@ public class SemesterActivity extends AppCompatActivity {
         semesterList=new ArrayList<>();
         toolbar=findViewById(R.id.semester_toolbarr);
         toolbar.setLogo(R.drawable.header_design);
+        firebaseAuth = FirebaseAuth.getInstance();
         toolbar.setTitle("  UniversityCGPA");
 
 
@@ -153,6 +155,10 @@ public class SemesterActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==R.id.cg_menu_id){
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }
+        if(item.getItemId()==R.id.result_id){
+            Intent intent = new Intent(getApplicationContext(), CGPADetailsActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
@@ -332,7 +338,8 @@ public class SemesterActivity extends AppCompatActivity {
 
     private void addDataToFirebase(double sum, double creditSum, double cgpa) {
         CGPAModel cgmodel = new CGPAModel(semester, sum, creditSum, cgpa);
-        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("CGPA Details");
+        String uid = firebaseAuth.getCurrentUser().getUid();
+        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("CGPA Details").child(uid);
 
         // Use addListenerForSingleValueEvent to add data only once
         databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {

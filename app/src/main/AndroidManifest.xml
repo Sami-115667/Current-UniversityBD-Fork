@@ -15,6 +15,12 @@
         android:theme="@style/Theme.UniversityBD"
         tools:targetApi="31">
         <activity
+            android:name=".splashscreen.SplashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".cgpacalculator.CGPADetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".loginandsignup.SignupActivity"
             android:exported="false" />
         <activity
@@ -46,7 +52,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
