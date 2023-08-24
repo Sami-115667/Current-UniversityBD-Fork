@@ -1,13 +1,22 @@
 package com.techtravelcoder.universitybd.model;
 
+import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
+
 public class TeacherInfoModel {
 
     String name,department,email,phone,image ;
+    Context context;
 
     public TeacherInfoModel(){
 
     }
 
+
+   public TeacherInfoModel(Context context){
+        this.context=context;
+   }
     public TeacherInfoModel(String name, String department, String email, String phone, String image) {
         this.name = name;
         this.department = department;
@@ -55,4 +64,7 @@ public class TeacherInfoModel {
     public void setImage(String image) {
         this.image = image;
     }
+
+
+
 }

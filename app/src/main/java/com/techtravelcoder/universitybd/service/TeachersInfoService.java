@@ -60,14 +60,23 @@ public class TeachersInfoService extends AppCompatActivity {
 
         int colorPrimary = 0;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            colorPrimary = getColor(R.color.primary);
+            colorPrimary = getColor(R.color.service_bar);
         }
         getWindow().setStatusBarColor(colorPrimary);
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
 
-        name=getIntent().getStringExtra("key");
-        mbase = FirebaseDatabase.getInstance().getReference(name);
+
+        name=getIntent().getStringExtra("key");//University name
+        Toast.makeText(this, ""+name, Toast.LENGTH_SHORT).show();
+        mbase = FirebaseDatabase.getInstance().getReference("Teacher Data").child("Teacher Information").child(name);
 
         recyclerView=findViewById(R.id.teacherInfoServiceRecyclerId);
 
@@ -91,11 +100,12 @@ public class TeachersInfoService extends AppCompatActivity {
         });
 
 
-
+        TeacherInfoModel obj = new TeacherInfoModel(TeachersInfoService.this);
         FirebaseRecyclerOptions<TeacherInfoModel> options = new FirebaseRecyclerOptions.Builder<TeacherInfoModel>()
                 .setQuery(mbase, TeacherInfoModel.class)
                 .build();
 
+        TeachersInfoService teachersInfoService = new TeachersInfoService();
 
         teacherInfoAdapter= new TeacherInfoAdapter(options);
         recyclerView.setAdapter(teacherInfoAdapter);
@@ -110,17 +120,25 @@ public class TeachersInfoService extends AppCompatActivity {
 
 
 
-    @Override protected void onStart()
+
+
+
+    @Override
+    protected void onStart()
     {
         super.onStart();
         teacherInfoAdapter.startListening();
     }
 
-    @Override protected void onStop()
-    {
-        super.onStop();
-        teacherInfoAdapter.stopListening();
-    }
+    //Here on stop method create a problem , when we use intent the app is crushing again and again , when we back to our our app
+    //after completing a implicit intent
+
+//    @Override
+//    protected void onStop()
+//    {
+//        super.onStop();
+//        teacherInfoAdapter.stopListening();
+//    }
 
 
 
@@ -145,6 +163,7 @@ public class TeachersInfoService extends AppCompatActivity {
             FirebaseRecyclerOptions<TeacherInfoModel> options = new FirebaseRecyclerOptions.Builder<TeacherInfoModel>()
                     .setQuery(mbase, TeacherInfoModel.class)
                     .build();
+            TeachersInfoService teachersInfoService = new TeachersInfoService();
             teacherInfoAdapter= new TeacherInfoAdapter(options);
             teacherInfoAdapter.startListening();
             recyclerView.setAdapter(teacherInfoAdapter);
@@ -154,6 +173,7 @@ public class TeachersInfoService extends AppCompatActivity {
                 FirebaseRecyclerOptions<TeacherInfoModel> options = new FirebaseRecyclerOptions.Builder<TeacherInfoModel>()
                         .setQuery(mbase.orderByChild("department").startAt(query).endAt(query + "\uf8ff"), TeacherInfoModel.class)
                         .build();
+                TeachersInfoService teachersInfoService = new TeachersInfoService();
                 teacherInfoAdapter= new TeacherInfoAdapter(options);
                 teacherInfoAdapter.startListening();
                 recyclerView.setAdapter(teacherInfoAdapter);

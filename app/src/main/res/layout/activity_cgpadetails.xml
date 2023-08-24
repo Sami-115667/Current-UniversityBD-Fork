@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@color/back"
     tools:context=".cgpacalculator.CGPADetailsActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cgpaDetailsRecyclerId"
         android:layout_width="match_parent"
-        android:layout_height="500dp"/>
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>

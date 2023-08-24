@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#26CACACC"
+    android:background="@color/back"
     tools:context=".activity.AllUniversityActivity">
 
 
@@ -15,7 +15,7 @@
         app:titleTextColor="@color/black"
         app:navigationIcon="@drawable/back_pressed"
         android:id="@+id/all_uni_tolbar"
-        android:background="#ECD108"
+        android:background="@color/service_bar"
         >
         <EditText
             android:id="@+id/search_edittext"
@@ -33,7 +33,7 @@
 
     <LinearLayout
         android:layout_marginTop="10dp"
-        android:background="@color/white"
+        android:background="@color/back"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

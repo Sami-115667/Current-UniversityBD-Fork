@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
+    android:background="@color/back"
     android:orientation="vertical"
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:background="@color/white"
+        app:cardBackgroundColor="@color/back_upper"
         android:id="@+id/cardviewid"
         android:elevation="200dp"
         app:cardElevation="3dp"
@@ -43,6 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
+                        android:id="@+id/techer_info_call"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="8dp"
                         android:padding="3dp"
@@ -86,6 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:textColor="@color/white"
                         android:id="@+id/teacher_name"
                         android:paddingTop="9dp"
                         android:paddingLeft="4dp"
@@ -105,6 +107,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:textColor="@color/white"
+
                         android:id="@+id/teacher_dept"
                         android:paddingTop="4dp"
                         android:paddingLeft="4dp"
@@ -122,6 +126,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:textColor="@color/white"
                         android:id="@+id/teacher_email"
                         android:paddingTop="9dp"
                         android:paddingLeft="4dp"
@@ -139,6 +144,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
+                        android:textColor="@color/white"
                         android:id="@+id/teacher_number"
                         android:paddingTop="9dp"
                         android:paddingLeft="4dp"

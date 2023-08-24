@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -72,7 +73,7 @@ public class SemesterActivity extends AppCompatActivity {
         toolbar=findViewById(R.id.semester_toolbarr);
         toolbar.setLogo(R.drawable.header_design);
         firebaseAuth = FirebaseAuth.getInstance();
-        toolbar.setTitle("  UniversityCGPA");
+        toolbar.setTitle(" UniversityCGPA");
 
 
         setSupportActionBar(toolbar);

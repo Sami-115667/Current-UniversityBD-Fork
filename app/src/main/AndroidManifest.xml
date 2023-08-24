@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,16 +17,13 @@
         android:theme="@style/Theme.UniversityBD"
         tools:targetApi="31">
         <activity
+            android:name=".intent.ImplicitIntentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TeamMemberActivity"
+            android:exported="false" />
+        <activity
             android:name=".splashscreen.SplashActivity"
-            android:exported="false" />
-        <activity
-            android:name=".cgpacalculator.CGPADetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".loginandsignup.SignupActivity"
-            android:exported="false" />
-        <activity
-            android:name=".loginandsignup.UserLoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,10 +32,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".cgpacalculator.SemesterActivity"
+            android:name=".cgpacalculator.CGPADetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".cgpacalculator.CGPAHomeActivity"
+            android:name=".loginandsignup.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".loginandsignup.UserLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".cgpacalculator.SemesterActivity"
             android:exported="false" />
         <activity
             android:name=".service.TeachersInfoService"

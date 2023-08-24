@@ -39,7 +39,7 @@ public class AllUniversityActivity extends AppCompatActivity {
         // this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         int color= 0;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            color = getColor(R.color.yellow);
+            color = getColor(R.color.service_bar);
         }
         getWindow().setStatusBarColor(color);
 
@@ -125,6 +125,8 @@ public class AllUniversityActivity extends AppCompatActivity {
         itemList.add(new UniversityItem(R.drawable.image_ku,"Khulna Agricultural University"));
         itemList.add(new UniversityItem(R.drawable.image_iu,"Hobiganj Agricultural University"));
         itemList.add(new UniversityItem(R.drawable.image_barisal,"Kurigram Agricultural University"));
+        itemList.add(new UniversityItem(R.drawable.image_barisal,"BAU"));
+
 
 
 
@@ -218,7 +220,7 @@ public class AllUniversityActivity extends AppCompatActivity {
         itemList.add(new UniversityItem(R.drawable.image_jagannath,"Jagannath University"));
         itemList.add(new UniversityItem(R.drawable.image_jkkniu,"Jatiya Kabi Kazi Nazrul Islam University"));
         itemList.add(new UniversityItem(R.drawable.image_begum_rokeya,"Begum Rokeya University, Rangpur"));
-        itemList.add(new UniversityItem(R.drawable.image_bup,"Begum Rokeya University, Rangpur"));
+        itemList.add(new UniversityItem(R.drawable.image_bup,"BUP"));
         itemList.add(new UniversityItem(R.drawable.image_rabindra,"Rabindra University, Bangladesh"));
         itemList.add(new UniversityItem(R.drawable.image_seikh_hasina,"Sheikh Hasina University"));
 

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FC050721"
+    tools:context=".activity.TeamMemberActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
+
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="#94111546"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="Break_For_No-one(The Trios)"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/white"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:text="Bangladesh University's"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="#94111546"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="135dp"
+                    android:layout_height="131dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sukanto" />
+
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/person"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="Sudipto Das Sukanto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/person"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:text="Roll : 29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/uni"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:text="University of Dhaka"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/dept"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:text="Computer Science and Engineering"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="#94111546"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_marginTop="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/rakib"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"/>
+
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/person"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="Md Rakib Hossain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/person"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:text="Roll : 55"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/uni"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:text="University of Dhaka"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/dept"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:text="Computer Science and Engineering"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="#94111546"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_marginTop="30dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sami"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"/>
+
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/person"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="Md Shamshor Rahman Sami"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/person"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:text="Roll : 57"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/uni"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:text="University of Dhaka"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/dept"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:text="Computer Science and Engineering"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+      <androidx.appcompat.widget.AppCompatButton
+          android:foreground="@drawable/uni_background"
+          android:clickable="true"
+          android:id="@+id/start"
+          android:textStyle="bold"
+          android:textSize="25dp"
+          android:textColor="@color/white"
+          android:text="START"
+          android:layout_margin="30dp"
+          android:background="@drawable/back"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

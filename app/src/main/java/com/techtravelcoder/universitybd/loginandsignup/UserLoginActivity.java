@@ -41,6 +41,8 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_user_login);
 
 
+
+
             setContentView(R.layout.activity_user_login);
             //userKey = getIntent().getStringExtra("userKey");
             mAuth=FirebaseAuth.getInstance();
@@ -52,6 +54,13 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
 
             loginButton.setOnClickListener(this);
             signUpbutton.setOnClickListener(this);
+
+        int colorPrimary = 0;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            colorPrimary = getColor(R.color.back);
+        }
+
+        getWindow().setStatusBarColor(colorPrimary);
 
           if(mAuth.getCurrentUser() != null){
               Intent intent = new Intent(getApplicationContext(),MainActivity.class);

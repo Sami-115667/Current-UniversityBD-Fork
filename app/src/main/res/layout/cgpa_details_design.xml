@@ -2,17 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@color/back"
     android:layout_height="wrap_content">
-
-
-
 
 
 
 
     <TextView
         android:id="@+id/cgpaDetailsSemesterId"
-        android:textColor="#110503"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
@@ -25,15 +23,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
-            android:layout_marginLeft="20dp"
-            android:textSize="17dp"
-            android:text="Total Credit : "
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:text="Total Credit : "
+            android:textColor="@color/white"
+            android:textSize="17dp" />
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/credit_id"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:textSize="17dp"
             android:text="5"
             android:layout_width="match_parent"
@@ -47,76 +48,83 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="30dp"
             android:textSize="17dp"
             android:text="Total Grade Point : "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/grade_point_id"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:textSize="17dp"
             android:text="50"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
-    <View
-        android:layout_marginTop="6dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"/>
     <LinearLayout
         android:weightSum="2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="30dp"
             android:textSize="17dp"
             android:text="Current Semester CGPA : "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/cgpa_id"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:textSize="17dp"
             android:text="50"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/black"
-            android:layout_marginTop="6dp"
-            android:gravity="center_horizontal"
-            android:textSize="17dp"
-            android:text=" Avarage CGPA :"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/all_avarage"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:text="2"
-            android:gravity="center_horizontal"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="6dp"
+            android:text=" Avarage CGPA :"
+            android:textColor="@color/coloryellow"
+            android:textSize="17dp" />
+
+        <TextView
+
+            android:id="@+id/all_avarage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="6dp"
+            android:text="2"
+            android:textColor="@color/coloryellow"
+            android:textSize="17dp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
+    <View
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
 
 
 

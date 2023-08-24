@@ -19,8 +19,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 
+import com.bumptech.glide.Glide;
 import com.techtravelcoder.universitybd.R;
-import com.techtravelcoder.universitybd.cgpacalculator.CGPAHomeActivity;
+import com.techtravelcoder.universitybd.cgpacalculator.SemesterActivity;
 import com.techtravelcoder.universitybd.service.DocumentaryService;
 import com.techtravelcoder.universitybd.service.TeachersInfoService;
 
@@ -65,252 +66,572 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
 
         name = getIntent().getStringExtra("name");
         int image = getIntent().getIntExtra("image",0);
+        String iamge_url = getIntent().getStringExtra("imageid");
 
+        //Toast.makeText(this, ""+image, Toast.LENGTH_SHORT).show();
+
+        if(name.equals("null")){
+
+        }
         if(!name.equals(" ")){
             if(name.equals("university of dhaka")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("University Of Dhaka");
             }
             if(name.equals("university of barisal")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("University of Barisal");
             }
             if(name.equals("chittagong university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Chittagong University");
             }
             if(name.equals("jahangirnagar university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Jahangirnag University");
             }
             if(name.equals("rajshahi university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Rajshahi University");
             }
             if(name.equals("khulna university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Khulna University");
             }
             if(name.equals("islamic university, bangladesh")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Islamic University,Bangladesh");
             }
             if(name.equals("bangladesh open university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Bangladesh Open University");
             }
             if(name.equals("jagannath university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Jagannath University");
             }
             if(name.equals("jatiya kabi kazi nazrul islam university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Jatiya kabi kazi Nazrul islam University");
             }
             if(name.equals("begum rokeya university, rangpur")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Begum Rokeya University,Rangpur");
             }
             if(name.equals("bangladesh university of professionals")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Bangladesh University of Professionals");
             }
             if(name.equals("rabindra university, bangladesh")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Rabindra University Bangladesh");
             }
             if(name.equals("sheikh hasina university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Sheikh Hasina University");
             }
             if(name.equals("buet")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Bangladesh University of Engineering & Technology");
             }
             if(name.equals("ruet")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Rajshahi University of Engineering & Technology");
             }
             if(name.equals("kuet")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Khulna University of Engineering & Technology");
             }
             if(name.equals("cuet")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Chittagong University of Engineering & Technology");
             }
             if(name.equals("duet")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Dhaka University of Engineering & Technology");
             }
             if(name.equals("iut")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Islamic University of Technology");
             }
             if(name.equals("butex")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Bangladesh University of Textiles");
             }
             if(name.equals("comilla university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Comilla University");
             }
 
             if(name.equals("sust")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Shahjalal University of Science & Technology");
             }
             if(name.equals("mbstu")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Mawlana Bhashani Science & Technology University");
             }
             if(name.equals("nstu")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Noakhali Science & Technology University");
             }
             if(name.equals("just")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Jessore University of Science & Technology");
             }
             if(name.equals("pust")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Pabna University of Science and Technology");
             }
             if(name.equals("rstu")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Rangamati Science and Technology University");
             }
             if(name.equals("bsfmstu")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Bangamata Sheikh Fojilatunnesa Mujib Science and Technology University");
             }
             if(name.equals("hstu")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Hajee Mohammad Danesh Science & Technology University");
             }
             if(name.equals("pstu")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Patuakhali Science and Technology University");
             }
             if(name.equals("north south university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("North South University");
             }
             if(name.equals("independent university, bangladesh")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Independent University Bangladesh");
             }
             if(name.equals("aust")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("AUST");
             }
             if(name.equals("aiub")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("AIUB");
             }
             if(name.equals("university of asia pacific")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("University of Asia Pacific");
             }
             if(name.equals("asian university of bangladesh")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Asian University of Bangladesh");
             }
             if(name.equals("brac university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("BRAC University");
             }
             if(name.equals("leading university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Leading University");
             }
             if(name.equals("bangladesh open university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Bangladesh Open University");
             }
             if(name.equals("sylhet international university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Sylhet International University");
             }
             if(name.equals("daffodil international university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Daffodil International University");
             }
             if(name.equals("green university of bangladesh")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Green University of Bangladesh");
             }
             if(name.equals("bangladesh university of professionals")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Bangladesh University Of Professionals");
             }
             if(name.equals("rabindra university, bangladesh")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Rabindra University");
             }
             if(name.equals("sonargaon university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Sonargoan University");
             }
             if(name.equals("chittagong independent university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Chittagong Independent University");
             }
             if(name.equals("royal university of dhaka")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Royal University Of Dhaka");
             }
             if(name.equals("uttara university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Uttara University");
             }
             if(name.equals("northern university bangladesh")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Northern University Bangladesh");
             }
             if(name.equals("stamford university bangladesh")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Stamford University Bangladesh");
             }
             if(name.equals("national university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("National University");
             }
             if(name.equals("university of science and technology chittagong")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("University of Science and Technology CHittagong");
             }
             if(name.equals("shere bangla agricultural university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Shere Bangla Agricultural University");
             }
             if(name.equals("bsmrau")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("BSMRAU");
             }
             if(name.equals("jkkniu")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("JKKNIU");
             }
             if(name.equals("cvasu")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("CVASU");
             }
             if(name.equals("sylhet agricultural university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Sylhet Agricultural University");
             }
             if(name.equals("khulna agricultural university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Khulna Agricultural University");
             }
             if(name.equals("hobiganj agricultural university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Habiganj Agricultural University");
             }
             if(name.equals("kurigram agricultural university")){
-                imageView.setImageResource(image);
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
                 textView1.setText("Kurigram Agricultural University");
+            }
+            if(name.equals("bau")){
+                if(image==0){
+                    Glide.with(this).load(iamge_url).into(imageView);
+                }else{
+                    imageView.setImageResource(image);
+
+                }
+                textView1.setText("Bangladesh Agricultural University");
             }
 
 
@@ -527,7 +848,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
 
 
         if(v.getId()==R.id.cgpa_calculator_service_id){
-            Intent intent=new Intent(getApplicationContext(), CGPAHomeActivity.class);
+            Intent intent=new Intent(getApplicationContext(), SemesterActivity.class);
             startActivity(intent);
         }
     }

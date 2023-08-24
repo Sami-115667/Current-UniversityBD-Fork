@@ -29,7 +29,7 @@ public class DocumentaryService extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_documentary_service);
 
-        int color=getColor(R.color.documentary);
+        int color=getColor(R.color.service_bar);
         getWindow().setStatusBarColor(color);
 
         toolbar=findViewById(R.id.documentary_service_toolbar_id);

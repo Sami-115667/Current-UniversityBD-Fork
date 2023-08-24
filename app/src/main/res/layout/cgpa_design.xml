@@ -3,12 +3,13 @@
     android:orientation="horizontal"
     android:layout_margin="1dp"
     android:padding="2dp"
+    android:background="@color/back"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <EditText
         android:id="@+id/course"
         android:inputType="text"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/black"
         android:gravity="center"
         android:padding="3dp"
         android:textSize="15dp"
@@ -22,7 +23,7 @@
         android:id="@+id/credit"
         android:inputType="text"
         android:textSize="15dp"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/black"
         android:padding="3dp"
         android:gravity="center"
         android:hint="credit"
@@ -41,7 +42,7 @@
         android:layout_height="40dp">
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinner"
-            android:outlineSpotShadowColor="@color/black"
+            android:outlineSpotShadowColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 

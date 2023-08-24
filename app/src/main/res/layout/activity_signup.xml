@@ -3,49 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/back"
     android:layout_height="match_parent"
     tools:context=".loginandsignup.SignupActivity">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/linearLayoutCompat"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@color/white"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animation_view_signup"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/animation" />
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="600dp"
         android:layout_margin="25dp"
-        android:background="@drawable/card_back"
+        android:background="@drawable/back"
         android:elevation="20dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat"
-        app:layout_constraintVertical_bias="0.268">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.453">
 
         <ScrollView
-            android:background="@drawable/back"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -60,7 +37,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
                     android:text="SignUP From"
-                    android:textColor="#F84409"
+                    android:textColor="@color/yellow"
                     android:textSize="35sp"
                     android:textStyle="bold" />
 
@@ -70,17 +47,20 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:text="Name "
-                    android:textColor="#067AEF"
+                    android:textColor="@color/yellow"
                     android:textSize="14sp" />
 
                 <EditText
+                    android:textColorHint="@color/hint_colour"
+                    android:textColor="@color/black"
                     android:id="@+id/signUpName"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:background="@drawable/edit_text_background"
-                    android:drawableLeft="@drawable/baseline_email_24"
+                    android:drawableLeft="@drawable/sign_name"
+                    android:drawablePadding="5dp"
                     android:hint="Enter your name"
                     android:inputType="textEmailAddress"
                     android:paddingLeft="5dp" />
@@ -91,10 +71,12 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="8dp"
                     android:text="Email"
-                    android:textColor="#067AEF"
+                    android:textColor="@color/yellow"
                     android:textSize="14sp" />
 
                 <EditText
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint_colour"
                     android:id="@+id/signUpEmail"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -102,6 +84,7 @@
                     android:layout_marginRight="15dp"
                     android:background="@drawable/edit_text_background"
                     android:drawableLeft="@drawable/baseline_email_24"
+                    android:drawablePadding="5dp"
                     android:hint="Enter your email"
                     android:inputType="textEmailAddress"
                     android:paddingLeft="5dp" />
@@ -112,17 +95,20 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:text="Phone Number"
-                    android:textColor="#067AEF"
+                    android:textColor="@color/yellow"
                     android:textSize="14sp" />
 
                 <EditText
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint_colour"
                     android:id="@+id/signUpPhone"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:background="@drawable/edit_text_background"
-                    android:drawableLeft="@drawable/baseline_email_24"
+                    android:drawableLeft="@drawable/sign_phone"
+                    android:drawablePadding="5dp"
                     android:hint="Enter your phone number"
                     android:inputType="phone"
                     android:paddingLeft="5dp" />
@@ -133,7 +119,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:text="Chose your University"
-                    android:textColor="#067AEF"
+                    android:textColor="@color/yellow"
                     android:textSize="14sp" />
 
 
@@ -159,7 +145,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:text="Chose your blood Group"
-                    android:textColor="#067AEF"
+                    android:textColor="@color/yellow"
                     android:textSize="14sp" />
 
 
@@ -185,17 +171,20 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:text="Password"
-                    android:textColor="#067AEF"
+                    android:textColor="@color/yellow"
                     android:textSize="14sp" />
 
                 <EditText
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint_colour"
                     android:id="@+id/signUpPassword"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:background="@drawable/edit_text_background"
-                    android:drawableLeft="@drawable/baseline_email_24"
+                    android:drawableLeft="@drawable/baseline_password_24"
+                    android:drawablePadding="5dp"
                     android:hint="Enter your password"
                     android:inputType="textPassword"
                     android:paddingLeft="5dp" />
@@ -205,18 +194,21 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
-                    android:text="Re Enter Password"
-                    android:textColor="#067AEF"
+                    android:text="Re-Enter Password"
+                    android:textColor="@color/yellow"
                     android:textSize="14sp" />
 
                 <EditText
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint_colour"
                     android:id="@+id/signUpReenterPassword"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:background="@drawable/edit_text_background"
-                    android:drawableLeft="@drawable/baseline_email_24"
+                    android:drawableLeft="@drawable/baseline_password_24"
+                    android:drawablePadding="5dp"
                     android:hint="Re-enter your password"
                     android:inputType="textPassword"
                     android:paddingLeft="5dp" />
@@ -228,7 +220,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:text="! Already Sign up..."
-                    android:textColor="#D812641C"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <androidx.appcompat.widget.AppCompatButton

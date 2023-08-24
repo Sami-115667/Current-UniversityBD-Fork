@@ -14,13 +14,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.interfaces.ItemChangeListener;
+import com.denzcoskun.imageslider.interfaces.ItemClickListener;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.loginandsignup.UserLoginActivity;
 
@@ -59,10 +65,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         engineering.setOnClickListener(this);
         agriculture.setOnClickListener(this);
         national.setOnClickListener(this);
+        sliderSupport();
 
         int colorPrimary = 0;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            colorPrimary = getColor(R.color.primary);
+            colorPrimary = getColor(R.color.service_bar);
         }
 
         getWindow().setStatusBarColor(colorPrimary);
@@ -71,6 +78,54 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         managementNavigationDrawerItem();
     }
+
+
+
+
+
+
+    public  void sliderSupport(){
+        imageSlider=findViewById(R.id.image_slider);
+        final List<SlideModel> remoteimages=new ArrayList<>();//Slide model is an inbuilt model class made by github library provider
+        FirebaseDatabase.getInstance().getReference().child("Slider")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @SuppressLint("SuspiciousIndentation")
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot data:snapshot.getChildren())
+                            remoteimages.add(new SlideModel(data.child("url").getValue().toString(),data.child("title").getValue().toString(), ScaleTypes.FIT));
+
+                        imageSlider.setImageList(remoteimages,ScaleTypes.FIT);
+                        imageSlider.setItemClickListener(new ItemClickListener() {
+                            @Override
+                            public void onItemSelected(int i) {
+                                //Toast.makeText(MainActivity.this, ""+remoteimages.get(i).getTitle().toString(), Toast.LENGTH_SHORT).show();
+                                String uni_name = remoteimages.get(i).getTitle().toString().toLowerCase();
+                                String abc =remoteimages.get(i).getImageUrl();
+
+                                Intent intent= new Intent(MainActivity.this,ServiceActivity.class);
+                                intent.putExtra("name", uni_name);
+                                intent.putExtra("imageid", abc);
+                                startActivity(intent);
+
+                            }
+
+                            @Override
+                            public void doubleClick(int i) {
+
+                            }
+                        });
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -164,6 +219,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(intent);
 
                 }
+                if(item.getItemId()==R.id.developer_info){
+                    Intent intent = new Intent(MainActivity.this,TeamMemberActivity.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                }
+                if(item.getItemId()==R.id.share_Id){
+                    String textToShare = "Check out this awesome link:";
+                    String linkToShare = "https://www.example.com";
+
+                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+
+                    String message = textToShare + "\n" + linkToShare;
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, message);
+
+                    // Start the sharing activity
+                    startActivity(Intent.createChooser(shareIntent, "Share via"));
+                }
+
+
 
 
 
@@ -220,6 +296,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("name","national");
             startActivity(intent);
         }
+
 
 
 

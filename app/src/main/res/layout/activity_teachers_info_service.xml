@@ -4,22 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@color/back"
     android:layout_height="match_parent"
     tools:context=".service.TeachersInfoService">
 
 
     <androidx.appcompat.widget.Toolbar
+
         android:layout_width="match_parent"
+        app:navigationIcon="@drawable/back_pressed"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/teacher_info_tollbar"
-        android:background="@color/primary"
+        android:background="@color/service_bar"
         app:titleTextColor="@color/white"
         >
         <EditText
+            android:textColor="@color/black"
+            android:textColorHint="@color/hint_colour"
             android:drawableLeft="@drawable/search_icon"
             android:id="@+id/search_edittext"
             android:paddingLeft="9dp"
-            android:hint="Search by your department"
+            android:hint="Search by department"
             android:background="@drawable/serchbar_background"
             android:layout_width="match_parent"
 

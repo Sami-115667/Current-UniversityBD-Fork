@@ -68,6 +68,12 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             signup=findViewById(R.id.signUpButton);
             universitySpinner=findViewById(R.id.signUpUniversity);
             bloodSpinner=findViewById(R.id.signUpBlood);
+        int colorPrimary = 0;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            colorPrimary = getColor(R.color.back);
+        }
+
+        getWindow().setStatusBarColor(colorPrimary);
 
 
             manageSpinner();
@@ -92,7 +98,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
 
         bloodGroup.add("Choose your blood group");
-        bloodGroup.add("A+");bloodGroup.add("A-");bloodGroup.add("O+");
+        bloodGroup.add("A+");bloodGroup.add("A-");bloodGroup.add("O+");bloodGroup.add("O-");bloodGroup.add("B+");
+        bloodGroup.add("B-");bloodGroup.add("O+");bloodGroup.add("AB+");bloodGroup.add("AB-");
 
         ArrayAdapter uniAdapter= new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,uniName);
         ArrayAdapter bloodAdapter= new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,bloodGroup);

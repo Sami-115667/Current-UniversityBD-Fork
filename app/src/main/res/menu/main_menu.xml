@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <group android:checkableBehavior="single">
+    <group >
         <item
             android:id="@+id/home_Id"
             android:title="Home"
@@ -18,9 +19,9 @@
 
     </group>
 
-    <item android:title="University Catagory">
+    <item android:title="University Catagory"  >
         <menu>
-            <group android:checkableBehavior="single">
+            <group >
 
                 <item
                     android:id="@+id/general_menu_id"
@@ -61,8 +62,8 @@
 
     </item>
 
-
-    <item android:title="Specefic Service">
+<!--
+<item android:title="Specefic Service">
         <menu>
             <group android:checkableBehavior="single">
 
@@ -127,19 +128,16 @@
         </menu>
 
     </item>
+ -->
+
 
 
 
 
     <item android:title="Communicate">
         <menu>
-            <group android:checkableBehavior="single">
+            <group >
 
-                <item
-                    android:id="@+id/about_us_Id"
-                    android:title="About Us"
-                    android:icon="@drawable/community"
-                    />
                 <item
                     android:id="@+id/feedback_Id"
                     android:title="Feedback"
@@ -171,9 +169,15 @@
 
 
 
-    <item android:title="Others">
+    <item android:title="Others" >
         <menu>
-            <group android:checkableBehavior="single">
+            <group >
+                <item
+                    android:id="@+id/developer_info"
+                    android:title="Developer Info"
+                    android:icon="@drawable/community"
+                    />
+
                 <item
                     android:id="@+id/settings_Id"
                     android:title="Settings"

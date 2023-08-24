@@ -12,11 +12,12 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ShapeAppearance.Material3.LargeComponent"
         app:title="Service"
-        app:titleTextColor="@color/black"
+        app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/back_pressed"
         android:id="@+id/documentary_service_toolbar_id"
-        android:background="@color/documentary"/>
+        android:background="@color/service_bar"/>
 
     <WebView
         android:layout_marginTop="0dp"

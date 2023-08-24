@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@color/back"
     tools:context=".cgpacalculator.SemesterActivity">
 
     <!--
@@ -56,14 +57,16 @@
     </LinearLayout>
     -->
     <androidx.appcompat.widget.Toolbar
+        android:layout_marginLeft="0dp"
+        app:title="Calculate your CGPA"
         android:elevation="4dp"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:titleTextColor="@color/black"
+        app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/back_pressed"
         android:textAlignment="center"
         android:id="@+id/semester_toolbarr"
-        android:background="#00BCD4"
+        android:background="@color/service_bar"
         />
 
 
@@ -73,7 +76,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="60dp"
         android:layout_marginLeft="60dp"
-        android:background="@drawable/back_spinner"
+        android:background="@drawable/round_gray"
         android:layout_width="match_parent"
         android:layout_height="44dp">
         <androidx.appcompat.widget.AppCompatSpinner
@@ -96,6 +99,8 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
+        android:foreground="@drawable/uni_background"
+        android:clickable="true"
         android:id="@+id/add_button"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
@@ -103,7 +108,7 @@
         android:drawableLeft="@drawable/add_icon"
         android:layout_margin="20dp"
         android:background="@drawable/log_back"
-        android:elevation="10dp"
+        android:elevation="20dp"
         android:padding="10dp"
         android:text="ADD COURSE"
         android:textColor="@color/white"
@@ -114,13 +119,15 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
+        android:foreground="@drawable/uni_background"
+        android:clickable="true"
         android:id="@+id/calculate_cgpa"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@drawable/log_back"
-        android:elevation="15dp"
+        android:elevation="20dp"
         android:text="Calculate CGPA"
         android:textColor="@color/white"
         android:textSize="25dp"
