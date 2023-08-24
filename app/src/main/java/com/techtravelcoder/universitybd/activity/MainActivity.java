@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -36,6 +37,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     DrawerLayout drawerLayout; //drawerlayouuut
+    LinearLayout contentView;
+    static final double END_SCALE=0.7;
     NavigationView navigationView;//navigation view
     ActionBarDrawerToggle actionBarDrawerToggle; // instead of action bar we use toolbar //ActionBarDrawerToggle
     ImageSlider imageSlider;
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         engineering=findViewById(R.id.engineering_id);
         agriculture=findViewById(R.id.agriculture_id);
         national=findViewById(R.id.national_id);
+        contentView=findViewById(R.id.content);
 
 
         general.setOnClickListener(this);
@@ -245,6 +249,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 return true;
+            }
+        });
+
+      //  animateNavigationDrawer();
+
+    }
+
+    private void animateNavigationDrawer() {
+
+        //Add any color or remove it to use the default one!
+        //To make it transparent use Color.Transparent in side setScrimColor();
+        //drawerLayout.setScrimColor(Color.TRANSPARENT);
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                // Scale the View based on current slide offset
+                final double diffScaledOffset = slideOffset * (1 - END_SCALE);
+                final double offsetScale = 1 - diffScaledOffset;
+                contentView.setScaleX((float) offsetScale);
+                contentView.setScaleY((float) offsetScale);
+                // Translate the View, accounting for the scaled width
+                final float xOffset = drawerView.getWidth() * slideOffset;
+                final float xOffsetDiff = (float) (contentView.getWidth() * diffScaledOffset / 2);
+                final float xTranslation = xOffset - xOffsetDiff;
+                contentView.setTranslationX(xTranslation);
             }
         });
 
