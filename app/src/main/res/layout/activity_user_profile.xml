@@ -1,9 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0A192C"
     tools:context=".user_profile.User_Profile_Activity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/back_upper"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userprofilepic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="15dp"
+            android:src="@drawable/defaultprofile"
+
+            >
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change Profile Picture"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_margin="5dp"></TextView>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Name"
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/name_teacherinfo"
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Md Shamsur Rahman Sami"
+                android:textSize="16sp"
+                android:layout_marginStart="30dp"
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Email"
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/email_teacherinfo"
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="shamsurrahman07052001@gmail.com"
+                android:textSize="16sp"
+                android:layout_marginStart="30dp"
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="University"
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/uni"
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="University of Dhaka"
+                android:textSize="16sp"
+                android:layout_marginStart="30dp"
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Mobile "
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/call_teacherinfo"
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="01866362585"
+                android:textSize="16sp"
+                android:layout_marginStart="30dp"
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Blood Group"
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/blood"
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="O(+ve)"
+                android:textSize="16sp"
+                android:layout_marginStart="30dp"
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"></TextView>
+            
+
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
