@@ -5,9 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,10 +30,17 @@ public class CGPADetailsActivity extends AppCompatActivity {
     CGPADetailsModel cgpaDetailsModel;
     CGPADetailsAdapter cgpaDetailsAdapter;
     String str;
+    private LottieAnimationView lottieAnimationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cgpadetails);
+
+        lottieAnimationView=findViewById(R.id.loadingViewCg);
+
+        lottieAnimationView.playAnimation();
+
+
 
         firebaseAuth=FirebaseAuth.getInstance();
         String uid = firebaseAuth.getCurrentUser().getUid();
@@ -51,6 +60,15 @@ public class CGPADetailsActivity extends AppCompatActivity {
 
         cgpaDetailsAdapter= new CGPADetailsAdapter(options);
         recyclerView.setAdapter(cgpaDetailsAdapter);
+
+        cgpaDetailsAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeInserted(int positionStart, int itemCount) {
+                // Data retrieval is complete, hide the Lottie animation
+                lottieAnimationView.setVisibility(View.GONE);
+            }
+        });
+
 
 
 

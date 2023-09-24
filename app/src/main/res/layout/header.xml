@@ -6,14 +6,18 @@
     android:background="@color/allert_back_upper"
     android:layout_height="200dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
 
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="10dp"
         android:layout_width="80dp"
-        android:src="@drawable/header_design"
-        android:layout_height="80dp"/>
+        android:layout_height="80dp"
+        android:layout_margin="15dp"
+        android:src="@drawable/defaultprofile"
+
+        >
+
+    </de.hdodenhof.circleimageview.CircleImageView>
     <TextView
+        android:id="@+id/proPic"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="#F9F9F7"

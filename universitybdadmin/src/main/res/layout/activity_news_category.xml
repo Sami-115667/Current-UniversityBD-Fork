@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/back"
+    android:layout_height="match_parent"
+
+    tools:context=".newspaper.NewsCategoryActivity">
+
+    <ScrollView
+        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="@color/documentary"
+                android:foreground="@drawable/uni_background"
+                android:clickable="true"
+                android:id="@+id/autoUniId"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="স্বায়ত্তশাসিত বিশ্ববিদ্যালয়"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#0423EA"
+                android:foreground="@drawable/uni_background"
+                android:clickable="true"
+                android:id="@+id/publicUniId"
+                android:layout_marginTop="10dp"
+
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="সরকারি বিশ্ববিদ্যালয়"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#DB0FEE"
+                android:foreground="@drawable/uni_background"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:id="@+id/privateUniId"
+
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="বেসরকারি বিশ্ববিদ্যালয়"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#F5640A"
+                android:foreground="@drawable/uni_background"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:id="@+id/engiUniId"
+
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="প্রকৌশল ও বিজ্ঞান-প্রযুক্তি"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#F5DA0A"
+                android:id="@+id/highId"
+                android:foreground="@drawable/uni_background"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="উচ্চ শিক্ষা"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:foreground="@drawable/uni_background"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:id="@+id/uddoktaId"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="উদ্যোক্তা"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#B2FF59"
+                android:foreground="@drawable/uni_background"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:id="@+id/chakriId"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="চাকরি"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#03A9F4"
+                android:foreground="@drawable/uni_background"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:id="@+id/freelancingId"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="ফ্রিল্যান্সিং"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#F50057"
+                android:foreground="@drawable/uni_background"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:id="@+id/remoteJobId"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="রিমোট জব"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#5800F566"
+                android:foreground="@drawable/uni_background"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:id="@+id/trendingId"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Trending News"
+                android:layout_marginBottom="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+</LinearLayout>

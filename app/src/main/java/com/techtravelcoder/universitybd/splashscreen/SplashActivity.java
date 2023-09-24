@@ -15,7 +15,7 @@ import com.techtravelcoder.universitybd.activity.TeamMemberActivity;
 import com.techtravelcoder.universitybd.loginandsignup.UserLoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
-    private static int spalshscreenTime = 2500;
+    private static int spalshscreenTime = 20;
     Animation topAnimation,buttomAnimation;
     ImageView splashImage;
     TextView startNameOfsplashscreen,descriptionOfsplashscreen ;

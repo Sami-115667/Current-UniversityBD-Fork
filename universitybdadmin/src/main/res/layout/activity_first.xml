@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/back"
+    android:orientation="vertical"
+
+    android:layout_height="match_parent"
+    tools:context=".FirstActivity">
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="70dp"
+        android:padding="15dp"
+        android:background="@drawable/edit_text_background"
+        android:textColor="@color/back"
+        android:textStyle="bold"
+        android:textSize="35dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="ADmin APP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:foreground="@drawable/uni_background"
+        android:clickable="true"
+       android:layout_marginTop="70dp"
+       android:id="@+id/newspaperId"
+       android:background="@color/coloryellow"
+       android:textColor="@color/back"
+       android:textStyle="bold"
+       android:textSize="20dp"
+       android:layout_marginLeft="20dp"
+       android:layout_marginRight="20dp"
+       android:text="News Paper"
+       android:layout_width="match_parent"
+       android:layout_height="60dp"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:foreground="@drawable/uni_background"
+        android:clickable="true"
+        android:id="@+id/techerInformationId"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:background="@color/primary"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Teacher Information"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:foreground="@drawable/uni_background"
+        android:clickable="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/documentary"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Update work"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+
+
+
+</LinearLayout>

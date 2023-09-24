@@ -661,7 +661,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         about_hall=findViewById(R.id.hall_service_id);
         students_community=findViewById(R.id.students_community_service_id);
         pdf_books=findViewById(R.id.pdf_books_service_id);
-        current_news=findViewById(R.id.documentary_service_id);
+        current_news=findViewById(R.id.current_news_id);
         cgpa_calculator=findViewById(R.id.cgpa_calculator_service_id);
 
         documentary.setOnClickListener(this);
@@ -849,6 +849,11 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
 
         if(v.getId()==R.id.cgpa_calculator_service_id){
             Intent intent=new Intent(getApplicationContext(), SemesterActivity.class);
+            startActivity(intent);
+        }
+
+        if(v.getId()==R.id.current_news_id){
+            Intent intent=new Intent(getApplicationContext(),NewsActivity.class);
             startActivity(intent);
         }
     }

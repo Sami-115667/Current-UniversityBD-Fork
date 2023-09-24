@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -20,6 +22,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import com.google.firebase.database.DatabaseReference;
@@ -42,6 +45,7 @@ public class TeachersInfoService extends AppCompatActivity {
     DatabaseReference mbase;
     Toolbar toolbar;
     TeacherInfoModel teacherInfoModel;
+    private LottieAnimationView lottieAnimationView;
 
 
     @Override
@@ -49,6 +53,7 @@ public class TeachersInfoService extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teachers_info_service);
         editText=findViewById(R.id.search_edittext);
+        lottieAnimationView=findViewById(R.id.loadingView);
 
         toolbar=findViewById(R.id.teacher_info_tollbar);
         setSupportActionBar(toolbar);
@@ -63,6 +68,11 @@ public class TeachersInfoService extends AppCompatActivity {
             colorPrimary = getColor(R.color.service_bar);
         }
         getWindow().setStatusBarColor(colorPrimary);
+
+
+        lottieAnimationView.playAnimation();
+
+
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
@@ -105,10 +115,20 @@ public class TeachersInfoService extends AppCompatActivity {
                 .setQuery(mbase, TeacherInfoModel.class)
                 .build();
 
-        TeachersInfoService teachersInfoService = new TeachersInfoService();
+
+       // TeachersInfoService teachersInfoService = new TeachersInfoService();
 
         teacherInfoAdapter= new TeacherInfoAdapter(options);
         recyclerView.setAdapter(teacherInfoAdapter);
+
+        teacherInfoAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeInserted(int positionStart, int itemCount) {
+                // Data retrieval is complete, hide the Lottie animation
+                lottieAnimationView.setVisibility(View.GONE);
+            }
+        });
+
 
 
 

@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -30,9 +31,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.loginandsignup.UserLoginActivity;
+import com.techtravelcoder.universitybd.user_profile.User_Profile_Activity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private CardView general ,prv,engineering ,agriculture,national,sat;
     FirebaseAuth auth;
     FirebaseDatabase database;
+    TextView profile ;
 
 
     @Override
@@ -53,6 +58,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         setContentView(R.layout.activity_main);
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
 
         general=findViewById(R.id.general_id);
         prv=findViewById(R.id.private_id);
@@ -69,6 +77,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         engineering.setOnClickListener(this);
         agriculture.setOnClickListener(this);
         national.setOnClickListener(this);
+
+        headerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity.this, User_Profile_Activity.class);
+                startActivity(intent);
+            }
+        });
+
         sliderSupport();
 
         int colorPrimary = 0;
@@ -225,6 +242,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 if(item.getItemId()==R.id.developer_info){
                     Intent intent = new Intent(MainActivity.this,TeamMemberActivity.class);
+
                     startActivity(intent);
                     drawerLayout.closeDrawer(GravityCompat.START);
 

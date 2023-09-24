@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/back"
+
     android:orientation="vertical"
     android:layout_height="wrap_content">
 
@@ -144,6 +145,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
+
                         android:textColor="@color/white"
                         android:id="@+id/teacher_number"
                         android:paddingTop="9dp"
@@ -162,6 +164,7 @@
 
 
     </androidx.cardview.widget.CardView>
+
 
 
 </LinearLayout>
