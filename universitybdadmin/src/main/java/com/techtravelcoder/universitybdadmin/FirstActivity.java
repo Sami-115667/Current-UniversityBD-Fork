@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.techtravelcoder.universitybdadmin.newspaper.NewsCategoryActivity;
 import com.techtravelcoder.universitybdadmin.newspaper.NewsPostActivity;
+import com.techtravelcoder.universitybdadmin.teacherinfo.TeacherInfoActivity;
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -24,6 +25,14 @@ public class FirstActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getApplicationContext(), NewsCategoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        teacherInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), TeacherInfoActivity.class);
                 startActivity(intent);
             }
         });

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
@@ -32,7 +33,7 @@ public class CRUDNewsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_crudnews);
 
         String str=getIntent().getStringExtra("key");
-        Toast.makeText(this, ""+str, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, ""+str, Toast.LENGTH_SHORT).show();
 
         recyclerView=findViewById(R.id.rvCrudId);
         FirebaseApp.initializeApp(this);
@@ -46,13 +47,20 @@ public class CRUDNewsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                list.clear();
+                //list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                    String key = dataSnapshot.getKey();
+                    String catagory=str;//catagory
+
+                    //Toast.makeText(CRUDNewsActivity.this, ""+catagory, Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(CRUDNewsActivity.this, ""+key, Toast.LENGTH_SHORT).show();
 
                     NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
                     if(newsModel != null){
-
-                        list.add(0,newsModel);
+                        newsModel.setKey(key);
+                        newsModel.setCatagory(catagory);
+                        list.add(newsModel);
 
                     }
 

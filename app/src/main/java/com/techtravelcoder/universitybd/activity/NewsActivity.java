@@ -10,10 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,8 +53,10 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
     private TrendingNewsAdapter trendingNewsAdapter;
     private DatabaseReference mbase,mbase1;
     private ArrayList<NewsModel>list;
+    private ArrayList<NewsModel> filteredList;
     private  ArrayList<TrendingNewsModel>list1;
      private TextView category ;
+     EditText editText;
 
      Toolbar toolbar;
 
@@ -72,6 +77,7 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         frellancing=findViewById(R.id.cd9);
         remoteJob=findViewById(R.id.cd10);
         category=findViewById(R.id.tv_category_id);
+        editText=findViewById(R.id.edNewsSearch);
 
 
         gen_uni.setOnClickListener(this);
@@ -185,16 +191,37 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        filteredList = new ArrayList<>(list);
 
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
+            }
 
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
 
 
 
     }
-
+    private void filter(String text){
+        List<NewsModel> filterList= new ArrayList<>();
+        for(NewsModel obj : list ){
+            if(obj.getTitle().contains(text)){
+                filterList.add(obj);
+            }
+        }
+        newsAdapter.filterList((ArrayList<NewsModel>) filterList);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

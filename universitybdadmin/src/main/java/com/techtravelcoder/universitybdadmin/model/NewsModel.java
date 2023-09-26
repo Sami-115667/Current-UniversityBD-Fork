@@ -2,7 +2,8 @@ package com.techtravelcoder.universitybdadmin.model;
 
 public class NewsModel {
 
-    String author,title,description,date,image ;
+    String author,title,description,date,image ,key;
+    String catagory;
 
    public NewsModel(){
 
@@ -16,7 +17,16 @@ public class NewsModel {
         this.description = description;
         this.date = date;
         this.image = image;
+        this.key=key;
 
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
 
@@ -58,5 +68,12 @@ public class NewsModel {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public void setCatagory(String catagory) {
+        this.catagory=catagory;
+    }
+    public String getCatagory() {
+        return catagory;
     }
 }

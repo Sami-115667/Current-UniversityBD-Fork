@@ -14,6 +14,7 @@
 
 
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -23,14 +24,40 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-
             <LinearLayout
                 android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="265dp">
                 <TextView
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:textColor="#FEFEFE"
+                    android:layout_marginLeft="10dp"
+                    android:text="Important Notice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <TextView
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:id="@+id/marque_id"
+                    android:padding="5dp"
+                    android:textSize="15sp"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:textColor="#F8F9F7"
+                    android:text="আসসালামু আলাইকুম University BD এপ টি মুলত বাংলাদেশের সনামধন্য সকল University এর সুবিধার কথা ভেবে তৈরি করা হয়েছে।
+ এই এপের মাধ্যমে আপনারা সকল University এর যাবতীয় আপডেট ইনফরমেশন পাবেন এবং গুরুত্বপূর্ণ নিউজ চাকরির গাইড লাইন, জব সারকুলার, উদ্দোক্তা, রিমোট
+ জব, ফ্রিল্যান্সিং বিষয়ক সকল গাইড লাইন পাবেন। আমরা Student দের সারা পেলে সামনে আর ভালো কিছু নিয়ে আসব ইনশাআল্লাহ। আপনাদের সবার সহজোগিতা কামনা করছি। "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginTop="7dp"
                     android:textStyle="bold"
                     android:textSize="17sp"
                     android:textColor="#FEFEFE"
@@ -43,12 +70,11 @@
                     app:cardBackgroundColor="@color/back_upper"
                     app:cardPreventCornerOverlap="true"
                     app:cardElevation="10dp"
-                    android:layout_margin="12dp"
+                    android:layout_margin="7dp"
                     app:cardCornerRadius="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="215dp">
                     <com.denzcoskun.imageslider.ImageSlider
-                        android:layout_margin="4.6dp"
                         android:id="@+id/image_slider"
                         android:background="@drawable/image_du"
                         android:layout_width="match_parent"
@@ -73,10 +99,13 @@
                     android:textColor="#FAFCFA"
                     android:gravity="center_horizontal"
 
-                    android:text="Choice your Category"
+                    android:text="Choice your University Category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
+
+
+
             <LinearLayout
                 android:layout_marginTop="10dp"
                 android:orientation="vertical"
@@ -95,20 +124,20 @@
                         app:cardPreventCornerOverlap="true"
                         app:cardElevation="10dp"
                         app:cardBackgroundColor="@color/back_upper"
-                        android:layout_margin="10dp"
+                        android:layout_margin="7dp"
                         app:cardCornerRadius="12dp"
                         android:layout_width="match_parent"
-                        android:layout_height="160dp">
+                        android:layout_height="100dp">
 
                         <ImageView
-                            android:layout_marginTop="25dp"
+                            android:layout_marginTop="15dp"
                             android:layout_gravity="center_horizontal"
                             android:scaleType="centerCrop"
                             android:src="@drawable/public_university"
-                            android:layout_width="80dp"
-                            android:layout_height="90dp"/>
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"/>
                         <TextView
-                            android:layout_marginTop="120dp"
+                            android:layout_marginTop="70dp"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_marginBottom="15dp"
@@ -126,23 +155,23 @@
                         app:cardElevation="10dp"
                         android:id="@+id/national_id"
                         app:cardBackgroundColor="@color/back_upper"
-                        android:layout_margin="10dp"
+                        android:layout_margin="7dp"
                         app:cardCornerRadius="12dp"
                         android:foreground="@drawable/category_uni_back"
                         android:clickable="true"
                         android:layout_width="match_parent"
-                        android:layout_height="160dp">
+                        android:layout_height="100dp">
 
                         <ImageView
-                            android:layout_marginTop="25dp"
+                            android:layout_marginTop="15dp"
                             android:padding="5dp"
                             android:layout_gravity="center_horizontal"
                             android:scaleType="fitXY"
                             android:src="@drawable/national_university"
-                            android:layout_width="80dp"
-                            android:layout_height="90dp"/>
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"/>
                         <TextView
-                            android:layout_marginTop="120dp"
+                            android:layout_marginTop="70dp"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_marginBottom="15dp"
@@ -166,22 +195,22 @@
                         app:cardElevation="10dp"
                         android:id="@+id/engineering_id"
                         app:cardBackgroundColor="@color/back_upper"
-                        android:layout_margin="10dp"
+                        android:layout_margin="7dp"
                         app:cardCornerRadius="12dp"
                         android:foreground="@drawable/category_uni_back"
                         android:clickable="true"
                         android:layout_width="match_parent"
-                        android:layout_height="160dp">
+                        android:layout_height="100dp">
 
                         <ImageView
-                            android:layout_marginTop="25dp"
+                            android:layout_marginTop="12dp"
                             android:layout_gravity="center_horizontal"
                             android:scaleType="fitXY"
                             android:src="@drawable/engineering_logo"
-                            android:layout_width="90dp"
-                            android:layout_height="90dp"/>
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"/>
                         <TextView
-                            android:layout_marginTop="115dp"
+                            android:layout_marginTop="70dp"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_marginBottom="15dp"
@@ -199,23 +228,23 @@
                         app:cardElevation="10dp"
                         android:id="@+id/sat_id"
                         app:cardBackgroundColor="@color/back_upper"
-                        android:layout_margin="10dp"
+                        android:layout_margin="7dp"
                         app:cardCornerRadius="12dp"
                         android:foreground="@drawable/category_uni_back"
                         android:clickable="true"
                         android:layout_width="match_parent"
-                        android:layout_height="160dp">
+                        android:layout_height="100dp">
 
                         <ImageView
-                            android:layout_marginTop="25dp"
+                            android:layout_marginTop="15dp"
                             android:padding="5dp"
                             android:layout_gravity="center_horizontal"
                             android:scaleType="fitXY"
                             android:src="@drawable/sat_logo"
-                            android:layout_width="80dp"
-                            android:layout_height="90dp"/>
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"/>
                         <TextView
-                            android:layout_marginTop="120dp"
+                            android:layout_marginTop="70dp"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_marginBottom="15dp"
@@ -239,24 +268,24 @@
                         app:cardPreventCornerOverlap="true"
                         app:cardElevation="10dp"
                         app:cardBackgroundColor="@color/back_upper"
-                        android:layout_margin="10dp"
+                        android:layout_margin="7dp"
                         app:cardCornerRadius="12dp"
                         android:id="@+id/private_id"
                         android:foreground="@drawable/category_uni_back"
                         android:clickable="true"
                         android:layout_width="match_parent"
-                        android:layout_height="160dp">
+                        android:layout_height="100dp">
 
                         <ImageView
                             android:padding="5dp"
-                            android:layout_marginTop="25dp"
+                            android:layout_marginTop="15dp"
                             android:layout_gravity="center_horizontal"
                             android:scaleType="fitXY"
                             android:src="@drawable/private_logo"
-                            android:layout_width="90dp"
-                            android:layout_height="90dp"/>
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"/>
                         <TextView
-                            android:layout_marginTop="115dp"
+                            android:layout_marginTop="70dp"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_marginBottom="15dp"
@@ -273,24 +302,24 @@
                         app:cardPreventCornerOverlap="true"
                         app:cardElevation="10dp"
                         app:cardBackgroundColor="@color/back_upper"
-                        android:layout_margin="10dp"
+                        android:layout_margin="7dp"
                         app:cardCornerRadius="12dp"
                         android:id="@+id/agriculture_id"
                         android:foreground="@drawable/category_uni_back"
                         android:clickable="true"
                         android:layout_width="match_parent"
-                        android:layout_height="160dp">
+                        android:layout_height="100dp">
 
                         <ImageView
-                            android:layout_marginTop="25dp"
+                            android:layout_marginTop="15dp"
                             android:padding="5dp"
                             android:layout_gravity="center_horizontal"
                             android:scaleType="fitXY"
                             android:src="@drawable/agriculture_logo"
-                            android:layout_width="90dp"
-                            android:layout_height="90dp"/>
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"/>
                         <TextView
-                            android:layout_marginTop="115dp"
+                            android:layout_marginTop="70dp"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:layout_marginBottom="15dp"
@@ -311,6 +340,62 @@
 
 
             </LinearLayout>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:textSize="17sp"
+                android:textColor="#FAFCFA"
+                android:gravity=""
+                android:text="উচ্চ শিক্ষা, চাকরি, উদ্দোক্তা রিলেটেড যাবতীয় গাইডলাইন :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:foreground="@drawable/category_uni_back"
+                android:id="@+id/cv_news_click_id"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="#448AFF"
+                android:layout_margin="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <LinearLayout
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:paddingLeft="60dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:textSize="27dp"
+                        android:textColor="@color/white"
+                        android:text="CLICK HERE"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_gravity="center"
+                        android:paddingRight="30dp"
+                        android:layout_weight="1"
+                        android:id="@+id/lottieAnimationView"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        app:lottie_rawRes="@raw/click"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -366,7 +451,7 @@
         android:textColorSecondary="@color/documentary"
         android:layout_gravity="start"
         app:itemIconPadding="8dp"
-        android:visibility="visible"
+        android:visibility="gone"
         app:itemTextColor="@color/white"
         app:itemIconTint="#FFC107"
         android:background="@color/back_upper"

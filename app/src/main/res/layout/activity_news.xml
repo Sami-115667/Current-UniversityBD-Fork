@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
         <EditText
+            android:id="@+id/edNewsSearch"
             android:paddingLeft="9dp"
             android:hint="Search here "
             android:drawableLeft="@drawable/search_icon"

@@ -1,39 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/back"
-    tools:context=".newspaper.NewsPostActivity">
+    android:background="#0C58F5"
+    android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/udsId"
-                android:foreground="@drawable/uni_background"
-                android:clickable="true"
-                android:background="@drawable/edit_text_background"
-                android:backgroundTint="@color/blue"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:textSize="25dp"
-                android:padding="10dp"
-                android:text="See all News"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
 
             <TextView
                 android:layout_marginTop="10dp"
                 android:textAllCaps="true"
                 android:layout_marginLeft="15dp"
-                android:textSize="16dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
 
                 android:textColor="@color/coloryellow"
@@ -44,11 +28,11 @@
                 android:padding="10dp"
                 android:gravity="top"
                 android:hint="Enter news author"
-                android:id="@+id/ed1"
+                android:id="@+id/edt1"
                 android:textColorHint="@color/hint_colour"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
@@ -61,7 +45,7 @@
             <TextView
                 android:textAllCaps="true"
                 android:layout_marginLeft="15dp"
-                android:textSize="16dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:textColor="@color/coloryellow"
                 android:text="Title"
@@ -72,7 +56,7 @@
                 android:textSize="16dp"
                 android:gravity="top"
                 android:hint="Enter news  title"
-                android:id="@+id/ed2"
+                android:id="@+id/edt2"
                 android:textColorHint="@color/hint_colour"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
@@ -87,7 +71,7 @@
                 android:paddingLeft="5dp" />
             <TextView
                 android:layout_marginLeft="15dp"
-                android:textSize="16dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:textColor="@color/coloryellow"
                 android:text="DATE"
@@ -97,12 +81,12 @@
                 android:padding="10dp"
                 android:gravity="top"
                 android:hint="Enter news date"
-                android:id="@+id/ed3"
+                android:id="@+id/edt3"
                 android:textSize="16dp"
                 android:textColorHint="@color/hint_colour"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="70dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
@@ -112,7 +96,7 @@
                 android:paddingLeft="5dp" />
             <TextView
                 android:layout_marginLeft="15dp"
-                android:textSize="16dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:textColor="@color/coloryellow"
                 android:text="IMAGE LINK"
@@ -122,13 +106,13 @@
                 android:padding="10dp"
                 android:gravity="top"
                 android:hint="Enter image address"
-                android:id="@+id/ed4"
+                android:id="@+id/edt4"
                 android:textSize="16dp"
 
                 android:textColorHint="@color/hint_colour"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="70dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
@@ -139,7 +123,7 @@
                 android:paddingLeft="5dp" />
             <TextView
                 android:layout_marginLeft="15dp"
-                android:textSize="16dp"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 android:textColor="@color/coloryellow"
                 android:text="DESCRIPTION"
@@ -149,14 +133,13 @@
                 android:padding="10dp"
                 android:gravity="top"
                 android:hint="Enter news description"
-                android:id="@+id/ed5"
+                android:id="@+id/edt5"
                 android:textColorHint="@color/hint_colour"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
+                android:layout_height="140dp"
                 android:layout_marginLeft="15dp"
                 android:textSize="16dp"
-
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/edit_text_background"
@@ -166,21 +149,24 @@
                 android:paddingLeft="5dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/postId"
+                android:padding="9dp"
+                android:id="@+id/postUpdateId"
                 android:foreground="@drawable/uni_background"
                 android:clickable="true"
                 android:background="@drawable/edit_text_background"
-                android:layout_marginBottom="70dp"
+                android:backgroundTint="@color/blue"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"
-                android:textColor="@color/documentary"
-                android:textSize="25dp"
-                android:text="POST"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:text="Update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
         </LinearLayout>
+    </ScrollView>
 
 
 

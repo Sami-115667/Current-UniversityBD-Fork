@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ActionBarDrawerToggle actionBarDrawerToggle; // instead of action bar we use toolbar //ActionBarDrawerToggle
     ImageSlider imageSlider;
     private CardView general ,prv,engineering ,agriculture,national,sat;
+    CardView news ;
+    TextView headline ;
+
     FirebaseAuth auth;
     FirebaseDatabase database;
     TextView profile ;
@@ -69,6 +72,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         agriculture=findViewById(R.id.agriculture_id);
         national=findViewById(R.id.national_id);
         contentView=findViewById(R.id.content);
+        news=findViewById(R.id.cv_news_click_id);
+        headline=findViewById(R.id.marque_id);
+        headline.setSelected(true);
+
+
 
 
         general.setOnClickListener(this);
@@ -77,6 +85,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         engineering.setOnClickListener(this);
         agriculture.setOnClickListener(this);
         national.setOnClickListener(this);
+
+        news.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),NewsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         headerView.setOnClickListener(new View.OnClickListener() {
             @Override

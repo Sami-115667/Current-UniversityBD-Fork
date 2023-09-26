@@ -80,6 +80,12 @@ public class NewsAdapter extends RecyclerView.Adapter< NewsAdapter.MyViewHolder>
 
     }
 
+    public void filterList(ArrayList<NewsModel>filterlist){
+        list=filterlist;
+        notifyDataSetChanged();
+    }
+
+
 
 
     @Override

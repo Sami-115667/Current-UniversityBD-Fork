@@ -96,10 +96,15 @@ public class NewsPostActivity extends AppCompatActivity {
         }else{
             if(!type.equals("Trending News")){
 
-                databaseReference.push().setValue(newsModel);
-                databaseReference1.push().setValue(newsModel);
+                String a = databaseReference.push().getKey();
+
+                databaseReference.child(a).setValue(newsModel);
+                databaseReference1.child(a).setValue(newsModel);
             }else{
-                databaseReference.push().setValue(newsModel);
+
+                String a = databaseReference.push().getKey();
+                databaseReference.child(a).setValue(newsModel);
+                //Toast.makeText(this, ""+a, Toast.LENGTH_SHORT).show();
             }
 
 
