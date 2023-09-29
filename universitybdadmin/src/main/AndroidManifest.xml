@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UniversityBD">
         <activity
+            android:name=".teacherinfo.ShowAndDeleteActivity"
+            android:exported="false" />
+        <activity
             android:name=".teacherinfo.TeacherInfoActivity"
             android:exported="false" />
         <activity

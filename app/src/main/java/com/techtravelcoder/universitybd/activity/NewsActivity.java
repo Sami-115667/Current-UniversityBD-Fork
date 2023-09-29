@@ -211,7 +211,6 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
-
     }
     private void filter(String text){
         List<NewsModel> filterList= new ArrayList<>();
@@ -249,7 +248,6 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             list=new ArrayList<>();
             newsAdapter=new NewsAdapter(this,list);
-            Collections.reverse(list);
             recyclerView.setAdapter(newsAdapter );
 
 

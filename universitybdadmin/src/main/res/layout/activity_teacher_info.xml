@@ -8,7 +8,7 @@
     android:background="@color/back"
     tools:context=".teacherinfo.TeacherInfoActivity">
     <TextView
-        android:layout_marginTop="15dp"
+
         android:textColor="@color/coloryellow"
         android:layout_marginLeft="15dp"
         android:textSize="23dp"
@@ -38,19 +38,19 @@
         android:background="@drawable/edit_text_background"
         android:backgroundTint="@color/primary"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="7dp"
         android:layout_gravity="center"
         android:textStyle="bold"
         android:padding="10dp"
         android:textColor="@color/white"
-        android:textSize="25dp"
+        android:textSize="16dp"
         android:text="See all information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
 
     <TextView
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="2dp"
         android:textAllCaps="true"
         android:layout_marginLeft="15dp"
         android:textSize="16dp"
@@ -143,6 +143,33 @@
         android:gravity="top"
         android:hint="Enter teacher mobile number"
         android:id="@+id/t_mobile_id"
+        android:textSize="16dp"
+
+        android:textColorHint="@color/hint_colour"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/edit_text_background"
+        android:drawablePadding="5dp"
+        android:lines="10"
+        android:inputType="textMultiLine"
+        android:paddingLeft="5dp" />
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/coloryellow"
+        android:text="IMAGE LINK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:padding="10dp"
+        android:gravity="top"
+        android:hint="Enter image link"
+        android:id="@+id/t_iamge_id"
         android:textSize="16dp"
 
         android:textColorHint="@color/hint_colour"

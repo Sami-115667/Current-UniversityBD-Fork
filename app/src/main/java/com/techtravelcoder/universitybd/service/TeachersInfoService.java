@@ -1,5 +1,7 @@
 package com.techtravelcoder.universitybd.service;
 
+import static java.util.Locale.filter;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,27 +27,36 @@ import android.widget.Toast;
 import com.airbnb.lottie.LottieAnimationView;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.activity.AllUniversityActivity;
 import com.techtravelcoder.universitybd.activity.MainActivity;
 import com.techtravelcoder.universitybd.adapter.TeacherInfoAdapter;
+import com.techtravelcoder.universitybd.adapter.TrendingNewsAdapter;
+import com.techtravelcoder.universitybd.model.NewsModel;
 import com.techtravelcoder.universitybd.model.TeacherInfoModel;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class TeachersInfoService extends AppCompatActivity {
 
-     String name ;
-     EditText editText;
+    String name ;
+    EditText editText;
     androidx.recyclerview.widget.RecyclerView recyclerView;
     TeacherInfoAdapter teacherInfoAdapter;
     DatabaseReference mbase;
+    ArrayList<TeacherInfoModel>list;
+    ArrayList<TeacherInfoModel>filteredList;
     Toolbar toolbar;
-    TeacherInfoModel teacherInfoModel;
     private LottieAnimationView lottieAnimationView;
+    private Boolean isloaded=false;
 
 
     @Override
@@ -70,7 +81,7 @@ public class TeachersInfoService extends AppCompatActivity {
         getWindow().setStatusBarColor(colorPrimary);
 
 
-        lottieAnimationView.playAnimation();
+         lottieAnimationView.playAnimation();
 
 
 
@@ -83,15 +94,51 @@ public class TeachersInfoService extends AppCompatActivity {
         });
 
 
-
+        list=new ArrayList<>();
         name=getIntent().getStringExtra("key");//University name
-        Toast.makeText(this, ""+name, Toast.LENGTH_SHORT).show();
-        mbase = FirebaseDatabase.getInstance().getReference("Teacher Data").child("Teacher Information").child(name);
-
+        mbase = FirebaseDatabase.getInstance().getReference("TeacherInformation").child(name);
         recyclerView=findViewById(R.id.teacherInfoServiceRecyclerId);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        teacherInfoAdapter=new TeacherInfoAdapter(this,list);
+        Toast.makeText(this, ""+name, Toast.LENGTH_SHORT).show();
 
+        recyclerView.setAdapter(teacherInfoAdapter);
+        Toast.makeText(this, ""+name, Toast.LENGTH_SHORT).show();
+
+        mbase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                list.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                   // Toast.makeText(getApplicationContext(), ""+name, Toast.LENGTH_SHORT).show();
+
+                    TeacherInfoModel teacherInfoModel = dataSnapshot.getValue(TeacherInfoModel.class);
+                    if(teacherInfoModel != null){
+
+
+                        list.add(teacherInfoModel);
+
+                    }
+                }
+
+                teacherInfoAdapter.notifyDataSetChanged();
+                isloaded=true;
+                if(isloaded){
+                    lottieAnimationView.cancelAnimation();
+                    lottieAnimationView.setVisibility(View.GONE);
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        filteredList = new ArrayList<>(list);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -100,65 +147,31 @@ public class TeachersInfoService extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                performSearch(s.toString());
+
             }
 
             @Override
             public void afterTextChanged(Editable s) {
 
+                filter(s.toString());
             }
+
         });
-
-
-        TeacherInfoModel obj = new TeacherInfoModel(TeachersInfoService.this);
-        FirebaseRecyclerOptions<TeacherInfoModel> options = new FirebaseRecyclerOptions.Builder<TeacherInfoModel>()
-                .setQuery(mbase, TeacherInfoModel.class)
-                .build();
-
-
-       // TeachersInfoService teachersInfoService = new TeachersInfoService();
-
-        teacherInfoAdapter= new TeacherInfoAdapter(options);
-        recyclerView.setAdapter(teacherInfoAdapter);
-
-        teacherInfoAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
-            @Override
-            public void onItemRangeInserted(int positionStart, int itemCount) {
-                // Data retrieval is complete, hide the Lottie animation
-                lottieAnimationView.setVisibility(View.GONE);
-            }
-        });
-
-
-
-
-
-
 
 
     }
 
-
-
-
-
-
-    @Override
-    protected void onStart()
-    {
-        super.onStart();
-        teacherInfoAdapter.startListening();
+    private void filter (String text){
+        List<TeacherInfoModel> filterList= new ArrayList<>();
+        for(TeacherInfoModel obj : list ){
+            if(obj.getDept().toLowerCase().contains(text.toLowerCase())){
+                filterList.add(obj);
+            }
+        }
+        teacherInfoAdapter.filterList((ArrayList<TeacherInfoModel>) filterList);
     }
 
-    //Here on stop method create a problem , when we use intent the app is crushing again and again , when we back to our our app
-    //after completing a implicit intent
 
-//    @Override
-//    protected void onStop()
-//    {
-//        super.onStop();
-//        teacherInfoAdapter.stopListening();
-//    }
 
 
 
@@ -177,34 +190,6 @@ public class TeachersInfoService extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    private void performSearch(String query) {
-        if (query.isEmpty()) {
-            // Show all data when the search query is empty
-            FirebaseRecyclerOptions<TeacherInfoModel> options = new FirebaseRecyclerOptions.Builder<TeacherInfoModel>()
-                    .setQuery(mbase, TeacherInfoModel.class)
-                    .build();
-            TeachersInfoService teachersInfoService = new TeachersInfoService();
-            teacherInfoAdapter= new TeacherInfoAdapter(options);
-            teacherInfoAdapter.startListening();
-            recyclerView.setAdapter(teacherInfoAdapter);
-        } else {
-            try {
-
-                FirebaseRecyclerOptions<TeacherInfoModel> options = new FirebaseRecyclerOptions.Builder<TeacherInfoModel>()
-                        .setQuery(mbase.orderByChild("department").startAt(query).endAt(query + "\uf8ff"), TeacherInfoModel.class)
-                        .build();
-                TeachersInfoService teachersInfoService = new TeachersInfoService();
-                teacherInfoAdapter= new TeacherInfoAdapter(options);
-                teacherInfoAdapter.startListening();
-                recyclerView.setAdapter(teacherInfoAdapter);
-            } catch (Exception e) {
-                // Handle any exceptions that occur during the database query
-                Toast.makeText(this, "Error occurred while searching", Toast.LENGTH_SHORT).show();
-                e.printStackTrace();
-            }
-        }
-    }
-
 
 
 

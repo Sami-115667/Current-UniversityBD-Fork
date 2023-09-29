@@ -8,16 +8,14 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        app:cardBackgroundColor="@color/back_upper"
+        android:layout_marginTop="12dp"
+        app:cardBackgroundColor="@color/back"
         android:id="@+id/cardviewid"
         android:elevation="200dp"
         app:cardElevation="3dp"
-        android:layout_marginLeft="10dp"
+        android:foreground="@drawable/uni_background"
         app:cardPreventCornerOverlap="true"
         app:cardCornerRadius="5dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -26,21 +24,19 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_marginTop="5dp"
                 android:orientation="vertical"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/teacher_image"
-                    android:layout_width="90dp"
+                    android:layout_width="80dp"
                     android:src="@drawable/teachers_info"
-                    android:layout_height="80dp"
-                    app:civ_border_color="#80968D"
+                    android:layout_height="70dp"
+                    app:civ_border_color="#88F603"
                     app:civ_border_width="2dp" />
 
                 <LinearLayout
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
@@ -51,8 +47,8 @@
                         android:src="@drawable/call_back"
                         android:background="@drawable/info"
                         android:gravity="center_horizontal"
-                        android:layout_width="55dp"
-                        android:layout_height="wrap_content"/>
+                        android:layout_width="45dp"
+                        android:layout_height="30dp"/>
                     <ImageView
                         android:id="@+id/teacher_info_email"
                         android:layout_marginLeft="10dp"
@@ -62,8 +58,8 @@
                         android:src="@drawable/email_icon"
                         android:textStyle="bold"
                         android:gravity="center_horizontal"
-                        android:layout_width="55dp"
-                        android:layout_height="wrap_content"/>
+                        android:layout_width="45dp"
+                        android:layout_height="30dp"/>
 
                 </LinearLayout>
 
@@ -74,7 +70,6 @@
 
 
             <LinearLayout
-                android:layout_marginBottom="8dp"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -83,14 +78,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
-                        android:paddingTop="6dp"
                         android:src="@drawable/name_teacherinfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:textColor="@color/white"
                         android:id="@+id/teacher_name"
-                        android:paddingTop="9dp"
+
                         android:paddingLeft="4dp"
                         android:textStyle="bold"
                         android:text="Rakib Hossain"
@@ -103,15 +97,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
-                        android:paddingTop="6dp"
                         android:src="@drawable/department_techerinfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:textColor="@color/white"
-
                         android:id="@+id/teacher_dept"
-                        android:paddingTop="4dp"
                         android:paddingLeft="4dp"
                         android:text="Computer Science Andjdjjrjrjkkr Engineering"
                         android:layout_width="wrap_content"
@@ -122,14 +113,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
-                        android:paddingTop="6dp"
+
                         android:src="@drawable/email_teacherinfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:textColor="@color/white"
                         android:id="@+id/teacher_email"
-                        android:paddingTop="9dp"
                         android:paddingLeft="4dp"
                         android:text="bijoy18rakib@gmail.com"
                         android:layout_width="wrap_content"
@@ -140,15 +130,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageView
-                        android:paddingTop="6dp"
                         android:src="@drawable/call_teacherinfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
-
                         android:textColor="@color/white"
                         android:id="@+id/teacher_number"
-                        android:paddingTop="9dp"
                         android:paddingLeft="4dp"
                         android:text="01825008451"
                         android:layout_width="wrap_content"

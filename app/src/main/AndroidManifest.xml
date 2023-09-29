@@ -15,6 +15,9 @@
         android:theme="@style/Theme.UniversityBD"
         tools:targetApi="31">
         <activity
+            android:name=".service.TeacherDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.DetailsNewsActivity"
             android:exported="false" />
         <activity

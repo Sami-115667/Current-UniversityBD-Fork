@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/back"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".service.TeacherDetailsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:layout_margin="5dp"
+                app:cardCornerRadius="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="240dp">
+                <ImageView
+                    android:src="@drawable/image_du"
+                    android:scaleType="fitXY"
+                    android:id="@+id/dt_image_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+
+                    android:padding="5dp"
+                    android:background="@drawable/edit_text_background"
+                    android:backgroundTint="@color/blue"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:text="**Name** "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/dt_name_id"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:text="Md Rakibul Islam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:padding="5dp"
+                    android:background="@drawable/edit_text_background"
+                    android:backgroundTint="@color/primary"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:text="**Department**"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/dt_dept_id"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:text="Department of Computer Science And Engineering"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:padding="5dp"
+                    android:background="@drawable/edit_text_background"
+                    android:backgroundTint="@color/ruby"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:text="**Gmail**"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/dt_gmail_id"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:text="abc@gmail.com"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:padding="5dp"
+                    android:background="@drawable/edit_text_background"
+                    android:backgroundTint="@color/yellow"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/back"
+                    android:textSize="16dp"
+                    android:text="**Phone Number**"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/dt_phone_id"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:text="01825004669"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:padding="5dp"
+                    android:background="@drawable/edit_text_background"
+                    android:backgroundTint="#FF6E40"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:text="**Biography**"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/dt_bio_id"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:text="01825004669"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
