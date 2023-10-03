@@ -62,4 +62,11 @@ dependencies {
 
     //popup dialogue
     implementation 'com.orhanobut:logger:2.2.0'
+
+    //lottie
+    implementation "com.airbnb.android:lottie:6.1.0"
+
+    //circular iamge
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }

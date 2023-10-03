@@ -17,7 +17,6 @@ public class NewsModel {
         this.description = description;
         this.date = date;
         this.image = image;
-        this.key=key;
 
     }
 

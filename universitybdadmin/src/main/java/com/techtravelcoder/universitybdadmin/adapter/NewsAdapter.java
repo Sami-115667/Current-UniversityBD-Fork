@@ -152,7 +152,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewViewHolder>
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(context);
-                builder.setTitle("Are you Sure to delete this News");
+                builder.setTitle("Are you delete this teacher information");
                 builder.setMessage("Data can't be undo ");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override

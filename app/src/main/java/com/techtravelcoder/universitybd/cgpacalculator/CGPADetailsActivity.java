@@ -1,5 +1,6 @@
 package com.techtravelcoder.universitybd.cgpacalculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,13 +14,18 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.adapter.CGPADetailsAdapter;
 import com.techtravelcoder.universitybd.adapter.TeacherInfoAdapter;
 import com.techtravelcoder.universitybd.model.CGPADetailsModel;
 import com.techtravelcoder.universitybd.model.TeacherInfoModel;
+
+import java.util.ArrayList;
 
 public class CGPADetailsActivity extends AppCompatActivity {
 
@@ -27,67 +33,81 @@ public class CGPADetailsActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     FirebaseUser firebaseUser;
     FirebaseAuth firebaseAuth;
-    CGPADetailsModel cgpaDetailsModel;
+
+    DatabaseReference mbase;
     CGPADetailsAdapter cgpaDetailsAdapter;
     String str;
+    ArrayList<CGPADetailsModel>list;
     private LottieAnimationView lottieAnimationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cgpadetails);
 
-        lottieAnimationView=findViewById(R.id.loadingViewCg);
+         lottieAnimationView=findViewById(R.id.loadingViewCg);
 
-        lottieAnimationView.playAnimation();
+         lottieAnimationView.playAnimation();
 
 
 
         firebaseAuth=FirebaseAuth.getInstance();
         String uid = firebaseAuth.getCurrentUser().getUid();
 
-        DatabaseReference mbase = FirebaseDatabase.getInstance().getReference("CGPA Details").child(uid);
+
+
+
+
+        mbase=FirebaseDatabase.getInstance().getReference("CGPA Details").child(uid);
+
+       // Toast.makeText(this, ""+key, Toast.LENGTH_SHORT).show();
+
+
+
 
        // mbase = FirebaseDatabase.getInstance().getReference("CGPA Details").child(uid);
 
         recyclerView=findViewById(R.id.cgpaDetailsRecyclerId);
+        list=new ArrayList<>();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        FirebaseRecyclerOptions<CGPADetailsModel> options = new FirebaseRecyclerOptions.Builder<CGPADetailsModel>()
-                .setQuery(mbase, CGPADetailsModel.class)
-                .build();
-
-
-        cgpaDetailsAdapter= new CGPADetailsAdapter(options);
+        cgpaDetailsAdapter= new CGPADetailsAdapter(this,list);
         recyclerView.setAdapter(cgpaDetailsAdapter);
-
-        cgpaDetailsAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+        mbase.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onItemRangeInserted(int positionStart, int itemCount) {
-                // Data retrieval is complete, hide the Lottie animation
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                    String key = dataSnapshot.getKey();
+                    firebaseAuth=FirebaseAuth.getInstance();
+                    String uid = firebaseAuth.getCurrentUser().getUid();
+
+
+                    CGPADetailsModel cgpaDetailsModel1 = dataSnapshot.getValue(CGPADetailsModel.class);
+                    if(cgpaDetailsModel1 != null){
+                        cgpaDetailsModel1.setKey(key);
+                        cgpaDetailsModel1.setUid(uid);
+                        list.add(cgpaDetailsModel1);
+
+                    }
+
+                    //Toast.makeText(NewsActivity.this, ""+newsModel.getAuthor(), Toast.LENGTH_SHORT).show();
+
+
+                }
+
+                cgpaDetailsAdapter.notifyDataSetChanged();
                 lottieAnimationView.setVisibility(View.GONE);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
 
 
-
-
-
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        cgpaDetailsAdapter.startListening();
 
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        cgpaDetailsAdapter.stopListening();
-
-
-
-    }
 }

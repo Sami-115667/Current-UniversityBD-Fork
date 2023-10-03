@@ -2,8 +2,16 @@ package com.techtravelcoder.universitybdadmin.model;
 
 public class TeacherInfoModel {
 
-    String name ,dept,gmail,phone,description,image ;
+    String name ,dept,gmail,phone,description,image,key,uniName ;
 
+    public TeacherInfoModel(String name, String dept, String gmail, String phone, String description,String image) {
+        this.name = name;
+        this.dept = dept;
+        this.gmail = gmail;
+        this.phone = phone;
+        this.description = description;
+        this.image=image;
+    }
     public TeacherInfoModel(){
 
     }
@@ -56,12 +64,18 @@ public class TeacherInfoModel {
         this.image=image;
     }
 
-    public TeacherInfoModel(String name, String dept, String gmail, String phone, String description,String image) {
-        this.name = name;
-        this.dept = dept;
-        this.gmail = gmail;
-        this.phone = phone;
-        this.description = description;
-        this.image=image;
+
+    public void setKey(String key) {
+        this.key=key;
+    }
+    public String getKey(){
+        return key;
+    }
+
+    public void setUniName(String uniName){
+        this.uniName=uniName;
+    }
+    public String getUniName(){
+        return uniName;
     }
 }

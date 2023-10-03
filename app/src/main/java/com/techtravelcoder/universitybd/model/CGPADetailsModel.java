@@ -6,15 +6,17 @@ public class CGPADetailsModel {
     private double totalCredit ;
     private double currentCGPA;
 
+    String uid,key ;
     public CGPADetailsModel(){
 
     }
 
-    public CGPADetailsModel(String currentSemester, double totalGradePoint, double totalCredit, double currentCGPA) {
+    public CGPADetailsModel(double currentCGPA,String currentSemester,  double totalCredit,double totalGradePoint) {
         this.currentSemester = currentSemester;
         this.totalGradePoint = totalGradePoint;
         this.totalCredit = totalCredit;
         this.currentCGPA = currentCGPA;
+
     }
 
     public String getCurrentSemester() {
@@ -47,5 +49,21 @@ public class CGPADetailsModel {
 
     public void setCurrentCGPA(double currentCGPA) {
         this.currentCGPA = currentCGPA;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.techtravelcoder.universitybdadmin.FirstActivity;
 import com.techtravelcoder.universitybdadmin.R;
 import com.techtravelcoder.universitybdadmin.model.NewsModel;
 import com.techtravelcoder.universitybdadmin.model.TeacherInfoModel;
@@ -32,6 +33,7 @@ public class TeacherInfoActivity extends AppCompatActivity {
     private AppCompatButton post;
     String collectUniName ;
     private ArrayList uniName;
+    AppCompatButton seePost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,9 @@ public class TeacherInfoActivity extends AppCompatActivity {
         description=findViewById(R.id.t_desc_id);
         image=findViewById(R.id.t_iamge_id);
         post=findViewById(R.id.teacherPostId);
+        seePost=findViewById(R.id.allTeacherInfoId);
+
+
         manageSpinner();
         post.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +58,8 @@ public class TeacherInfoActivity extends AppCompatActivity {
                  addDatatoFirebase();
             }
         });
+
+
 
 
     }
@@ -86,7 +93,16 @@ public class TeacherInfoActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 collectUniName= (String) parent.getItemAtPosition(position).toString().toLowerCase();
+
                 if(!collectUniName.equals("Choose your University")){
+                    seePost.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent= new Intent(getApplicationContext(), ShowAndDeleteActivity.class);
+                            intent.putExtra("key",collectUniName);
+                            startActivity(intent);
+                        }
+                    });
                     databaseReference= FirebaseDatabase.getInstance().getReference("TeacherInformation").child(collectUniName);
                     Toast.makeText(TeacherInfoActivity.this, ""+collectUniName, Toast.LENGTH_SHORT).show();
 
@@ -119,6 +135,8 @@ public class TeacherInfoActivity extends AppCompatActivity {
                     String a = databaseReference.push().getKey();
                     databaseReference.child(a).setValue(teacherInfoModel);
                     Toast.makeText(this, "Add Successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), FirstActivity.class);
+                    startActivity(intent);
 
                     //Toast.makeText(this, ""+a, Toast.LENGTH_SHORT).show();
                 }else{

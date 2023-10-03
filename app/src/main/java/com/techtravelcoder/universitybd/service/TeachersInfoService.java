@@ -117,7 +117,6 @@ public class TeachersInfoService extends AppCompatActivity {
                     TeacherInfoModel teacherInfoModel = dataSnapshot.getValue(TeacherInfoModel.class);
                     if(teacherInfoModel != null){
 
-
                         list.add(teacherInfoModel);
 
                     }
