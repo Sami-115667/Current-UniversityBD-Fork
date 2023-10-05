@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="#F70C1502"
+    android:background="#122E62"
     android:layout_height="match_parent">
 
     <ScrollView

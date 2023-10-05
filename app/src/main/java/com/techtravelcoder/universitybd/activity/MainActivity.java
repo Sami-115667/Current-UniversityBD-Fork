@@ -16,11 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
-import com.denzcoskun.imageslider.interfaces.ItemChangeListener;
 import com.denzcoskun.imageslider.interfaces.ItemClickListener;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.navigation.NavigationView;
@@ -31,12 +29,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.loginandsignup.UserLoginActivity;
-import com.techtravelcoder.universitybd.user_profile.User_Profile_Activity;
+import com.techtravelcoder.universitybd.user_profile.UserProfileActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -97,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         headerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(MainActivity.this, User_Profile_Activity.class);
+                Intent intent= new Intent(MainActivity.this, UserProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -276,10 +272,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     // Start the sharing activity
                     startActivity(Intent.createChooser(shareIntent, "Share via"));
                 }
-
-
-
-
+                if(item.getItemId()==R.id.newsPostId){
+                    Intent intent= new Intent(MainActivity.this,UserNewsPostActivity.class);
+                    startActivity(intent);
+                }
 
 
                 return true;
@@ -359,6 +355,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("name","national");
             startActivity(intent);
         }
+
 
 
 

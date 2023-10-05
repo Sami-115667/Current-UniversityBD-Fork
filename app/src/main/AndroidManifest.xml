@@ -15,6 +15,12 @@
         android:theme="@style/Theme.UniversityBD"
         tools:targetApi="31">
         <activity
+            android:name=".activity.SpecificUserNewsPostDetails"
+            android:exported="false" />
+        <activity
+            android:name=".activity.UserNewsPostActivity"
+            android:exported="false" />
+        <activity
             android:name=".service.TeacherDetailsActivity"
             android:exported="false" />
         <activity
@@ -24,7 +30,7 @@
             android:name=".activity.NewsActivity"
             android:exported="false" />
         <activity
-            android:name=".user_profile.User_Profile_Activity"
+            android:name=".user_profile.UserProfileActivity"
             android:exported="true" />
         <activity
             android:name=".intent.ImplicitIntentActivity"

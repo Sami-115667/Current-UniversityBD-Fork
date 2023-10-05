@@ -5,7 +5,7 @@ package com.techtravelcoder.universitybd.model;
 public class NewsModel {
 
 
-    String author,title,description,date,image ;
+    String author,title,description,date,image,uid,key,category;
 
 
 
@@ -13,12 +13,13 @@ public class NewsModel {
         // Default constructor required for Firebase
     }
 
-    public NewsModel(String author, String date, String description, String image, String title) {
+    public NewsModel(String author, String date, String description, String image, String title,String category) {
         this.author = author;
         this.title = title;
         this.description = description;
         this.date = date;
         this.image = image;
+        this.category=category;
 
     }
 
@@ -64,5 +65,23 @@ public class NewsModel {
     }
 
 
+    public void setUid(String uid) {
+        this.uid=uid;
+    }
+    public String getUid() {
+        return uid;
+    }
 
+    public void setKey(String key) {
+        this.key=key;
+    }
+    public String getKey() {
+        return key;
+    }
+    public void setCategory(String category) {
+        this.category=category;
+    }
+    public String getCategory() {
+        return category;
+    }
 }

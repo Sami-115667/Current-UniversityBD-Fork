@@ -15,6 +15,9 @@
             android:title="University"
             android:icon="@drawable/bduniversity"
             />
+        <item android:id="@+id/newsPostId"
+            android:title="Write a News"
+            android:icon="@drawable/bduniversity"/>
 
 
     </group>

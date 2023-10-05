@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/back"
+    tools:context=".activity.UserNewsPostActivity">
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:id="@+id/tv_merque_id"
+        android:padding="5dp"
+        android:textSize="15sp"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:textColor="#F8F9F7"
+        android:text="আপনি যে বিষয়ে দক্ষ সে বিষয়ে বিস্তারিত লিখুন।এতে অন্ন বিষয়ে যারা দক্ষ তারা আপনার বিষয় সম্পর্কে বিস্তারিত জানতে পারবে এবং  কেরিয়ার পাথ নিয়ে সঠিক ধারণা পাবে।"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <FrameLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="5dp">
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/categoryNews"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textAllCaps="true"
+            android:layout_marginLeft="15dp"
+            android:textSize="12dp"
+            android:textStyle="bold"
+
+            android:textColor="@color/coloryellow"
+            android:text="Author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:padding="10dp"
+            android:gravity="top"
+            android:hint="Enter your name"
+            android:id="@+id/ed_name"
+            android:textColorHint="@color/hint_colour"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edit_text_background"
+            android:drawablePadding="5dp"
+            android:inputType="textMultiLine"
+            android:minLines="10"
+            android:paddingLeft="5dp" />
+
+        <TextView
+            android:textAllCaps="true"
+            android:layout_marginLeft="15dp"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/coloryellow"
+            android:text="Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:padding="10dp"
+            android:gravity="top"
+            android:hint="Enter news  title"
+            android:id="@+id/ed_title"
+            android:textColorHint="@color/hint_colour"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edit_text_background"
+            android:drawablePadding="5dp"
+            android:inputType="textMultiLine"
+            android:minLines="5"
+            android:paddingLeft="5dp" />
+        <TextView
+            android:textAllCaps="true"
+            android:layout_marginLeft="15dp"
+            android:textSize="12dp"
+            android:textStyle="bold"
+
+            android:textColor="@color/coloryellow"
+            android:text="Date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:hint="Select a date"
+            android:padding="10dp"
+            android:gravity="top"
+            android:id="@+id/ed_date"
+            android:textColorHint="@color/hint_colour"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edit_text_background"
+            android:drawablePadding="5dp"
+            android:paddingLeft="5dp" />
+
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/coloryellow"
+            android:text="IMAGE "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:padding="10dp"
+            android:gravity="top"
+            android:hint="Choose  image "
+            android:id="@+id/ed_image"
+            android:textColorHint="@color/hint_colour"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edit_text_background"
+            android:drawablePadding="5dp"
+            android:lines="10"
+            android:inputType="textMultiLine"
+            android:paddingLeft="5dp" />
+        <TextView
+            android:id="@+id/category"
+            android:layout_marginLeft="15dp"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/coloryellow"
+            android:text="DESCRIPTION"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:padding="10dp"
+            android:gravity="top"
+            android:hint="Enter news description"
+            android:id="@+id/ed_desc"
+            android:textColorHint="@color/hint_colour"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edit_text_background"
+            android:drawablePadding="5dp"
+            android:minLines="20"
+            android:inputType="textMultiLine"
+            android:paddingLeft="5dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/postId"
+            android:foreground="@drawable/uni_background"
+            android:clickable="true"
+            android:background="@drawable/edit_text_background"
+            android:layout_marginBottom="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/documentary"
+            android:textSize="25dp"
+            android:text="POST"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -212,10 +212,11 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+
     private void filter(String text){
         List<NewsModel> filterList= new ArrayList<>();
         for(NewsModel obj : list ){
-            if(obj.getTitle().contains(text)){
+            if(obj.getTitle().toLowerCase().contains(text.toLowerCase())){
                 filterList.add(obj);
             }
         }
@@ -238,6 +239,42 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
+    public void retriveCommonPart(){
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        list=new ArrayList<>();
+        newsAdapter=new NewsAdapter(this,list);
+        recyclerView.setAdapter(newsAdapter );
+
+
+
+        mbase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    // Toast.makeText(NewsActivity.this, "Ana", Toast.LENGTH_SHORT).show();
+
+                    NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
+                    if(newsModel != null){
+
+                        list.add(0,newsModel);
+                    }
+
+                    //Toast.makeText(NewsActivity.this, ""+newsModel.getAuthor(), Toast.LENGTH_SHORT).show();
+
+
+                }
+
+                newsAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
 
 
     @Override
@@ -245,75 +282,13 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         if(v.getId()==R.id.cd1){
             category.setText("All News");
             mbase = FirebaseDatabase.getInstance().getReference("News").child("All News");
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            list=new ArrayList<>();
-            newsAdapter=new NewsAdapter(this,list);
-            recyclerView.setAdapter(newsAdapter );
-
-
-
-            mbase.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                    list.clear();
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        // Toast.makeText(NewsActivity.this, "Ana", Toast.LENGTH_SHORT).show();
-
-                        NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
-                        if(newsModel != null){
-
-                            list.add(0,newsModel);
-                        }
-
-                        //Toast.makeText(NewsActivity.this, ""+newsModel.getAuthor(), Toast.LENGTH_SHORT).show();
-                    }
-
-                    newsAdapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
+            retriveCommonPart();
         }
         if(v.getId()==R.id.cd2){
             category.setText("স্বায়ত্তশাসিত বিশ্ববিদ্যালয়");
             mbase = FirebaseDatabase.getInstance().getReference("News").child("স্বায়ত্তশাসিত বিশ্ববিদ্যালয়");
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            list=new ArrayList<>();
-            newsAdapter=new NewsAdapter(this,list);
-            recyclerView.setAdapter(newsAdapter );
+            retriveCommonPart();
 
-
-
-            mbase.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    list.clear();
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                       // Toast.makeText(NewsActivity.this, "Ana", Toast.LENGTH_SHORT).show();
-
-                        NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
-                        if(newsModel != null){
-
-                            list.add(0,newsModel);
-                        }
-
-                        //Toast.makeText(NewsActivity.this, ""+newsModel.getAuthor(), Toast.LENGTH_SHORT).show();
-
-
-                    }
-
-                    newsAdapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
 
 
 
@@ -324,283 +299,48 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
 
             // Toast.makeText(this, "Rakib", Toast.LENGTH_SHORT).show();
             mbase = FirebaseDatabase.getInstance().getReference("News").child("সরকারি বিশ্ববিদ্যালয়");
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            list=new ArrayList<>();
-            newsAdapter=new NewsAdapter(this,list);
-            recyclerView.setAdapter(newsAdapter );
+            retriveCommonPart();
 
-
-
-            mbase.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    list.clear();
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        // Toast.makeText(NewsActivity.this, "Ana", Toast.LENGTH_SHORT).show();
-
-                        NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
-                        if(newsModel != null){
-
-                            list.add(0,newsModel);
-                        }
-
-                    }
-
-                    newsAdapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
 
         }
         if(v.getId()==R.id.cd4){
             category.setText("বেসরকারি বিশ্ববিদ্যালয়");
             //Toast.makeText(this, "Rakib", Toast.LENGTH_SHORT).show();
             mbase = FirebaseDatabase.getInstance().getReference("News").child("বেসরকারি বিশ্ববিদ্যালয়");
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            list=new ArrayList<>();
-            newsAdapter=new NewsAdapter(this,list);
-            recyclerView.setAdapter(newsAdapter );
+            retriveCommonPart();
 
-
-
-            mbase.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    list.clear();
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        // Toast.makeText(NewsActivity.this, "Ana", Toast.LENGTH_SHORT).show();
-
-                        NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
-                        if(newsModel != null){
-
-                            list.add(0,newsModel);
-                        }
-
-                        //Toast.makeText(NewsActivity.this, ""+newsModel.getAuthor(), Toast.LENGTH_SHORT).show();
-
-
-                    }
-
-                    newsAdapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
         }
         if(v.getId()==R.id.cd5){
             category.setText("প্রকৌশল ও বিজ্ঞান-প্রযুক্তি");
             mbase = FirebaseDatabase.getInstance().getReference("News").child("প্রকৌশল ও বিজ্ঞান-প্রযুক্তি");
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            list=new ArrayList<>();
-            newsAdapter=new NewsAdapter(this,list);
-            recyclerView.setAdapter(newsAdapter );
+            retriveCommonPart();
 
-
-
-            mbase.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        // Toast.makeText(NewsActivity.this, "Ana", Toast.LENGTH_SHORT).show();
-                        list.clear();
-                        NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
-                        if(newsModel != null){
-
-                            list.add(0,newsModel);
-                        }
-
-                        //Toast.makeText(NewsActivity.this, ""+newsModel.getAuthor(), Toast.LENGTH_SHORT).show();
-                    }
-
-                    newsAdapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
         }
         if(v.getId()==R.id.cd6){
             category.setText("উচ্চ শিক্ষা");
             mbase = FirebaseDatabase.getInstance().getReference("News").child("উচ্চ শিক্ষা");
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            list=new ArrayList<>();
-            newsAdapter=new NewsAdapter(this,list);
-            recyclerView.setAdapter(newsAdapter );
+            retriveCommonPart();
 
-
-
-            mbase.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        // Toast.makeText(NewsActivity.this, "Ana", Toast.LENGTH_SHORT).show();
-                        list.clear();
-                        NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
-                        if(newsModel != null){
-
-                            list.add(0,newsModel);
-                        }
-
-                        //Toast.makeText(NewsActivity.this, ""+newsModel.getAuthor(), Toast.LENGTH_SHORT).show();
-                    }
-
-                    newsAdapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
         }
         if(v.getId()==R.id.cd7){
             category.setText("উদ্যোক্তা");
             mbase = FirebaseDatabase.getInstance().getReference("News").child("উদ্যোক্তা");
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            list=new ArrayList<>();
-            newsAdapter=new NewsAdapter(this,list);
-            recyclerView.setAdapter(newsAdapter );
-
-
-
-            mbase.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        // Toast.makeText(NewsActivity.this, "Ana", Toast.LENGTH_SHORT).show();
-                        list.clear();
-                        NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
-                        if(newsModel != null){
-
-                            list.add(0,newsModel);
-                        }
-
-                        //Toast.makeText(NewsActivity.this, ""+newsModel.getAuthor(), Toast.LENGTH_SHORT).show();
-                    }
-
-                    newsAdapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
+            retriveCommonPart();
         }
         if(v.getId()==R.id.cd8){
             category.setText("চাকরি");
             mbase = FirebaseDatabase.getInstance().getReference("News").child("চাকরি");
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            list=new ArrayList<>();
-            newsAdapter=new NewsAdapter(this,list);
-            recyclerView.setAdapter(newsAdapter );
-
-
-
-            mbase.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        // Toast.makeText(NewsActivity.this, "Ana", Toast.LENGTH_SHORT).show();
-                        list.clear();
-                        NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
-                        if(newsModel != null){
-
-                            list.add(0,newsModel);
-                        }
-
-                        //Toast.makeText(NewsActivity.this, ""+newsModel.getAuthor(), Toast.LENGTH_SHORT).show();
-                    }
-
-                    newsAdapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
+            retriveCommonPart();
         }
         if(v.getId()==R.id.cd9){
             category.setText("ফ্রিল্যান্সিং");
             mbase = FirebaseDatabase.getInstance().getReference("News").child("ফ্রিল্যান্সিং");
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            list=new ArrayList<>();
-            newsAdapter=new NewsAdapter(this,list);
-            recyclerView.setAdapter(newsAdapter );
-
-
-
-            mbase.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        // Toast.makeText(NewsActivity.this, "Ana", Toast.LENGTH_SHORT).show();
-                        list.clear();
-                        NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
-                        if(newsModel != null){
-
-                            list.add(0,newsModel);
-                        }
-
-                        //Toast.makeText(NewsActivity.this, ""+newsModel.getAuthor(), Toast.LENGTH_SHORT).show();
-                    }
-
-                    newsAdapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
+            retriveCommonPart();
         }
-        if(v.getId()==R.id.cd10){category.setText("রিমোট জব");
+        if(v.getId()==R.id.cd10){
+            category.setText("রিমোট জব");
             mbase = FirebaseDatabase.getInstance().getReference("News").child("রিমোট জব");
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            list=new ArrayList<>();
-            newsAdapter=new NewsAdapter(this,list);
-            recyclerView.setAdapter(newsAdapter );
-
-
-            mbase.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        // Toast.makeText(NewsActivity.this, "Ana", Toast.LENGTH_SHORT).show();
-
-                        NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
-                        if(newsModel != null){
-
-                            list.add(0,newsModel);
-                        }
-
-                        //Toast.makeText(NewsActivity.this, ""+newsModel.getAuthor(), Toast.LENGTH_SHORT).show();
-                    }
-
-                    newsAdapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
+            retriveCommonPart();
         }
     }
 
