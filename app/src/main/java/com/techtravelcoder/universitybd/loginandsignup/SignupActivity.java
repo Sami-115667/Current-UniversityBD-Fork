@@ -41,7 +41,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     private FirebaseAuth auth;
-    private String key ;
+    private String uid ;
     private EditText name,email,password,reEnterPassword,phone ;
     private AppCompatButton signup;
     private ProgressDialog progressDialog;
@@ -197,23 +197,20 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                     FirebaseUser user = auth.getCurrentUser();
 
                     if (user != null) {
-                        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> emailTask) {
-                                if (emailTask.isSuccessful()) {
-                                    Toasty.success(SignupActivity.this, "Registration Successful", Toast.LENGTH_SHORT, true).show();
-                                    Toasty.info(SignupActivity.this, "Verification email sent. Please check your email.", Toast.LENGTH_SHORT, true).show();
+                        user.sendEmailVerification().addOnCompleteListener(emailTask -> {
+                            if (emailTask.isSuccessful()) {
+                                Toasty.success(SignupActivity.this, "Registration Successful", Toast.LENGTH_SHORT, true).show();
+                                Toasty.info(SignupActivity.this, "Verification email sent. Please check your email.", Toast.LENGTH_SHORT, true).show();
 
-                                    key = databaseReference.push().getKey();
-                                    addDataToFireBase(userModel);
 
-                                    auth.signOut();
-                                    Intent intent = new Intent(SignupActivity.this, UserLoginActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    Toasty.error(SignupActivity.this, "Error sending verification email.", Toast.LENGTH_SHORT, true).show();
-                                }
+                                addDataToFireBase(userModel);
+
+                                auth.signOut();
+                                Intent intent = new Intent(SignupActivity.this, UserLoginActivity.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toasty.error(SignupActivity.this, "Error sending verification email.", Toast.LENGTH_SHORT, true).show();
                             }
                         });
                     }
@@ -225,8 +222,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void addDataToFireBase( UserModel userModel) {
-        key = databaseReference.push().getKey();
-        databaseReference.child(key).setValue(userModel);
+        uid=FirebaseAuth.getInstance().getUid();
+        databaseReference.child(uid).setValue(userModel);
         Toasty.success(this, "Information Added Successfully", Toast.LENGTH_SHORT, true).show();
     }
 

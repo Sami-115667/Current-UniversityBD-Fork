@@ -856,5 +856,10 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
             Intent intent=new Intent(getApplicationContext(),NewsActivity.class);
             startActivity(intent);
         }
+        if(v.getId()==R.id.students_community_service_id){
+            Intent intent=new Intent(getApplicationContext(),StudentCommunityActivity.class);
+            startActivity(intent);
+        }
+
     }
 }

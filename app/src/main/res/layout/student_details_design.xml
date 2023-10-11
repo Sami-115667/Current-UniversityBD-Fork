@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/back"
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="@color/back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="10dp"
+            android:background="@color/back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:id="@+id/sd_name_id_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:drawableLeft="@drawable/name_teacherinfo"
+                android:padding="5dp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"></TextView>
+
+
+            <TextView
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:id="@+id/sd_university_id_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:drawableLeft="@drawable/uni"
+                android:padding="5dp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"></TextView>
+            <TextView
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:id="@+id/sd_dept_id_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:drawableLeft="@drawable/set_dept_dr"
+                android:padding="5dp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"></TextView>
+
+            <TextView
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:id="@+id/sd_blood_id_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:drawableLeft="@drawable/blood"
+                android:padding="5dp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"></TextView>
+            <TextView
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:id="@+id/sd_hall_id_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:drawableLeft="@drawable/hall_dr"
+                android:padding="5dp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"></TextView>
+            <TextView
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:id="@+id/sd_room_id_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:drawableLeft="@drawable/number_dr"
+                android:padding="5dp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"></TextView>
+
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

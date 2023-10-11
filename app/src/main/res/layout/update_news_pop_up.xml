@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="#B9050721"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -17,7 +17,7 @@
             android:textSize="12dp"
             android:textStyle="bold"
 
-            android:textColor="@color/coloryellow"
+            android:textColor="@color/blue"
             android:text="Author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -45,7 +45,7 @@
             android:layout_marginLeft="15dp"
             android:textSize="12dp"
             android:textStyle="bold"
-            android:textColor="@color/coloryellow"
+            android:textColor="@color/blue"
             android:text="Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -72,7 +72,7 @@
             android:textSize="12dp"
             android:textStyle="bold"
 
-            android:textColor="@color/coloryellow"
+            android:textColor="@color/blue"
             android:text="Date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -98,7 +98,7 @@
             android:layout_marginLeft="15dp"
             android:textSize="12dp"
             android:textStyle="bold"
-            android:textColor="@color/coloryellow"
+            android:textColor="@color/blue"
             android:text="IMAGE "
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -123,7 +123,7 @@
             android:layout_marginLeft="15dp"
             android:textSize="12dp"
             android:textStyle="bold"
-            android:textColor="@color/coloryellow"
+            android:textColor="@color/blue"
             android:text="DESCRIPTION"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -149,13 +149,14 @@
             android:id="@+id/post_Id"
             android:foreground="@drawable/uni_background"
             android:clickable="true"
+            android:backgroundTint="@color/documentary"
             android:background="@drawable/edit_text_background"
             android:layout_marginBottom="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:textStyle="bold"
-            android:textColor="@color/documentary"
-            android:textSize="25dp"
+            android:textColor="@color/green"
+            android:textSize="20dp"
             android:text="POST"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

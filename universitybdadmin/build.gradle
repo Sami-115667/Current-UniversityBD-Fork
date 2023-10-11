@@ -69,4 +69,8 @@ dependencies {
     //circular iamge
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    //meow
+    implementation 'com.etebarian:meow-bottom-navigation:1.3.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61"
+
 }
