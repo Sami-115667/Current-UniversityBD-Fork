@@ -3,15 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/back"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.StudentCommunityActivity">
 
    <LinearLayout
+       android:background="@color/back"
        android:id="@+id/linear"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:background="@color/white"
-       android:orientation="horizontal"
+       android:orientation="vertical"
        app:layout_constraintTop_toTopOf="parent" />
 
    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
@@ -19,7 +21,6 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_alignParentBottom="true"
-       app:layout_constraintBottom_toBottomOf="parent"
        app:mbn_backgroundBottomColor="@color/blue"
        app:mbn_circleColor="@color/white"
        app:mbn_countBackgroundColor="#D500F9"

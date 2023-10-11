@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -34,6 +36,25 @@ public class StudentDetailsFragment extends Fragment {
     DatabaseReference databaseReference;
     ArrayList<UserModel> itemlist ;
     StudentDetailsFragmentAdapter studentDetailsFragmentAdapter;
+    String[] countries = {
+            "University of Dhaka",
+            "University of Barisal",
+            "Chittagong University",
+            "Jahangirnagar University",
+            "Rajshahi University",
+            "Khulna University",
+            "Islamic University, Bangladesh",
+            "University of Dhaka",
+            "Comilla University",
+            "Bangladesh Open University",
+            "Jagannath University",
+            "Jatiya Kabi Kazi Nazrul Islam University",
+            "Begum Rokeya University, Rangpur",
+            "Begum Rokeya University, Rangpur",
+            "Rabindra University, Bangladesh",
+            "Sheikh Hasina University"
+    };
+
 
     public StudentDetailsFragment() {
         // Required empty public constructor
@@ -48,6 +69,11 @@ public class StudentDetailsFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_student_details, container, false);
         recyclerView=view.findViewById(R.id.student_details_fragment_rv_id);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        AutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.auto_tv_id);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, countries);
+        autoCompleteTextView.setAdapter(adapter);
+
 
         databaseReference=FirebaseDatabase.getInstance().getReference("User Information");
 

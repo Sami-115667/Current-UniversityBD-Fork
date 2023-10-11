@@ -27,6 +27,13 @@ public class StudentCommunityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_community);
 
+        int color= 0;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            color = getColor(R.color.service_bar);
+        }
+        getWindow().setStatusBarColor(color);
+
+
         bottomNavigation=findViewById(R.id.meow_id);
 
         FragmentManager fragmentManager=getSupportFragmentManager();

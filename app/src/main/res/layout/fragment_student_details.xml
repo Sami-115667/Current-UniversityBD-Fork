@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/back"
     android:layout_height="match_parent"
-    tools:context=".fragment.StudentDetailsFragment">
+    tools:context=".fragment.StudentDetailsFragment"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <AutoCompleteTextView
+                android:padding="10dp"
+                android:background="@drawable/serchbar_background"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Type a country"
+                android:id="@+id/auto_tv_id"/>
+            <AutoCompleteTextView
+                android:padding="10dp"
+                android:background="@drawable/serchbar_background"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Type a country"
+/>
+            <AutoCompleteTextView
+                android:padding="10dp"
+                android:background="@drawable/serchbar_background"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Type a country"
+                />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/student_details_fragment_rv_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
 
-</FrameLayout>
+</LinearLayout>
