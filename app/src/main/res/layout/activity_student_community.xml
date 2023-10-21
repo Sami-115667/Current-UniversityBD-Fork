@@ -5,30 +5,40 @@
     android:layout_width="match_parent"
     android:background="@color/back"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".activity.StudentCommunityActivity">
 
-   <LinearLayout
-       android:background="@color/back"
-       android:id="@+id/linear"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical"
-       app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout
+        android:background="@color/back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frame_layout">
 
-   <com.etebarian.meowbottomnavigation.MeowBottomNavigation
-       android:id="@+id/meow_id"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_alignParentBottom="true"
-       app:mbn_backgroundBottomColor="@color/blue"
-       app:mbn_circleColor="@color/white"
-       app:mbn_countBackgroundColor="#D500F9"
-       app:mbn_countTextColor="#ffffff"
-       app:mbn_defaultIconColor="@color/white"
-       app:mbn_rippleColor="#2FE11616"
-       app:mbn_selectedIconColor="@color/ruby"
-       app:mbn_shadowColor="@color/allert_back_upper" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:background="@color/back"
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_id"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        app:itemIconTint="@drawable/bottom_nav_item_color"
+        app:itemTextColor="@drawable/bottom_nav_item_color"
+        app:menu="@menu/bottom_menu"
+
+
+        />
+
+
 
 
 

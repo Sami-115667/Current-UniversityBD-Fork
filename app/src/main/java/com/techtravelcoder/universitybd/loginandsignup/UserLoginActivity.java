@@ -128,7 +128,8 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
 
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
-                    if (user != null && user.isEmailVerified()) {
+                    // user.isEmailVerified()
+                    if (user != null ) {
                         Toasty.success(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT, true).show();
 
                         Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);

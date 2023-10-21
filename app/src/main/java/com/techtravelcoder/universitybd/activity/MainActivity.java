@@ -129,25 +129,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             remoteimages.add(new SlideModel(data.child("url").getValue().toString(),data.child("title").getValue().toString(), ScaleTypes.FIT));
 
                         imageSlider.setImageList(remoteimages,ScaleTypes.FIT);
-                        imageSlider.setItemClickListener(new ItemClickListener() {
-                            @Override
-                            public void onItemSelected(int i) {
-                                //Toast.makeText(MainActivity.this, ""+remoteimages.get(i).getTitle().toString(), Toast.LENGTH_SHORT).show();
-                                String uni_name = remoteimages.get(i).getTitle().toString().toLowerCase();
-                                String abc =remoteimages.get(i).getImageUrl();
-
-                                Intent intent= new Intent(MainActivity.this,ServiceActivity.class);
-                                intent.putExtra("name", uni_name);
-                                intent.putExtra("imageid", abc);
-                                startActivity(intent);
-
-                            }
-
-                            @Override
-                            public void doubleClick(int i) {
-
-                            }
-                        });
 
                     }
 

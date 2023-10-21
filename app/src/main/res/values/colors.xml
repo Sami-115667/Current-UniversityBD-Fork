@@ -4,6 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green">#8CEC0C</color>
     <color name="blue">#0000FF</color>
+    <color name="custom_dialogue">#E4DADA</color>
+
     <color name="primary">#FFDE03F2</color>
     <color name="service_bar">#FC191E5D</color><!-- FC191E5D-->
     <color name="yellow">#FFFF00</color>
@@ -14,5 +16,18 @@
     <color name="back_upper">#AB202677</color> <!-- AB202677-->
     <color name="allert_back_upper">#CC0A0D39</color><!-- CC0A0D39-->
     <color name="hint_colour">#726F6F</color>
+    <color name="lavender">#8692f7</color>
     <color name="ruby">#E91E63</color>
+
+    <color name="custom_background_color">#FF0000</color> <!-- Replace with your desired background color -->
+    <color name="custom_text_color">#00FF00</color> <!-- Replace with your desired text color -->
+    <color name="custom_icon_color">#0000FF</color> <!-- Replace with your desired icon color -->
+
+
+
+
+    <color name="selected_icon_color">#0000FF</color> <!-- Replace with the selected icon color -->
+    <color name="unselected_icon_color">#FF0000</color> <!-- Replace with the unselected icon color -->
+
+
 </resources>

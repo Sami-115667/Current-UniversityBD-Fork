@@ -137,6 +137,8 @@ public class TeachersInfoService extends AppCompatActivity {
 
             }
         });
+
+
         filteredList = new ArrayList<>(list);
         editText.addTextChangedListener(new TextWatcher() {
             @Override

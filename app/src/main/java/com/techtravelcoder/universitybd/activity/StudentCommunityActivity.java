@@ -1,15 +1,21 @@
 package com.techtravelcoder.universitybd.activity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.fragment.StudentDetailsFragment;
 import com.techtravelcoder.universitybd.user_profile.UserProfileActivity;
@@ -19,8 +25,7 @@ import kotlin.jvm.functions.Function1;
 
 public class StudentCommunityActivity extends AppCompatActivity {
 
-
-    private MeowBottomNavigation bottomNavigation;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,46 +39,42 @@ public class StudentCommunityActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(color);
 
 
-        bottomNavigation=findViewById(R.id.meow_id);
+        bottomNavigationView=findViewById(R.id.bottom_nav_id);
+        bottomNavigationView.setSelectedItemId(R.id.menu_connect_id);
 
-        FragmentManager fragmentManager=getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        StudentDetailsFragment obj= new StudentDetailsFragment();
-        fragmentTransaction.replace(R.id.linear,obj).commit();
+        bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+
+        // as soon as the application opens the first
+        // fragment should be shown to the user
+        // in this case it is algorithm fragment
+        getSupportFragmentManager().beginTransaction().replace(R.id.linear, new StudentDetailsFragment()).commit();
 
 
-
-        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.community));
-        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.name_teacherinfo));
-        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.email_teacherinfo));
-
-        bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
-            @Override
-            public Unit invoke(MeowBottomNavigation.Model model) {
-
-                switch(model.getId())
-                {
-                    case 1:
-                        Toast.makeText(StudentCommunityActivity.this, "1", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-
-                        FragmentManager fragmentManager=getSupportFragmentManager();
-                        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                        StudentDetailsFragment obj= new StudentDetailsFragment();
-                        fragmentTransaction.replace(R.id.linear,obj).commit();
-                        break;
-                    case 3:
-                        FragmentManager fragmentManager1=getSupportFragmentManager();
-                        FragmentTransaction fragmentTransaction1=fragmentManager1.beginTransaction();
-                        StudentDetailsFragment obj1= new StudentDetailsFragment();
-                        fragmentTransaction1.replace(R.id.linear,obj1).commit();
-                        break;
-                }
-                return null;
-            }
-        });
 
 
     }
+
+    private final BottomNavigationView.OnNavigationItemSelectedListener navListener = item -> {
+        Fragment selectedFragment = null;
+
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_connect_id) {
+            selectedFragment = new StudentDetailsFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.linear, selectedFragment).commit();
+
+        }
+        if (itemId == R.id.menu_notification_id) {
+            Toast.makeText(this, "Chat", Toast.LENGTH_SHORT).show();
+        }
+        if (itemId == R.id.menu_serch_id) {
+            Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+//        if (selectedFragment != null ) {
+//            getSupportFragmentManager().beginTransaction().replace(R.id.linear, selectedFragment).commit();
+//        }
+        return true;
+    };
 }

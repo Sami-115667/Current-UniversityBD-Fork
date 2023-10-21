@@ -138,6 +138,31 @@
                         android:layout_height="match_parent" />
 
                 </FrameLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Choose Department"
+                    android:textColor="@color/yellow"
+                    android:textSize="14sp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/edit_text_background"
+                    android:padding="5dp">
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/signUpUniversityDept"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </FrameLayout>
+
 
                 <TextView
                     android:layout_width="wrap_content"

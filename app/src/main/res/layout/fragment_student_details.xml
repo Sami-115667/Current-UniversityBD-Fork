@@ -2,57 +2,58 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/back"
     android:layout_height="match_parent"
     tools:context=".fragment.StudentDetailsFragment"
     android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:titleTextColor="@color/black"
+        app:navigationIcon="@drawable/back_pressed"
+        android:id="@+id/all_community_tolbar"
+        android:background="@color/service_bar"
+        >
+        <TextView
+            android:textSize="18dp"
+            android:layout_marginRight="20dp"
+            android:textColorHint="#473E3E"
+            android:gravity="center_vertical"
+            android:id="@+id/community_search"
+            android:paddingLeft="9dp"
+            android:hint="Search here "
+            android:drawableLeft="@drawable/search_icon"
+            android:background="@drawable/serchbar_background"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"/>
 
 
-    <HorizontalScrollView
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <androidx.core.widget.NestedScrollView
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
-            android:orientation="horizontal"
+            android:gravity="center"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <AutoCompleteTextView
-                android:padding="10dp"
-                android:background="@drawable/serchbar_background"
-                android:textColor="@color/black"
-                android:layout_margin="5dp"
+            android:layout_height="match_parent">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/student_details_fragment_rv_id"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:hint="Type a country"
-                android:id="@+id/auto_tv_id"/>
-            <AutoCompleteTextView
-                android:padding="10dp"
-                android:background="@drawable/serchbar_background"
-                android:textColor="@color/black"
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:hint="Type a country"
-/>
-            <AutoCompleteTextView
-                android:padding="10dp"
-                android:background="@drawable/serchbar_background"
-                android:textColor="@color/black"
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:hint="Type a country"
+                android:layout_height="match_parent"
                 />
-
         </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <!-- TODO: Update blank fragment layout -->
 
-    </HorizontalScrollView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/student_details_fragment_rv_id"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
 
 </LinearLayout>

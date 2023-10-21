@@ -8,141 +8,263 @@
         app:cardBackgroundColor="@color/back"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
-            android:padding="10dp"
-            android:background="@color/back"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:orientation="vertical"
-            >
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:src="@drawable/defaultprofile"
-                android:layout_gravity="center"
-                android:layout_width="120dp"
-                android:layout_height="120dp"/>
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/sd_name_id_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:drawableLeft="@drawable/name_teacherinfo"
-                android:padding="5dp"
-                android:drawablePadding="10dp"
-                android:textColor="@color/white"></TextView>
-
-
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/sd_university_id_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:drawableLeft="@drawable/uni"
-                android:padding="5dp"
-                android:drawablePadding="10dp"
-                android:textColor="@color/white"></TextView>
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/sd_dept_id_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:drawableLeft="@drawable/set_dept_dr"
-                android:padding="5dp"
-                android:drawablePadding="10dp"
-                android:textColor="@color/white"></TextView>
-
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/sd_blood_id_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:drawableLeft="@drawable/blood"
-                android:padding="5dp"
-                android:drawablePadding="10dp"
-                android:textColor="@color/white"></TextView>
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/sd_hall_id_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:drawableLeft="@drawable/hall_dr"
-                android:padding="5dp"
-                android:drawablePadding="10dp"
-                android:textColor="@color/white"></TextView>
-            <TextView
-                android:textStyle="bold"
-                android:id="@+id/sd_room_id_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:drawableLeft="@drawable/number_dr"
-                android:padding="5dp"
-                android:drawablePadding="10dp"
-                android:textColor="@color/white"></TextView>
-
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <LinearLayout
-                android:weightSum="3"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:textSize="20dp"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="8dp"
-                    android:padding="5dp"
-                    android:backgroundTint="@color/green"
-                    android:background="@drawable/edit_text_background"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="Call"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:src="@drawable/defaultprofile"
+                    android:layout_gravity="center"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="6dp"
+                android:padding="10dp"
+                android:backgroundTint="@color/back_upper"
+                android:background="@drawable/edit_text_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:textSize="20dp"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="8dp"
-                    android:padding="5dp"
-                    android:backgroundTint="@color/statusbar"
-                    android:background="@drawable/edit_text_background"
-                    android:gravity="center_horizontal"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:text="Message"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:fontFamily="casual"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:text="Name :"
+                        android:drawableLeft="@drawable/name_teacherinfo"
+                        android:padding="5dp"
+                        android:drawablePadding="5dp"
+                        android:textColor="@color/white"></TextView>
+                    <TextView
+                        android:fontFamily="casual"
+
+                        android:textStyle="bold"
+                        android:id="@+id/sd_name_id_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="5dp"
+                        android:drawablePadding="10dp"
+                        android:textColor="@color/white"></TextView>
+
+                </LinearLayout>
 
 
-                <TextView
-                    android:textSize="20dp"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="8dp"
-                    android:padding="5dp"
-                    android:backgroundTint="@color/ruby"
-                    android:background="@drawable/edit_text_background"
-                    android:gravity="center_horizontal"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:text="News post"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:fontFamily="casual"
+                        android:textStyle="bold"
+                        android:text="University :"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:drawableLeft="@drawable/uni"
+                        android:padding="5dp"
+                        android:drawablePadding="5dp"
+                        android:textColor="@color/white"></TextView>
+                    <TextView
+                        android:fontFamily="casual"
+                        android:textStyle="bold"
+                        android:id="@+id/sd_university_id_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="5dp"
+                        android:textColor="@color/white"></TextView>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:fontFamily="casual"
+                        android:text="Department :"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:drawableLeft="@drawable/set_dept_dr"
+                        android:padding="5dp"
+                        android:drawablePadding="5dp"
+                        android:textColor="@color/white"></TextView>
+                    <TextView
+                        android:fontFamily="casual"
+                        android:textStyle="bold"
+                        android:id="@+id/sd_dept_id_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="5dp"
+                        android:textColor="@color/white"></TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:fontFamily="casual"
+
+                        android:text="Blood Group :"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:drawableLeft="@drawable/blood"
+                        android:padding="5dp"
+                        android:drawablePadding="5dp"
+                        android:textColor="@color/white"></TextView>
+                    <TextView
+                        android:fontFamily="casual"
+                        android:id="@+id/sd_blood_id_tv"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="5dp"
+                        android:textColor="@color/white"></TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:fontFamily="casual"
+                        android:text="Hall Name :"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:drawableLeft="@drawable/hall_dr"
+                        android:padding="5dp"
+                        android:drawablePadding="5dp"
+                        android:textColor="@color/white"></TextView>
+                    <TextView
+                        android:fontFamily="casual"
+                        android:textStyle="bold"
+                        android:id="@+id/sd_hall_id_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="5dp"
+                        android:textColor="@color/white"></TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:fontFamily="casual"
+                        android:text="Room Number :"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:drawableLeft="@drawable/number_dr"
+                        android:padding="5dp"
+                        android:drawablePadding="5dp"
+                        android:textColor="@color/white"></TextView>
+                    <TextView
+                        android:fontFamily="casual"
+                        android:textStyle="bold"
+                        android:id="@+id/sd_room_id_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="5dp"
+                        android:textColor="@color/white"></TextView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/service_bar"
+                    android:weightSum="4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginLeft="2dp"
+                        android:textStyle="bold"
+                        android:drawableLeft="@drawable/call_back"
+                        android:layout_weight="1"
+                        android:layout_marginTop="8dp"
+                        android:padding="5dp"
+                        android:background="@drawable/edit_text_background"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="Call"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginLeft="2dp"
+
+                        android:textStyle="bold"
+                        android:drawableLeft="@drawable/baseline_chat_24"
+                        android:layout_weight="1"
+                        android:layout_marginTop="8dp"
+                        android:padding="5dp"
+                        android:background="@drawable/edit_text_background"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="Chat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_marginLeft="2dp"
+                        android:drawableLeft="@drawable/baseline_people_24"
+                        android:layout_weight="1"
+                        android:layout_marginTop="8dp"
+                        android:padding="5dp"
+                        android:background="@drawable/edit_text_background"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="See Profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginLeft="2dp"
+                        android:textStyle="bold"
+                        android:drawableLeft="@drawable/share"
+                        android:layout_weight="1"
+                        android:layout_marginTop="8dp"
+                        android:padding="5dp"
+                        android:background="@drawable/edit_text_background"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="Message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+
+
 
             </LinearLayout>
 
 
         </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
 

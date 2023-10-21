@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
+            android:layout_margin="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -22,6 +23,7 @@
                 android:layout_height="wrap_content"/>
 
             <EditText
+                android:backgroundTint="@color/custom_dialogue"
                 android:padding="10dp"
                 android:gravity="top"
                 android:id="@+id/update_name_id_ed"
@@ -32,7 +34,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/edit_text_background"
+                android:background="@drawable/serchbar_background"
                 android:drawablePadding="5dp"
                 android:inputType="textMultiLine"
                 android:minLines="10"
@@ -48,14 +50,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <FrameLayout
+                android:backgroundTint="@color/custom_dialogue"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/edit_text_background"
+                android:background="@drawable/serchbar_background"
                 android:padding="5dp">
 
                 <androidx.appcompat.widget.AppCompatSpinner
+                    android:backgroundTint="@color/black"
                     android:id="@+id/update_uni_id_tv"
 
                     android:layout_width="match_parent"
@@ -75,14 +79,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <FrameLayout
+                android:backgroundTint="@color/custom_dialogue"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/edit_text_background"
+                android:background="@drawable/serchbar_background"
                 android:padding="5dp">
 
                 <androidx.appcompat.widget.AppCompatSpinner
+                    android:backgroundTint="@color/black"
+
                     android:id="@+id/update_dept_id_tv"
 
                     android:layout_width="match_parent"
@@ -99,6 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:backgroundTint="@color/custom_dialogue"
                 android:padding="10dp"
                 android:gravity="top"
                 android:id="@+id/update_mobile_id_tv"
@@ -109,7 +117,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/edit_text_background"
+                android:background="@drawable/serchbar_background"
                 android:drawablePadding="5dp"
                 android:lines="10"
                 android:inputType="textMultiLine"
@@ -126,14 +134,16 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:backgroundTint="@color/custom_dialogue"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/edit_text_background"
+                android:background="@drawable/serchbar_background"
                 android:padding="5dp">
 
                 <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/update_blood_id_tv"
 
+                    android:id="@+id/update_blood_id_tv"
+                    android:backgroundTint="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
@@ -149,6 +159,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:backgroundTint="@color/custom_dialogue"
                 android:padding="10dp"
                 android:gravity="top"
                 android:id="@+id/update_hallName_id_tv"
@@ -159,7 +170,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/edit_text_background"
+                android:background="@drawable/serchbar_background"
                 android:drawablePadding="5dp"
                 android:lines="10"
                 android:inputType="textMultiLine"
@@ -173,6 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:backgroundTint="@color/custom_dialogue"
                 android:padding="10dp"
                 android:gravity="top"
                 android:id="@+id/update_hallNumber_id_tv"
@@ -183,7 +195,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/edit_text_background"
+                android:background="@drawable/serchbar_background"
                 android:drawablePadding="5dp"
                 android:lines="10"
                 android:inputType="textMultiLine"
@@ -193,7 +205,7 @@
                 android:id="@+id/update_profile_id_ab"
                 android:foreground="@drawable/uni_background"
                 android:clickable="true"
-                android:backgroundTint="@color/ruby"
+                android:backgroundTint="@color/statusbar"
                 android:background="@drawable/edit_text_background"
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="10dp"

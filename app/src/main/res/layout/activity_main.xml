@@ -444,7 +444,7 @@
         android:textColorSecondary="@color/documentary"
         android:layout_gravity="start"
         app:itemIconPadding="8dp"
-        android:visibility="visible"
+        android:visibility="gone"
         app:itemTextColor="@color/white"
         app:itemIconTint="#FFC107"
         android:background="@color/back_upper"

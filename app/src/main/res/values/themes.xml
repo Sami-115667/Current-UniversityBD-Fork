@@ -1,8 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.UniversityBD" parent="Theme.Material3.DayNight.NoActionBar">
+
         <item name="android:selectableItemBackground">@drawable/rip1</item>
-        <item name="android:navigationBarColor">#F613316B</item>
+        <item name="android:navigationBarColor">@color/white</item>
         <item name="colorControlNormal">#FCB8B4B8</item>
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
@@ -12,6 +13,17 @@
         <item name="android:background">@color/back_upper</item>
         <!-- Customize other attributes as needed -->
     </style>
+
+    <style name="CustomBottomNavigationStyle">
+        <item name="android:background">@color/white</item> <!-- Change the background color -->
+        <item name="itemTextColor">@color/back</item> <!-- Change the text color -->
+        <item name="itemIconTint">@color/ruby</item> <!-- Change the icon color -->
+    </style>
+
+
+
+
+
 
 
     <style name="Theme.UniversityBD" parent="Base.Theme.UniversityBD" />

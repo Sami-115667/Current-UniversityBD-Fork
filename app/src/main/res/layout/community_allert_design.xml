@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_width="match_parent"
+            android:backgroundTint="#E4DADA"
+            android:layout_height="50dp"
+            android:background="@drawable/serchbar_background"
+            android:padding="5dp">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:backgroundTint="@color/black"
+                android:padding="10dp"
+                android:id="@+id/edit_uni_id"
+               android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+
+
+        <FrameLayout
+
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="#E4DADA"
+            android:background="@drawable/serchbar_background"
+            android:padding="5dp">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:backgroundTint="@color/black"
+                android:padding="10dp"
+                android:id="@+id/edit_dept_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:backgroundTint="#E4DADA"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/serchbar_background"
+            android:padding="5dp">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:backgroundTint="@color/black"
+                android:padding="10dp"
+                android:id="@+id/edit_blood_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <TextView
+            android:textStyle="bold"
+            android:backgroundTint="@color/blue"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/search_id"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:padding="7dp"
+            android:background="@drawable/edit_text_background"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:text="Search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+</LinearLayout>
