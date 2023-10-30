@@ -23,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.cgpacalculator.SemesterActivity;
 import com.techtravelcoder.universitybd.service.DocumentaryService;
+import com.techtravelcoder.universitybd.service.HallServiceActivity;
 import com.techtravelcoder.universitybd.service.TeachersInfoService;
 
 public class ServiceActivity extends AppCompatActivity implements View.OnClickListener  {
@@ -842,7 +843,9 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
 
 
         if(v.getId()==R.id.hall_service_id){
-
+            Intent intent=new Intent(getApplicationContext(), HallServiceActivity.class);
+            intent.putExtra("name",name);
+            startActivity(intent);
         }
 
 
@@ -850,6 +853,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         if(v.getId()==R.id.cgpa_calculator_service_id){
             Intent intent=new Intent(getApplicationContext(), SemesterActivity.class);
             startActivity(intent);
+
         }
 
         if(v.getId()==R.id.current_news_id){

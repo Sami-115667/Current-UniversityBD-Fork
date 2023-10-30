@@ -4,27 +4,10 @@ import android.widget.EditText;
 
 public class UserModel {
 
-    String userName,userPassword,userEmail,userPhoneNumber,userUniversity,userBloodGroup,userDept,userHall,userRoom,userImage;
+    String userName,userPassword,userEmail,userPhoneNumber,userUniversity,userBloodGroup,userDept,userHall,userRoom,image1,image2;
 
-    public UserModel(String userName, String userPassword, String userEmail, String userPhoneNumber, String userUniversity, String userBloodGroup, String userDept) {
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userEmail = userEmail;
-        this.userPhoneNumber = userPhoneNumber;
-        this.userUniversity = userUniversity;
-        this.userBloodGroup = userBloodGroup;
-        this.userDept = userDept;
-    }
 
-    public String getUserImage() {
-        return userImage;
-    }
-
-    public void setUserImage(String userImage) {
-        this.userImage = userImage;
-    }
-
-    public UserModel(String userName, String userPassword, String userEmail, String userPhoneNumber, String userUniversity, String userBloodGroup, String userDept, String userHall, String userRoom, String userImage) {
+    public UserModel(String userName, String userPassword, String userEmail, String userPhoneNumber, String userUniversity, String userBloodGroup, String userDept, String userHall, String userRoom, String image1, String image2) {
         this.userName = userName;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
@@ -34,7 +17,18 @@ public class UserModel {
         this.userDept = userDept;
         this.userHall = userHall;
         this.userRoom = userRoom;
-        this.userImage = userImage;
+        this.image1 = image1;
+        this.image2 = image2;
+    }
+
+    public UserModel(String userName, String userPassword, String userEmail, String userPhoneNumber, String userUniversity, String userBloodGroup, String userDept) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+        this.userPhoneNumber = userPhoneNumber;
+        this.userUniversity = userUniversity;
+        this.userBloodGroup = userBloodGroup;
+        this.userDept = userDept;
     }
 
     public UserModel(String userName, String userPassword, String userEmail, String userPhoneNumber, String userUniversity, String userBloodGroup, String userDept, String userHall, String userRoom) {
@@ -49,17 +43,8 @@ public class UserModel {
         this.userRoom = userRoom;
     }
 
-    public UserModel(String userName, String userPassword, String userEmail, String userPhoneNumber, String userUniversity, String userBloodGroup) {
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userEmail = userEmail;
-        this.userPhoneNumber = userPhoneNumber;
-        this.userUniversity = userUniversity;
-        this.userBloodGroup = userBloodGroup;
-    }
 
-    public UserModel(){
-
+    public UserModel() {
     }
 
     public String getUserName() {
@@ -132,5 +117,21 @@ public class UserModel {
 
     public void setUserRoom(String userRoom) {
         this.userRoom = userRoom;
+    }
+
+    public String getImage1() {
+        return image1;
+    }
+
+    public void setImage1(String image1) {
+        this.image1 = image1;
+    }
+
+    public String getImage2() {
+        return image2;
+    }
+
+    public void setImage2(String image2) {
+        this.image2 = image2;
     }
 }

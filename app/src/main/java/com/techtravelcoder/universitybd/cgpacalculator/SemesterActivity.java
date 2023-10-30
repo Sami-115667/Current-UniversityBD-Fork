@@ -42,15 +42,18 @@ import es.dmoral.toasty.Toasty;
 public class SemesterActivity extends AppCompatActivity {
 
     AppCompatButton button ,cgpaStr;
+
     LinearLayout linearLayout;
     List<String> list;
     List<String> semesterList;
     Toolbar toolbar;
     Double ans=0.0;
+
     String semester,key;
     AppCompatSpinner appCompatSpinner;
     Double sum=0.0 ,credit_sum=0.0 ;
-   FirebaseAuth firebaseAuth;
+    FirebaseAuth firebaseAuth;
+    List<View>addView ;
 
 
     @Override
@@ -65,6 +68,7 @@ public class SemesterActivity extends AppCompatActivity {
 
 
 
+        addView=new ArrayList<>();
         button=findViewById(R.id.add_button);
         cgpaStr=findViewById(R.id.calculate_cgpa);
         linearLayout=findViewById(R.id.linerar_id);
@@ -77,6 +81,7 @@ public class SemesterActivity extends AppCompatActivity {
 
 
         setSupportActionBar(toolbar);
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -84,7 +89,6 @@ public class SemesterActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -177,6 +181,8 @@ public class SemesterActivity extends AppCompatActivity {
 
         ArrayAdapter arrayAdapter= new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,list);
         grade.setAdapter(arrayAdapter);
+        addView.add(cview);
+
 
 
 
@@ -195,8 +201,12 @@ public class SemesterActivity extends AppCompatActivity {
     }
 
     private void remove(View v){
+
         linearLayout.removeView(v);
+
     }
+
+
 
     private void CalculateCGPA(){
 
@@ -324,11 +334,16 @@ public class SemesterActivity extends AppCompatActivity {
         // Set the custom layout to the AlertDialog Builder
         alertDialogBuilder.setView(dialogView);
         AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.setCancelable(false);
 
 
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for(View dView : addView){
+                    linearLayout.removeView(dView);
+                }
+                addView.clear();
                 alertDialog.dismiss();
             }
         });
@@ -336,6 +351,7 @@ public class SemesterActivity extends AppCompatActivity {
 
         alertDialog.show();
     }
+
 
     private void addDataToFirebase(double sum, double creditSum, double cgpa) {
         CGPAModel cgmodel = new CGPAModel(semester, sum, creditSum, cgpa);
@@ -348,7 +364,6 @@ public class SemesterActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 key = databaseRef.push().getKey();
                 databaseRef.child(key).setValue(cgmodel);
-                Toast.makeText(SemesterActivity.this, "Data Added", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -357,5 +372,6 @@ public class SemesterActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -22,12 +24,15 @@ import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.adapter.CGPADetailsAdapter;
 import com.techtravelcoder.universitybd.adapter.TeacherInfoAdapter;
+import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
 import com.techtravelcoder.universitybd.model.CGPADetailsModel;
 import com.techtravelcoder.universitybd.model.TeacherInfoModel;
 
 import java.util.ArrayList;
 
 public class CGPADetailsActivity extends AppCompatActivity {
+
+    NetworkChangeListener networkChangeListener=new NetworkChangeListener();
 
     RecyclerView recyclerView;
     FirebaseDatabase firebaseDatabase;
@@ -109,5 +114,27 @@ public class CGPADetailsActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        IntentFilter intentFilter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener,intentFilter);
+        super.onStart();
+    }
 
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }

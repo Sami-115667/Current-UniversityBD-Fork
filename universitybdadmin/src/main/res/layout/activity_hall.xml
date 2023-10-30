@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/back"
+    android:layout_margin="10dp"
+    android:layout_height="match_parent"
+    tools:context=".hall.HallActivity">
+    <FrameLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="5dp">
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/hall_university_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:weightSum="5"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:scaleType="centerInside"
+            android:id="@+id/hall_img1"
+            android:src="@drawable/baseline_camera_alt_24"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_background"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <ImageView
+            android:scaleType="centerInside"
+
+            android:id="@+id/hall_img2"
+            android:src="@drawable/baseline_camera_alt_24"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_background"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <ImageView
+            android:scaleType="centerInside"
+
+            android:id="@+id/hall_img3"
+            android:src="@drawable/baseline_camera_alt_24"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_background"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <ImageView
+            android:scaleType="centerInside"
+            android:id="@+id/hall_img4"
+            android:src="@drawable/baseline_camera_alt_24"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_background"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <ImageView
+            android:scaleType="centerInside"
+            android:id="@+id/hall_img5"
+            android:src="@drawable/baseline_camera_alt_24"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_background"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+
+    </LinearLayout>
+    <EditText
+        android:id="@+id/hall_ed0"
+        android:padding="10dp"
+        android:gravity="top"
+        android:hint="Write Hall name"
+        android:textColorHint="@color/hint_colour"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="16dp"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/edit_text_background"
+        android:drawablePadding="5dp"
+        android:minLines="20"
+        android:inputType="textMultiLine"
+        android:paddingLeft="5dp" />
+
+
+    <EditText
+        android:id="@+id/hall_ed1"
+        android:padding="10dp"
+        android:gravity="top"
+        android:hint="Write here"
+        android:textColorHint="@color/hint_colour"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="16dp"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/edit_text_background"
+        android:drawablePadding="5dp"
+        android:minLines="20"
+        android:inputType="textMultiLine"
+        android:paddingLeft="5dp" />
+
+    <EditText
+        android:id="@+id/hall_ed2"
+        android:padding="10dp"
+        android:gravity="top"
+        android:hint="Write here"
+        android:textColorHint="@color/hint_colour"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="16dp"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/edit_text_background"
+        android:drawablePadding="5dp"
+        android:minLines="20"
+        android:inputType="textMultiLine"
+        android:paddingLeft="5dp" />
+
+    <EditText
+        android:id="@+id/hall_ed3"
+        android:padding="10dp"
+        android:gravity="top"
+        android:hint="Write here"
+        android:textColorHint="@color/hint_colour"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="16dp"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/edit_text_background"
+        android:drawablePadding="5dp"
+        android:minLines="20"
+        android:inputType="textMultiLine"
+        android:paddingLeft="5dp" />
+    <EditText
+        android:id="@+id/hall_ed4"
+        android:padding="10dp"
+        android:gravity="top"
+        android:hint="Write here"
+        android:textColorHint="@color/hint_colour"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="16dp"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/edit_text_background"
+        android:drawablePadding="5dp"
+        android:minLines="20"
+        android:inputType="textMultiLine"
+        android:paddingLeft="5dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/hallPostId"
+        android:foreground="@drawable/uni_background"
+        android:clickable="true"
+        android:backgroundTint="@color/statusbar"
+        android:background="@drawable/edit_text_background"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/documentary"
+        android:textSize="20dp"
+        android:text="POST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+
+
+</LinearLayout>

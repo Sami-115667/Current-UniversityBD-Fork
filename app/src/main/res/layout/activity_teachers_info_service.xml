@@ -45,7 +45,6 @@
         android:id="@+id/loadingView"
         android:layout_width="300dp"
         android:layout_height="550dp"
-        app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loading"
         />

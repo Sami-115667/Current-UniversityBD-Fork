@@ -1,5 +1,6 @@
 package com.techtravelcoder.universitybd.adapter;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -21,6 +22,7 @@ import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.activity.NewsActivity;
 import com.techtravelcoder.universitybd.activity.ServiceActivity;
 import com.techtravelcoder.universitybd.cgpacalculator.CGPADetailsActivity;
+import com.techtravelcoder.universitybd.cgpacalculator.SemesterActivity;
 import com.techtravelcoder.universitybd.model.CGPADetailsModel;
 
 import java.text.DecimalFormat;
@@ -75,19 +77,36 @@ public class CGPADetailsAdapter extends RecyclerView.Adapter<CGPADetailsAdapter.
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(context);
-                builder.setTitle("Are you delete this teacher information");
+                builder.setTitle("Are you delete this Semester Details");
                 builder.setMessage("Data can't be undo ");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
+                        item.remove(position);
+                        notifyDataSetChanged();
+
+                        continiousSumCredit = 0.0;
+                        continousSumGradePoint = 0.0;
+
+                        // Recalculate cumulative values for the updated list
+                        for (CGPADetailsModel listItem : item) {
+                            continiousSumCredit += listItem.getTotalCredit();
+                            continousSumGradePoint += listItem.getTotalGradePoint();
+                        }
+
                         FirebaseDatabase.getInstance().getReference("CGPA Details").child(model.getUid()).
                                 child(model.getKey()).removeValue();
 
                         Toast.makeText(context, "Delete Successful...", Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(context, CGPADetailsActivity.class);
+
+                        Intent intent = new Intent(context, SemesterActivity.class);
                         context.startActivity(intent);
+                        ((Activity) context).finish(); // Finish the current activity
+
                     }
+
+
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
@@ -103,6 +122,8 @@ public class CGPADetailsAdapter extends RecyclerView.Adapter<CGPADetailsAdapter.
 
 
     }
+
+
 
     @Override
     public int getItemCount() {

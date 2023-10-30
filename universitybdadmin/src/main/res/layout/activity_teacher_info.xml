@@ -35,7 +35,7 @@
         android:id="@+id/allTeacherInfoId"
         android:foreground="@drawable/uni_background"
         android:clickable="true"
-        android:background="@drawable/edit_text_background"
+        android:background="@drawable/serchbar_background"
         android:backgroundTint="@color/primary"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="7dp"
@@ -43,23 +43,32 @@
         android:textStyle="bold"
         android:padding="10dp"
         android:textColor="@color/white"
-        android:textSize="16dp"
+        android:textSize="14dp"
         android:text="See all information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
 
-    <TextView
-        android:layout_marginTop="2dp"
-        android:textAllCaps="true"
+    <EditText
+        android:padding="10dp"
+        android:gravity="top"
+        android:hint="Enter teacher description"
+        android:id="@+id/t_desc_id"
+        android:textColorHint="@color/hint_colour"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:layout_marginLeft="15dp"
         android:textSize="16dp"
-        android:textStyle="bold"
 
-        android:textColor="@color/coloryellow"
-        android:text="Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/edit_text_background"
+        android:drawablePadding="5dp"
+        android:minLines="20"
+        android:inputType="textMultiLine"
+        android:paddingLeft="5dp" />
+
     <EditText
         android:padding="10dp"
         android:gravity="top"
@@ -70,7 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/edit_text_background"
         android:drawablePadding="5dp"
@@ -78,15 +87,6 @@
         android:minLines="10"
         android:paddingLeft="5dp" />
 
-    <TextView
-        android:textAllCaps="true"
-        android:layout_marginLeft="15dp"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:textColor="@color/coloryellow"
-        android:text="Department"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
     <EditText
         android:padding="10dp"
         android:textSize="16dp"
@@ -98,21 +98,13 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/edit_text_background"
         android:drawablePadding="5dp"
         android:inputType="textMultiLine"
         android:minLines="5"
         android:paddingLeft="5dp" />
-    <TextView
-        android:layout_marginLeft="15dp"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:textColor="@color/coloryellow"
-        android:text="GMAIL"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
     <EditText
         android:padding="10dp"
         android:gravity="top"
@@ -124,20 +116,12 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/edit_text_background"
         android:drawablePadding="5dp"
         android:inputType="textMultiLine"
         android:paddingLeft="5dp" />
-    <TextView
-        android:layout_marginLeft="15dp"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:textColor="@color/coloryellow"
-        android:text="MOBILE NUMBER"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
     <EditText
         android:padding="10dp"
         android:gravity="top"
@@ -150,21 +134,13 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/edit_text_background"
         android:drawablePadding="5dp"
         android:lines="10"
         android:inputType="textMultiLine"
         android:paddingLeft="5dp" />
-    <TextView
-        android:layout_marginLeft="15dp"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:textColor="@color/coloryellow"
-        android:text="IMAGE LINK"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
     <EditText
         android:padding="10dp"
         android:gravity="top"
@@ -177,38 +153,11 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/edit_text_background"
         android:drawablePadding="5dp"
         android:lines="10"
-        android:inputType="textMultiLine"
-        android:paddingLeft="5dp" />
-    <TextView
-        android:layout_marginLeft="15dp"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:textColor="@color/coloryellow"
-        android:text="DESCRIPTION"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:padding="10dp"
-        android:gravity="top"
-        android:hint="Enter teacher description"
-        android:id="@+id/t_desc_id"
-        android:textColorHint="@color/hint_colour"
-        android:textColor="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginLeft="15dp"
-        android:textSize="16dp"
-
-        android:layout_marginTop="2dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/edit_text_background"
-        android:drawablePadding="5dp"
-        android:minLines="20"
         android:inputType="textMultiLine"
         android:paddingLeft="5dp" />
 
@@ -222,7 +171,7 @@
         android:layout_gravity="center"
         android:textStyle="bold"
         android:textColor="@color/documentary"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:text="POST"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

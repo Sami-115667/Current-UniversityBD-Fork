@@ -107,7 +107,7 @@ public class AllUniversityActivity extends AppCompatActivity {
     private void nationalUniversity() {
         recyclerView=findViewById(R.id.all_university_rv_id);
         itemList=new ArrayList<>();
-        itemList.add(new UniversityItem(R.drawable.image_du,"National University"));
+        itemList.add(new UniversityItem(R.drawable.image_national,"National University"));
 
 
         adapter=new AllUniversityAdapter(getApplicationContext(),itemList);
@@ -118,15 +118,15 @@ public class AllUniversityActivity extends AppCompatActivity {
     private void agricultureUniversity() {
         recyclerView=findViewById(R.id.all_university_rv_id);
         itemList=new ArrayList<>();
-        itemList.add(new UniversityItem(R.drawable.image_du,"BSMRAU"));
-        itemList.add(new UniversityItem(R.drawable.image_barisal,"Shere Bangla Agricultural University"));
-        itemList.add(new UniversityItem(R.drawable.image_cu,"JKKNIU"));
-        itemList.add(new UniversityItem(R.drawable.image_ju,"CVASU"));
-        itemList.add(new UniversityItem(R.drawable.image_ru,"Sylhet Agricultural University"));
-        itemList.add(new UniversityItem(R.drawable.image_ku,"Khulna Agricultural University"));
-        itemList.add(new UniversityItem(R.drawable.image_iu,"Hobiganj Agricultural University"));
-        itemList.add(new UniversityItem(R.drawable.image_barisal,"Kurigram Agricultural University"));
-        itemList.add(new UniversityItem(R.drawable.image_barisal,"BAU"));
+        itemList.add(new UniversityItem(R.drawable.image_bsmrau,"BSMRAU"));
+        itemList.add(new UniversityItem(R.drawable.image_sbau,"Shere Bangla Agricultural University"));
+        itemList.add(new UniversityItem(R.drawable.image_jkkniu,"JKKNIU"));
+        itemList.add(new UniversityItem(R.drawable.image_cvasu,"CVASU"));
+        itemList.add(new UniversityItem(R.drawable.image_sau,"Sylhet Agricultural University"));
+        itemList.add(new UniversityItem(R.drawable.image_kau,"Khulna Agricultural University"));
+        itemList.add(new UniversityItem(R.drawable.image_hau,"Hobiganj Agricultural University"));
+        itemList.add(new UniversityItem(R.drawable.image_kuri_au,"Kurigram Agricultural University"));
+        itemList.add(new UniversityItem(R.drawable.image_bau,"BAU"));
 
 
 
@@ -140,13 +140,13 @@ public class AllUniversityActivity extends AppCompatActivity {
     private void engineeringUniversity() {
         recyclerView=findViewById(R.id.all_university_rv_id);
         itemList=new ArrayList<>();
-        itemList.add(new UniversityItem(R.drawable.image_du,"BUET"));
-        itemList.add(new UniversityItem(R.drawable.image_barisal,"RUET"));
-        itemList.add(new UniversityItem(R.drawable.image_cu,"KUET"));
-        itemList.add(new UniversityItem(R.drawable.image_ju,"CUET"));
-        itemList.add(new UniversityItem(R.drawable.image_ru,"IUT"));
-        itemList.add(new UniversityItem(R.drawable.image_ku,"DUET"));
-        itemList.add(new UniversityItem(R.drawable.image_ku,"BUTEX"));
+        itemList.add(new UniversityItem(R.drawable.image_buet,"BUET"));
+        itemList.add(new UniversityItem(R.drawable.image_ruet,"RUET"));
+        itemList.add(new UniversityItem(R.drawable.image_kuet,"KUET"));
+        itemList.add(new UniversityItem(R.drawable.image_cuet,"CUET"));
+        itemList.add(new UniversityItem(R.drawable.image_iut,"IUT"));
+        itemList.add(new UniversityItem(R.drawable.image_duet,"DUET"));
+        itemList.add(new UniversityItem(R.drawable.image_butex,"BUTEX"));
 
         adapter=new AllUniversityAdapter(getApplicationContext(),itemList);
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
@@ -156,15 +156,15 @@ public class AllUniversityActivity extends AppCompatActivity {
     private void satUniversity() {
         recyclerView=findViewById(R.id.all_university_rv_id);
         itemList=new ArrayList<>();
-        itemList.add(new UniversityItem(R.drawable.image_du,"SUST"));
-        itemList.add(new UniversityItem(R.drawable.image_barisal,"HSTU"));
-        itemList.add(new UniversityItem(R.drawable.image_cu,"MBSTU"));
-        itemList.add(new UniversityItem(R.drawable.image_ju,"PSTU"));
-        itemList.add(new UniversityItem(R.drawable.image_ru,"NSTU"));
-        itemList.add(new UniversityItem(R.drawable.image_ku,"JUST"));
-        itemList.add(new UniversityItem(R.drawable.image_iu,"PUST"));
-        itemList.add(new UniversityItem(R.drawable.image_barisal,"RSTU"));
-        itemList.add(new UniversityItem(R.drawable.image_komilla,"BSFMSTU"));
+        itemList.add(new UniversityItem(R.drawable.image_sust,"SUST"));
+        itemList.add(new UniversityItem(R.drawable.image_hstu,"HSTU"));
+        itemList.add(new UniversityItem(R.drawable.image_mbstu,"MBSTU"));
+        itemList.add(new UniversityItem(R.drawable.image_pstu,"PSTU"));
+        itemList.add(new UniversityItem(R.drawable.image_nstu,"NSTU"));
+        itemList.add(new UniversityItem(R.drawable.image_just,"JUST"));
+        itemList.add(new UniversityItem(R.drawable.image_pust,"PUST"));
+        itemList.add(new UniversityItem(R.drawable.image_rstu,"RSTU"));
+        itemList.add(new UniversityItem(R.drawable.image_bsfmstu,"BSFMSTU"));
 
 
         adapter=new AllUniversityAdapter(getApplicationContext(),itemList);

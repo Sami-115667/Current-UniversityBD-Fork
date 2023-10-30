@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -38,6 +40,7 @@ import com.techtravelcoder.universitybd.activity.AllUniversityActivity;
 import com.techtravelcoder.universitybd.activity.MainActivity;
 import com.techtravelcoder.universitybd.adapter.TeacherInfoAdapter;
 import com.techtravelcoder.universitybd.adapter.TrendingNewsAdapter;
+import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
 import com.techtravelcoder.universitybd.model.NewsModel;
 import com.techtravelcoder.universitybd.model.TeacherInfoModel;
 
@@ -46,6 +49,8 @@ import java.util.List;
 
 
 public class TeachersInfoService extends AppCompatActivity {
+
+    NetworkChangeListener networkChangeListener=new NetworkChangeListener();
 
     String name ;
     EditText editText;
@@ -190,6 +195,18 @@ public class TeachersInfoService extends AppCompatActivity {
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    protected void onStart() {
+        IntentFilter intentFilter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener,intentFilter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 
 

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/back"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:layout_margin="5dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -33,114 +34,128 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <TextView
 
-                    android:padding="5dp"
-                    android:background="@drawable/edit_text_background"
-                    android:backgroundTint="@color/blue"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="4dp"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:text="**Name** "
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:drawableLeft="@drawable/person"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:text=" Name : "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/dt_name_id"
+                        android:layout_marginLeft="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:text="Md Rakibul Islam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:drawableLeft="@drawable/uni"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:text=" Department Name : "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/dt_dept_id"                        android:layout_marginLeft="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:text="Md Rakibul Islam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:drawableLeft="@drawable/email_icon"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:text=" Gmail : "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/dt_gmail_id"                        android:layout_marginLeft="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:text="Md Rakibul Islam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:drawableLeft="@drawable/call_teacherinfo"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:text=" Phone Number : "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/dt_phone_id"                        android:layout_marginLeft="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:text="Md Rakibul Islam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:drawableLeft="@drawable/person"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:text=" Biography : "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
                 <TextView
                     android:layout_marginTop="5dp"
-                    android:id="@+id/dt_name_id"
-                    android:layout_marginLeft="4dp"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
+                    android:id="@+id/dt_bio_id"                        android:layout_marginLeft="4dp"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
                     android:text="Md Rakibul Islam"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:padding="5dp"
-                    android:background="@drawable/edit_text_background"
-                    android:backgroundTint="@color/primary"
-                    android:layout_marginTop="10dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="4dp"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:text="**Department**"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/dt_dept_id"
-                    android:layout_marginLeft="4dp"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:text="Department of Computer Science And Engineering"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:padding="5dp"
-                    android:background="@drawable/edit_text_background"
-                    android:backgroundTint="@color/ruby"
-                    android:layout_marginTop="10dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="4dp"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:text="**Gmail**"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/dt_gmail_id"
-                    android:layout_marginLeft="4dp"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:text="abc@gmail.com"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:padding="5dp"
-                    android:background="@drawable/edit_text_background"
-                    android:backgroundTint="@color/yellow"
-                    android:layout_marginTop="10dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="4dp"
-                    android:textColor="@color/back"
-                    android:textSize="16dp"
-                    android:text="**Phone Number**"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/dt_phone_id"
-                    android:layout_marginLeft="4dp"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:text="01825004669"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:padding="5dp"
-                    android:background="@drawable/edit_text_background"
-                    android:backgroundTint="#FF6E40"
-                    android:layout_marginTop="10dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="4dp"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:text="**Biography**"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/dt_bio_id"
-                    android:layout_marginLeft="4dp"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:text="01825004669"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

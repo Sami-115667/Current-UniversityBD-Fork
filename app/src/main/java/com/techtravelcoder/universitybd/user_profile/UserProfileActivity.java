@@ -7,14 +7,22 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.cardview.widget.CardView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,9 +41,11 @@ import com.google.firebase.storage.UploadTask;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.activity.SpecificUserNewsPostDetails;
 import com.techtravelcoder.universitybd.cgpacalculator.SemesterActivity;
+import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
 import com.techtravelcoder.universitybd.loginandsignup.SignupActivity;
 import com.techtravelcoder.universitybd.model.UserModel;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,29 +56,45 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import es.dmoral.toasty.Toasty;
 
 public class UserProfileActivity extends AppCompatActivity {
+
+    NetworkChangeListener networkChangeListener=new NetworkChangeListener();
     String userUniversitySpin,userBloodGroupSpin,userDepartmentSpin;
     AppCompatSpinner universitySpinner,bloodSpinner,deptSpinner ;
     private CardView cardView,calcCg;
+    Context context;
+    ProgressBar progressBar;
 
     StorageReference storageReference;
     private  CircleImageView circleImageView;
     private TextView selectProf;
-    private static final int SELECT_PICTURE = 200;
+
     private TextView name,gmail,university,department,bloodgroup,hall,roomNumber,mobile ;
 
     private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference databaseReference;
+    private final int PICK_IMAGE_REQUEST = 220;
+    private Uri filePath;
+    private int num ;
+    private DatabaseReference databaseReference,hallRef;
     private String uid ;
+    private Uri[] imageUris = new Uri[2];
     UserModel userModel;
     private List<String> uniName,bloodGroup,uniDept ;
     private TextView updateProfile ;
-    CircleImageView imageCv;
-    String userHall,userName,userUniversity,userGmail,userBloodgroup,userRoomNumber,userDepartment,userMobile,userImagePic;
+    CircleImageView prfPic,prf1,prf2;
+    ImageView backPic;
+    ProgressBar progressbar,progressbar11;
+    String userHall,userName,userUniversity,userGmail,userBloodgroup,userRoomNumber,userDepartment,userMobile,img1,img2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.activity_user_profile);
         cardView=findViewById(R.id.ll_specific_post);
+        progressbar=findViewById(R.id.progressBar);
+        progressbar11=findViewById(R.id.progressBar1);
+
         calcCg=findViewById(R.id.cgpaCalc);
 
         //circleImageView=findViewById(R.id.userprofilepic);
@@ -83,14 +109,37 @@ public class UserProfileActivity extends AppCompatActivity {
         roomNumber=findViewById(R.id.user_room_id_tv);
         hall=findViewById(R.id.user_hall_id_tv);
         updateProfile=findViewById(R.id.user_edit_profile_tv);
+        prf1=findViewById(R.id.cv_profile_change_id);
+        prf2=findViewById(R.id.cv_bacImage_change_id);
+        prfPic=findViewById(R.id.circleImageView);
+        backPic=findViewById(R.id.imageView2);
 
         uid= FirebaseAuth.getInstance().getUid();
         storageReference = FirebaseStorage.getInstance().getReference();
        // Toast.makeText(this, ""+uid, Toast.LENGTH_SHORT).show();
         firebaseDatabase=FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference("User Information").child(uid);
+        hallRef=FirebaseDatabase.getInstance().getReference("User Information").child(uid);
         fetchUserData();
 
+
+
+        prf1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                num=1;
+                selectImage();
+
+
+            }
+        });
+        prf2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                num=2;
+               selectImage();
+            }
+        });
 
 
         cardView.setOnClickListener(new View.OnClickListener() {
@@ -113,11 +162,110 @@ public class UserProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), ""+userUniversity, Toast.LENGTH_SHORT).show();
 
-                editProfile(userHall,userName,userGmail,userUniversity,userMobile,userBloodgroup,userDepartment,userRoomNumber,userImagePic);
+                editProfile(userHall,userName,userGmail,userUniversity,userMobile,userBloodgroup,userDepartment,userRoomNumber);
             }
         });
 
     }
+
+
+    private void selectImage() {
+
+        // Defining Implicit Intent to mobile gallery
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(
+                Intent.createChooser(
+                        intent,
+                        "Select Image from here..."),
+                PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            // Get the Uri of data
+            filePath = data.getData();
+            imageUris[num - 1] = filePath;
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                if (num == 1) {
+                    prfPic.setImageBitmap(bitmap);
+
+                    uploadImage(); // Call uploadImage when the first image is selected.
+                } else if (num == 2) {
+                    backPic.setImageBitmap(bitmap);
+                    uploadImage(); // Call uploadImage when the second image is selected.
+                }
+            } catch (IOException e) {
+                // Log the exception
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void uploadImage() {
+        String uniHallKey = databaseReference.push().getKey();
+
+
+
+        Uri imageUri = imageUris[num - 1];
+
+
+        if (imageUri != null) {
+            // Construct the path to store the image in Firebase Storage
+            String imagePath = "profiles/" + uniHallKey + "/image" + num + ".jpg"; // Use num here
+
+            StorageReference imageRef = FirebaseStorage.getInstance().getReference().child(imagePath);
+
+
+            imageRef.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {
+                // Get the download URL of the uploaded image
+                imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                    // Store the image URL in the database
+                    if(num==1){
+                        userModel.setImage1(uri.toString());
+                        hallRef.child("image"+num ).setValue(uri.toString());
+                        Toasty.info(getApplicationContext(),"Uploading Profile Pic...",Toasty.LENGTH_SHORT).show();
+
+                        //  Toast.makeText(this, ""+userModel.getImage1(), Toast.LENGTH_SHORT).show();
+
+                    } else if (num==2) {
+                        userModel.setImage2(uri.toString());
+                        hallRef.child("image"+num ).setValue(uri.toString());
+                        Toasty.info(getApplicationContext(),"Uploading Cover Photo...",Toasty.LENGTH_SHORT).show();
+
+
+                    }
+
+
+
+                  //  Toast.makeText(getApplicationContext(), "U&", Toast.LENGTH_SHORT).show();
+                });
+            });
+        }
+    }
+
+
+
+
+    @Override
+    protected void onStart() {
+        IntentFilter intentFilter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener,intentFilter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
+    }
+
+
 
     private void manageThreeSpinner(){
         uniName=new ArrayList<>();
@@ -353,6 +501,8 @@ public class UserProfileActivity extends AppCompatActivity {
                 if (snapshot.exists()) {
                     userModel = snapshot.getValue(UserModel.class);
                     if (userModel != null) {
+
+
                          userHall = userModel.getUserHall();
                          userName=userModel.getUserName();
                          userGmail=userModel.getUserEmail();
@@ -361,9 +511,15 @@ public class UserProfileActivity extends AppCompatActivity {
                          userBloodgroup=userModel.getUserBloodGroup();
                          userDepartment=userModel.getUserDept();
                          userRoomNumber=userModel.getUserRoom();
-                         userImagePic=userModel.getUserImage();
+                         img1=userModel.getImage1();
+                         img2=userModel.getImage2();
 
-                        Toast.makeText(UserProfileActivity.this, ""+userUniversity, Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(getApplicationContext(), ""+img1, Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(getApplicationContext(), ""+img2, Toast.LENGTH_SHORT).show();
+
+
+
+
 
 
                         name.setText(userModel.getUserName());
@@ -374,7 +530,20 @@ public class UserProfileActivity extends AppCompatActivity {
                         bloodgroup.setText(userModel.getUserBloodGroup());
                         department.setText(userModel.getUserDept());
                         roomNumber.setText(userModel.getUserRoom());
-                        //Glide.with(imageCv.getContext()).load(userModel.getUserImage()).into(imageCv);
+
+
+                        if (img1 != null) {
+                            Glide.with(prfPic.getContext()).load(img1).into(prfPic);
+                            Toasty.info(getApplicationContext(),"Successfully Upload..",Toasty.LENGTH_SHORT).show();
+                            progressbar.setVisibility(View.GONE);
+
+                        }
+                        if (img2 != null) {
+                            Glide.with(backPic.getContext()).load(img2).into(backPic);
+                            Toasty.info(getApplicationContext(),"Successfully Upload..",Toasty.LENGTH_SHORT).show();
+                            progressbar11.setVisibility(View.GONE);
+                        }
+
 
 
                         //   Toast.makeText(UserProfileActivity.this, ""+userModel.getUserDept(), Toast.LENGTH_SHORT).show();
@@ -390,6 +559,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                Toasty.error(getApplicationContext(),"Something Error ...",Toasty.LENGTH_SHORT).show();
 
             }
         });
@@ -397,7 +567,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
 
 
-    private void editProfile(String userHall,String userName,String userGmail,String userUniversity,String userMobile,String userBloodgroup,String userDepartment,String userRoomNumber,String userImagePic){
+    private void editProfile(String userHall,String userName,String userGmail,String userUniversity,String userMobile,String userBloodgroup,String userDepartment,String userRoomNumber){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = LayoutInflater.from(this);
         View dialogView = inflater.inflate(R.layout.user_details_update_popup, null);

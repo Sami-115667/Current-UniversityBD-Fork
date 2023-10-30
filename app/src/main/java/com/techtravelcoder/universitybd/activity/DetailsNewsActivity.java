@@ -53,9 +53,10 @@ public class DetailsNewsActivity extends AppCompatActivity {
             Glide.with(getApplicationContext()).load(c_image).into(image);
         }
 
+    }
 
-
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

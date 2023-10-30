@@ -16,30 +16,19 @@
                 android:id="@+id/udsId"
                 android:foreground="@drawable/uni_background"
                 android:clickable="true"
-                android:background="@drawable/edit_text_background"
+                android:background="@drawable/serchbar_background"
                 android:backgroundTint="@color/blue"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="25dp"
-                android:padding="10dp"
+                android:textSize="14dp"
+                android:padding="5dp"
                 android:text="See all News"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"/>
 
-            <TextView
-                android:layout_marginTop="10dp"
-                android:textAllCaps="true"
-                android:layout_marginLeft="15dp"
-                android:textSize="16dp"
-                android:textStyle="bold"
-
-                android:textColor="@color/coloryellow"
-                android:text="Author"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
             <EditText
                 android:padding="10dp"
                 android:gravity="top"
@@ -50,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="5dp"
@@ -58,15 +47,6 @@
                 android:minLines="10"
                 android:paddingLeft="5dp" />
 
-            <TextView
-                android:textAllCaps="true"
-                android:layout_marginLeft="15dp"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="@color/coloryellow"
-                android:text="Title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
             <EditText
                 android:padding="10dp"
                 android:textSize="16dp"
@@ -78,21 +58,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="5dp"
                 android:inputType="textMultiLine"
                 android:minLines="5"
                 android:paddingLeft="5dp" />
-            <TextView
-                android:layout_marginLeft="15dp"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="@color/coloryellow"
-                android:text="DATE"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
             <EditText
                 android:padding="10dp"
                 android:gravity="top"
@@ -104,20 +76,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="5dp"
                 android:inputType="textMultiLine"
                 android:paddingLeft="5dp" />
-            <TextView
-                android:layout_marginLeft="15dp"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="@color/coloryellow"
-                android:text="IMAGE LINK"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
             <EditText
                 android:padding="10dp"
                 android:gravity="top"
@@ -130,21 +94,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="5dp"
                 android:lines="10"
                 android:inputType="textMultiLine"
                 android:paddingLeft="5dp" />
-            <TextView
-                android:layout_marginLeft="15dp"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="@color/coloryellow"
-                android:text="DESCRIPTION"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
             <EditText
                 android:padding="10dp"
                 android:gravity="top"
@@ -157,7 +113,7 @@
                 android:layout_marginLeft="15dp"
                 android:textSize="16dp"
 
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="5dp"
@@ -169,15 +125,16 @@
                 android:id="@+id/postId"
                 android:foreground="@drawable/uni_background"
                 android:clickable="true"
-                android:background="@drawable/edit_text_background"
-                android:layout_marginBottom="70dp"
+                android:backgroundTint="@color/documentary"
+                android:background="@drawable/serchbar_background"
+                android:layout_marginBottom="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"
-                android:textColor="@color/documentary"
-                android:textSize="25dp"
+                android:textColor="@color/white"
+                android:textSize="17dp"
                 android:text="POST"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"/>
 
         </LinearLayout>

@@ -16,9 +16,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.interfaces.ItemChangeListener;
 import com.denzcoskun.imageslider.interfaces.ItemClickListener;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.navigation.NavigationView;
@@ -129,6 +131,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             remoteimages.add(new SlideModel(data.child("url").getValue().toString(),data.child("title").getValue().toString(), ScaleTypes.FIT));
 
                         imageSlider.setImageList(remoteimages,ScaleTypes.FIT);
+                        imageSlider.setItemClickListener(new ItemClickListener() {
+                            @Override
+                            public void onItemSelected(int i) {
+                                Intent intent=new Intent(getApplicationContext(), ServiceActivity.class);
+                                intent.putExtra("name",remoteimages.get(i).getTitle().toString().toLowerCase());
+                                intent.putExtra("imageid",remoteimages.get(i).getImageUrl()) ;
+                                Toast.makeText(MainActivity.this, ""+remoteimages.get(i).getTitle(), Toast.LENGTH_SHORT).show();
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void doubleClick(int i) {
+
+                            }
+                        });
 
                     }
 
@@ -137,6 +154,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 });
+
+
 
     }
 
@@ -238,6 +257,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     startActivity(intent);
                     drawerLayout.closeDrawer(GravityCompat.START);
+
 
                 }
                 if(item.getItemId()==R.id.share_Id){

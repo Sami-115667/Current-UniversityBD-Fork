@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/back"
     android:layout_height="wrap_content">
+
     <androidx.cardview.widget.CardView
         android:layout_marginTop="12dp"
         app:cardBackgroundColor="@color/back"
