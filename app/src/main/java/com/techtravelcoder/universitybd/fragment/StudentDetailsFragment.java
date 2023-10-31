@@ -2,6 +2,8 @@ package com.techtravelcoder.universitybd.fragment;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -33,6 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.auth.User;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.adapter.StudentDetailsFragmentAdapter;
+import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
 import com.techtravelcoder.universitybd.model.NewsModel;
 import com.techtravelcoder.universitybd.model.UserModel;
 
@@ -42,6 +45,7 @@ import java.util.List;
 
 public class StudentDetailsFragment extends Fragment {
 
+    NetworkChangeListener networkChangeListener =new NetworkChangeListener();
     private RecyclerView recyclerView;
     String userUniversity,userDept,userBlood;
 
@@ -551,6 +555,19 @@ public class StudentDetailsFragment extends Fragment {
         });
 
 
+    }
+
+    @Override
+    public void onStart() {
+        IntentFilter intentFilter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        getContext().registerReceiver(networkChangeListener,intentFilter);
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        getContext().unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 
 }

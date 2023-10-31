@@ -8,10 +8,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.model.UserModel;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class StudentDetailsFragmentAdapter extends RecyclerView.Adapter<StudentDetailsFragmentAdapter.AnViewHolder> {
 
@@ -38,6 +41,11 @@ public class StudentDetailsFragmentAdapter extends RecyclerView.Adapter<StudentD
         holder.bloodGroup.setText(obj.getUserBloodGroup());
         holder.hallName.setText(obj.getUserHall());
         holder.roomNumber.setText(obj.getUserRoom());
+        if(obj.getImage1() != null){
+            Glide.with(holder.userImage.getContext()).load(obj.getImage1()).into(holder.userImage);
+
+        }
+
 
     }
 
@@ -49,6 +57,7 @@ public class StudentDetailsFragmentAdapter extends RecyclerView.Adapter<StudentD
 
     public class AnViewHolder extends RecyclerView.ViewHolder {
         TextView name,uni,dept,bloodGroup,hallName,roomNumber ;
+        CircleImageView userImage ;
         public AnViewHolder(@NonNull View itemView) {
             super(itemView);
             name=itemView.findViewById(R.id.sd_name_id_tv);
@@ -57,6 +66,7 @@ public class StudentDetailsFragmentAdapter extends RecyclerView.Adapter<StudentD
             bloodGroup=itemView.findViewById(R.id.sd_blood_id_tv);
             hallName=itemView.findViewById(R.id.sd_hall_id_tv);
             roomNumber=itemView.findViewById(R.id.sd_room_id_tv);
+            userImage=itemView.findViewById(R.id.user_image_id);
 
         }
     }

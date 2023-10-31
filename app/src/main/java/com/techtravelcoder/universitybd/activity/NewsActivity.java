@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -35,6 +37,7 @@ import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.adapter.NewsAdapter;
 import com.techtravelcoder.universitybd.adapter.TeacherInfoAdapter;
 import com.techtravelcoder.universitybd.adapter.TrendingNewsAdapter;
+import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
 import com.techtravelcoder.universitybd.model.NewsModel;
 import com.techtravelcoder.universitybd.model.TeacherInfoModel;
 import com.techtravelcoder.universitybd.model.TrendingNewsModel;
@@ -47,6 +50,7 @@ import java.util.List;
 
 public class NewsActivity extends AppCompatActivity implements View.OnClickListener {
 
+    NetworkChangeListener networkChangeListener=new NetworkChangeListener();
     private androidx.recyclerview.widget.RecyclerView recyclerView;
     private RecyclerView recyclerView1;
     private NewsAdapter newsAdapter;
@@ -342,6 +346,19 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
             mbase = FirebaseDatabase.getInstance().getReference("News").child("রিমোট জব");
             retriveCommonPart();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter intentFilter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener,intentFilter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 
 

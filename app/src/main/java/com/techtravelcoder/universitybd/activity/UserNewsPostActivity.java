@@ -57,9 +57,6 @@ public class UserNewsPostActivity extends AppCompatActivity {
         newsCategory=findViewById(R.id.categoryNews);
         post=findViewById(R.id.postId);
         headline=findViewById(R.id.tv_merque_id);
-
-
-
         headline.setSelected(true);
 
         final Calendar calendar=Calendar.getInstance();
@@ -120,9 +117,10 @@ public class UserNewsPostActivity extends AppCompatActivity {
         String s_desc = descripton.getText().toString();
         String s_category=category;
         Boolean isValid = isImageUrlValid(s_img);
+        String s_uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
-        newsModel=new NewsModel(s_name,s_date,s_desc,s_img,s_title,s_category);
+        newsModel=new NewsModel(s_name,s_date,s_desc,s_img,s_title,s_category,s_uid);
 
         if(TextUtils.isEmpty(s_name) ||  TextUtils.isEmpty(s_title) ||TextUtils.isEmpty(s_date) ||TextUtils.isEmpty(s_img) ||TextUtils.isEmpty(s_desc) ){
             Toast.makeText(this, "Please Fillup all data ", Toast.LENGTH_SHORT).show();

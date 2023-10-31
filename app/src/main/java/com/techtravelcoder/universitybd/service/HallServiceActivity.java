@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.adapter.HallServiceAdapter;
 
+import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
 import com.techtravelcoder.universitybd.model.HallServiceModel;
 
 
@@ -23,6 +26,7 @@ import java.util.ArrayList;
 
 public class HallServiceActivity extends AppCompatActivity {
 
+    NetworkChangeListener networkChangeListener=new NetworkChangeListener();
     RecyclerView hallRecyclerView;
     HallServiceAdapter hallServiceAdapter;
     ArrayList<HallServiceModel> list ;
@@ -88,4 +92,19 @@ public class HallServiceActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onStart() {
+        IntentFilter intentFilter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener,intentFilter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
+    }
+
+
 }

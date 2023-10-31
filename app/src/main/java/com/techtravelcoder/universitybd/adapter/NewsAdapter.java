@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -60,8 +61,10 @@ public class NewsAdapter extends RecyclerView.Adapter< NewsAdapter.MyViewHolder>
        holder.author.setText(obj.getAuthor());
        Glide.with(holder.newsImage.getContext()).load(obj.getImage()).into(holder.newsImage);
        holder.date.setText(obj.getDate());
+      // Toast.makeText(context, ""+obj.getUid(), Toast.LENGTH_SHORT).show();
 
-     //  sliderSupport();
+
+        //  sliderSupport();
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +75,8 @@ public class NewsAdapter extends RecyclerView.Adapter< NewsAdapter.MyViewHolder>
                 intent.putExtra("desc",obj.getDescription());
                 intent.putExtra("date",obj.getDate());
                 intent.putExtra("image",obj.getImage());
+                intent.putExtra("postAutherUid",obj.getUid());
+
                 context.startActivity(intent);
             }
         });
@@ -79,6 +84,7 @@ public class NewsAdapter extends RecyclerView.Adapter< NewsAdapter.MyViewHolder>
 
 
     }
+
 
     public void filterList(ArrayList<NewsModel>filterlist){
         list=filterlist;

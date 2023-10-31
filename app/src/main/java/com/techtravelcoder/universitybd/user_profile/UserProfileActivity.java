@@ -40,6 +40,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.activity.SpecificUserNewsPostDetails;
+import com.techtravelcoder.universitybd.activity.UserNewsPostActivity;
 import com.techtravelcoder.universitybd.cgpacalculator.SemesterActivity;
 import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
 import com.techtravelcoder.universitybd.loginandsignup.SignupActivity;
@@ -59,10 +60,10 @@ public class UserProfileActivity extends AppCompatActivity {
 
     NetworkChangeListener networkChangeListener=new NetworkChangeListener();
     String userUniversitySpin,userBloodGroupSpin,userDepartmentSpin;
-    AppCompatSpinner universitySpinner,bloodSpinner,deptSpinner ;
-    private CardView cardView,calcCg;
-    Context context;
-    ProgressBar progressBar;
+    private AppCompatSpinner universitySpinner,bloodSpinner,deptSpinner ;
+    private CardView cardView,calcCg,doPost;
+    private Context context;
+
 
     StorageReference storageReference;
     private  CircleImageView circleImageView;
@@ -80,9 +81,9 @@ public class UserProfileActivity extends AppCompatActivity {
     UserModel userModel;
     private List<String> uniName,bloodGroup,uniDept ;
     private TextView updateProfile ;
-    CircleImageView prfPic,prf1,prf2;
-    ImageView backPic;
-    ProgressBar progressbar,progressbar11;
+    private CircleImageView prfPic,prf1,prf2;
+    private ImageView backPic;
+    private ProgressBar progressbar,progressbar11;
     String userHall,userName,userUniversity,userGmail,userBloodgroup,userRoomNumber,userDepartment,userMobile,img1,img2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +114,7 @@ public class UserProfileActivity extends AppCompatActivity {
         prf2=findViewById(R.id.cv_bacImage_change_id);
         prfPic=findViewById(R.id.circleImageView);
         backPic=findViewById(R.id.imageView2);
+        doPost=findViewById(R.id.share_expert_id);
 
         uid= FirebaseAuth.getInstance().getUid();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -120,7 +122,18 @@ public class UserProfileActivity extends AppCompatActivity {
         firebaseDatabase=FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference("User Information").child(uid);
         hallRef=FirebaseDatabase.getInstance().getReference("User Information").child(uid);
+        progressbar.setVisibility(View.VISIBLE);
+        progressbar11.setVisibility(View.VISIBLE);
+
         fetchUserData();
+
+        doPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), UserNewsPostActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -136,6 +149,7 @@ public class UserProfileActivity extends AppCompatActivity {
         prf2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 num=2;
                selectImage();
             }
@@ -160,9 +174,10 @@ public class UserProfileActivity extends AppCompatActivity {
         updateProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), ""+userUniversity, Toast.LENGTH_SHORT).show();
 
-                editProfile(userHall,userName,userGmail,userUniversity,userMobile,userBloodgroup,userDepartment,userRoomNumber);
+              //  editProfile(userHall,userName,userGmail,userUniversity,userMobile,userBloodgroup,userDepartment,userRoomNumber);
+
+
             }
         });
 
@@ -208,9 +223,16 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     private void uploadImage() {
+        if(num==1){
+            progressbar.setVisibility(View.VISIBLE);
+
+        }
+        if(num==2){
+            progressbar11.setVisibility(View.VISIBLE);
+
+        }
+
         String uniHallKey = databaseReference.push().getKey();
-
-
 
         Uri imageUri = imageUris[num - 1];
 
