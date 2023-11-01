@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.interfaces.ItemChangeListener;
@@ -31,10 +32,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.loginandsignup.UserLoginActivity;
+import com.techtravelcoder.universitybd.model.UserModel;
 import com.techtravelcoder.universitybd.user_profile.UserProfileActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+import es.dmoral.toasty.Toasty;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -50,7 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     FirebaseAuth auth;
     FirebaseDatabase database;
-    TextView profile ;
+    TextView profile,userName ;
+    CircleImageView userPic;
+
 
 
     @Override
@@ -58,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setContentView(R.layout.activity_main);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
@@ -73,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         news=findViewById(R.id.cv_news_click_id);
         headline=findViewById(R.id.marque_id);
         headline.setSelected(true);
+        userPic=headerView.findViewById(R.id.header_user_iamge);
+        userName=headerView.findViewById(R.id.header_user_name);
 
 
 
@@ -83,6 +91,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         engineering.setOnClickListener(this);
         agriculture.setOnClickListener(this);
         national.setOnClickListener(this);
+        FirebaseDatabase.getInstance().getReference("User Information").
+                child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            UserModel userModel=snapshot.getValue(UserModel.class);
+
+                            //Toast.makeText(getApplicationContext(), ""+userModel.getUserName(), Toast.LENGTH_SHORT).show();
+                             Glide.with(getApplicationContext()).load(userModel.getImage1()).into(userPic);
+                            userName.setText(userModel.getUserName());
+
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toasty.error(getApplicationContext(),"Something wrong",Toasty.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
 
         news.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,9 +138,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         getWindow().setStatusBarColor(colorPrimary);
 
-
-
         managementNavigationDrawerItem();
+
     }
 
 
@@ -283,7 +311,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-      //  animateNavigationDrawer();
+
+
+
+
+        //  animateNavigationDrawer();
 
     }
 

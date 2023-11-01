@@ -1,5 +1,6 @@
 package com.techtravelcoder.universitybd.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatSpinner;
@@ -19,31 +20,42 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.model.NewsModel;
+import com.techtravelcoder.universitybd.model.UserModel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.SimpleFormatter;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+import es.dmoral.toasty.Toasty;
+
 public class UserNewsPostActivity extends AppCompatActivity {
-    EditText name,title,image,descripton;
-    TextView category;
-    AppCompatButton post ;
-    int year,month,day ;
-    AppCompatSpinner newsCategory ;
-    String uid;
-    ArrayList listNews;
-    String collectName;
-    FirebaseAuth firebaseAuth;
-    DatabaseReference databaseReference,databaseReference1,databaseReference2;
-    NewsModel newsModel;
-    TextView date;
-    TextView headline;
+    private EditText name,title,image,descripton;
+    private TextView category;
+    private AppCompatButton post ;
+    private int year,month,day ;
+    UserModel userModel;
+    private AppCompatSpinner newsCategory ;
+    private String uid;
+    private ArrayList listNews;
+    private String collectName;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference databaseReference,databaseReference1,databaseReference2;
+    private NewsModel newsModel;
+    private TextView date;
+    private TextView headline;
+    private CircleImageView pic ;
+    private TextView nameUser,uniName ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +70,29 @@ public class UserNewsPostActivity extends AppCompatActivity {
         post=findViewById(R.id.postId);
         headline=findViewById(R.id.tv_merque_id);
         headline.setSelected(true);
+        pic=findViewById(R.id.post_user_image);
+        nameUser=findViewById(R.id.post_user_name);
+        uniName=findViewById(R.id.post_user_university);
+
+
+        FirebaseDatabase.getInstance().getReference("User Information").
+                child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            userModel=snapshot.getValue(UserModel.class);
+                            Glide.with(getApplicationContext()).load(userModel.getImage1()).into(pic);
+                            nameUser.setText(userModel.getUserName());
+                            uniName.setText(userModel.getUserUniversity());
+
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toasty.error(getApplicationContext(),"Something wrong",Toasty.LENGTH_SHORT).show();
+                    }
+                });
+
 
         final Calendar calendar=Calendar.getInstance();
         manageSpinner();
@@ -118,9 +153,14 @@ public class UserNewsPostActivity extends AppCompatActivity {
         String s_category=category;
         Boolean isValid = isImageUrlValid(s_img);
         String s_uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String s_userName=userModel.getUserName();
+        String s_userUni=userModel.getUserUniversity();
+        String s_userPic=userModel.getImage1();
+        Toast.makeText(this, ""+s_userName+" ", Toast.LENGTH_SHORT).show();
 
 
-        newsModel=new NewsModel(s_name,s_date,s_desc,s_img,s_title,s_category,s_uid);
+
+        newsModel=new NewsModel(s_name,s_date,s_desc,s_img,s_title,s_category,s_uid,s_userName,s_userUni,s_userPic);
 
         if(TextUtils.isEmpty(s_name) ||  TextUtils.isEmpty(s_title) ||TextUtils.isEmpty(s_date) ||TextUtils.isEmpty(s_img) ||TextUtils.isEmpty(s_desc) ){
             Toast.makeText(this, "Please Fillup all data ", Toast.LENGTH_SHORT).show();

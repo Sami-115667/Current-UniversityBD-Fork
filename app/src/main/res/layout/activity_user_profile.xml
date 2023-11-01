@@ -68,11 +68,15 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
 
+                app:civ_border_width="1.4dp"
+
+                app:civ_border_color="@color/green"
+
                 android:id="@+id/circleImageView"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginBottom="8dp"
-                android:src="@color/custom_dialogue"
+                android:src="@drawable/defaultprofile"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
@@ -103,6 +107,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
             <TextView
+                android:drawablePadding="4dp"
+                android:drawableLeft="@drawable/baseline_edit_24"
                 android:id="@+id/user_edit_profile_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -328,6 +334,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/user_prf_cgpa_details_id"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:foreground="@drawable/category_uni_back"

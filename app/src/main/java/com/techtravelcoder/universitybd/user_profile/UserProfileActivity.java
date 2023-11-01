@@ -41,6 +41,7 @@ import com.google.firebase.storage.UploadTask;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.activity.SpecificUserNewsPostDetails;
 import com.techtravelcoder.universitybd.activity.UserNewsPostActivity;
+import com.techtravelcoder.universitybd.cgpacalculator.CGPADetailsActivity;
 import com.techtravelcoder.universitybd.cgpacalculator.SemesterActivity;
 import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
 import com.techtravelcoder.universitybd.loginandsignup.SignupActivity;
@@ -61,7 +62,7 @@ public class UserProfileActivity extends AppCompatActivity {
     NetworkChangeListener networkChangeListener=new NetworkChangeListener();
     String userUniversitySpin,userBloodGroupSpin,userDepartmentSpin;
     private AppCompatSpinner universitySpinner,bloodSpinner,deptSpinner ;
-    private CardView cardView,calcCg,doPost;
+    private CardView cardView,calcCg,doPost,cgpaDetails;
     private Context context;
 
 
@@ -115,6 +116,7 @@ public class UserProfileActivity extends AppCompatActivity {
         prfPic=findViewById(R.id.circleImageView);
         backPic=findViewById(R.id.imageView2);
         doPost=findViewById(R.id.share_expert_id);
+        cgpaDetails=findViewById(R.id.user_prf_cgpa_details_id);
 
         uid= FirebaseAuth.getInstance().getUid();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -126,6 +128,15 @@ public class UserProfileActivity extends AppCompatActivity {
         progressbar11.setVisibility(View.VISIBLE);
 
         fetchUserData();
+
+        cgpaDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), CGPADetailsActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         doPost.setOnClickListener(new View.OnClickListener() {
             @Override

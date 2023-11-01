@@ -33,6 +33,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNewsAdapter.MyViewHolder> {
 
     Context context;
@@ -171,11 +173,20 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
     @Override
     public void onBindViewHolder(@NonNull SpecificUserNewsAdapter.MyViewHolder holder, int position) {
         NewsModel obj=list.get(position);
+
         holder.title.setText(obj.getTitle());
         holder.desc.setText(obj.getDescription());
         holder.author.setText(obj.getAuthor());
         Glide.with(holder.newsImage.getContext()).load(obj.getImage()).into(holder.newsImage);
         holder.date.setText(obj.getDate());
+        if(obj.getUserName() != null && obj.getUserUniversity() !=null &&  obj.getUserPic() != null ){
+            holder.nameUser.setText(obj.getUserName());
+            holder.uniName.setText(obj.getUserUniversity());
+            Glide.with(holder.pic.getContext()).load(obj.getUserPic()).into(holder.pic);
+        }
+
+
+
         holder.update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -192,10 +203,17 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView author,title,desc,date ;
+        CircleImageView pic;
+        TextView nameUser,uniName;
         ImageView newsImage ;
-        AppCompatButton update,delete;
+        TextView delete,update;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            pic=itemView.findViewById(R.id.sd_user_image);
+            nameUser=itemView.findViewById(R.id.sd_user_name);
+            uniName=itemView.findViewById(R.id.sd_user_university);
+
 
             author=itemView.findViewById(R.id.newsAuther);
             title=itemView.findViewById(R.id.newsTitle);

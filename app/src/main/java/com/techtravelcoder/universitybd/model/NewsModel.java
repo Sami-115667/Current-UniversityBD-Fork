@@ -6,6 +6,7 @@ public class NewsModel {
 
 
     String author,title,description,date,image,uid,key,category;
+    String userPic,userName,userUniversity;
 
 
     public NewsModel() {
@@ -22,7 +23,31 @@ public class NewsModel {
 
     }
 
-    public NewsModel(String s_name, String s_date, String s_desc, String s_img, String s_title, String s_category, String s_uid) {
+    public String getUserPic() {
+        return userPic;
+    }
+
+    public void setUserPic(String userPic) {
+        this.userPic = userPic;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserUniversity() {
+        return userUniversity;
+    }
+
+    public void setUserUniversity(String userUniversity) {
+        this.userUniversity = userUniversity;
+    }
+
+    public NewsModel(String s_name, String s_date, String s_desc, String s_img, String s_title, String s_category, String s_uid, String s_userName, String s_userUni, String s_userPic) {
         author=s_name;
         date=s_date;
         description=s_desc;
@@ -30,6 +55,9 @@ public class NewsModel {
         title=s_title;
         category=s_category;
         uid=s_uid;
+        userName=s_userName;
+        userPic=s_userPic;
+        userUniversity=s_userUni;
     }
 
 
