@@ -45,6 +45,7 @@ import com.techtravelcoder.universitybd.cgpacalculator.CGPADetailsActivity;
 import com.techtravelcoder.universitybd.cgpacalculator.SemesterActivity;
 import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
 import com.techtravelcoder.universitybd.loginandsignup.SignupActivity;
+import com.techtravelcoder.universitybd.model.NewsModel;
 import com.techtravelcoder.universitybd.model.UserModel;
 
 import java.io.IOException;
@@ -182,11 +183,12 @@ public class UserProfileActivity extends AppCompatActivity {
             }
         });
 
+        updateProfile.setVisibility(View.GONE);
         updateProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-              //  editProfile(userHall,userName,userGmail,userUniversity,userMobile,userBloodgroup,userDepartment,userRoomNumber);
+                editProfile(userHall,userName,userGmail,userUniversity,userMobile,userBloodgroup,userDepartment,userRoomNumber);
 
 
             }
@@ -553,16 +555,35 @@ public class UserProfileActivity extends AppCompatActivity {
 
 
 
+                        if(userModel.getUserName() != null){
+                            name.setText(userModel.getUserName());
+                        }
+                        if(userModel.getUserUniversity() != null){
+                            university.setText(userModel.getUserUniversity());
+
+                        }
+                        if(userModel.getUserHall() != null){
+                            hall.setText(userModel.getUserHall());
+                        }
+                        if(userModel.getUserEmail() != null){
+                            gmail.setText(userModel.getUserEmail());
+                        }
+                        if(userModel.getUserPhoneNumber() != null){
+                            mobile.setText(userModel.getUserPhoneNumber());
+                        }
+                        if(userModel.getUserBloodGroup() != null){
+                            bloodgroup.setText(userModel.getUserBloodGroup());
+                        }
+                        if(userModel.getUserDept() != null){
+                            department.setText(userModel.getUserDept());
+                        }
+                        if(userModel.getUserRoom() != null){
+                            roomNumber.setText(userModel.getUserRoom());
+                        }
+
+                        updateProfile.setVisibility(View.VISIBLE);
 
 
-                        name.setText(userModel.getUserName());
-                        hall.setText(userModel.getUserHall());
-                        gmail.setText(userModel.getUserEmail());
-                        university.setText(userModel.getUserUniversity());
-                        mobile.setText(userModel.getUserPhoneNumber());
-                        bloodgroup.setText(userModel.getUserBloodGroup());
-                        department.setText(userModel.getUserDept());
-                        roomNumber.setText(userModel.getUserRoom());
 
 
                         if (img1 != null) {
@@ -570,11 +591,16 @@ public class UserProfileActivity extends AppCompatActivity {
                             Toasty.info(getApplicationContext(),"Successfully Upload..",Toasty.LENGTH_SHORT).show();
                             progressbar.setVisibility(View.GONE);
 
+                        }else {
+                            progressbar.setVisibility(View.GONE);
                         }
                         if (img2 != null) {
                             Glide.with(backPic.getContext()).load(img2).into(backPic);
                             Toasty.info(getApplicationContext(),"Successfully Upload..",Toasty.LENGTH_SHORT).show();
                             progressbar11.setVisibility(View.GONE);
+                        }else {
+                            progressbar11.setVisibility(View.GONE);
+
                         }
 
 

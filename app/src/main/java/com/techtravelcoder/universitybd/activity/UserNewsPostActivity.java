@@ -51,7 +51,6 @@ public class UserNewsPostActivity extends AppCompatActivity {
     private String collectName;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference,databaseReference1,databaseReference2;
-    private NewsModel newsModel;
     private TextView date;
     private TextView headline;
     private CircleImageView pic ;
@@ -61,7 +60,6 @@ public class UserNewsPostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_news_post);
-        name=findViewById(R.id.ed_name);
         title=findViewById(R.id.ed_title);
         date=findViewById(R.id.ed_date);
         image=findViewById(R.id.ed_image);
@@ -81,9 +79,19 @@ public class UserNewsPostActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
                             userModel=snapshot.getValue(UserModel.class);
-                            Glide.with(getApplicationContext()).load(userModel.getImage1()).into(pic);
-                            nameUser.setText(userModel.getUserName());
-                            uniName.setText(userModel.getUserUniversity());
+
+                            if(userModel.getUserName() != null){
+                                nameUser.setText(userModel.getUserName());
+
+                            }
+                            if(userModel.getImage1() != null){
+                                Glide.with(getApplicationContext()).load(userModel.getImage1()).into(pic);
+
+                            }
+                            if(userModel.getUserUniversity() != null){
+                                uniName.setText(userModel.getUserUniversity());
+
+                            }
 
                         }
                     }
@@ -145,7 +153,8 @@ public class UserNewsPostActivity extends AppCompatActivity {
     }
     private void addDatatoFirebase(String category) {
 
-        String s_name = name.getText().toString();
+        NewsModel newsModel ;
+        NewsModel newsModel1=new NewsModel();
         String s_title = title.getText().toString();
         String s_date = date.getText().toString();
         String s_img = image.getText().toString();
@@ -153,16 +162,20 @@ public class UserNewsPostActivity extends AppCompatActivity {
         String s_category=category;
         Boolean isValid = isImageUrlValid(s_img);
         String s_uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         String s_userName=userModel.getUserName();
         String s_userUni=userModel.getUserUniversity();
         String s_userPic=userModel.getImage1();
+
         Toast.makeText(this, ""+s_userName+" ", Toast.LENGTH_SHORT).show();
 
+        newsModel1.setUserName(s_userName);
+        newsModel1.setUserPic(s_userPic);
+        newsModel1.setUserUniversity(s_userUni);
 
+        newsModel=new NewsModel(s_date,s_desc,s_img,s_title,s_category,s_uid);
 
-        newsModel=new NewsModel(s_name,s_date,s_desc,s_img,s_title,s_category,s_uid,s_userName,s_userUni,s_userPic);
-
-        if(TextUtils.isEmpty(s_name) ||  TextUtils.isEmpty(s_title) ||TextUtils.isEmpty(s_date) ||TextUtils.isEmpty(s_img) ||TextUtils.isEmpty(s_desc) ){
+        if(TextUtils.isEmpty(s_title) ||TextUtils.isEmpty(s_date) ||TextUtils.isEmpty(s_img) ||TextUtils.isEmpty(s_desc) ){
             Toast.makeText(this, "Please Fillup all data ", Toast.LENGTH_SHORT).show();
         }else{
 
@@ -170,6 +183,7 @@ public class UserNewsPostActivity extends AppCompatActivity {
                 String a = databaseReference.push().getKey();
                 firebaseAuth=FirebaseAuth.getInstance();
                 uid=firebaseAuth.getCurrentUser().getUid();
+
 
 
                 //  Toast.makeText(this, ""+collectName, Toast.LENGTH_SHORT).show();
@@ -185,6 +199,7 @@ public class UserNewsPostActivity extends AppCompatActivity {
 
                     Toast.makeText(this, "Add Successfully", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
+                    intent.putExtra("postUserUid",uid);
                     startActivity(intent);
                 }
             }else{

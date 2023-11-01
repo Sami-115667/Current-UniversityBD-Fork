@@ -22,7 +22,7 @@
                 android:id="@+id/cv_user_image_id"
                 app:civ_border_width="1.4dp"
                 app:civ_border_color="@color/blue"
-                android:src="@drawable/default_unselected_dot"
+                android:src="@drawable/defaultprofile"
                 android:layout_width="50dp"
                 android:layout_height="50dp"/>
 
@@ -36,12 +36,12 @@
                     android:id="@+id/cv_name_id"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:text="Md Rakib Hossain"
+                    android:text="Admin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/cv_uni_id"
-                    android:text="University of Dhaka"
+                    android:text="Amin university"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 

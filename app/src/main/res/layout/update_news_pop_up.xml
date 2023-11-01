@@ -6,39 +6,23 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_marginTop="10dp"
-            android:textAllCaps="true"
-            android:layout_marginLeft="15dp"
-            android:textSize="12dp"
+            android:textColor="@color/custom_icon_color"
+            android:layout_marginTop="20dp"
+            android:textSize="15dp"
+            android:backgroundTint="@color/custom_text_color"
+            android:padding="10dp"
+            android:background="@drawable/serchbar_background"
             android:textStyle="bold"
-
-            android:textColor="@color/blue"
-            android:text="Author"
-            android:layout_width="match_parent"
+            android:text="Update Your Post"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <EditText
-            android:padding="10dp"
-            android:gravity="top"
-            android:hint="Enter your name"
-            android:id="@+id/ed_name"
-            android:textColorHint="@color/hint_colour"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/edit_text_background"
-            android:drawablePadding="5dp"
-            android:inputType="textMultiLine"
-            android:minLines="10"
-            android:paddingLeft="5dp" />
 
         <TextView
             android:textAllCaps="true"
@@ -156,7 +140,7 @@
             android:layout_gravity="center"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="16dp"
             android:text="POST"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

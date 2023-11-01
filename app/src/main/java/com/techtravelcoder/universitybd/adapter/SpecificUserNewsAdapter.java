@@ -2,6 +2,7 @@ package com.techtravelcoder.universitybd.adapter;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +22,10 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.auth.User;
 import com.techtravelcoder.universitybd.R;
-import com.techtravelcoder.universitybd.activity.SpecificUserNewsPostDetails;
-import com.techtravelcoder.universitybd.activity.UserNewsPostActivity;
 import com.techtravelcoder.universitybd.model.NewsModel;
+import com.techtravelcoder.universitybd.model.UserModel;
 import com.techtravelcoder.universitybd.user_profile.UserProfileActivity;
 
 import java.text.SimpleDateFormat;
@@ -41,9 +42,13 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
     int year,month,day;
 
     ArrayList<NewsModel>list;
-    public SpecificUserNewsAdapter(Context context,ArrayList<NewsModel>list){
-        this.context=context;
-        this.list=list;
+    ArrayList<UserModel>list1;
+
+
+    public SpecificUserNewsAdapter(Context context, ArrayList<NewsModel> list, ArrayList<UserModel> list1) {
+        this.context = context;
+        this.list = list;
+        this.list1 = list1;
     }
 
     @NonNull
@@ -59,7 +64,6 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
         View dialogView = inflater.inflate(R.layout.update_news_pop_up, null);
         dialogBuilder.setView(dialogView);
 
-        EditText e_author = dialogView.findViewById(R.id.ed_name);
         EditText e_title = dialogView.findViewById(R.id.ed_title);
         TextView e_date = dialogView.findViewById(R.id.ed_date);
         EditText e_image = dialogView.findViewById(R.id.ed_image);
@@ -68,7 +72,6 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
 
         Toast.makeText(context, ""+obj.getCategory(), Toast.LENGTH_SHORT).show();
 
-        e_author.setText(obj.getAuthor());
         e_title.setText(obj.getTitle());
         e_date.setText(obj.getDate());
         e_image.setText(obj.getImage());
@@ -99,7 +102,6 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
             @Override
             public void onClick(View v) {
                 Map<String, Object>map=new HashMap<>();
-                map.put("author",e_author.getText().toString());
                 map.put("title",e_title.getText().toString());
                 map.put("date",e_date.getText().toString());
                 map.put("image",e_image.getText().toString());
@@ -172,17 +174,22 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
 
     @Override
     public void onBindViewHolder(@NonNull SpecificUserNewsAdapter.MyViewHolder holder, int position) {
+
         NewsModel obj=list.get(position);
+        UserModel um =list1.get(position);
 
         holder.title.setText(obj.getTitle());
         holder.desc.setText(obj.getDescription());
-        holder.author.setText(obj.getAuthor());
         Glide.with(holder.newsImage.getContext()).load(obj.getImage()).into(holder.newsImage);
         holder.date.setText(obj.getDate());
+
+
+        holder.nameUser.setText(um.getUserName());
+        holder.uniName.setText(um.getUserUniversity());
+        Glide.with(holder.pic.getContext()).load(um.getImage1()).into(holder.pic);
+
         if(obj.getUserName() != null && obj.getUserUniversity() !=null &&  obj.getUserPic() != null ){
-            holder.nameUser.setText(obj.getUserName());
-            holder.uniName.setText(obj.getUserUniversity());
-            Glide.with(holder.pic.getContext()).load(obj.getUserPic()).into(holder.pic);
+
         }
 
 
@@ -202,7 +209,7 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
         return list.size();
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView author,title,desc,date ;
+        TextView title,desc,date ;
         CircleImageView pic;
         TextView nameUser,uniName;
         ImageView newsImage ;
@@ -215,7 +222,6 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
             uniName=itemView.findViewById(R.id.sd_user_university);
 
 
-            author=itemView.findViewById(R.id.newsAuther);
             title=itemView.findViewById(R.id.newsTitle);
             desc=itemView.findViewById(R.id.newsDescription);
             date=itemView.findViewById(R.id.newsDate);

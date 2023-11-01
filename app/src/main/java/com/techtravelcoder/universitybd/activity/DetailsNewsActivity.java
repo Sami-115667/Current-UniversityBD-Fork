@@ -77,15 +77,19 @@ public class DetailsNewsActivity extends AppCompatActivity {
 
     Toast.makeText(getApplicationContext(), ""+c_uid, Toast.LENGTH_SHORT).show();
 
+    if(c_uid != null){
         FirebaseDatabase.getInstance().getReference("User Information").
                 child(c_uid).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
                             UserModel userModel=snapshot.getValue(UserModel.class);
-                            Glide.with(getApplicationContext()).load(userModel.getImage1()).into(userPic);
-                            name.setText(userModel.getUserName());
-                            universityName.setText(userModel.getUserUniversity());
+                            if(userModel.getUserName() != null && userModel.getImage1()!= null && userModel.getUserUniversity()!= null ){
+                                Glide.with(getApplicationContext()).load(userModel.getImage1()).into(userPic);
+                                name.setText(userModel.getUserName());
+                                universityName.setText(userModel.getUserUniversity());
+                            }
+
 
                         }
                     }
@@ -95,6 +99,9 @@ public class DetailsNewsActivity extends AppCompatActivity {
 
                     }
                 });
+    }
+
+
 
     }
 

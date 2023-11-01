@@ -90,25 +90,6 @@
         android:layout_height="match_parent">
 
 
-        <EditText
-            android:textSize="16dp"
-
-            android:padding="10dp"
-            android:gravity="top"
-            android:hint="Enter your name"
-            android:id="@+id/ed_name"
-            android:textColorHint="@color/hint_colour"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/edit_text_background"
-            android:drawablePadding="7dp"
-            android:inputType="textMultiLine"
-            android:minLines="10"
-            android:paddingLeft="5dp" />
 
         <EditText
             android:textSize="16dp"

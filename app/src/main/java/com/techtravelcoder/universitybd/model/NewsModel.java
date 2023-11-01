@@ -13,15 +13,44 @@ public class NewsModel {
         // Default constructor required for Firebase
     }
 
-    public NewsModel(String author, String date, String description, String image, String title,String category) {
-        this.author = author;
-        this.title = title;
-        this.description = description;
-        this.date = date;
-        this.image = image;
-        this.category=category;
+//    public NewsModel(String author, String date, String description, String image, String title,String category) {
+//        this.author = author;
+//        this.title = title;
+//        this.description = description;
+//        this.date = date;
+//        this.image = image;
+//        this.category=category;
+//
+//    }
 
+    public NewsModel(String image1, String userName, String userUniversity) {
+        userPic=image1;
+        this.userName=userName;
+        this.userUniversity=userUniversity;
     }
+
+    public NewsModel(String s_date, String s_desc, String s_img, String s_title, String s_category, String s_uid, String s_userName, String s_userUni, String s_userPic) {
+        date=s_date;
+        description=s_desc;
+        image=s_img;
+        title=s_title;
+        category=s_category;
+        uid=s_uid;
+        userPic=s_userPic;
+        userName=s_userName;
+        userUniversity=s_userUni;
+    }
+
+    public NewsModel(String s_date, String s_desc, String s_img, String s_title, String s_category, String s_uid) {
+        date=s_date;
+        description=s_desc;
+        image=s_img;
+        title=s_title;
+        category=s_category;
+        uid=s_uid;
+    }
+
+
 
     public String getUserPic() {
         return userPic;
@@ -47,18 +76,16 @@ public class NewsModel {
         this.userUniversity = userUniversity;
     }
 
-    public NewsModel(String s_name, String s_date, String s_desc, String s_img, String s_title, String s_category, String s_uid, String s_userName, String s_userUni, String s_userPic) {
-        author=s_name;
-        date=s_date;
-        description=s_desc;
-        image=s_img;
-        title=s_title;
-        category=s_category;
-        uid=s_uid;
-        userName=s_userName;
-        userPic=s_userPic;
-        userUniversity=s_userUni;
-    }
+//    public NewsModel(String s_name, String s_date, String s_desc, String s_img, String s_title, String s_category, String s_uid) {
+//        author=s_name;
+//        date=s_date;
+//        description=s_desc;
+//        image=s_img;
+//        title=s_title;
+//        category=s_category;
+//        uid=s_uid;
+//
+//    }
 
 
     public String getAuthor() {

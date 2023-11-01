@@ -98,9 +98,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if(snapshot.exists()){
                             UserModel userModel=snapshot.getValue(UserModel.class);
 
+                            if(userModel.getUserName() != null){
+                                userName.setText(userModel.getUserName());
+                            }
+                            if(userModel.getImage1() != null){
+                                Glide.with(getApplicationContext()).load(userModel.getImage1()).into(userPic);
+
+                            }
                             //Toast.makeText(getApplicationContext(), ""+userModel.getUserName(), Toast.LENGTH_SHORT).show();
-                             Glide.with(getApplicationContext()).load(userModel.getImage1()).into(userPic);
-                            userName.setText(userModel.getUserName());
+
 
                         }
                     }

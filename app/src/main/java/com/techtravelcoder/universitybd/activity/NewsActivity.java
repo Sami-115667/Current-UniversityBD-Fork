@@ -22,12 +22,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.interfaces.ItemClickListener;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,12 +43,15 @@ import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
 import com.techtravelcoder.universitybd.model.NewsModel;
 import com.techtravelcoder.universitybd.model.TeacherInfoModel;
 import com.techtravelcoder.universitybd.model.TrendingNewsModel;
+import com.techtravelcoder.universitybd.model.UserModel;
 import com.techtravelcoder.universitybd.service.TeachersInfoService;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
+import es.dmoral.toasty.Toasty;
 
 public class NewsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -57,6 +62,7 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
     private TrendingNewsAdapter trendingNewsAdapter;
     private DatabaseReference mbase,mbase1;
     private ArrayList<NewsModel>list;
+    private ArrayList<UserModel>userList;
     private ArrayList<NewsModel> filteredList;
     private  ArrayList<TrendingNewsModel>list1;
      private TextView category ;
@@ -96,12 +102,17 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         remoteJob.setOnClickListener(this);
         category.setOnClickListener(this);
 
+        userList=new ArrayList<>();
+
 
         int color= 0;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             color = getColor(R.color.service_bar);
         }
         getWindow().setStatusBarColor(color);
+
+        String postUserId=getIntent().getStringExtra("postUserUid");
+
 
 
 
@@ -115,7 +126,8 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-
+        NewsModel newsModel=new NewsModel();
+        //Toast.makeText(this, ""+newsModel.getUid(), Toast.LENGTH_SHORT).show();
 
 
         //News Paper
@@ -194,6 +206,19 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+
+        //name image university
+      //  Toast.makeText(this, ""+newsModel.getUid(), Toast.LENGTH_SHORT).show();
+
+
+
+
+
+
+
+
+
+
 
         filteredList = new ArrayList<>(list);
 
