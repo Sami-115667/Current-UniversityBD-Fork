@@ -249,6 +249,8 @@ public class UserProfileActivity extends AppCompatActivity {
 
         Uri imageUri = imageUris[num - 1];
 
+        Toast.makeText(getApplicationContext(), "Bug fix", Toast.LENGTH_SHORT).show();
+
 
         if (imageUri != null) {
             // Construct the path to store the image in Firebase Storage
@@ -588,20 +590,19 @@ public class UserProfileActivity extends AppCompatActivity {
 
                         if (img1 != null) {
                             Glide.with(prfPic.getContext()).load(img1).into(prfPic);
-                            Toasty.info(getApplicationContext(),"Successfully Upload..",Toasty.LENGTH_SHORT).show();
                             progressbar.setVisibility(View.GONE);
+                            Toasty.info(getApplicationContext(),"Successfully loading Profile Picture",Toasty.LENGTH_SHORT).show();
 
-                        }else {
-                            progressbar.setVisibility(View.GONE);
+
                         }
                         if (img2 != null) {
                             Glide.with(backPic.getContext()).load(img2).into(backPic);
-                            Toasty.info(getApplicationContext(),"Successfully Upload..",Toasty.LENGTH_SHORT).show();
                             progressbar11.setVisibility(View.GONE);
-                        }else {
-                            progressbar11.setVisibility(View.GONE);
-
+                            Toasty.info(getApplicationContext(),"Successfully loading Cover Photo",Toasty.LENGTH_SHORT).show();
                         }
+                        progressbar.setVisibility(View.GONE);
+                        progressbar11.setVisibility(View.GONE);
+
 
 
 
@@ -642,7 +643,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
         AppCompatButton userProfileUpdate=dialogView.findViewById(R.id.update_profile_id_ab);
 
-         //Toast.makeText(this, "Rakib", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Rakib", Toast.LENGTH_SHORT).show();
         e_name.setText(userModel.getUserName());
         e_hall_name.setText(userModel.getUserHall());
         e_mobile.setText(userModel.getUserPhoneNumber());

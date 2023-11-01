@@ -213,6 +213,11 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
 
                         FirebaseDatabase.getInstance().getReference("SpecificUserNews").child(obj.getUid()).
                                 child(obj.getKey()).removeValue();
+                        FirebaseDatabase.getInstance().getReference("News").child("All News").
+                                child(obj.getKey()).removeValue();
+                        FirebaseDatabase.getInstance().getReference("News").child(obj.getCategory()).
+                                child(obj.getKey()).removeValue();
+
 
                         Toast.makeText(context, "Delete Successful...", Toast.LENGTH_SHORT).show();
 
