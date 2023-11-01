@@ -62,7 +62,6 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
     private TrendingNewsAdapter trendingNewsAdapter;
     private DatabaseReference mbase,mbase1;
     private ArrayList<NewsModel>list;
-    private ArrayList<UserModel>userList;
     private ArrayList<NewsModel> filteredList;
     private  ArrayList<TrendingNewsModel>list1;
      private TextView category ;
@@ -102,7 +101,6 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         remoteJob.setOnClickListener(this);
         category.setOnClickListener(this);
 
-        userList=new ArrayList<>();
 
 
         int color= 0;
@@ -126,7 +124,6 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        NewsModel newsModel=new NewsModel();
         //Toast.makeText(this, ""+newsModel.getUid(), Toast.LENGTH_SHORT).show();
 
 
@@ -139,6 +136,7 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         list=new ArrayList<>();
         newsAdapter=new NewsAdapter(this,list);
         recyclerView.setAdapter(newsAdapter );
+
         mbase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -146,8 +144,8 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
                 list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
-
                     NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
+
                     if(newsModel != null){
 
                         list.add(0,newsModel);
@@ -187,7 +185,7 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
 
                 list1.clear();
 
-                TrendingNewsModel trendingNewsModel = null;
+                TrendingNewsModel trendingNewsModel ;
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
 
@@ -209,11 +207,6 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
 
         //name image university
       //  Toast.makeText(this, ""+newsModel.getUid(), Toast.LENGTH_SHORT).show();
-
-
-
-
-
 
 
 

@@ -1,5 +1,6 @@
 package com.techtravelcoder.universitybd.adapter;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -24,6 +25,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.auth.User;
 import com.techtravelcoder.universitybd.R;
+import com.techtravelcoder.universitybd.cgpacalculator.SemesterActivity;
+import com.techtravelcoder.universitybd.model.CGPADetailsModel;
 import com.techtravelcoder.universitybd.model.NewsModel;
 import com.techtravelcoder.universitybd.model.UserModel;
 import com.techtravelcoder.universitybd.user_profile.UserProfileActivity;
@@ -153,8 +156,9 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
                                 Toast.makeText(context, "Successfully Update", Toast.LENGTH_SHORT).show();
 
                                 alertDialog.dismiss();
-                                Intent intent=new Intent(context, UserProfileActivity.class);
+                                Intent intent = new Intent(context, UserProfileActivity.class);
                                 context.startActivity(intent);
+                                ((Activity) context).finish();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -188,20 +192,50 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
         holder.uniName.setText(um.getUserUniversity());
         Glide.with(holder.pic.getContext()).load(um.getImage1()).into(holder.pic);
 
-        if(obj.getUserName() != null && obj.getUserUniversity() !=null &&  obj.getUserPic() != null ){
-
-        }
-
-
 
         holder.update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 newsUpdate(obj);
-
             }
-
         });
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder=new AlertDialog.Builder(context);
+                builder.setTitle("Are you delete this Post");
+                builder.setMessage("Post data can't be undo ");
+                builder.setCancelable(false);
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+
+                        FirebaseDatabase.getInstance().getReference("SpecificUserNews").child(obj.getUid()).
+                                child(obj.getKey()).removeValue();
+
+                        Toast.makeText(context, "Delete Successful...", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(context, UserProfileActivity.class);
+                        context.startActivity(intent);
+                        ((Activity) context).finish(); // Finish the current activity
+
+                    }
+
+
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(context, "Canceled", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
+
     }
 
     @Override

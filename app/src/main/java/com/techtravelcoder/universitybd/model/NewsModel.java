@@ -13,15 +13,6 @@ public class NewsModel {
         // Default constructor required for Firebase
     }
 
-//    public NewsModel(String author, String date, String description, String image, String title,String category) {
-//        this.author = author;
-//        this.title = title;
-//        this.description = description;
-//        this.date = date;
-//        this.image = image;
-//        this.category=category;
-//
-//    }
 
     public NewsModel(String image1, String userName, String userUniversity) {
         userPic=image1;

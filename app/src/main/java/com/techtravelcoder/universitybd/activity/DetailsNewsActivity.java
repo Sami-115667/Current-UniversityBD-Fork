@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -78,6 +79,7 @@ public class DetailsNewsActivity extends AppCompatActivity {
     Toast.makeText(getApplicationContext(), ""+c_uid, Toast.LENGTH_SHORT).show();
 
     if(c_uid != null){
+        author.setVisibility(View.GONE);
         FirebaseDatabase.getInstance().getReference("User Information").
                 child(c_uid).addValueEventListener(new ValueEventListener() {
                     @Override
@@ -99,6 +101,7 @@ public class DetailsNewsActivity extends AppCompatActivity {
 
                     }
                 });
+
     }
 
 

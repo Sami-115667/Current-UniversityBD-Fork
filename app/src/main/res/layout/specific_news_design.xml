@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:textColor="#898282"
+                android:textColor="@color/coloryellow"
                 android:textSize="17dp"
                 android:id="@+id/sd_user_university"
                 android:text="University of Dhaka"

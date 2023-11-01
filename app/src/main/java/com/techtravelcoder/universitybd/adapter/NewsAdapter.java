@@ -71,29 +71,37 @@ public class NewsAdapter extends RecyclerView.Adapter< NewsAdapter.MyViewHolder>
        Glide.with(holder.newsImage.getContext()).load(obj.getImage()).into(holder.newsImage);
 
         holder.date.setText(obj.getDate());
-        Toast.makeText(context, ""+obj.getUid(), Toast.LENGTH_SHORT).show();
-        FirebaseDatabase.getInstance().getReference("User Information").
-                child(obj.getUid()).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            UserModel userModel=snapshot.getValue(UserModel.class);
+       // Toast.makeText(context, "Problem Fix", Toast.LENGTH_SHORT).show();
 
-                            if(userModel.getUserName() != null && userModel.getImage1()!= null && userModel.getUserUniversity()!= null ){
-                                Glide.with(context).load(userModel.getImage1()).into(holder.userPic);
-                                holder.name.setText(userModel.getUserName());
-                                holder.university.setText(userModel.getUserUniversity());
+        // Toast.makeText(context, ""+obj.getUid(), Toast.LENGTH_SHORT).show();
+
+        if(obj.getUid() != null){
+            FirebaseDatabase.getInstance().getReference("User Information").
+                    child(obj.getUid()).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if(snapshot.exists()){
+                                UserModel userModel=snapshot.getValue(UserModel.class);
+
+                                if(userModel.getUserName() != null && userModel.getImage1()!= null && userModel.getUserUniversity()!= null ){
+                                    Glide.with(context).load(userModel.getImage1()).into(holder.userPic);
+                                    holder.name.setText(userModel.getUserName());
+                                    holder.university.setText(userModel.getUserUniversity());
+                                }
+
+
                             }
+                        }
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
                         }
-                    }
+                    });
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+        }
 
-                    }
-                });
+
 
 
 
