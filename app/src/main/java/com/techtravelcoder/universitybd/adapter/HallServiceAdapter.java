@@ -52,6 +52,7 @@ public class HallServiceAdapter extends RecyclerView.Adapter<HallServiceAdapter.
 //        holder.text44.setText(hallServiceModel.getText4());
 
         Map<String, String> images = hallServiceModel.getImages();
+        Toast.makeText(context, ""+hallServiceModel.getImages(), Toast.LENGTH_SHORT).show();
         String imageKey = "image" + 1;
         String imageUrl = images.get("image1");
         Glide.with(context).load(imageUrl).into(getImageViewByIndex(holder, 1));

@@ -147,9 +147,7 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
                     NewsModel newsModel = dataSnapshot.getValue(NewsModel.class);
 
                     if(newsModel != null){
-
                         list.add(0,newsModel);
-
 
                     }
 

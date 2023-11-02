@@ -1,7 +1,32 @@
 package com.techtravelcoder.universitybd.model;
 
 public class TrendingNewsModel {
-    String author,title,description,date,image ;
+    String author,title,description,date,image,uid,key,category ;
+    String postLike;
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getPostLike() {
+        return postLike;
+    }
+
+    public void setPostLike(String postLike) {
+        this.postLike = postLike;
+    }
 
     public TrendingNewsModel(){
 

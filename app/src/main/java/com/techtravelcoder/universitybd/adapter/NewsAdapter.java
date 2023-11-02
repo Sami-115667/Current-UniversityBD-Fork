@@ -71,9 +71,15 @@ public class NewsAdapter extends RecyclerView.Adapter< NewsAdapter.MyViewHolder>
        Glide.with(holder.newsImage.getContext()).load(obj.getImage()).into(holder.newsImage);
 
         holder.date.setText(obj.getDate());
-       // Toast.makeText(context, "Problem Fix", Toast.LENGTH_SHORT).show();
 
-        // Toast.makeText(context, ""+obj.getUid(), Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(context, ""+obj.getUid(), Toast.LENGTH_SHORT).show();
+        if(obj.getUid() == null){
+            holder.name.setText("Admin");
+            holder.university.setText("From Admin..");
+            holder.userPic.setImageResource(R.drawable.admin);
+        }
+
 
         if(obj.getUid() != null){
             FirebaseDatabase.getInstance().getReference("User Information").
@@ -98,12 +104,7 @@ public class NewsAdapter extends RecyclerView.Adapter< NewsAdapter.MyViewHolder>
 
                         }
                     });
-
         }
-
-
-
-
 
 
 
@@ -113,6 +114,9 @@ public class NewsAdapter extends RecyclerView.Adapter< NewsAdapter.MyViewHolder>
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(context, ""+obj.getKey(), Toast.LENGTH_SHORT).show();
+
+                //Toast.makeText(context, " "+obj.getPostLike(), Toast.LENGTH_SHORT).show();
 
                 Intent intent= new Intent(context, DetailsNewsActivity.class);
                 intent.putExtra("author",obj.getAuthor());
@@ -121,6 +125,11 @@ public class NewsAdapter extends RecyclerView.Adapter< NewsAdapter.MyViewHolder>
                 intent.putExtra("date",obj.getDate());
                 intent.putExtra("image",obj.getImage());
                 intent.putExtra("postAutherUid",obj.getUid());
+                intent.putExtra("postCategory",obj.getCategory());
+                intent.putExtra("postKey",obj.getKey());
+                intent.putExtra("postLike",obj.getPostLike());
+
+
 
                 context.startActivity(intent);
             }

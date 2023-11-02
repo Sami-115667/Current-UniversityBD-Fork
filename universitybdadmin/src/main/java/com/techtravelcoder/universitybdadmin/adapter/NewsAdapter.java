@@ -98,48 +98,73 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewViewHolder>
                         map.put("description",e_description.getText().toString());
                         CRUDNewsActivity crudNewsActivity= new CRUDNewsActivity();
 
-                        FirebaseDatabase.getInstance().getReference().child("News").
-                                child(obj.getCatagory())
-                                .child(obj.getKey())
-                                .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                     //   Toast.makeText(context, "Successfully Update", Toast.LENGTH_SHORT).show();
-                                        alertDialog.dismiss();
 
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                       // Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
-                                        alertDialog.dismiss();
+                        if(obj.getCategory().equals("Trending News")){
+                            FirebaseDatabase.getInstance().getReference().child("News").
+                                    child(obj.getCategory())
+                                    .child(obj.getKey())
+                                    .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            //   Toast.makeText(context, "Successfully Update", Toast.LENGTH_SHORT).show();
+                                            alertDialog.dismiss();
 
-                                    }
-                                });
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            // Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
+                                            alertDialog.dismiss();
 
-                        FirebaseDatabase.getInstance().getReference().child("News").
-                                child("All News")
-                                .child(obj.getKey())
-                                .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                         Toast.makeText(context, "Successfully Update", Toast.LENGTH_SHORT).show();
-                                        alertDialog.dismiss();
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
-                                        alertDialog.dismiss();
-                                    }
-                                });
+                                        }
+                                    });
+
+                        }else {
+                            FirebaseDatabase.getInstance().getReference().child("News").
+                                    child(obj.getCategory())
+                                    .child(obj.getKey())
+                                    .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            //   Toast.makeText(context, "Successfully Update", Toast.LENGTH_SHORT).show();
+                                            alertDialog.dismiss();
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            // Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
+                                            alertDialog.dismiss();
+
+                                        }
+                                    });
+                            FirebaseDatabase.getInstance().getReference().child("News").
+                                    child("All News")
+                                    .child(obj.getKey())
+                                    .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(context, "Successfully Update", Toast.LENGTH_SHORT).show();
+                                            alertDialog.dismiss();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
+                                            alertDialog.dismiss();
+                                        }
+                                    });
+
+
+                        }
+
+
                         Intent intent = new Intent(context, NewsCategoryActivity.class);
                         context.startActivity(intent);
 
 
 
                     }
-
 
 
                 });
@@ -158,7 +183,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewViewHolder>
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                          FirebaseDatabase.getInstance().getReference("News").child(obj.getCatagory()).
+                          FirebaseDatabase.getInstance().getReference("News").child(obj.getCategory()).
                                   child(obj.getKey()).removeValue();
 
                         FirebaseDatabase.getInstance().getReference("News").child("All News").

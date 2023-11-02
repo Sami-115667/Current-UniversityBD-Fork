@@ -1,13 +1,22 @@
 package com.techtravelcoder.universitybd.model;
 
 
+import java.util.Map;
 
 public class NewsModel {
 
 
     String author,title,description,date,image,uid,key,category;
-    String userPic,userName,userUniversity;
+    String userPic,userName,userUniversity,postLike;
 
+
+    public String getPostLike() {
+        return postLike;
+    }
+
+    public void setPostLike(String postLike) {
+        this.postLike = postLike;
+    }
 
     public NewsModel() {
         // Default constructor required for Firebase

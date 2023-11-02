@@ -3,7 +3,7 @@ package com.techtravelcoder.universitybdadmin.model;
 public class NewsModel {
 
     String author,title,description,date,image ,key;
-    String catagory;
+    String category;
 
    public NewsModel(){
 
@@ -69,10 +69,10 @@ public class NewsModel {
         this.image = image;
     }
 
-    public void setCatagory(String catagory) {
-        this.catagory=catagory;
+    public void setCatagory(String category) {
+        this.category=category;
     }
-    public String getCatagory() {
-        return catagory;
+    public String getCategory() {
+        return category;
     }
 }

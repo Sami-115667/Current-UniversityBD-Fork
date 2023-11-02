@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -52,12 +53,16 @@ public class TrendingNewsAdapter extends RecyclerView.Adapter<TrendingNewsAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(context, ""+obj.getKey(), Toast.LENGTH_SHORT).show();
                 Intent intent= new Intent(context, DetailsNewsActivity.class);
                 intent.putExtra("author",obj.getAuthor());
                 intent.putExtra("title",obj.getTitle());
                 intent.putExtra("desc",obj.getDescription());
                 intent.putExtra("date",obj.getDate());
                 intent.putExtra("image",obj.getImage());
+                intent.putExtra("postCategory",obj.getCategory());
+                intent.putExtra("postKey",obj.getKey());
+                intent.putExtra("postLike",obj.getPostLike());
                 context.startActivity(intent);
             }
         });

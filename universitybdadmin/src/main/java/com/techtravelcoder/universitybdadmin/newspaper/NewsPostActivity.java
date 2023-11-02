@@ -33,6 +33,7 @@ public class NewsPostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_news_post);
 
         author=findViewById(R.id.ed1);
@@ -42,9 +43,10 @@ public class NewsPostActivity extends AppCompatActivity {
         desc=findViewById(R.id.ed5);
         udsNews=findViewById(R.id.udsId);
         post=findViewById(R.id.postId);
+
         type = getIntent().getStringExtra("key");
 
-        Toast.makeText(this, ""+type, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "Rakib:"+type, Toast.LENGTH_SHORT).show();
         udsNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,21 +91,25 @@ public class NewsPostActivity extends AppCompatActivity {
         String s_date = date.getText().toString();
         String s_img = img.getText().toString();
         String s_desc = desc.getText().toString();
+
         newsModel=new NewsModel(s_author,s_date,s_desc,s_img,s_title);
+
+        String a = databaseReference.push().getKey();
+        newsModel.setKey(a);
+        newsModel.setCatagory(type);
 
         if(TextUtils.isEmpty(s_author) ||  TextUtils.isEmpty(s_title) ||TextUtils.isEmpty(s_date) ||TextUtils.isEmpty(s_img) ||TextUtils.isEmpty(s_desc) ){
             Toast.makeText(this, "Please Fillup all data ", Toast.LENGTH_SHORT).show();
         }else{
             if(!type.equals("Trending News")){
 
-                String a = databaseReference.push().getKey();
 
                 databaseReference.child(a).setValue(newsModel);
                 databaseReference1.child(a).setValue(newsModel);
             }else{
 
-                String a = databaseReference.push().getKey();
                 databaseReference.child(a).setValue(newsModel);
+
                 //Toast.makeText(this, ""+a, Toast.LENGTH_SHORT).show();
             }
 

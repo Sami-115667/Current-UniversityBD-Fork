@@ -153,8 +153,7 @@ public class UserNewsPostActivity extends AppCompatActivity {
     }
     private void addDatatoFirebase(String category) {
 
-        NewsModel newsModel ;
-        NewsModel newsModel1=new NewsModel();
+        NewsModel newsModel;
         String s_title = title.getText().toString();
         String s_date = date.getText().toString();
         String s_img = image.getText().toString();
@@ -169,27 +168,27 @@ public class UserNewsPostActivity extends AppCompatActivity {
 
         Toast.makeText(this, ""+s_userName+" ", Toast.LENGTH_SHORT).show();
 
-        newsModel1.setUserName(s_userName);
-        newsModel1.setUserPic(s_userPic);
-        newsModel1.setUserUniversity(s_userUni);
+
 
         newsModel=new NewsModel(s_date,s_desc,s_img,s_title,s_category,s_uid);
 
         if(TextUtils.isEmpty(s_title) ||TextUtils.isEmpty(s_date) ||TextUtils.isEmpty(s_img) ||TextUtils.isEmpty(s_desc) ){
-            Toast.makeText(this, "Please Fillup all data ", Toast.LENGTH_SHORT).show();
+            Toasty.info(getApplicationContext(),"Please Fillup all data",Toasty.LENGTH_SHORT).show();
         }else{
 
             if(isValid ){
                 String a = databaseReference.push().getKey();
                 firebaseAuth=FirebaseAuth.getInstance();
                 uid=firebaseAuth.getCurrentUser().getUid();
+                newsModel.setKey(a);
+
 
 
 
                 //  Toast.makeText(this, ""+collectName, Toast.LENGTH_SHORT).show();
 
                 if(collectName.equals("choose your category")){
-                    Toast.makeText(this, "Must be select a category", Toast.LENGTH_SHORT).show();
+                    Toasty.info(getApplicationContext(),"Must be Select a Category",Toasty.LENGTH_SHORT).show();
 
                 }else {
                     databaseReference.child(a).setValue(newsModel);
