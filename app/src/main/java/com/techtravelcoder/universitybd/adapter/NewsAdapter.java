@@ -73,9 +73,9 @@ public class NewsAdapter extends RecyclerView.Adapter< NewsAdapter.MyViewHolder>
         holder.date.setText(obj.getDate());
 
 
-        Toast.makeText(context, ""+obj.getUid(), Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(context, ""+obj.getUid(), Toast.LENGTH_SHORT).show();
         if(obj.getUid() == null){
-            holder.name.setText("Admin");
+            holder.name.setText("Admin Post");
             holder.university.setText("From Admin..");
             holder.userPic.setImageResource(R.drawable.admin);
         }

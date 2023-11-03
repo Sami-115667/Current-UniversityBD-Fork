@@ -45,6 +45,7 @@ public class NewsPostActivity extends AppCompatActivity {
         post=findViewById(R.id.postId);
 
         type = getIntent().getStringExtra("key");
+        author.setLinkTextColor(R.color.green);
 
       //  Toast.makeText(this, "Rakib:"+type, Toast.LENGTH_SHORT).show();
         udsNews.setOnClickListener(new View.OnClickListener() {

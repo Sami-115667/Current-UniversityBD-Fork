@@ -22,9 +22,9 @@
                 android:id="@+id/cv_user_image_id"
                 app:civ_border_width="1.4dp"
                 app:civ_border_color="@color/custom_text_color"
-                android:src="@drawable/defaultprofile"
-                android:layout_width="50dp"
-                android:layout_height="50dp"/>
+                android:src="@drawable/admin"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
 
             <LinearLayout
                 android:gravity="center_vertical"
@@ -32,14 +32,17 @@
                 android:layout_marginLeft="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:id="@+id/cv_name_id"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="Admin"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="Admin Post"
+                    android:textColor="@color/black"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
                 <TextView
+                    android:textSize="16dp"
                     android:id="@+id/cv_uni_id"
                     android:text="From Admin.."
                     android:layout_width="wrap_content"
@@ -81,18 +84,18 @@
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:padding="7dp"
+            android:id="@+id/detailsNewsTitleId"
+            android:layout_width="wrap_content"
+            android:layout_height="49dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1"
             android:background="@drawable/edit_text_background"
-                android:layout_marginTop="3dp"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:id="@+id/detailsNewsTitleId"
-                android:textColor="@color/blue"
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:text="Ravhvwfkqjf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            android:padding="7dp"
+            android:text="Ravhvwfkqjf"
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
 
 
@@ -100,6 +103,8 @@
 
 
         <TextView
+
+            android:autoLink="all"
             android:layout_marginTop="6.5dp"
             android:layout_marginLeft="10dp"
             android:id="@+id/detailsNewsDescId"
@@ -111,6 +116,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:autoLink="all"
             android:layout_marginBottom="10dp"
             android:padding="7dp"
             android:background="@drawable/edit_text_background"
@@ -118,9 +124,8 @@
             android:layout_marginLeft="10dp"
             android:id="@+id/detailsNewsAuthorId"
             android:layout_weight="1"
-            android:textColor="@color/documentary"
-            android:textStyle="bold"
-            android:textSize="20dp"
+            android:textColor="@color/back"
+            android:textSize="15dp"
             android:text="Ravhvwfkqjf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

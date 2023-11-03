@@ -19,17 +19,17 @@
                 android:background="@drawable/serchbar_background"
                 android:backgroundTint="@color/blue"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="14dp"
-                android:padding="5dp"
                 android:text="See all News"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"/>
 
             <EditText
+                android:autoLink="all"
                 android:padding="10dp"
                 android:gravity="top"
                 android:hint="Enter news author"
@@ -37,7 +37,7 @@
                 android:textColorHint="@color/hint_colour"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="90dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="15dp"
@@ -102,6 +102,7 @@
                 android:inputType="textMultiLine"
                 android:paddingLeft="5dp" />
             <EditText
+                android:autoLink="all"
                 android:padding="10dp"
                 android:gravity="top"
                 android:hint="Enter news description"
@@ -127,8 +128,8 @@
                 android:clickable="true"
                 android:backgroundTint="@color/documentary"
                 android:background="@drawable/serchbar_background"
-                android:layout_marginBottom="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/white"

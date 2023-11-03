@@ -565,7 +565,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
                         }
                         if(userModel.getUserHall() != null){
-                            hall.setText(userModel.getUserHall());
+                            hall.setText("Hall : "+userModel.getUserHall());
                         }
                         if(userModel.getUserEmail() != null){
                             gmail.setText(userModel.getUserEmail());
@@ -574,13 +574,13 @@ public class UserProfileActivity extends AppCompatActivity {
                             mobile.setText(userModel.getUserPhoneNumber());
                         }
                         if(userModel.getUserBloodGroup() != null){
-                            bloodgroup.setText(userModel.getUserBloodGroup());
+                            bloodgroup.setText("Blood Group : "+userModel.getUserBloodGroup());
                         }
                         if(userModel.getUserDept() != null){
                             department.setText(userModel.getUserDept());
                         }
                         if(userModel.getUserRoom() != null){
-                            roomNumber.setText(userModel.getUserRoom());
+                            roomNumber.setText("Room Number : "+userModel.getUserRoom());
                         }
 
                         updateProfile.setVisibility(View.VISIBLE);

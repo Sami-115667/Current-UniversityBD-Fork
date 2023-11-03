@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.auth.User;
 import com.techtravelcoder.universitybd.R;
+import com.techtravelcoder.universitybd.activity.NewsActivity;
 import com.techtravelcoder.universitybd.cgpacalculator.SemesterActivity;
 import com.techtravelcoder.universitybd.model.CGPADetailsModel;
 import com.techtravelcoder.universitybd.model.NewsModel;
@@ -156,7 +157,7 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
                                 Toast.makeText(context, "Successfully Update", Toast.LENGTH_SHORT).show();
 
                                 alertDialog.dismiss();
-                                Intent intent = new Intent(context, UserProfileActivity.class);
+                                Intent intent = new Intent(context, NewsActivity.class);
                                 context.startActivity(intent);
                                 ((Activity) context).finish();
                             }
@@ -221,7 +222,7 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
 
                         Toast.makeText(context, "Delete Successful...", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(context, UserProfileActivity.class);
+                        Intent intent = new Intent(context, NewsActivity.class);
                         context.startActivity(intent);
                         ((Activity) context).finish(); // Finish the current activity
 

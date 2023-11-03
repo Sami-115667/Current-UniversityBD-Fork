@@ -150,7 +150,7 @@
             android:textSize="16dp"
             android:padding="10dp"
             android:gravity="top"
-            android:hint="Enter news description"
+            android:hint="Enter news description ,you can also add link"
             android:id="@+id/ed_desc"
             android:textColorHint="@color/hint_colour"
             android:textColor="@color/black"

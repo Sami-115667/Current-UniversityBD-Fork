@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -50,6 +51,10 @@ public class DetailsNewsActivity extends AppCompatActivity {
         name=findViewById(R.id.cv_name_id);
         like=findViewById(R.id.details_news_like_id);
         likeImage=findViewById(R.id.details_news_like_img);
+
+        author.setMovementMethod(LinkMovementMethod.getInstance());
+        desc.setMovementMethod(LinkMovementMethod.getInstance());
+
 
 
 
@@ -144,6 +149,7 @@ public class DetailsNewsActivity extends AppCompatActivity {
 
         if (c_author != null) {
             author.setText(c_author);
+
         }
 
         if (c_title != null) {
@@ -164,7 +170,7 @@ public class DetailsNewsActivity extends AppCompatActivity {
 
         newsModel=new NewsModel();
 
-    Toast.makeText(getApplicationContext(), ""+c_uid, Toast.LENGTH_SHORT).show();
+    //Toast.makeText(getApplicationContext(), ""+c_uid, Toast.LENGTH_SHORT).show();
 
     if(c_uid != null){
         author.setVisibility(View.GONE);

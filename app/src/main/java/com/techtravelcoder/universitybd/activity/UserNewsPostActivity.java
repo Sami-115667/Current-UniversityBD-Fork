@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatSpinner;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -166,7 +167,7 @@ public class UserNewsPostActivity extends AppCompatActivity {
         String s_userUni=userModel.getUserUniversity();
         String s_userPic=userModel.getImage1();
 
-        Toast.makeText(this, ""+s_userName+" ", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, ""+s_userName+" ", Toast.LENGTH_SHORT).show();
 
 
 
@@ -200,6 +201,7 @@ public class UserNewsPostActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
                     intent.putExtra("postUserUid",uid);
                     startActivity(intent);
+                    finish();
                 }
             }else{
                 Toast.makeText(this, "your image link is wrong", Toast.LENGTH_SHORT).show();
@@ -226,7 +228,7 @@ public class UserNewsPostActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 collectName= (String) parent.getItemAtPosition(position).toString().toLowerCase();
 
-                if(!collectName.equals("choose your category")){
+                if(!collectName.equals("Choose your category")){
 
                      databaseReference= FirebaseDatabase.getInstance().getReference("News").child(collectName);
 
@@ -243,9 +245,7 @@ public class UserNewsPostActivity extends AppCompatActivity {
 
                     // Toast.makeText(UserNewsPostActivity.this, ""+collectName, Toast.LENGTH_SHORT).show();
                 }
-                else {
-                    Toast.makeText(UserNewsPostActivity.this, "Please Choose a Category", Toast.LENGTH_SHORT).show();
-                }
+
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {

@@ -1,6 +1,7 @@
 
 package com.techtravelcoder.universitybdadmin.adapter;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -137,9 +138,7 @@ public class TeacherInfoAdapter extends RecyclerView.Adapter<TeacherInfoAdapter.
                         map.put("description",e_bio.getText().toString());
                         ShowAndDeleteActivity showAndDeleteActivity= new ShowAndDeleteActivity();
 
-                        FirebaseDatabase.getInstance().getReference().child("TeacherInformation").
-                                child(obj.getUniName())
-                                .child(obj.getKey())
+                        FirebaseDatabase.getInstance().getReference().child("TeacherInformation").child(obj.getUniName()).child(obj.getKey())
                                 .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
@@ -158,6 +157,11 @@ public class TeacherInfoAdapter extends RecyclerView.Adapter<TeacherInfoAdapter.
 
                         Intent intent = new Intent(context, FirstActivity.class);
                         context.startActivity(intent);
+                        Activity activity=new Activity();
+                        activity.finish();
+
+                        //((Activity)context).finish();
+
 
 
 

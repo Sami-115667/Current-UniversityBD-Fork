@@ -1,5 +1,6 @@
 package com.techtravelcoder.universitybdadmin.adapter;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -103,14 +104,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewViewHolder>
                             FirebaseDatabase.getInstance().getReference().child("News").
                                     child(obj.getCategory())
                                     .child(obj.getKey())
-                                    .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    .updateChildren(map).
+                                    addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             //   Toast.makeText(context, "Successfully Update", Toast.LENGTH_SHORT).show();
                                             alertDialog.dismiss();
 
                                         }
-                                    }).addOnFailureListener(new OnFailureListener() {
+                                    }).
+                                    addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
                                             // Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
@@ -161,6 +164,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewViewHolder>
 
                         Intent intent = new Intent(context, NewsCategoryActivity.class);
                         context.startActivity(intent);
+                        ((Activity)context).finish();
 
 
 
@@ -183,15 +187,28 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewViewHolder>
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                          FirebaseDatabase.getInstance().getReference("News").child(obj.getCategory()).
-                                  child(obj.getKey()).removeValue();
+                        if(obj.getCategory().equals("Trending News")){
+                            FirebaseDatabase.getInstance().getReference("News").child(obj.getCategory()).
+                                    child(obj.getKey()).removeValue();
+                            Toast.makeText(context, "Delete Successful...", Toast.LENGTH_SHORT).show();
 
-                        FirebaseDatabase.getInstance().getReference("News").child("All News").
-                                child(obj.getKey()).removeValue();
-                        Toast.makeText(context, "Delete Successful...", Toast.LENGTH_SHORT).show();
+
+                        }else{
+                            FirebaseDatabase.getInstance().getReference("News").child(obj.getCategory()).
+                                    child(obj.getKey()).removeValue();
+                            FirebaseDatabase.getInstance().getReference("News").child("All News").
+                                    child(obj.getKey()).removeValue();
+                            Toast.makeText(context, "Delete Successful...", Toast.LENGTH_SHORT).show();
+
+
+
+                        }
+
+
 
                         Intent intent = new Intent(context, NewsCategoryActivity.class);
                         context.startActivity(intent);
+                        ((Activity)context).finish();
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

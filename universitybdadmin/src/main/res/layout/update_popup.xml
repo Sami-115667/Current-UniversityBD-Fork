@@ -17,11 +17,11 @@
                 android:layout_marginTop="10dp"
                 android:textAllCaps="true"
                 android:layout_marginLeft="15dp"
-                android:textSize="15dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
 
                 android:textColor="@color/blue"
-                android:text="Author"
+                android:text="Author details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <EditText
@@ -32,7 +32,7 @@
                 android:textColorHint="@color/hint_colour"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="90dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
@@ -45,7 +45,7 @@
             <TextView
                 android:textAllCaps="true"
                 android:layout_marginLeft="15dp"
-                android:textSize="15dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
                 android:textColor="@color/blue"
                 android:text="Title"
@@ -60,7 +60,7 @@
                 android:textColorHint="@color/hint_colour"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
@@ -71,7 +71,7 @@
                 android:paddingLeft="5dp" />
             <TextView
                 android:layout_marginLeft="15dp"
-                android:textSize="15dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
                 android:textColor="@color/blue"
                 android:text="DATE"
@@ -86,7 +86,7 @@
                 android:textColorHint="@color/hint_colour"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
@@ -96,7 +96,7 @@
                 android:paddingLeft="5dp" />
             <TextView
                 android:layout_marginLeft="15dp"
-                android:textSize="15dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
                 android:textColor="@color/blue"
                 android:text="IMAGE LINK"
@@ -112,7 +112,7 @@
                 android:textColorHint="@color/hint_colour"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
@@ -123,7 +123,7 @@
                 android:paddingLeft="5dp" />
             <TextView
                 android:layout_marginLeft="15dp"
-                android:textSize="15dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
                 android:textColor="@color/blue"
                 android:text="DESCRIPTION"
@@ -149,18 +149,17 @@
                 android:paddingLeft="5dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:padding="9dp"
                 android:id="@+id/postUpdateId"
                 android:foreground="@drawable/uni_background"
                 android:clickable="true"
                 android:background="@drawable/edit_text_background"
                 android:backgroundTint="@color/back"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:text="Update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
