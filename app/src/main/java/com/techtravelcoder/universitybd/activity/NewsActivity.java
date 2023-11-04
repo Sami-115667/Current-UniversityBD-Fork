@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -66,6 +67,7 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
     private  ArrayList<TrendingNewsModel>list1;
      private TextView category ;
      EditText editText;
+     private LottieAnimationView lottieAnimationView;
 
      Toolbar toolbar;
 
@@ -75,6 +77,7 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
 
+        lottieAnimationView=findViewById(R.id.loadingViewNewsLottie);
         gen_uni=findViewById(R.id.cd1);
         auto_uni=findViewById(R.id.cd2);
         pri_uni=findViewById(R.id.cd3);
@@ -100,6 +103,8 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         frellancing.setOnClickListener(this);
         remoteJob.setOnClickListener(this);
         category.setOnClickListener(this);
+
+        lottieAnimationView.playAnimation();
 
 
 
@@ -193,6 +198,7 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
                         list1.add(0, trendingNewsModel);
                     }
                 }
+                lottieAnimationView.setVisibility(View.GONE);
                 trendingNewsAdapter.notifyDataSetChanged();
 
             }

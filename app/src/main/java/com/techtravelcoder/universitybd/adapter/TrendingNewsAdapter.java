@@ -53,8 +53,11 @@ public class TrendingNewsAdapter extends RecyclerView.Adapter<TrendingNewsAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, ""+obj.getKey(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(context, ""+obj.getKey(), Toast.LENGTH_SHORT).show();
+
                 Intent intent= new Intent(context, DetailsNewsActivity.class);
+
+                intent.putExtra("numberCheck","2");
                 intent.putExtra("author",obj.getAuthor());
                 intent.putExtra("title",obj.getTitle());
                 intent.putExtra("desc",obj.getDescription());

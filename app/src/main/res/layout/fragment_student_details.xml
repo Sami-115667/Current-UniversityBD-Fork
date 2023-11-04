@@ -49,8 +49,18 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/student_details_fragment_rv_id"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 />
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/loadingViewStudentDetailsLottie"
+                android:layout_width="300dp"
+                android:layout_height="350dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading"
+                />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
     <!-- TODO: Update blank fragment layout -->

@@ -7,8 +7,15 @@ public class NewsModel {
 
 
     String author,title,description,date,image,uid,key,category;
-    String userPic,userName,userUniversity,postLike;
+    String userPic,userName,userUniversity,postLike,postAutherUid;
 
+    public String getPostAutherUid() {
+        return postAutherUid;
+    }
+
+    public void setPostAutherUid(String postAutherUid) {
+        this.postAutherUid = postAutherUid;
+    }
 
     public String getPostLike() {
         return postLike;

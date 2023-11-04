@@ -8,7 +8,6 @@
     tools:context=".activity.DetailsNewsActivity">
 
     <LinearLayout
-
         android:layout_marginTop="15dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -19,6 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <de.hdodenhof.circleimageview.CircleImageView
+                android:foreground="@drawable/uni_background"
+
                 android:id="@+id/cv_user_image_id"
                 app:civ_border_width="1.4dp"
                 app:civ_border_color="@color/custom_text_color"
@@ -34,6 +35,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:foreground="@drawable/uni_background"
                     android:id="@+id/cv_name_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -42,6 +44,7 @@
                     android:textSize="19dp"
                     android:textStyle="bold" />
                 <TextView
+                    android:foreground="@drawable/uni_background"
                     android:textSize="16dp"
                     android:id="@+id/cv_uni_id"
                     android:text="From Admin.."
@@ -137,23 +140,43 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/details_news_like_img"
+                <LinearLayout
                     android:layout_weight="1"
-                    android:src="@drawable/baseline_favorite_border_24"
+                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <ImageView
-                    android:layout_weight="1"
-                    android:src="@drawable/email_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:id="@+id/details_news_like_img"
+                        android:layout_weight="1"
+                        android:src="@drawable/baseline_favorite_border_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/details_news_like_id"
+                        android:gravity="center"
+                        android:layout_weight="2"
+                        android:text="Loves"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
 
-                <ImageView
+
+                </LinearLayout>
+                <TextView
+                    android:drawableTop="@drawable/email_icon"
+                    android:gravity="center"
                     android:layout_weight="1"
-                    android:src="@drawable/feedback"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:text="Comment"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:drawableTop="@drawable/feedback"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="Feedback"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
 
 
             </LinearLayout>
@@ -161,27 +184,8 @@
                 android:layout_marginBottom="30dp"
 
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-               <TextView
-                   android:id="@+id/details_news_like_id"
-                   android:gravity="center"
-                   android:layout_weight="1"
-                   android:text="Loves"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"/>
-                <TextView
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:text="Comment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-                <TextView
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:text="Feedback"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
 
 
 

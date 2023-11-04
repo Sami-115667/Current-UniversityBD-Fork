@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(MainActivity.this, UserProfileActivity.class);
+                intent.putExtra("postAutherId",FirebaseAuth.getInstance().getUid());
                 startActivity(intent);
             }
         });

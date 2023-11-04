@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,11 +33,15 @@ public class HallServiceActivity extends AppCompatActivity {
     HallServiceAdapter hallServiceAdapter;
     ArrayList<HallServiceModel> list ;
     DatabaseReference databaseReference;
+    private LottieAnimationView lottieAnimationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hall_service);
+
+        lottieAnimationView=findViewById(R.id.loadingViewHallLottie);
+        lottieAnimationView.playAnimation();
 
 
 
@@ -60,10 +66,10 @@ public class HallServiceActivity extends AppCompatActivity {
                 list.clear();
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
 
-                    Toast.makeText(getApplicationContext(), "ryr", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "ryr", Toast.LENGTH_SHORT).show();
 
                     HallServiceModel hallServiceModel = snapshot1.getValue(HallServiceModel.class);
-                    Toast.makeText(getApplicationContext(), "rrr", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getApplicationContext(), "rrr", Toast.LENGTH_SHORT).show();
 
                     if(hallServiceModel != null){
 
@@ -73,6 +79,7 @@ public class HallServiceActivity extends AppCompatActivity {
                 }
 
 
+                lottieAnimationView.setVisibility(View.GONE);
                 hallServiceAdapter.notifyDataSetChanged();
 
 

@@ -320,8 +320,18 @@
                 android:text="Trending News..."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/loadingViewNewsLottie"
+                android:layout_width="300dp"
+                android:layout_height="250dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading"
+                />
 
-                <LinearLayout
+
+            <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -329,7 +339,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/trendingNewsRecyclerViewId"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content">
 
                     </androidx.recyclerview.widget.RecyclerView>
 
@@ -351,15 +361,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/newsRecyclerViewId"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
             </androidx.recyclerview.widget.RecyclerView>
 
 
+
         </LinearLayout>
+
 
 
     </androidx.core.widget.NestedScrollView>

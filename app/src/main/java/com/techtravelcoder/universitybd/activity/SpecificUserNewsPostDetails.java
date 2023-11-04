@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,17 +35,19 @@ import es.dmoral.toasty.Toasty;
 
 public class SpecificUserNewsPostDetails extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    TextView postNai ;
-    String uid ;
-    NewsModel newsModel;
-    SpecificUserNewsAdapter specificUserNewsAdapter;
-    ArrayList<NewsModel> list;
-    ArrayList<UserModel>list1;
-    FirebaseAuth firebaseAuth;
-    DatabaseReference databaseReference;
-    CircleImageView pic;
-    TextView nameUser,uniName;
+    private RecyclerView recyclerView;
+    private TextView postNai ;
+    private String uid ;
+    private NewsModel newsModel;
+    private SpecificUserNewsAdapter specificUserNewsAdapter;
+    private ArrayList<NewsModel> list;
+    private ArrayList<UserModel>list1;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference databaseReference;
+    private CircleImageView pic;
+    private TextView nameUser,uniName;
+    public String postAutherUid;
+    private LottieAnimationView lottieAnimationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,16 +58,27 @@ public class SpecificUserNewsPostDetails extends AppCompatActivity {
 
 
 
+        lottieAnimationView=findViewById(R.id.loadingViewSpecificUser);
         postNai=findViewById(R.id.specific_post_number_check);
         recyclerView=findViewById(R.id.specificUserNewsRecyclerViewId);
         uid=FirebaseAuth.getInstance().getUid();
+        postAutherUid=getIntent().getStringExtra("postAutherId");
         //String uid =firebaseAuth.getCurrentUser().getUid();
+        lottieAnimationView.playAnimation();
+
+       // Toast.makeText(this, ""+postAutherUid, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, ""+uid, Toast.LENGTH_SHORT).show();
+
+
+
+        databaseReference= FirebaseDatabase.getInstance().getReference("SpecificUserNews").child(postAutherUid);
+
+
 
 
         list1=new ArrayList<>();
 
         FirebaseApp.initializeApp(this);
-        databaseReference= FirebaseDatabase.getInstance().getReference("SpecificUserNews").child(uid);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list=new ArrayList<>();
         specificUserNewsAdapter=new SpecificUserNewsAdapter(this,list,list1);
@@ -88,7 +102,7 @@ public class SpecificUserNewsPostDetails extends AppCompatActivity {
 
                     newsModel = dataSnapshot.getValue(NewsModel.class);
                     if(newsModel != null){
-
+                        newsModel.setPostAutherUid(postAutherUid);
                         newsModel.setUid(uid);
                         newsModel.setKey(a);
                         list.add(0,newsModel);
@@ -98,11 +112,12 @@ public class SpecificUserNewsPostDetails extends AppCompatActivity {
 
 
                 }
+                lottieAnimationView.setVisibility(View.GONE);
                 specificUserNewsAdapter.notifyDataSetChanged();
 
                 if(list.isEmpty()){
                     AlertDialog.Builder builder=new AlertDialog.Builder(SpecificUserNewsPostDetails.this);
-                    builder.setMessage("কোন পোস্ট করা হয়নি। পোস্ট এর\n" +
+                    builder.setMessage("কোন পোস্ট পাউয়া যায়নি । পোস্ট এর\n" +
                             "সংখ্যা ০।");
                     builder.setTitle("Post Update..");
                     builder.setCancelable(false);
@@ -127,7 +142,7 @@ public class SpecificUserNewsPostDetails extends AppCompatActivity {
 
 
         FirebaseDatabase.getInstance().getReference("User Information").
-                child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                child(postAutherUid).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){

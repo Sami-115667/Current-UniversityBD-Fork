@@ -86,6 +86,8 @@ public class UserProfileActivity extends AppCompatActivity {
     private CircleImageView prfPic,prf1,prf2;
     private ImageView backPic;
     private ProgressBar progressbar,progressbar11;
+    private String postAutherUid;
+    private TextView activities ,writeHere,changeActivity ;
     String userHall,userName,userUniversity,userGmail,userBloodgroup,userRoomNumber,userDepartment,userMobile,img1,img2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +99,9 @@ public class UserProfileActivity extends AppCompatActivity {
         cardView=findViewById(R.id.ll_specific_post);
         progressbar=findViewById(R.id.progressBar);
         progressbar11=findViewById(R.id.progressBar1);
+        activities=findViewById(R.id.tv_activities_id);
+        writeHere=findViewById(R.id.tv_write_here_id);
+        changeActivity=findViewById(R.id.tv_change_activities);
 
         calcCg=findViewById(R.id.cgpaCalc);
 
@@ -120,79 +125,115 @@ public class UserProfileActivity extends AppCompatActivity {
         cgpaDetails=findViewById(R.id.user_prf_cgpa_details_id);
 
         uid= FirebaseAuth.getInstance().getUid();
+
+        postAutherUid=getIntent().getStringExtra("postAutherId");
         storageReference = FirebaseStorage.getInstance().getReference();
        // Toast.makeText(this, ""+uid, Toast.LENGTH_SHORT).show();
         firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference=firebaseDatabase.getReference("User Information").child(uid);
-        hallRef=FirebaseDatabase.getInstance().getReference("User Information").child(uid);
-        progressbar.setVisibility(View.VISIBLE);
-        progressbar11.setVisibility(View.VISIBLE);
+        if(postAutherUid.equals(uid)){
+            databaseReference=firebaseDatabase.getReference("User Information").child(uid);
+            hallRef=FirebaseDatabase.getInstance().getReference("User Information").child(uid);
 
-        fetchUserData();
+            progressbar.setVisibility(View.VISIBLE);
+            progressbar11.setVisibility(View.VISIBLE);
 
-        cgpaDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), CGPADetailsActivity.class);
-                startActivity(intent);
-            }
-        });
+            fetchUserData();
 
-
-        doPost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), UserNewsPostActivity.class);
-                startActivity(intent);
-            }
-        });
+            cgpaDetails.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(getApplicationContext(), CGPADetailsActivity.class);
+                    startActivity(intent);
+                }
+            });
 
 
-
-        prf1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                num=1;
-                selectImage();
-
-
-            }
-        });
-        prf2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                num=2;
-               selectImage();
-            }
-        });
+            doPost.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(getApplicationContext(), UserNewsPostActivity.class);
+                    startActivity(intent);
+                }
+            });
 
 
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(UserProfileActivity.this, SpecificUserNewsPostDetails.class);
-                startActivity(intent);
-            }
-        });
-        calcCg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(UserProfileActivity.this, SemesterActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        updateProfile.setVisibility(View.GONE);
-        updateProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                editProfile(userHall,userName,userGmail,userUniversity,userMobile,userBloodgroup,userDepartment,userRoomNumber);
+            prf1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    num=1;
+                    selectImage();
 
 
-            }
-        });
+                }
+            });
+            prf2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    num=2;
+                    selectImage();
+                }
+            });
+
+
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(UserProfileActivity.this, SpecificUserNewsPostDetails.class);
+                    intent.putExtra("postAutherId",postAutherUid);
+                    startActivity(intent);
+                }
+            });
+            calcCg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(UserProfileActivity.this, SemesterActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+            updateProfile.setVisibility(View.GONE);
+            updateProfile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    editProfile(userHall,userName,userGmail,userUniversity,userMobile,userBloodgroup,userDepartment,userRoomNumber);
+
+
+                }
+            });
+
+        }
+        else {
+
+            prf1.setVisibility(View.GONE);
+            prf2.setVisibility(View.GONE);
+            writeHere.setVisibility(View.GONE);
+            updateProfile.setVisibility(View.GONE);
+            calcCg.setVisibility(View.GONE);
+            doPost.setVisibility(View.GONE);
+            cgpaDetails.setVisibility(View.GONE);
+            databaseReference=firebaseDatabase.getReference("User Information").child(postAutherUid);
+            hallRef=FirebaseDatabase.getInstance().getReference("User Information").child(postAutherUid);
+            progressbar.setVisibility(View.VISIBLE);
+            progressbar11.setVisibility(View.VISIBLE);
+            fetchUserData();
+
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(UserProfileActivity.this, SpecificUserNewsPostDetails.class);
+                    intent.putExtra("postAutherId",postAutherUid);
+
+                    startActivity(intent);
+                }
+            });
+
+
+        }
+
+
 
     }
 
@@ -249,7 +290,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
         Uri imageUri = imageUris[num - 1];
 
-        Toast.makeText(getApplicationContext(), "Bug fix", Toast.LENGTH_SHORT).show();
+       Toast.makeText(getApplicationContext(), "Bug fix", Toast.LENGTH_SHORT).show();
 
 
         if (imageUri != null) {
@@ -557,6 +598,12 @@ public class UserProfileActivity extends AppCompatActivity {
 
 
 
+                        if(!postAutherUid.equals(uid)){
+                            activities.setText("See "+userModel.getUserName()+" Activities");
+                            changeActivity.setText("See "+userModel.getUserName()+" Post");
+                        }
+
+
                         if(userModel.getUserName() != null){
                             name.setText(userModel.getUserName());
                         }
@@ -577,13 +624,15 @@ public class UserProfileActivity extends AppCompatActivity {
                             bloodgroup.setText("Blood Group : "+userModel.getUserBloodGroup());
                         }
                         if(userModel.getUserDept() != null){
-                            department.setText(userModel.getUserDept());
+                        department.setText(userModel.getUserDept());
                         }
                         if(userModel.getUserRoom() != null){
                             roomNumber.setText("Room Number : "+userModel.getUserRoom());
                         }
 
-                        updateProfile.setVisibility(View.VISIBLE);
+                        if(postAutherUid.equals(uid)){
+                            updateProfile.setVisibility(View.VISIBLE);
+                        }
 
 
 

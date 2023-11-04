@@ -25,7 +25,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.auth.User;
 import com.techtravelcoder.universitybd.R;
+import com.techtravelcoder.universitybd.activity.DetailsNewsActivity;
 import com.techtravelcoder.universitybd.activity.NewsActivity;
+import com.techtravelcoder.universitybd.activity.SpecificUserNewsPostDetails;
 import com.techtravelcoder.universitybd.cgpacalculator.SemesterActivity;
 import com.techtravelcoder.universitybd.model.CGPADetailsModel;
 import com.techtravelcoder.universitybd.model.NewsModel;
@@ -193,6 +195,13 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
         holder.uniName.setText(um.getUserUniversity());
         Glide.with(holder.pic.getContext()).load(um.getImage1()).into(holder.pic);
 
+        //Toast.makeText(context, ""+obj.getUid(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, ""+obj.getPostAutherUid(), Toast.LENGTH_SHORT).show();
+
+        if(!obj.getUid().equals(obj.getPostAutherUid())){
+            holder.update.setVisibility(View.GONE);
+            holder.delete.setVisibility(View.GONE);
+        }
 
         holder.update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -239,6 +248,23 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
                 });
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(context, DetailsNewsActivity.class);
+                intent.putExtra("title",obj.getTitle());
+                intent.putExtra("desc",obj.getDescription());
+                intent.putExtra("date",obj.getDate());
+                intent.putExtra("image",obj.getImage());
+                intent.putExtra("numberCheck","1");
+                intent.putExtra("name",um.getUserName());
+                intent.putExtra("university",um.getUserUniversity());
+                intent.putExtra("userPicture",um.getImage1());
+
+                context.startActivity(intent);
             }
         });
 

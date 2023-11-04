@@ -12,9 +12,20 @@
         android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/specificUserNewsRecyclerViewId"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/loadingViewSpecificUser"
+        android:layout_width="300dp"
+        android:layout_height="550dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading"
+        />
+
 
 </LinearLayout>

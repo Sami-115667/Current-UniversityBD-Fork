@@ -1,8 +1,12 @@
 package com.techtravelcoder.universitybd.activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
@@ -20,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.model.NewsModel;
 import com.techtravelcoder.universitybd.model.UserModel;
+import com.techtravelcoder.universitybd.user_profile.UserProfileActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -34,6 +39,8 @@ public class DetailsNewsActivity extends AppCompatActivity {
     private TextView like ;
     int cnt =0;
     private String c_post_key,c_post_category,c_uid,currentPostNember;
+    private String c_userpic,c_useruniversity,c_author,c_title,c_desc,c_date,c_image,c_username;
+    String c_number;
     private ImageView likeImage ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,91 +65,221 @@ public class DetailsNewsActivity extends AppCompatActivity {
 
 
 
-        String c_author=getIntent().getStringExtra("author");
-        String c_title=getIntent().getStringExtra("title");
-        String c_desc=getIntent().getStringExtra("desc");
-        String c_date=getIntent().getStringExtra("date");
-        String c_image=getIntent().getStringExtra("image");
-         c_post_key=getIntent().getStringExtra("postKey");
-         c_post_category=getIntent().getStringExtra("postCategory");
+         c_number =getIntent().getStringExtra("numberCheck");
+         c_userpic=getIntent().getStringExtra("userPicture");
+         c_useruniversity=getIntent().getStringExtra("university");
+         c_username=getIntent().getStringExtra("name");
+        c_author=getIntent().getStringExtra("author");
+        c_title=getIntent().getStringExtra("title");
+        c_desc=getIntent().getStringExtra("desc");
+        c_date=getIntent().getStringExtra("date");
+        c_image=getIntent().getStringExtra("image");
+        c_post_key=getIntent().getStringExtra("postKey");
+        c_post_category=getIntent().getStringExtra("postCategory");
+        Toast.makeText(getApplicationContext(), ""+c_number, Toast.LENGTH_SHORT).show();
 
 
-        c_uid=getIntent().getStringExtra("postAutherUid");
+        if(c_number.equals("1")){
+            Toast.makeText(getApplicationContext(), "Rakib", Toast.LENGTH_SHORT).show();
 
-         currentPostNember=getIntent().getStringExtra("postLike");
-         if(currentPostNember == null){
-             currentPostNember= String.valueOf(0);
-         }
-
-
-
-             FirebaseDatabase.getInstance().getReference("News")
-                     .child("All News").child(c_post_key).child("likes").addListenerForSingleValueEvent(new ValueEventListener() {
-                         @Override
-                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                             if(snapshot.child(FirebaseAuth.getInstance().getUid()).exists()){
-                                 likeImage.setImageResource(R.drawable.baseline_favorite_24);
-                                 like.setText(String.valueOf(Integer.parseInt(currentPostNember))+" Loves");
+            commingFromSpecificUserNewsAdapter();
+        }
+        else {
+            commingNewsSpecificUserNewsAdapter();
+        }
 
 
 
-                             }else{
-                                 like.setText(String.valueOf(Integer.parseInt(currentPostNember))+" Loves");
-                                 likeImage.setOnClickListener(new View.OnClickListener() {
-                                     @Override
-                                     public void onClick(View v) {
-                                         manageLike();
-                                     }
-                                 });
+    }
 
-                             }
+    private void commingFromSpecificUserNewsAdapter() {
 
+        if (c_author != null) {
+            author.setText(c_author);
 
+        }
 
-                         }
+        if (c_title != null) {
+            title.setText(c_title);
+        }
 
-                         @Override
-                         public void onCancelled(@NonNull DatabaseError error) {
+        if (c_desc != null) {
+            desc.setText(c_desc);
+        }
 
-                         }
-                     });
+        if (c_date != null) {
+            date.setText(c_date);
+        }
 
+        if (c_image != null) {
+            Glide.with(getApplicationContext()).load(c_image).into(image);
+        }
+        if(c_username != null){
+            name.setText(c_username);
+        }
+        if(c_useruniversity != null){
+            universityName.setText(c_useruniversity);
+        }
+        if(c_userpic != null){
+            Glide.with(getApplicationContext()).load(c_userpic).into(userPic);
 
-             FirebaseDatabase.getInstance().getReference("News")
-                     .child(c_post_category).child(c_post_key).child("likes").addListenerForSingleValueEvent(new ValueEventListener() {
-                         @Override
-                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                             if(snapshot.child(FirebaseAuth.getInstance().getUid()).exists()){
-                                 likeImage.setImageResource(R.drawable.baseline_favorite_24);
-                                 like.setText(String.valueOf(Integer.parseInt(currentPostNember))+" Loves");
-
-
-
-                             }else{
-                                 like.setText(String.valueOf(Integer.parseInt(currentPostNember))+" Loves");
-                                 likeImage.setOnClickListener(new View.OnClickListener() {
-                                     @Override
-                                     public void onClick(View v) {
-                                         manageLike();
-                                     }
-                                 });
-
-                             }
+        }
 
 
+    }
 
-                         }
+    private void commingNewsSpecificUserNewsAdapter(){
+        c_uid = getIntent().getStringExtra("postAutherUid");
 
-                         @Override
-                         public void onCancelled(@NonNull DatabaseError error) {
+        Toast.makeText(getApplicationContext(), "" + c_uid, Toast.LENGTH_SHORT).show();
 
-                         }
-                     });
+        currentPostNember = getIntent().getStringExtra("postLike");
+        if (currentPostNember == null) {
+            currentPostNember = String.valueOf(0);
+        }
+
+        userPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (c_uid != null) {
+                    Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
+                    intent.putExtra("postAutherId", c_uid);
+                    startActivity(intent);
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DetailsNewsActivity.this);
+                    builder.setTitle("This is Admin Post");
+                    builder.setMessage("Admin has no Profile..");
+                    builder.setCancelable(false);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+
+                        }
 
 
+                    });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                }
 
+            }
+        });
+        name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (c_uid != null) {
+                    Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
+                    intent.putExtra("postAutherId", c_uid);
+                    startActivity(intent);
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DetailsNewsActivity.this);
+                    builder.setTitle("This is Admin Post");
+                    builder.setMessage("Admin has no Profile..");
+                    builder.setCancelable(false);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+
+                        }
+
+
+                    });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                }
+
+            }
+        });
+        universityName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (c_uid != null) {
+                    Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
+                    intent.putExtra("postAutherId", c_uid);
+                    startActivity(intent);
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DetailsNewsActivity.this);
+                    builder.setTitle("This is Admin Post");
+                    builder.setMessage("Admin has no Profile..");
+                    builder.setCancelable(false);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+
+                        }
+
+
+                    });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                }
+
+            }
+        });
+
+        FirebaseDatabase.getInstance().getReference("News")
+                .child("All News").child(c_post_key).child("likes").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        if (snapshot.child(FirebaseAuth.getInstance().getUid()).exists()) {
+                            likeImage.setImageResource(R.drawable.baseline_favorite_24);
+                            like.setText(String.valueOf(Integer.parseInt(currentPostNember)) + " Loves");
+
+
+                        } else {
+                            like.setText(String.valueOf(Integer.parseInt(currentPostNember)) + " Loves");
+                            likeImage.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    manageLike();
+                                }
+                            });
+
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+        FirebaseDatabase.getInstance().getReference("News")
+                .child(c_post_category).child(c_post_key).child("likes").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        if (snapshot.child(FirebaseAuth.getInstance().getUid()).exists()) {
+                            likeImage.setImageResource(R.drawable.baseline_favorite_24);
+                            like.setText(String.valueOf(Integer.parseInt(currentPostNember)) + " Loves");
+
+
+                        } else {
+                            like.setText(String.valueOf(Integer.parseInt(currentPostNember)) + " Loves");
+                            likeImage.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    manageLike();
+                                }
+                            });
+
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
 
         Glide.with(getApplicationContext()).load(c_image).into(image);
@@ -168,38 +305,35 @@ public class DetailsNewsActivity extends AppCompatActivity {
             Glide.with(getApplicationContext()).load(c_image).into(image);
         }
 
-        newsModel=new NewsModel();
+        newsModel = new NewsModel();
 
-    //Toast.makeText(getApplicationContext(), ""+c_uid, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), ""+c_uid, Toast.LENGTH_SHORT).show();
 
-    if(c_uid != null){
-        author.setVisibility(View.GONE);
-        FirebaseDatabase.getInstance().getReference("User Information").
-                child(c_uid).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            UserModel userModel=snapshot.getValue(UserModel.class);
-                            if(userModel.getUserName() != null && userModel.getImage1()!= null && userModel.getUserUniversity()!= null ){
-                                Glide.with(getApplicationContext()).load(userModel.getImage1()).into(userPic);
-                                name.setText(userModel.getUserName());
-                                universityName.setText(userModel.getUserUniversity());
+        if (c_uid != null) {
+            author.setVisibility(View.GONE);
+            FirebaseDatabase.getInstance().getReference("User Information").
+                    child(c_uid).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()) {
+                                UserModel userModel = snapshot.getValue(UserModel.class);
+                                if (userModel.getUserName() != null && userModel.getImage1() != null && userModel.getUserUniversity() != null) {
+                                    Glide.with(getApplicationContext()).load(userModel.getImage1()).into(userPic);
+                                    name.setText(userModel.getUserName());
+                                    universityName.setText(userModel.getUserUniversity());
+                                }
+
+
                             }
+                        }
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
                         }
-                    }
+                    });
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-    }
-
-
-
+        }
     }
 
     public  void manageLike(){

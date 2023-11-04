@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,6 +54,7 @@ public class StudentDetailsFragment extends Fragment {
     UserModel userModel;
     DatabaseReference databaseReference;
     ArrayList<UserModel> itemlist ;
+    private LottieAnimationView lottieAnimationView;
     StudentDetailsFragmentAdapter studentDetailsFragmentAdapter;
     String[] countries = {
             "University of Dhaka",
@@ -136,8 +138,11 @@ public class StudentDetailsFragment extends Fragment {
         }
 
         // Configure the Toolbar
+        lottieAnimationView=view.findViewById(R.id.loadingViewStudentDetailsLottie);
         Toolbar tool = view.findViewById(R.id.all_community_tolbar);
         TextView search=view.findViewById(R.id.community_search);
+
+        lottieAnimationView.playAnimation();
 
         ((AppCompatActivity) requireActivity()).setSupportActionBar(tool);
 
@@ -184,6 +189,7 @@ public class StudentDetailsFragment extends Fragment {
 
                 }
 
+                lottieAnimationView.setVisibility(View.GONE);
                 studentDetailsFragmentAdapter.notifyDataSetChanged();
             }
 
