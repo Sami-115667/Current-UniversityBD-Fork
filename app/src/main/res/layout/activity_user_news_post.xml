@@ -4,184 +4,272 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/back"
+    android:orientation="vertical"
     tools:context=".activity.UserNewsPostActivity">
 
-
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:id="@+id/tv_merque_id"
-        android:padding="5dp"
-        android:textSize="15sp"
-        android:singleLine="true"
-        android:ellipsize="marquee"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:scrollHorizontally="true"
-        android:textColor="#F8F9F7"
-        android:text="আপনি যে বিষয়ে দক্ষ সে বিষয়ে বিস্তারিত লিখুন।এতে অন্ন বিষয়ে যারা দক্ষ তারা আপনার বিষয় সম্পর্কে বিস্তারিত জানতে পারবে এবং  কেরিয়ার পাথ নিয়ে সঠিক ধারণা পাবে।"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/post_user_image"
-            app:civ_border_width="1.4dp"
-            app:civ_border_color="@color/custom_text_color"
-            android:src="@drawable/defaultprofile"
-            android:layout_width="60dp"
-            android:layout_height="60dp"/>
-
         <LinearLayout
-            android:gravity="center_vertical"
             android:orientation="vertical"
-            android:layout_marginLeft="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <TextView
-                android:textSize="19dp"
-                android:id="@+id/post_user_name"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:text="Loading.."
+                android:id="@+id/tv_merque_id"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:textColor="#898282"
-                android:textSize="17dp"
-                android:id="@+id/post_user_university"
-                android:text="loading..."
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="12dp"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:padding="5dp"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="আপনি যে বিষয়ে দক্ষ সে বিষয়ে বিস্তারিত লিখুন।এতে অন্ন বিষয়ে যারা দক্ষ তারা আপনার বিষয় সম্পর্কে বিস্তারিত জানতে পারবে এবং  কেরিয়ার পাথ নিয়ে সঠিক ধারণা পাবে।"
+                android:textColor="#F8F9F7"
+                android:textSize="15sp" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/post_user_image"
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/defaultprofile"
+                    app:civ_border_color="@color/custom_text_color"
+                    app:civ_border_width="1.4dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/post_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loading.."
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/post_user_university"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading..."
+                        android:textColor="#898282"
+                        android:textSize="14dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:id="@+id/frame_user_news"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/edit_text_background"
+                android:padding="5dp">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/categoryNews"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <EditText
+                    android:elevation="10dp"
+                    android:id="@+id/ed_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawablePadding="5dp"
+                    android:gravity="top"
+                    android:hint="Enter news  title"
+                    android:inputType="textMultiLine"
+                    android:minLines="5"
+                    android:padding="10dp"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint_colour"
+                    android:textSize="18dp" />
+
+
+                <TextView
+                    android:elevation="10dp"
+                    android:id="@+id/ed_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:hint="Select a date"
+                    android:padding="10dp"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hint_colour"
+                    android:textSize="16dp" />
+                <LinearLayout
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="12dp"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_weight="1.2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/choose_image_id"
+                            android:textStyle="bold"
+                            android:textSize="15dp"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:text="Choose\n Image"
+                            android:background="@drawable/choose_image_back"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"/>
+                    </LinearLayout>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_id"
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="0.8"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp">
+                        <ImageView
+                            android:id="@+id/set_iamge_id"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/default_gradient"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:weightSum="2"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="17dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_weight="0.5"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:text="Switch on for writing flexibility"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <Switch
+                        android:background="@color/coloryellow"
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/idSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+
+                        android:id="@+id/ed_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="230dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="@drawable/edit_text_background"
+                        android:drawablePadding="5dp"
+                        android:gravity="top"
+                        android:hint="Enter news description ,you can also add link"
+                        android:inputType="textMultiLine"
+                        android:maxLines="100000"
+                        android:minLines="20"
+                        android:padding="10dp"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hint_colour"
+                        android:textSize="18dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:layout_editor_absoluteY="20dp" />
+
+                    <ImageView
+                        android:id="@+id/mic_id"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/baseline_mic_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/ed_desc"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.95"
+                        app:layout_constraintStart_toStartOf="@+id/ed_desc"
+                        app:layout_constraintTop_toTopOf="@+id/ed_desc"
+                        app:layout_constraintVertical_bias="0.915" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/postId"
+                    android:padding="10dp"
+                    android:background="@drawable/serchbar_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/ruby"
+                    android:clickable="true"
+                    android:foreground="@drawable/uni_background"
+                    android:text="Share your Post"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-
-    <FrameLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/edit_text_background"
-        android:padding="5dp">
-
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/categoryNews"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </FrameLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-
-        <EditText
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:gravity="top"
-            android:hint="Enter news  title"
-            android:id="@+id/ed_title"
-            android:textColorHint="@color/hint_colour"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/edit_text_background"
-            android:drawablePadding="5dp"
-            android:inputType="textMultiLine"
-            android:minLines="5"
-            android:paddingLeft="5dp" />
-
-
-        <TextView
-            android:textSize="16dp"
-            android:hint="Select a date"
-            android:padding="10dp"
-            android:gravity="center_vertical"
-            android:id="@+id/ed_date"
-            android:textColorHint="@color/hint_colour"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/edit_text_background"
-            android:drawablePadding="5dp"
-            android:paddingLeft="5dp" />
-
-        <EditText
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:gravity="top"
-            android:hint="Choose  image "
-            android:id="@+id/ed_image"
-            android:textColorHint="@color/hint_colour"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/edit_text_background"
-            android:drawablePadding="5dp"
-            android:lines="10"
-            android:inputType="textMultiLine"
-            android:paddingLeft="5dp" />
-        <EditText
-            android:textSize="16dp"
-            android:padding="10dp"
-            android:gravity="top"
-            android:hint="Enter news description ,you can also add link"
-            android:id="@+id/ed_desc"
-            android:textColorHint="@color/hint_colour"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/edit_text_background"
-            android:drawablePadding="5dp"
-            android:minLines="20"
-            android:inputType="textMultiLine"
-            android:paddingLeft="5dp" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/postId"
-            android:foreground="@drawable/uni_background"
-            android:clickable="true"
-            android:backgroundTint="@color/custom_icon_color"
-            android:background="@drawable/serchbar_background"
-            android:layout_marginBottom="70dp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:text="POST"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
 
 
 </LinearLayout>

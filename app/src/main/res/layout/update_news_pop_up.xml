@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
     android:layout_height="match_parent">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/news_pop_up_lottie_id"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/animation"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"/>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="10dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:textColor="@color/custom_icon_color"
-            android:layout_marginTop="20dp"
-            android:textSize="15dp"
-            android:backgroundTint="@color/custom_text_color"
-            android:padding="10dp"
-            android:background="@drawable/serchbar_background"
-            android:textStyle="bold"
-            android:text="Update Your Post"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-
-        <TextView
-            android:textAllCaps="true"
-            android:layout_marginLeft="15dp"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            android:textColor="@color/blue"
-            android:text="Title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="Title"
+            android:textColor="@color/back"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
         <EditText
-            android:padding="10dp"
-            android:gravity="top"
-            android:hint="Enter news  title"
+            android:elevation="7dp"
             android:id="@+id/ed_title"
-            android:textColorHint="@color/hint_colour"
-            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginLeft="15dp"
@@ -47,77 +47,56 @@
             android:layout_marginRight="15dp"
             android:background="@drawable/edit_text_background"
             android:drawablePadding="5dp"
+            android:gravity="top"
+            android:hint="Enter news  title"
             android:inputType="textMultiLine"
             android:minLines="5"
-            android:paddingLeft="5dp" />
-        <TextView
-            android:textAllCaps="true"
-            android:layout_marginLeft="15dp"
-            android:textSize="12dp"
-            android:textStyle="bold"
+            android:padding="10dp"
+            android:paddingLeft="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/hint_colour" />
 
-            android:textColor="@color/blue"
-            android:text="Date"
+        <TextView
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Date"
+            android:textColor="@color/back"
+            android:textSize="17dp"
+            android:textStyle="bold" />
 
 
         <TextView
+            android:elevation="7dp"
+            android:id="@+id/ed_date"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edit_text_background"
+            android:drawablePadding="5dp"
+            android:gravity="top"
             android:hint="Select a date"
             android:padding="10dp"
-            android:gravity="top"
-            android:id="@+id/ed_date"
-            android:textColorHint="@color/hint_colour"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/edit_text_background"
-            android:drawablePadding="5dp"
-            android:paddingLeft="5dp" />
+            android:paddingLeft="5dp"
+            android:textColor="@color/back"
+            android:textColorHint="@color/hint_colour" />
 
         <TextView
-            android:layout_marginLeft="15dp"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            android:textColor="@color/blue"
-            android:text="IMAGE "
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:text="Description"
+            android:textColor="@color/back"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
         <EditText
-            android:padding="10dp"
-            android:gravity="top"
-            android:hint="Choose  image "
-            android:id="@+id/ed_image"
-            android:textColorHint="@color/hint_colour"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/edit_text_background"
-            android:drawablePadding="5dp"
-            android:lines="10"
-            android:inputType="textMultiLine"
-            android:paddingLeft="5dp" />
-        <TextView
-            android:layout_marginLeft="15dp"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            android:textColor="@color/blue"
-            android:text="DESCRIPTION"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:padding="10dp"
-            android:gravity="top"
-            android:hint="Enter news description"
+            android:elevation="7dp"
             android:id="@+id/ed_desc"
-            android:textColorHint="@color/hint_colour"
-            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_marginLeft="15dp"
@@ -125,26 +104,34 @@
             android:layout_marginRight="15dp"
             android:background="@drawable/edit_text_background"
             android:drawablePadding="5dp"
-            android:minLines="20"
+            android:gravity="top"
+            android:hint="Enter news description"
             android:inputType="textMultiLine"
-            android:paddingLeft="5dp" />
+            android:minLines="20"
+            android:padding="10dp"
+            android:paddingLeft="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/hint_colour" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:elevation="7dp"
+            android:gravity="center"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
             android:id="@+id/post_Id"
-            android:foreground="@drawable/uni_background"
-            android:clickable="true"
-            android:backgroundTint="@color/blue"
-            android:background="@drawable/edit_text_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:textStyle="bold"
+            android:background="@drawable/edit_text_background"
+            android:backgroundTint="@color/ruby"
+            android:foreground="@drawable/uni_background"
+            android:paddingLeft="6dp"
+            android:text="Update POST"
             android:textColor="@color/white"
-            android:textSize="16dp"
-            android:text="POST"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="14dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
-
+</ScrollView>
 </LinearLayout>

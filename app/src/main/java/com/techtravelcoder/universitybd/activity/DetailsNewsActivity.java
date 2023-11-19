@@ -1,14 +1,29 @@
 package com.techtravelcoder.universitybd.activity;
 
+import static android.graphics.Typeface.BOLD;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.text.HtmlCompat;
 
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -71,16 +86,21 @@ public class DetailsNewsActivity extends AppCompatActivity {
          c_username=getIntent().getStringExtra("name");
         c_author=getIntent().getStringExtra("author");
         c_title=getIntent().getStringExtra("title");
+
         c_desc=getIntent().getStringExtra("desc");
+
         c_date=getIntent().getStringExtra("date");
         c_image=getIntent().getStringExtra("image");
         c_post_key=getIntent().getStringExtra("postKey");
         c_post_category=getIntent().getStringExtra("postCategory");
-        Toast.makeText(getApplicationContext(), ""+c_number, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), ""+c_number, Toast.LENGTH_SHORT).show();
 
 
         if(c_number.equals("1")){
-            Toast.makeText(getApplicationContext(), "Rakib", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(getApplicationContext(), "Rakib", Toast.LENGTH_SHORT).show();
+
+            likeImage.setVisibility(View.GONE);
+            like.setVisibility(View.GONE);
 
             commingFromSpecificUserNewsAdapter();
         }
@@ -94,10 +114,7 @@ public class DetailsNewsActivity extends AppCompatActivity {
 
     private void commingFromSpecificUserNewsAdapter() {
 
-        if (c_author != null) {
-            author.setText(c_author);
-
-        }
+        author.setVisibility(View.GONE);
 
         if (c_title != null) {
             title.setText(c_title);

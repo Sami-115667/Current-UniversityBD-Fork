@@ -5,6 +5,9 @@ import static androidx.core.content.ContextCompat.startActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,15 +63,18 @@ public class NewsAdapter extends RecyclerView.Adapter< NewsAdapter.MyViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NewsAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
 
        NewsModel obj=list.get(position);
 
        holder.title.setText(obj.getTitle());
-       holder.desc.setText(obj.getDescription());
 
-       Glide.with(holder.newsImage.getContext()).load(obj.getImage()).into(holder.newsImage);
+        holder.desc.setText(obj.getDescription());
+
+
+
+        Glide.with(holder.newsImage.getContext()).load(obj.getImage()).into(holder.newsImage);
 
         holder.date.setText(obj.getDate());
 
@@ -114,7 +120,7 @@ public class NewsAdapter extends RecyclerView.Adapter< NewsAdapter.MyViewHolder>
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Toast.makeText(context, ""+obj.getKey(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, ""+obj.getImage(), Toast.LENGTH_SHORT).show();
 
                 //Toast.makeText(context, " "+obj.getPostLike(), Toast.LENGTH_SHORT).show();
 

@@ -12,7 +12,7 @@
 
         <item
             android:id="@+id/university_Id"
-            android:title="University"
+            android:title="User DashBoard"
             android:icon="@drawable/bduniversity"
             />
         <item android:id="@+id/newsPostId"
@@ -22,11 +22,14 @@
 
     </group>
 
-    <item android:title="University Catagory"  >
+    <item android:title="University Catagory :"
+        android:id="@+id/uniform_id"
+        android:icon="@drawable/search_icon">
         <menu>
             <group >
 
                 <item
+
                     android:id="@+id/general_menu_id"
                     android:title="General University"
                     android:icon="@drawable/public_uni"
@@ -137,7 +140,7 @@
 
 
 
-    <item android:title="Communicate">
+    <item android:title="Communicate :" android:id="@+id/communicate_id">
         <menu>
             <group >
 
@@ -172,7 +175,7 @@
 
 
 
-    <item android:title="Others" >
+    <item android:title="Others :" android:id="@+id/others_id" >
         <menu>
             <group >
                 <item

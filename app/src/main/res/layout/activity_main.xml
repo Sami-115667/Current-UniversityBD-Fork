@@ -101,8 +101,6 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
-
-
             <LinearLayout
                 android:layout_marginTop="10dp"
                 android:orientation="vertical"
@@ -337,19 +335,29 @@
 
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_gravity="center"
+                    app:lottie_rawRes="@raw/news"
+                    app:lottie_loop="true"
+                    app:lottie_autoPlay="true"
+                    android:layout_width="100dp"
+                    android:layout_height="90dp"/>
 
+                <TextView
 
-            <TextView
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                android:textSize="17sp"
-                android:textColor="#FAFCFA"
-                android:gravity=""
-                android:text="উচ্চ শিক্ষা, চাকরি, উদ্দোক্তা রিলেটেড যাবতীয় গাইডলাইন :"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"
+                    android:textColor="#FAFCFA"
+                    android:text="উচ্চ শিক্ষা, চাকরি, উদ্দোক্তা রিলেটেড যাবতীয় গাইডলাইন :"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:foreground="@drawable/category_uni_back"
@@ -390,13 +398,68 @@
 
             </androidx.cardview.widget.CardView>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.airbnb.lottie.LottieAnimationView
+                    app:lottie_rawRes="@raw/search_friends"
+                    app:lottie_loop="true"
+                    app:lottie_autoPlay="true"
+                    android:layout_width="100dp"
+                    android:layout_height="95dp"/>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"
+                    android:textColor="#FAFCFA"
+                    android:gravity=""
+                    android:text="যেকোন University এর যে কোন Department এর যে কোন Blood Group এর Friends কে খুজে বের করুন।:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
+            </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/search_friends_id"
+                android:foreground="@drawable/category_uni_back"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="#00C853"
+                android:layout_margin="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
 
+                <LinearLayout
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:paddingLeft="60dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:textSize="27dp"
+                        android:textColor="@color/white"
+                        android:text="Search Friends"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_gravity="center"
+                        android:paddingRight="30dp"
+                        android:layout_weight="1"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        app:lottie_rawRes="@raw/click"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true" />
 
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="85dp">
+                android:layout_height="120dp">
 
             </LinearLayout>
 
@@ -422,7 +485,8 @@
             android:layout_height="?attr/actionBarSize"
             android:id="@+id/tolbar"
             android:background="@color/service_bar"
-            app:title="BD University"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+            app:title="Welcome TO BDUniversity"
             app:titleTextColor="@color/white"
             />
 
@@ -444,7 +508,7 @@
         android:textColorSecondary="@color/documentary"
         android:layout_gravity="start"
         app:itemIconPadding="8dp"
-        android:visibility="visible"
+        android:visibility="gone"
         app:itemTextColor="@color/white"
         app:itemIconTint="#FFC107"
         android:background="@color/back_upper"

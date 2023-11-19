@@ -140,7 +140,7 @@ public class UserLoginActivity extends AppCompatActivity implements View.OnClick
                         mAuth.signOut();
                     }
                 } else {
-                    Toasty.error(getApplicationContext(), "Password or email is wrong..", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(getApplicationContext(), "Something wrong or Internet Issue..", Toast.LENGTH_SHORT, true).show();
                 }
             }
         });

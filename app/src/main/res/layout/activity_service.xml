@@ -97,8 +97,8 @@
                     android:orientation="horizontal">
                     <LinearLayout
                         android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
                         <androidx.cardview.widget.CardView
                             android:foreground="@drawable/uni_background"
                             android:clickable="true"
@@ -109,7 +109,7 @@
                             app:cardCornerRadius="12dp"
                             android:id="@+id/students_community_service_id"
                             android:layout_width="160dp"
-                            android:layout_height="100dp">
+                            android:layout_height="wrap_content">
 
                             <ImageView
                                 android:layout_marginTop="10dp"
@@ -120,6 +120,7 @@
                                 android:layout_height="55dp"/>
 
                             <TextView
+                                android:layout_marginBottom="8dp"
                                 android:layout_marginTop="70dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -141,7 +142,7 @@
                             app:cardCornerRadius="12dp"
                             android:id="@+id/current_news_id"
                             android:layout_width="160dp"
-                            android:layout_height="100dp">
+                            android:layout_height="wrap_content">
 
                             <ImageView
                                 android:layout_marginTop="10dp"
@@ -152,6 +153,7 @@
                                 android:scaleType="fitXY"
                                 android:src="@drawable/news_info" />
                             <TextView
+                                android:layout_marginBottom="8dp"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="70dp"
                                 android:textSize="15sp"
@@ -179,7 +181,7 @@
                             app:cardCornerRadius="12dp"
                             android:id="@+id/pdf_books_service_id"
                             android:layout_width="160dp"
-                            android:layout_height="100dp">
+                            android:layout_height="wrap_content">
 
                             <ImageView
                                 android:layout_marginTop="10dp"
@@ -189,6 +191,7 @@
                                 android:layout_width="55dp"
                                 android:layout_height="55dp"/>
                             <TextView
+                                android:layout_marginBottom="8dp"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="70dp"
                                 android:textSize="15sp"
@@ -214,7 +217,7 @@
                             app:cardCornerRadius="12dp"
                             android:id="@+id/cgpa_calculator_service_id"
                             android:layout_width="160dp"
-                            android:layout_height="100dp">
+                            android:layout_height="wrap_content">
 
                             <ImageView
                                 android:layout_marginTop="10dp"
@@ -224,6 +227,7 @@
                                 android:layout_width="55dp"
                                 android:layout_height="55dp"/>
                             <TextView
+                                android:layout_marginBottom="8dp"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="70dp"
                                 android:textSize="15sp"

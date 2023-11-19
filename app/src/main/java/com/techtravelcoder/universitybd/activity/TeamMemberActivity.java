@@ -18,15 +18,6 @@ public class TeamMemberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_member);
 
-        appCompatButton=findViewById(R.id.start);
-
-        appCompatButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), UserLoginActivity.class);
-                startActivity(intent);
-            }
-        });
 
 
     }

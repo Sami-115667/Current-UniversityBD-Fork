@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/white"
     android:layout_height="match_parent">
+    <com.airbnb.lottie.LottieAnimationView
+        android:background="@color/white"
+        android:id="@+id/pop_up_lottie_id"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/animation"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_margin="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -15,15 +25,16 @@
             <TextView
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
-                android:textSize="12dp"
+                android:textSize="17dp"
                 android:textStyle="bold"
-                android:textColor="@color/blue"
+                android:textColor="@color/back"
                 android:text="Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <EditText
-                android:backgroundTint="@color/custom_dialogue"
+                android:elevation="7dp"
+                android:textSize="15dp"
                 android:padding="10dp"
                 android:gravity="top"
                 android:id="@+id/update_name_id_ed"
@@ -34,7 +45,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/serchbar_background"
+                android:background="@drawable/edit_text_background"
                 android:drawablePadding="5dp"
                 android:inputType="textMultiLine"
                 android:minLines="10"
@@ -42,21 +53,31 @@
 
             <TextView
                 android:layout_marginLeft="15dp"
-                android:textSize="12dp"
+                android:textSize="17dp"
                 android:textStyle="bold"
 
-                android:textColor="@color/blue"
+                android:textColor="@color/back"
                 android:text="University"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <FrameLayout
-                android:backgroundTint="@color/custom_dialogue"
+                android:elevation="7dp"
+                android:id="@+id/uni_frame_id"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/serchbar_background"
+                android:background="@drawable/edit_text_background"
                 android:padding="5dp">
+                <TextView
+                    android:text=""
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/uni_text_spin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:backgroundTint="@color/black"
@@ -72,20 +93,31 @@
 
             <TextView
                 android:layout_marginLeft="15dp"
-                android:textSize="12dp"
+                android:textSize="17dp"
                 android:textStyle="bold"
-                android:textColor="@color/blue"
+                android:textColor="@color/back"
                 android:text="Department "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <FrameLayout
-                android:backgroundTint="@color/custom_dialogue"
+                android:elevation="7dp"
+                android:id="@+id/dept_frame_id"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/serchbar_background"
+                android:background="@drawable/edit_text_background"
                 android:padding="5dp">
+
+                <TextView
+                    android:text=""
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/uni_dept_spin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:backgroundTint="@color/black"
@@ -99,14 +131,15 @@
 
             <TextView
                 android:layout_marginLeft="15dp"
-                android:textSize="12dp"
+                android:textSize="17dp"
                 android:textStyle="bold"
-                android:textColor="@color/blue"
+                android:textColor="@color/back"
                 android:text="Mobile "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <EditText
-                android:backgroundTint="@color/custom_dialogue"
+                android:elevation="7dp"
+                android:textSize="15dp"
                 android:padding="10dp"
                 android:gravity="top"
                 android:id="@+id/update_mobile_id_tv"
@@ -117,7 +150,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/serchbar_background"
+                android:background="@drawable/edit_text_background"
                 android:drawablePadding="5dp"
                 android:lines="10"
                 android:inputType="textMultiLine"
@@ -125,20 +158,31 @@
 
             <TextView
             android:layout_marginLeft="15dp"
-            android:textSize="12dp"
+            android:textSize="17dp"
             android:textStyle="bold"
-            android:textColor="@color/blue"
+            android:textColor="@color/back"
             android:text="Blood Group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
             <FrameLayout
+                android:elevation="7dp"
+                android:id="@+id/blood_frame_id"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:backgroundTint="@color/custom_dialogue"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/serchbar_background"
+                android:background="@drawable/edit_text_background"
                 android:padding="5dp">
+
+                <TextView
+                    android:text=""
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/uni_blood_spin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
                 <androidx.appcompat.widget.AppCompatSpinner
 
@@ -152,14 +196,15 @@
 
             <TextView
                 android:layout_marginLeft="15dp"
-                android:textSize="12dp"
+                android:textSize="17dp"
                 android:textStyle="bold"
-                android:textColor="@color/blue"
+                android:textColor="@color/back"
                 android:text="Hall name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <EditText
-                android:backgroundTint="@color/custom_dialogue"
+                android:elevation="7dp"
+                android:textSize="15dp"
                 android:padding="10dp"
                 android:gravity="top"
                 android:id="@+id/update_hallName_id_tv"
@@ -170,21 +215,22 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/serchbar_background"
+                android:background="@drawable/edit_text_background"
                 android:drawablePadding="5dp"
                 android:lines="10"
                 android:inputType="textMultiLine"
                 android:paddingLeft="5dp" />
             <TextView
                 android:layout_marginLeft="15dp"
-                android:textSize="12dp"
+                android:textSize="17dp"
                 android:textStyle="bold"
-                android:textColor="@color/blue"
+                android:textColor="@color/back"
                 android:text="Hall Number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <EditText
-                android:backgroundTint="@color/custom_dialogue"
+                android:elevation="7dp"
+                android:textSize="15dp"
                 android:padding="10dp"
                 android:gravity="top"
                 android:id="@+id/update_hallNumber_id_tv"
@@ -195,26 +241,31 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/serchbar_background"
+                android:background="@drawable/edit_text_background"
                 android:drawablePadding="5dp"
                 android:lines="10"
                 android:inputType="textMultiLine"
                 android:paddingLeft="5dp" />
             <androidx.appcompat.widget.AppCompatButton
+                android:elevation="10dp"
+                android:drawableLeft="@drawable/baseline_update_24"
+                android:drawablePadding="7dp"
                 android:padding="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:id="@+id/update_profile_id_ab"
                 android:foreground="@drawable/uni_background"
                 android:clickable="true"
-                android:backgroundTint="@color/statusbar"
+                android:backgroundTint="@color/ruby"
                 android:background="@drawable/edit_text_background"
                 android:layout_marginBottom="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="16dp"
                 android:text="Upadte Profile"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
         </LinearLayout>

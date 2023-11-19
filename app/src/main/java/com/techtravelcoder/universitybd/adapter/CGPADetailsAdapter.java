@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.FirebaseDatabase;
@@ -77,9 +79,9 @@ public class CGPADetailsAdapter extends RecyclerView.Adapter<CGPADetailsAdapter.
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(context);
-                builder.setTitle("Are you delete this Semester Details");
-                builder.setMessage("Data can't be undo ");
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                builder.setTitle("‼️Are you delete this Semester Details ❓");
+                builder.setMessage("❌❌ Data can't be undo ");
+                builder.setPositiveButton("✅Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -108,7 +110,7 @@ public class CGPADetailsAdapter extends RecyclerView.Adapter<CGPADetailsAdapter.
 
 
                 });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("❌No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(context, "Canceled", Toast.LENGTH_SHORT).show();
@@ -117,6 +119,8 @@ public class CGPADetailsAdapter extends RecyclerView.Adapter<CGPADetailsAdapter.
                 });
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
+                Drawable drawable= ContextCompat.getDrawable(context,R.drawable.alert_back);
+                alertDialog.getWindow().setBackgroundDrawable(drawable);
             }
         });
 

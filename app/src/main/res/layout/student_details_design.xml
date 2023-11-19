@@ -15,9 +15,9 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_margin="6dp"
+                android:id="@+id/sd_ll"
                 android:padding="10dp"
-                android:backgroundTint="@color/back_upper"
+                android:backgroundTint="@color/back"
                 android:background="@drawable/edit_text_background"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,8 +35,8 @@
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/user_image_id"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
                             android:src="@drawable/defaultprofile"
                             app:civ_border_color="@color/custom_text_color"
                             app:civ_border_width="1.4dp" />
@@ -52,14 +52,13 @@
                                 android:textStyle="bold"
                                 android:id="@+id/sd_name_id_tv"
                                 android:textColor="@color/white"
-                                android:textSize="17dp"
+                                android:textSize="15.5dp"
                                 android:text=""
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
                             <TextView
                                 android:id="@+id/sd_university_id_tv"
                                 android:maxLines="1"
-                                android:textStyle="bold"
                                 android:textColor="@color/coloryellow"
                                 android:textSize="15dp"
                                 android:text=""
@@ -74,176 +73,187 @@
                 </LinearLayout>
 
 
-                <LinearLayout
-                    android:layout_marginTop="4dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:gravity="center"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="16sp"
-                        android:drawableLeft="@drawable/set_dept_dr"
-                        android:padding="4dp"
-                        android:drawablePadding="5dp"
-                        android:textColor="@color/white"></TextView>
-                    <TextView
-                        android:gravity="center"
-                        android:text="nnnn"
-                        android:textStyle="bold"
-                        android:id="@+id/sd_dept_id_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"></TextView>
 
-                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:backgroundTint="@color/lavender"
+                android:layout_margin="6dp"
+                android:background="@drawable/serchbar_background"
+                android:id="@+id/student_ll"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:gravity="center"
-                        android:text="Blood Group :"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="16sp"
-                        android:drawableLeft="@drawable/blood"
-                        android:padding="5dp"
-                        android:drawablePadding="5dp"
-                        android:textColor="@color/white"></TextView>
-                    <TextView
-                        android:id="@+id/sd_blood_id_tv"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:padding="5dp"
-                        android:textColor="@color/white"></TextView>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:gravity="center"
-                        android:text="Hall Name :"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="16sp"
-                        android:drawableLeft="@drawable/hall_dr"
-                        android:padding="5dp"
-                        android:drawablePadding="5dp"
-                        android:textColor="@color/white"></TextView>
-                    <TextView
-                        android:textStyle="bold"
-                        android:id="@+id/sd_hall_id_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:padding="5dp"
-                        android:textColor="@color/white"></TextView>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:gravity="center"
-                        android:text="Room Number :"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="16sp"
-                        android:drawableLeft="@drawable/number_dr"
-                        android:padding="5dp"
-                        android:drawablePadding="5dp"
-                        android:textColor="@color/white"></TextView>
-                    <TextView
-                        android:textStyle="bold"
-                        android:id="@+id/sd_room_id_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:padding="5dp"
-                        android:textColor="@color/white"></TextView>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginBottom="10dp"
-                    android:background="@color/service_bar"
-                    android:weightSum="4"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_marginLeft="2dp"
-                        android:textStyle="bold"
-                        android:drawableLeft="@drawable/call_back"
-                        android:layout_weight="1"
-                        android:layout_marginTop="8dp"
-                        android:padding="7dp"
-                        android:background="@drawable/serchbar_background"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:text="Call"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_marginTop="4dp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:layout_marginLeft="2dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="16sp"
+                            android:drawableLeft="@drawable/set_dept_dr"
+                            android:padding="4dp"
+                            android:drawablePadding="5dp"
+                            android:textColor="@color/white"></TextView>
+                        <TextView
+                            android:gravity="center"
+                            android:text="nnnn"
+                            android:textStyle="bold"
+                            android:id="@+id/sd_dept_id_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"></TextView>
 
-                        android:textStyle="bold"
-                        android:drawableLeft="@drawable/baseline_chat_24"
-                        android:layout_weight="1"
-                        android:layout_marginTop="8dp"
-                        android:padding="7dp"
-                        android:background="@drawable/serchbar_background"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:text="Chat"
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:gravity="center"
+                            android:text="Blood Group :"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="16sp"
+                            android:drawableLeft="@drawable/blood"
+                            android:padding="5dp"
+                            android:drawablePadding="5dp"
+                            android:textColor="@color/white"></TextView>
+                        <TextView
+                            android:id="@+id/sd_blood_id_tv"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:padding="5dp"
+                            android:textColor="@color/white"></TextView>
 
-
-
-                    <TextView
-                        android:textStyle="bold"
-                        android:layout_marginLeft="2dp"
-                        android:drawableLeft="@drawable/baseline_people_24"
-                        android:layout_weight="1"
-                        android:layout_marginTop="8dp"
-                        android:padding="7dp"
-                        android:background="@drawable/serchbar_background"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:text="See Profile"
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:layout_marginLeft="2dp"
-                        android:textStyle="bold"
-                        android:drawableLeft="@drawable/share"
-                        android:layout_weight="1"
-                        android:layout_marginTop="8dp"
-                        android:padding="7dp"
-                        android:background="@drawable/serchbar_background"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:text="Message"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:gravity="center"
+                            android:text="Hall Name :"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="16sp"
+                            android:drawableLeft="@drawable/hall_dr"
+                            android:padding="5dp"
+                            android:drawablePadding="5dp"
+                            android:textColor="@color/white"></TextView>
+                        <TextView
+                            android:textStyle="bold"
+                            android:id="@+id/sd_hall_id_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:padding="5dp"
+                            android:textColor="@color/white"></TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:gravity="center"
+                            android:text="Room Number :"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="16sp"
+                            android:drawableLeft="@drawable/number_dr"
+                            android:padding="5dp"
+                            android:drawablePadding="5dp"
+                            android:textColor="@color/white"></TextView>
+                        <TextView
+                            android:textStyle="bold"
+                            android:id="@+id/sd_room_id_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:padding="5dp"
+                            android:textColor="@color/white"></TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginBottom="10dp"
+                        android:weightSum="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textStyle="bold"
+                            android:drawableLeft="@drawable/call_back"
+                            android:layout_weight="1"
+                            android:layout_marginTop="8dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
+                            android:paddingLeft="15dp"
+                            android:drawablePadding="4dp"
+                            android:background="@drawable/serchbar_background"
+                            android:textColor="@color/black"
+                            android:text="Call"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+
+                            android:textStyle="bold"
+                            android:drawableLeft="@drawable/baseline_chat_24"
+                            android:layout_weight="1"
+                            android:layout_marginTop="8dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
+                            android:paddingLeft="15dp"
+                            android:drawablePadding="4dp"
+                            android:background="@drawable/serchbar_background"
+                            android:textColor="@color/black"
+                            android:text="Chat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
 
 
+
+                        <TextView
+
+                            android:textStyle="bold"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:drawableLeft="@drawable/baseline_people_24"
+                            android:layout_weight="1"
+                            android:layout_marginTop="8dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
+                            android:paddingLeft="15dp"
+                            android:drawablePadding="4dp"                        android:background="@drawable/serchbar_background"
+                            android:textColor="@color/black"
+                            android:text="See Profile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
                 </LinearLayout>
-
-
 
 
             </LinearLayout>
 
 
+
         </LinearLayout>
+
 
 
     </androidx.cardview.widget.CardView>

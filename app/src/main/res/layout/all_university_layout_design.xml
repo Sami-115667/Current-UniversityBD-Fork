@@ -4,65 +4,53 @@
     android:layout_width="match_parent"
     android:background="@color/back"
     android:orientation="vertical"
-
+    android:foreground="@drawable/rip1"
     android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:foreground="?attr/selectableItemBackground"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="14dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="20dp"
-        app:cardBackgroundColor="@color/service_bar"
-        app:cardPreventCornerOverlap="true"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/image_barisal"
+            android:id="@+id/university_image"
+            android:layout_width="55dp"
+            android:layout_marginTop="5dp"
+            app:civ_border_width="1.4dp"
+            app:civ_border_color="@color/custom_text_color"
+            android:layout_marginLeft="10dp"
+            android:scaleType="centerCrop"
+            android:layout_height="55dp"/>
+
         <LinearLayout
+            android:layout_gravity="center_vertical"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_gravity="center_horizontal"
-
-                android:id="@+id/university_image"
-                android:layout_margin="10dp"
-                android:layout_width="100dp"
-
-                android:scaleType="centerCrop"
-                android:layout_height="100dp"/>
-
-
-
             <TextView
+                android:textStyle="bold"
                 android:layout_marginTop="6dp"
                 android:id="@+id/university_name"
                 android:textColor="@color/white"
-                android:textStyle="bold"
                 android:layout_marginLeft="10dp"
-                android:textSize="14sp"
+                android:textSize="15.5sp"
                 android:text="University of Dhaka"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
 
-                android:textColor="@color/white"
+                android:textColor="#C0B9B9"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="10dp"
-                android:textSize="13sp"
+                android:textSize="15sp"
                 android:text="To know more......."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <TextView
-        android:layout_marginTop="0dp"
-        android:background="@color/back"
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp"/>
-
+        android:layout_height="15dp"/>
 
 
 

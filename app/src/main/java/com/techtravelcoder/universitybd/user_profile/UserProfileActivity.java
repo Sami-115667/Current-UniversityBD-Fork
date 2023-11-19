@@ -6,26 +6,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -133,7 +142,6 @@ public class UserProfileActivity extends AppCompatActivity {
         if(postAutherUid.equals(uid)){
             databaseReference=firebaseDatabase.getReference("User Information").child(uid);
             hallRef=FirebaseDatabase.getInstance().getReference("User Information").child(uid);
-
             progressbar.setVisibility(View.VISIBLE);
             progressbar11.setVisibility(View.VISIBLE);
 
@@ -290,7 +298,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
         Uri imageUri = imageUris[num - 1];
 
-       Toast.makeText(getApplicationContext(), "Bug fix", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getApplicationContext(), "Bug fix", Toast.LENGTH_SHORT).show();
 
 
         if (imageUri != null) {
@@ -307,14 +315,14 @@ public class UserProfileActivity extends AppCompatActivity {
                     if(num==1){
                         userModel.setImage1(uri.toString());
                         hallRef.child("image"+num ).setValue(uri.toString());
-                        Toasty.info(getApplicationContext(),"Uploading Profile Pic...",Toasty.LENGTH_SHORT).show();
+                       // Toasty.info(getApplicationContext(),"Uploading Profile Pic...",Toasty.LENGTH_SHORT).show();
 
                         //  Toast.makeText(this, ""+userModel.getImage1(), Toast.LENGTH_SHORT).show();
 
                     } else if (num==2) {
                         userModel.setImage2(uri.toString());
                         hallRef.child("image"+num ).setValue(uri.toString());
-                        Toasty.info(getApplicationContext(),"Uploading Cover Photo...",Toasty.LENGTH_SHORT).show();
+                        //Toasty.info(getApplicationContext(),"Uploading Cover Photo...",Toasty.LENGTH_SHORT).show();
 
 
                     }
@@ -640,14 +648,14 @@ public class UserProfileActivity extends AppCompatActivity {
                         if (img1 != null) {
                             Glide.with(prfPic.getContext()).load(img1).into(prfPic);
                             progressbar.setVisibility(View.GONE);
-                            Toasty.info(getApplicationContext(),"Successfully loading Profile Picture",Toasty.LENGTH_SHORT).show();
+                           // Toasty.info(getApplicationContext(),"Successfully loading Profile Picture",Toasty.LENGTH_SHORT).show();
 
 
                         }
                         if (img2 != null) {
                             Glide.with(backPic.getContext()).load(img2).into(backPic);
                             progressbar11.setVisibility(View.GONE);
-                            Toasty.info(getApplicationContext(),"Successfully loading Cover Photo",Toasty.LENGTH_SHORT).show();
+                            //Toasty.info(getApplicationContext(),"Successfully loading Cover Photo",Toasty.LENGTH_SHORT).show();
                         }
                         progressbar.setVisibility(View.GONE);
                         progressbar11.setVisibility(View.GONE);
@@ -689,32 +697,46 @@ public class UserProfileActivity extends AppCompatActivity {
         EditText e_mobile = dialogView.findViewById(R.id.update_mobile_id_tv);
         bloodSpinner= dialogView.findViewById(R.id.update_blood_id_tv);
         EditText e_room_number = dialogView.findViewById(R.id.update_hallNumber_id_tv);
+        LottieAnimationView lottieAnimationView=dialogView.findViewById(R.id.pop_up_lottie_id);
+        lottieAnimationView.playAnimation();
 
         AppCompatButton userProfileUpdate=dialogView.findViewById(R.id.update_profile_id_ab);
 
-        Toast.makeText(this, "Rakib", Toast.LENGTH_SHORT).show();
         e_name.setText(userModel.getUserName());
         e_hall_name.setText(userModel.getUserHall());
         e_mobile.setText(userModel.getUserPhoneNumber());
         e_room_number.setText(userModel.getUserRoom());
+
+        spinProblemFix(dialogView);
+
+
         manageThreeSpinner();
 
 
-        AlertDialog alertDialog = dialogBuilder.create();
-        alertDialog.show();
 
+
+        AlertDialog alertDialog = dialogBuilder.create();
+        Drawable drawable= ContextCompat.getDrawable(getApplicationContext(),R.drawable.alert_back);
+        alertDialog.getWindow().setBackgroundDrawable(drawable);
+        alertDialog.show();
 
         userProfileUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(userUniversitySpin.equals("Choose your University") || userDepartmentSpin.equals("Choose your Department") ||  userBloodGroupSpin.equals("Choose your BloodGroup")){
+                if(userUniversitySpin.equals("Choose your University")   || userDepartmentSpin.equals("Choose your Department") ||  userBloodGroupSpin.equals("Choose your BloodGroup")
+                || userUniversitySpin == null || userDepartmentSpin == null || userBloodGroupSpin == null){
                     Toasty.error(getApplicationContext(), "University ,Department or Blood Group is missing...", Toast.LENGTH_SHORT, true).show();
-
                     Toasty.info(getApplicationContext(), "Fillup missing information...", Toast.LENGTH_SHORT, true).show();
 
                 }else {
 
+                    alertDialog.dismiss();
+                    ProgressDialog progressDialog=new ProgressDialog(UserProfileActivity.this);
+                    progressDialog.setTitle("Loading...");
+                    progressDialog.setMessage("Profile is Updating..");
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
 
                     Map<String, Object> map = new HashMap<>();
                     map.put("userName", e_name.getText().toString());
@@ -727,7 +749,6 @@ public class UserProfileActivity extends AppCompatActivity {
 
                     //String a=FirebaseAuth.getInstance().getUid();
 
-                    Toast.makeText(UserProfileActivity.this, userUniversitySpin + "" + userUniversity, Toast.LENGTH_SHORT).show();
 
 
                     FirebaseDatabase.getInstance().getReference("User Information").child(FirebaseAuth.getInstance().getUid()).updateChildren(map).
@@ -890,7 +911,8 @@ public class UserProfileActivity extends AppCompatActivity {
                             addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-                                    Toast.makeText(UserProfileActivity.this, "Successfully Update", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
+                                    Toasty.success(getApplicationContext(),"Successfully Update",Toasty.LENGTH_SHORT).show();
                                     alertDialog.dismiss();
                                 }
                             }).
@@ -912,9 +934,58 @@ public class UserProfileActivity extends AppCompatActivity {
 
     }
 
+    private void spinProblemFix(View dialogView) {
+
+        TextView e_uni_text=dialogView.findViewById(R.id.uni_text_spin);
+        TextView e_dept_text=dialogView.findViewById(R.id.uni_dept_spin);
+        TextView e_blood_text=dialogView.findViewById(R.id.uni_blood_spin);
 
 
+        FrameLayout uni_frm=dialogView.findViewById(R.id.uni_frame_id);
+        FrameLayout dept_frm=dialogView.findViewById(R.id.dept_frame_id);
+        FrameLayout blood_frm=dialogView.findViewById(R.id.blood_frame_id);
 
+        e_uni_text.setText(userModel.getUserUniversity());
+        e_dept_text.setText(userModel.getUserDept());
+        e_blood_text.setText(userModel.getUserBloodGroup());
+
+        universitySpinner.setVisibility(View.GONE);
+        deptSpinner.setVisibility(View.GONE);
+        bloodSpinner.setVisibility(View.GONE);
+
+
+        userUniversitySpin=userModel.getUserUniversity();
+        userDepartmentSpin=userModel.getUserDept();
+        userBloodGroupSpin=userModel.getUserBloodGroup();
+
+        uni_frm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                e_uni_text.setVisibility(View.GONE);
+                universitySpinner.setVisibility(View.VISIBLE);
+
+
+            }
+        });
+        dept_frm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                e_dept_text.setVisibility(View.GONE);
+                deptSpinner.setVisibility(View.VISIBLE);
+
+
+            }
+        });
+        blood_frm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                e_blood_text.setVisibility(View.GONE);
+                bloodSpinner.setVisibility(View.VISIBLE);
+
+
+            }
+        });
+    }
 
 
 }

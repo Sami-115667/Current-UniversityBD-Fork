@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/back"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:id="@+id/settings_background_id"
+    tools:context=".user_profile.SettingsActivity">
+
+    <LinearLayout
+        android:layout_margin="2dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/like_fb_page_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <LinearLayout
+            android:id="@+id/navigation_color_change_id"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:text="Navigation Bar Color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="#898484"
+                android:layout_marginLeft="20dp"
+                android:textSize="16dp"
+                android:text="Change Navigation Bar Color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@color/lavender"
+                android:layout_width="match_parent"
+                android:layout_height="1.1dp"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="2dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/like_fb_page_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <LinearLayout
+            android:id="@+id/navigation_headerColor_id"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:text="HeaderView Color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="#898484"
+                android:layout_marginLeft="20dp"
+                android:textSize="16dp"
+                android:text="Change Navigation Header Color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@color/lavender"
+                android:layout_width="match_parent"
+                android:layout_height="1.1dp"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="2dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/facebook_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:text="Contact Us"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="#898484"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:text="For any problem or suggestion contact us"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@color/lavender"
+                android:layout_width="match_parent"
+                android:layout_height="1.1dp"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="2dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/facebook_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:text="Rate Our app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="#898484"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:text="Please give us feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@color/lavender"
+                android:layout_width="match_parent"
+                android:layout_height="1.1dp"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="2dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/facebook_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:text="Color Design"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="#898484"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:text="Color design for time Mangement Part"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@color/lavender"
+                android:layout_width="match_parent"
+                android:layout_height="1.1dp"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

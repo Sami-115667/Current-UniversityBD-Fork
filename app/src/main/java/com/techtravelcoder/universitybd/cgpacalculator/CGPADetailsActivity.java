@@ -1,11 +1,15 @@
 package com.techtravelcoder.universitybd.cgpacalculator;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.IntentFilter;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.universitybd.R;
+import com.techtravelcoder.universitybd.activity.SpecificUserNewsPostDetails;
 import com.techtravelcoder.universitybd.adapter.CGPADetailsAdapter;
 import com.techtravelcoder.universitybd.adapter.TeacherInfoAdapter;
 import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
@@ -102,6 +107,27 @@ public class CGPADetailsActivity extends AppCompatActivity {
 
                 cgpaDetailsAdapter.notifyDataSetChanged();
                 lottieAnimationView.setVisibility(View.GONE);
+
+                if(list.isEmpty()){
+                    AlertDialog.Builder builder=new AlertDialog.Builder(CGPADetailsActivity.this);
+
+
+                    builder.setMessage("ℹ️ আপনি এর আগে কখন ও CGPA Calculate করেননি (কোন ইনফরমেশন পাওয়া যায়নি)");
+                    builder.setTitle("ℹ️ CGPA Information..!");
+                    builder.setCancelable(false);
+                    builder.setPositiveButton("✅Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    AlertDialog alertDialog=builder.create();
+                    alertDialog.show();
+                    Drawable drawable= ContextCompat.getDrawable(getApplicationContext(),R.drawable.alert_back);
+                    alertDialog.getWindow().setBackgroundDrawable(drawable);
+                }
+
 
             }
 

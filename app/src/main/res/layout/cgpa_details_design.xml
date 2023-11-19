@@ -26,12 +26,15 @@
             android:textColor="@color/white"
             android:textSize="17dp" />
         <androidx.appcompat.widget.AppCompatButton
+            android:drawableLeft="@drawable/baseline_delete_24"
             android:id="@+id/cg_delete_tv"
             android:foreground="@drawable/rip1"
             android:textStyle="bold"
-            android:backgroundTint="@color/documentary"
+            android:paddingLeft="5dp"
+            android:drawablePadding="3dp"
+            android:gravity="fill_vertical"
+            android:backgroundTint="@color/ruby"
             android:background="@drawable/edit_text_background"
-            android:gravity="center"
             android:layout_weight="0.2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

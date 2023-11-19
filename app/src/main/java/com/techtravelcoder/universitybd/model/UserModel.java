@@ -6,6 +6,15 @@ public class UserModel {
 
     String userName,userPassword,userEmail,userPhoneNumber,userUniversity,userBloodGroup,userDept,userHall,userRoom,image1,image2;
 
+    boolean visible ;
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
 
     public UserModel(String userName, String userPassword, String userEmail, String userPhoneNumber, String userUniversity, String userBloodGroup, String userDept, String userHall, String userRoom, String image1, String image2) {
         this.userName = userName;
@@ -19,6 +28,7 @@ public class UserModel {
         this.userRoom = userRoom;
         this.image1 = image1;
         this.image2 = image2;
+
     }
 
     public UserModel(String userName, String userPassword, String userEmail, String userPhoneNumber, String userUniversity, String userBloodGroup, String userDept) {
@@ -29,7 +39,7 @@ public class UserModel {
         this.userUniversity = userUniversity;
         this.userBloodGroup = userBloodGroup;
         this.userDept = userDept;
-    }
+        this.visible=false;    }
 
     public UserModel(String userName, String userPassword, String userEmail, String userPhoneNumber, String userUniversity, String userBloodGroup, String userDept, String userHall, String userRoom) {
         this.userName = userName;

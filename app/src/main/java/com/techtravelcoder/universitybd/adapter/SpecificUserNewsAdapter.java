@@ -2,12 +2,17 @@ package com.techtravelcoder.universitybd.adapter;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,6 +22,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -24,6 +30,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.auth.User;
+import com.google.firebase.storage.FirebaseStorage;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.activity.DetailsNewsActivity;
 import com.techtravelcoder.universitybd.activity.NewsActivity;
@@ -34,6 +41,7 @@ import com.techtravelcoder.universitybd.model.NewsModel;
 import com.techtravelcoder.universitybd.model.UserModel;
 import com.techtravelcoder.universitybd.user_profile.UserProfileActivity;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -65,25 +73,26 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
     }
 
     private void newsUpdate(NewsModel obj){
+
+
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
         LayoutInflater inflater = LayoutInflater.from(context);
         View dialogView = inflater.inflate(R.layout.update_news_pop_up, null);
+
         dialogBuilder.setView(dialogView);
 
         EditText e_title = dialogView.findViewById(R.id.ed_title);
         TextView e_date = dialogView.findViewById(R.id.ed_date);
-        EditText e_image = dialogView.findViewById(R.id.ed_image);
         EditText e_description = dialogView.findViewById(R.id.ed_desc);
-        //AppCompatButton postUpdate=dialogView.findViewById(R.id.postUpdateId);
 
-        Toast.makeText(context, ""+obj.getCategory(), Toast.LENGTH_SHORT).show();
 
         e_title.setText(obj.getTitle());
         e_date.setText(obj.getDate());
-        e_image.setText(obj.getImage());
         e_description.setText(obj.getDescription());
         AlertDialog alertDialog = dialogBuilder.create();
         alertDialog.show();
+        Drawable drawable = ContextCompat.getDrawable(context, R.drawable.alert_back);
+        alertDialog.getWindow().setBackgroundDrawable(drawable);
         final Calendar calendar=Calendar.getInstance();
         e_date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,10 +116,15 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
         postUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                alertDialog.dismiss();
+                ProgressDialog progressDialog=new ProgressDialog(context);
+                progressDialog.setTitle("Loading...!!");
+                progressDialog.setMessage("Upadating your profile !!");
+                progressDialog.show();
+                progressDialog.setCancelable(false);
                 Map<String, Object>map=new HashMap<>();
                 map.put("title",e_title.getText().toString());
                 map.put("date",e_date.getText().toString());
-                map.put("image",e_image.getText().toString());
                 map.put("description",e_description.getText().toString());
                 ///CRUDNewsActivity crudNewsActivity= new CRUDNewsActivity();
 
@@ -156,6 +170,7 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
                         .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
+                                progressDialog.dismiss();
                                 Toast.makeText(context, "Successfully Update", Toast.LENGTH_SHORT).show();
 
                                 alertDialog.dismiss();
@@ -178,6 +193,7 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
 
         });
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull SpecificUserNewsAdapter.MyViewHolder holder, int position) {
@@ -213,10 +229,10 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(context);
-                builder.setTitle("Are you delete this Post");
-                builder.setMessage("Post data can't be undo ");
+                builder.setTitle("‼️Are you Delete this post ❓");
+                builder.setMessage("❌❌ Post data can't be undo ");
                 builder.setCancelable(false);
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("✅Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -227,6 +243,19 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
                                 child(obj.getKey()).removeValue();
                         FirebaseDatabase.getInstance().getReference("News").child(obj.getCategory()).
                                 child(obj.getKey()).removeValue();
+
+                        FirebaseStorage.getInstance().getReference().child("newsImages").child(obj.getKey()).delete().
+                                addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+
+                                    }
+                                }).
+                                addOnFailureListener(new OnFailureListener() {@Override
+                                    public void onFailure(@NonNull Exception exception) {
+
+                                    }
+                                });
 
 
                         Toast.makeText(context, "Delete Successful...", Toast.LENGTH_SHORT).show();
@@ -239,7 +268,7 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
 
 
                 });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("❌No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(context, "Canceled", Toast.LENGTH_SHORT).show();
@@ -248,6 +277,8 @@ public class SpecificUserNewsAdapter extends RecyclerView.Adapter<SpecificUserNe
                 });
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
+                Drawable drawable= ContextCompat.getDrawable(context,R.drawable.alert_back);
+                alertDialog.getWindow().setBackgroundDrawable(drawable);
             }
         });
 

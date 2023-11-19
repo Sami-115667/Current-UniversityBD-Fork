@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +64,7 @@ public class SpecificUserNewsPostDetails extends AppCompatActivity {
         postNai=findViewById(R.id.specific_post_number_check);
         recyclerView=findViewById(R.id.specificUserNewsRecyclerViewId);
         uid=FirebaseAuth.getInstance().getUid();
+
         postAutherUid=getIntent().getStringExtra("postAutherId");
         //String uid =firebaseAuth.getCurrentUser().getUid();
         lottieAnimationView.playAnimation();
@@ -117,11 +120,11 @@ public class SpecificUserNewsPostDetails extends AppCompatActivity {
 
                 if(list.isEmpty()){
                     AlertDialog.Builder builder=new AlertDialog.Builder(SpecificUserNewsPostDetails.this);
-                    builder.setMessage("কোন পোস্ট পাউয়া যায়নি । পোস্ট এর\n" +
+                    builder.setMessage("ℹ️ কোন পোস্ট পাউয়া যায়নি । পোস্ট এর\n" +
                             "সংখ্যা ০।");
-                    builder.setTitle("Post Update..");
+                    builder.setTitle("Post Update..‼️");
                     builder.setCancelable(false);
-                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton("✅Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
@@ -130,6 +133,8 @@ public class SpecificUserNewsPostDetails extends AppCompatActivity {
 
                     AlertDialog alertDialog=builder.create();
                     alertDialog.show();
+                    Drawable drawable= ContextCompat.getDrawable(getApplicationContext(),R.drawable.alert_back);
+                    alertDialog.getWindow().setBackgroundDrawable(drawable);
                 }
             }
 

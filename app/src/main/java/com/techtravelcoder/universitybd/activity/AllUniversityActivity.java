@@ -1,4 +1,4 @@
-package com.techtravelcoder.universitybd.activity;
+ package com.techtravelcoder.universitybd.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -111,7 +111,7 @@ public class AllUniversityActivity extends AppCompatActivity {
 
 
         adapter=new AllUniversityAdapter(getApplicationContext(),itemList);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
@@ -133,7 +133,7 @@ public class AllUniversityActivity extends AppCompatActivity {
 
 
         adapter=new AllUniversityAdapter(getApplicationContext(),itemList);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
@@ -149,7 +149,7 @@ public class AllUniversityActivity extends AppCompatActivity {
         itemList.add(new UniversityItem(R.drawable.image_butex,"BUTEX"));
 
         adapter=new AllUniversityAdapter(getApplicationContext(),itemList);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
         recyclerView.setAdapter(adapter);
     }
 
@@ -168,7 +168,7 @@ public class AllUniversityActivity extends AppCompatActivity {
 
 
         adapter=new AllUniversityAdapter(getApplicationContext(),itemList);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
         recyclerView.setAdapter(adapter);
     }
 
@@ -200,7 +200,7 @@ public class AllUniversityActivity extends AppCompatActivity {
 
 
         adapter=new AllUniversityAdapter(getApplicationContext(),itemList);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
         recyclerView.setAdapter(adapter);
     }
 
@@ -227,7 +227,7 @@ public class AllUniversityActivity extends AppCompatActivity {
 
 
         adapter=new AllUniversityAdapter(getApplicationContext(),itemList);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
         recyclerView.setAdapter(adapter);
 
     }

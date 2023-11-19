@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import android.view.Menu;
@@ -335,6 +337,9 @@ public class SemesterActivity extends AppCompatActivity {
         alertDialogBuilder.setView(dialogView);
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.setCancelable(false);
+        Drawable drawable= ContextCompat.getDrawable(getApplicationContext(),R.drawable.alert_back);
+        alertDialog.getWindow().setBackgroundDrawable(drawable);
+        alertDialog.show();
 
 
         okButton.setOnClickListener(new View.OnClickListener() {
