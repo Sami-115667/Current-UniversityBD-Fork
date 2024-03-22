@@ -22,9 +22,9 @@
                 app:civ_border_width="1.4dp"
                 app:civ_border_color="@color/custom_text_color"
                 android:id="@+id/header_user_iamge"
-                android:layout_marginTop="70dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_marginTop="45dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:src="@drawable/defaultprofile"
 
                 >

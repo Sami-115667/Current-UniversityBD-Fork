@@ -436,7 +436,8 @@ public class UserNewsPostActivity extends AppCompatActivity {
         listNews.add("Choose your Category");
         listNews.add("উচ্চ শিক্ষা");listNews.add("উদ্যোক্তা"); listNews.add("চাকরি");listNews.add("ফ্রিল্যান্সিং");listNews.add("রিমোট জব");
 
-        ArrayAdapter uniAdapter= new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,listNews);
+        ArrayAdapter uniAdapter= new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,listNews);
+        uniAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
 
         newsCategory.setAdapter(uniAdapter);
         newsCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

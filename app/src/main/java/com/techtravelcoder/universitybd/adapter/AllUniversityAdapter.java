@@ -18,6 +18,7 @@ import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.activity.ServiceActivity;
 import com.techtravelcoder.universitybd.model.UniversityItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AllUniversityAdapter extends RecyclerView.Adapter<AllUniversityAdapter.MyViewHolder> {
@@ -38,6 +39,13 @@ public class AllUniversityAdapter extends RecyclerView.Adapter<AllUniversityAdap
         View view = inflater.inflate(R.layout.all_university_layout_design,parent,false);
         return new MyViewHolder(view);
     }
+
+    public void searchLists(ArrayList<UniversityItem> filterlist){
+        item=filterlist;
+        notifyDataSetChanged();
+
+    }
+
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {

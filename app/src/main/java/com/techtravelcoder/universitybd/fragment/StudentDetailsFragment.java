@@ -1,43 +1,38 @@
 package com.techtravelcoder.universitybd.fragment;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.airbnb.lottie.LottieAnimationView;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.auth.User;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.adapter.StudentDetailsFragmentAdapter;
 import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
-import com.techtravelcoder.universitybd.model.NewsModel;
 import com.techtravelcoder.universitybd.model.UserModel;
 
 import java.util.ArrayList;
@@ -52,6 +47,7 @@ public class StudentDetailsFragment extends Fragment {
 
     FirebaseDatabase firebaseDatabase;
     UserModel userModel;
+    List<UserModel> fList;
     DatabaseReference databaseReference;
     ArrayList<UserModel> itemlist ;
     private LottieAnimationView lottieAnimationView;
@@ -128,23 +124,45 @@ public class StudentDetailsFragment extends Fragment {
 
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view= inflater.inflate(R.layout.fragment_student_details, container, false);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            getActivity().getWindow().setStatusBarColor(ContextCompat.getColor(requireContext(), R.color.service_bar));
+            getActivity().getWindow().setStatusBarColor(ContextCompat.getColor(requireContext(), R.color.back));
         }
 
         // Configure the Toolbar
         lottieAnimationView=view.findViewById(R.id.loadingViewStudentDetailsLottie);
         Toolbar tool = view.findViewById(R.id.all_community_tolbar);
-        TextView search=view.findViewById(R.id.community_search);
+        //TextView search=view.findViewById(R.id.community_search);
+        SearchView searchView=view.findViewById(R.id.searchView_stfr);
+
+//        search.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                communityAlertDialogue();
+//            }
+//        });
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                //searchList(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
 
         lottieAnimationView.playAnimation();
-
-        ((AppCompatActivity) requireActivity()).setSupportActionBar(tool);
 
         // Set navigation action
         tool.setNavigationOnClickListener(new View.OnClickListener() {
@@ -154,9 +172,12 @@ public class StudentDetailsFragment extends Fragment {
             }
         });
 
+
         itemlist=new ArrayList<>();
         recyclerView=view.findViewById(R.id.student_details_fragment_rv_id);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        studentDetailsFragmentAdapter=new StudentDetailsFragmentAdapter(itemlist,getContext());
+        recyclerView.setAdapter(studentDetailsFragmentAdapter);
 
 //        AutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.auto_tv_id);
 //        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, countries);
@@ -198,29 +219,18 @@ public class StudentDetailsFragment extends Fragment {
 
             }
         });
-        studentDetailsFragmentAdapter=new StudentDetailsFragmentAdapter(itemlist);
-        recyclerView.setAdapter(studentDetailsFragmentAdapter);
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                communityAlertDialogue();
-            }
-        });
-
-
 
 
         return view;
     }
-
     private void communityAlertDialogue() {
         AlertDialog.Builder obj = new AlertDialog.Builder(getContext());
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View dialogView = inflater.inflate(R.layout.community_allert_design, null);
         obj.setView(dialogView);
-        obj.setTitle("Search by Category");
-        obj.setMessage("সব কম্বিনেশন এই Search করতে পারবেন, আপনার প্রয়োজন অনুযায়ী Category Select করুন, ১ টা, ২ টা বা ৩ টা।");
+        obj.setTitle("✅ Search by Category");
+        obj.setMessage("✅ সব কম্বিনেশন এই Search করতে পারবেন, আপনার প্রয়োজন অনুযায়ী Category Select করুন, ১ টা, ২ টা বা ৩ টা।");
 
         AppCompatSpinner e_uni = dialogView.findViewById(R.id.edit_uni_id);
         AppCompatSpinner deptList = dialogView.findViewById(R.id.edit_dept_id);
@@ -472,11 +482,10 @@ public class StudentDetailsFragment extends Fragment {
                 //String uni=e_uni.getText().toString();
 
 
-                Toast.makeText(getContext(), ""+userUniversity, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getContext(), ""+userDept, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getContext(), ""+userBlood, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), ""+userUniversity, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), ""+userDept, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), ""+userBlood, Toast.LENGTH_SHORT).show();
 
-                itemlist=new ArrayList<>();
 
                 if(!userUniversity.equals("Choose a University") && userDept.equals("Choose a Department") && userBlood.equals("Choose a Blood Group")){
                     databaseReference=FirebaseDatabase.getInstance().getReference("Search").child("Uni").child(userUniversity);
@@ -515,8 +524,6 @@ public class StudentDetailsFragment extends Fragment {
 
 
 
-
-
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -549,7 +556,7 @@ public class StudentDetailsFragment extends Fragment {
 
                     }
                 });
-                studentDetailsFragmentAdapter=new StudentDetailsFragmentAdapter(itemlist);
+                studentDetailsFragmentAdapter=new StudentDetailsFragmentAdapter(itemlist,getContext());
                 recyclerView.setAdapter(studentDetailsFragmentAdapter);
                 alertDialog.dismiss();
 
@@ -562,7 +569,6 @@ public class StudentDetailsFragment extends Fragment {
 
 
     }
-
     @Override
     public void onStart() {
         IntentFilter intentFilter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
@@ -575,6 +581,34 @@ public class StudentDetailsFragment extends Fragment {
         getContext().unregisterReceiver(networkChangeListener);
         super.onStop();
     }
+
+
+
+
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true); // Add this line to enable options menu
+    }
+
+    void searchList(String query) {
+        List<UserModel> filteredList = new ArrayList<>();
+        String queryWithoutSpaces = query.replaceAll("\\s+", "").toLowerCase(); // Remove spaces from query
+
+        for (UserModel obj : itemlist) {
+            String objStringWithoutSpaces = obj.toString().replaceAll("\\s+", "").toLowerCase(); // Remove spaces from object
+
+            if (objStringWithoutSpaces.contains(queryWithoutSpaces)) {
+                filteredList.add(obj);
+            }
+        }
+
+        // Update your UI with the filtered list
+        studentDetailsFragmentAdapter.searchLists((ArrayList<UserModel>) filteredList);
+    }
+
 
 }
 

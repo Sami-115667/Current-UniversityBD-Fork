@@ -71,181 +71,6 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/service_text_id3"
-                android:textStyle="bold"
-                android:layout_margin="8dp"
-                android:textColor="#F0EBF1"
-                android:textSize="17sp"
-                android:text="Common Service"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-
-
-
-
-
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <androidx.cardview.widget.CardView
-                            android:foreground="@drawable/uni_background"
-                            android:clickable="true"
-                            app:cardPreventCornerOverlap="true"
-                            app:cardElevation="10dp"
-                            app:cardBackgroundColor="@color/back_upper"
-                            android:layout_margin="7dp"
-                            app:cardCornerRadius="12dp"
-                            android:id="@+id/students_community_service_id"
-                            android:layout_width="160dp"
-                            android:layout_height="wrap_content">
-
-                            <ImageView
-                                android:layout_marginTop="10dp"
-                                android:layout_gravity="center_horizontal"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/students_community_info"
-                                android:layout_width="55dp"
-                                android:layout_height="55dp"/>
-
-                            <TextView
-                                android:layout_marginBottom="8dp"
-                                android:layout_marginTop="70dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:text="Students Community"
-                                android:textColor="@color/white"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:foreground="@drawable/uni_background"
-                            android:clickable="true"
-                            app:cardPreventCornerOverlap="true"
-                            app:cardElevation="10dp"
-                            app:cardBackgroundColor="@color/back_upper"
-                            android:layout_margin="7dp"
-                            app:cardCornerRadius="12dp"
-                            android:id="@+id/current_news_id"
-                            android:layout_width="160dp"
-                            android:layout_height="wrap_content">
-
-                            <ImageView
-                                android:layout_marginTop="10dp"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_width="55dp"
-                                android:layout_height="55dp"
-                                android:padding="5dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/news_info" />
-                            <TextView
-                                android:layout_marginBottom="8dp"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="70dp"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/white"
-                                android:text="Current News"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-
-
-                        </androidx.cardview.widget.CardView>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <androidx.cardview.widget.CardView
-                            android:foreground="@drawable/uni_background"
-                            android:clickable="true"
-                            app:cardPreventCornerOverlap="true"
-                            app:cardElevation="10dp"
-                            app:cardBackgroundColor="@color/back_upper"
-                            android:layout_margin="7dp"
-                            app:cardCornerRadius="12dp"
-                            android:id="@+id/pdf_books_service_id"
-                            android:layout_width="160dp"
-                            android:layout_height="wrap_content">
-
-                            <ImageView
-                                android:layout_marginTop="10dp"
-                                android:layout_gravity="center_horizontal"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/pdf_books_info"
-                                android:layout_width="55dp"
-                                android:layout_height="55dp"/>
-                            <TextView
-                                android:layout_marginBottom="8dp"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="70dp"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/white"
-                                android:text="PDF Books"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-
-                        </androidx.cardview.widget.CardView>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <androidx.cardview.widget.CardView
-                            android:foreground="@drawable/uni_background"
-                            android:clickable="true"
-                            app:cardPreventCornerOverlap="true"
-                            app:cardElevation="10dp"
-                            app:cardBackgroundColor="@color/back_upper"
-                            android:layout_margin="7dp"
-                            app:cardCornerRadius="12dp"
-                            android:id="@+id/cgpa_calculator_service_id"
-                            android:layout_width="160dp"
-                            android:layout_height="wrap_content">
-
-                            <ImageView
-                                android:layout_marginTop="10dp"
-                                android:layout_gravity="center_horizontal"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/cgpa_calculator_info"
-                                android:layout_width="55dp"
-                                android:layout_height="55dp"/>
-                            <TextView
-                                android:layout_marginBottom="8dp"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="70dp"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/white"
-                                android:text="CGPA Calculator"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-
-                        </androidx.cardview.widget.CardView>
-
-                    </LinearLayout>
-
-
-
-
-                </LinearLayout>
-            </HorizontalScrollView>
 
 
 
@@ -262,146 +87,201 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"/>
             <LinearLayout
-                android:weightSum="2"
+
+                android:id="@+id/teachers_info_service_id"
+                android:foreground="@drawable/rip1"
+                android:weightSum="3"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/back"
+                android:layout_marginRight="12dp"
+                android:layout_marginLeft="12dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <androidx.cardview.widget.CardView
-                    android:foreground="@drawable/uni_background"
-                    android:clickable="true"
-                    android:layout_weight="1"
-                    app:cardPreventCornerOverlap="true"
-                    app:cardElevation="10dp"
-                    app:cardBackgroundColor="@color/back_upper"
-                    android:layout_margin="7dp"
-                    app:cardCornerRadius="12dp"
-                    android:id="@+id/documentary_service_id"
+                android:layout_height="85dp">
+                <ImageView
+                    android:padding="10dp"
+                    android:layout_weight="1.1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/teachers_info"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp">
-
-                    <ImageView
-                        android:layout_marginTop="10dp"
-                        android:layout_gravity="center_horizontal"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/documentary"
-                        android:layout_width="55dp"
-                        android:layout_height="50dp"/>
-                    <TextView
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_marginTop="70dp"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Documentary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:foreground="@drawable/uni_background"
-                    android:clickable="true"
-                    android:layout_weight="1"
-                    app:cardPreventCornerOverlap="true"
-                    app:cardElevation="10dp"
-                    app:cardBackgroundColor="@color/back_upper"
-                    android:layout_margin="7dp"
-                    app:cardCornerRadius="12dp"
-                    android:id="@+id/teachers_info_service_id"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:layout_weight=".7"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="Teacher Information"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp">
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:padding="10dp"
+                    android:src="@drawable/right_arrow"
+                    android:layout_weight="1.2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-                    <ImageView
-                        android:layout_width="55dp"
-                        android:layout_height="63dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
-                        android:padding="5dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/teachers_info" />
-                    <TextView
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_marginTop="70dp"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Teacher Information"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
 
-                </androidx.cardview.widget.CardView>
+
 
             </LinearLayout>
-
             <LinearLayout
-                android:weightSum="2"
+                android:id="@+id/documentary_service_id"
+
+                android:foreground="@drawable/rip1"
+                android:weightSum="3"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/back"
+                android:layout_marginRight="12dp"
+                android:layout_marginLeft="12dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <androidx.cardview.widget.CardView
-                    android:foreground="@drawable/uni_background"
-                    android:clickable="true"
-                    android:layout_weight="1"
-                    app:cardPreventCornerOverlap="true"
-                    app:cardElevation="10dp"
-                    app:cardBackgroundColor="@color/back_upper"
-                    android:layout_margin="7dp"
-                    app:cardCornerRadius="12dp"
-                    android:id="@+id/hall_service_id"
+                android:layout_height="85dp">
+                <ImageView
+                    android:padding="10dp"
+                    android:layout_weight="1.1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/documentary"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp">
-
-                    <ImageView
-                        android:layout_marginTop="10dp"
-                        android:layout_gravity="center_horizontal"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/university_hall"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"/>
-                    <TextView
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="70dp"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:text="About Hall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView
-                    android:foreground="@drawable/uni_background"
-                    android:clickable="true"
-                    android:layout_weight="1"
-                    app:cardPreventCornerOverlap="true"
-                    app:cardElevation="10dp"
-                    app:cardBackgroundColor="@color/back_upper"
-                    android:layout_margin="7dp"
-                    app:cardCornerRadius="12dp"
-                    android:id="@+id/map_service_id"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:layout_weight=".7"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="Documentary"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp">
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:padding="10dp"
+                    android:src="@drawable/right_arrow"
+                    android:layout_weight="1.2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-                    <ImageView
-                        android:layout_marginTop="10dp"
-                        android:layout_gravity="center_horizontal"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/university_hall"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"/>
-                    <TextView
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="70dp"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:text="University Map"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                </androidx.cardview.widget.CardView>
 
 
 
             </LinearLayout>
+            <LinearLayout
+
+                android:id="@+id/hall_service_id"
+                android:foreground="@drawable/rip1"
+                android:weightSum="3"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/back"
+                android:layout_marginRight="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+                <ImageView
+                    android:padding="10dp"
+                    android:layout_weight="1.1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/college"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:layout_weight=".7"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="Hall Information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:padding="10dp"
+                    android:src="@drawable/right_arrow"
+                    android:layout_weight="1.2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+
+                android:foreground="@drawable/rip1"
+                android:weightSum="3"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/back"
+                android:layout_marginRight="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+                <ImageView
+                    android:padding="10dp"
+                    android:layout_weight="1.1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/notice"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:layout_weight=".7"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="Notice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:padding="10dp"
+                    android:src="@drawable/right_arrow"
+                    android:layout_weight="1.2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+
+                android:foreground="@drawable/rip1"
+                android:weightSum="3"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/back"
+                android:layout_marginRight="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+                <ImageView
+                    android:padding="10dp"
+                    android:layout_weight="1.1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/gallary"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:layout_weight=".7"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="Image Galary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:padding="10dp"
+                    android:src="@drawable/right_arrow"
+                    android:layout_weight="1.2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+
+            </LinearLayout>
+
+
+
 
         </LinearLayout>
 

@@ -106,8 +106,8 @@ public class SemesterActivity extends AppCompatActivity {
         semesterList.add("1st Semester");semesterList.add("2nd Semester");semesterList.add("3th Semester");semesterList.add("4th Semester");semesterList.add("5th Semester");semesterList.add("6th Semester");semesterList.add("7th Semester");semesterList.add("8th Semester");
         semesterList.add("9th Semester");semesterList.add("10th Semester");semesterList.add("11th Semester");semesterList.add("12th Semester");
 
-        ArrayAdapter semesterAdapter= new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,semesterList);
-
+        ArrayAdapter semesterAdapter= new ArrayAdapter(this, android.R.layout.simple_spinner_item,semesterList);
+        semesterAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
         appCompatSpinner.setAdapter(semesterAdapter);
 
         appCompatSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

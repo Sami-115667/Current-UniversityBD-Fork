@@ -1,12 +1,12 @@
 package com.techtravelcoder.universitybd.model;
 
-import android.widget.EditText;
-
 public class UserModel {
 
-    String userName,userPassword,userEmail,userPhoneNumber,userUniversity,userBloodGroup,userDept,userHall,userRoom,image1,image2;
+    String userName,userPassword,userEmail,userPhoneNumber,userUniversity,userBloodGroup,userDept,userHall,userRoom,image1,image2,userId;
 
     boolean visible ;
+
+
 
     public boolean isVisible() {
         return visible;
@@ -31,7 +31,7 @@ public class UserModel {
 
     }
 
-    public UserModel(String userName, String userPassword, String userEmail, String userPhoneNumber, String userUniversity, String userBloodGroup, String userDept) {
+    public UserModel(String userName, String userPassword, String userEmail, String userPhoneNumber, String userUniversity, String userBloodGroup, String userDept,String userId) {
         this.userName = userName;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
@@ -39,7 +39,9 @@ public class UserModel {
         this.userUniversity = userUniversity;
         this.userBloodGroup = userBloodGroup;
         this.userDept = userDept;
-        this.visible=false;    }
+        this.visible=false;
+        this.userId=userId;
+    }
 
     public UserModel(String userName, String userPassword, String userEmail, String userPhoneNumber, String userUniversity, String userBloodGroup, String userDept, String userHall, String userRoom) {
         this.userName = userName;
@@ -55,6 +57,14 @@ public class UserModel {
 
 
     public UserModel() {
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
@@ -144,4 +154,11 @@ public class UserModel {
     public void setImage2(String image2) {
         this.image2 = image2;
     }
-}
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "userName='" + userName.trim() + '\'' +
+                ", userUniversity='" + userUniversity.trim() + '\'' +
+                '}';
+    }}

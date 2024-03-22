@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private NavigationView navigationView;//navigation view
     ActionBarDrawerToggle actionBarDrawerToggle; // instead of action bar we use toolbar //ActionBarDrawerToggle
     ImageSlider imageSlider;
-    private CardView general ,prv,engineering ,agriculture,national,sat;
+    private LinearLayout general ,prv,engineering ,agriculture,national,sat;
 
     private int defaultColor;
     CardView news ;
@@ -351,7 +351,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setMenuCategoryColor(MenuItem menuItem){
         SpannableString s = new SpannableString(menuItem.getTitle());
-        s.setSpan(new ForegroundColorSpan(Color.BLUE), 0, s.length(), 0);
+        s.setSpan(new ForegroundColorSpan(Color.WHITE), 0, s.length(), 0);
         s.setSpan(new StyleSpan(Typeface.BOLD), 0, s.length(), 0);
         menuItem.setTitle(s);
     }

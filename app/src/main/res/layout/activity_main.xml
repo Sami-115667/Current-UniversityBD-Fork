@@ -102,239 +102,197 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
+                android:weightSum="2"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
+                android:layout_height="wrap_content">
                 <LinearLayout
-                    android:weightSum="2"
+                    android:gravity="center"
+                    android:foreground="@drawable/rip1"
+                    android:id="@+id/general_id"
+                    android:background="@drawable/back"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/general_id"
-                        android:layout_weight="1"
-                        android:foreground="@drawable/category_uni_back"
-                        android:clickable="true"
-                        app:cardPreventCornerOverlap="true"
-                        app:cardElevation="10dp"
-                        app:cardBackgroundColor="@color/back_upper"
-                        android:layout_margin="7dp"
-                        app:cardCornerRadius="12dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="105dp">
-
-                        <ImageView
-                            android:layout_marginTop="15dp"
-                            android:layout_gravity="center_horizontal"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/public_university"
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"/>
-                        <TextView
-                            android:layout_marginTop="70dp"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="15dp"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center_horizontal"
-                            android:text="General University"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        app:cardPreventCornerOverlap="true"
-                        app:cardElevation="10dp"
-                        android:id="@+id/national_id"
-                        app:cardBackgroundColor="@color/back_upper"
-                        android:layout_margin="7dp"
-                        app:cardCornerRadius="12dp"
-                        android:foreground="@drawable/category_uni_back"
-                        android:clickable="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="105dp">
-
-                        <ImageView
-                            android:layout_marginTop="15dp"
-                            android:padding="5dp"
-                            android:layout_gravity="center_horizontal"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/national_university"
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"/>
-                        <TextView
-                            android:layout_marginTop="70dp"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="15dp"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center_horizontal"
-                            android:text="National University"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-
-                    </androidx.cardview.widget.CardView>
-
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="15dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/public_university"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
+                    <TextView
+                        android:layout_marginBottom="3dp"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:text="General University"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:weightSum="2"
+                    android:gravity="center"
+                    android:foreground="@drawable/rip1"
+                    android:id="@+id/national_id"
+
+                    android:background="@drawable/back"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        app:cardPreventCornerOverlap="true"
-                        app:cardElevation="10dp"
-                        android:id="@+id/engineering_id"
-                        app:cardBackgroundColor="@color/back_upper"
-                        android:layout_margin="7dp"
-                        app:cardCornerRadius="12dp"
-                        android:foreground="@drawable/category_uni_back"
-                        android:clickable="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="105dp">
-
-                        <ImageView
-                            android:layout_marginTop="12dp"
-                            android:layout_gravity="center_horizontal"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/engineering_logo"
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"/>
-                        <TextView
-                            android:layout_marginTop="70dp"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="15dp"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Engineering University"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        app:cardPreventCornerOverlap="true"
-                        app:cardElevation="10dp"
-                        android:id="@+id/sat_id"
-                        app:cardBackgroundColor="@color/back_upper"
-                        android:layout_margin="7dp"
-                        app:cardCornerRadius="12dp"
-                        android:foreground="@drawable/category_uni_back"
-                        android:clickable="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="105dp">
-
-                        <ImageView
-                            android:layout_marginTop="15dp"
-                            android:padding="5dp"
-                            android:layout_gravity="center_horizontal"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/sat_logo"
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"/>
-                        <TextView
-                            android:layout_marginTop="70dp"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="15dp"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Science and Technology"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-
-                    </androidx.cardview.widget.CardView>
-
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="15dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/national_university"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
+                    <TextView
+                        android:layout_marginBottom="3dp"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:text="National University"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:weightSum="2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        app:cardPreventCornerOverlap="true"
-                        app:cardElevation="10dp"
-                        app:cardBackgroundColor="@color/back_upper"
-                        android:layout_margin="7dp"
-                        app:cardCornerRadius="12dp"
-                        android:id="@+id/private_id"
-                        android:foreground="@drawable/category_uni_back"
-                        android:clickable="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="105dp">
-
-                        <ImageView
-                            android:padding="5dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_gravity="center_horizontal"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/private_logo"
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"/>
-                        <TextView
-                            android:layout_marginTop="70dp"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="15dp"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Private University"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        app:cardPreventCornerOverlap="true"
-                        app:cardElevation="10dp"
-                        app:cardBackgroundColor="@color/back_upper"
-                        android:layout_margin="7dp"
-                        app:cardCornerRadius="12dp"
-                        android:id="@+id/agriculture_id"
-                        android:foreground="@drawable/category_uni_back"
-                        android:clickable="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="105dp">
-
-                        <ImageView
-                            android:layout_marginTop="15dp"
-                            android:padding="5dp"
-                            android:layout_gravity="center_horizontal"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/agriculture_logo"
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"/>
-                        <TextView
-                            android:layout_marginTop="70dp"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="15dp"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Agriculture University"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
-
-
-
-
 
 
             </LinearLayout>
+            <LinearLayout
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center"
+                    android:foreground="@drawable/rip1"
+                    android:id="@+id/engineering_id"
+                    android:background="@drawable/back"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="15dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/engineering_logo"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
+                    <TextView
+                        android:layout_marginBottom="3dp"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:text="Engineering University"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:foreground="@drawable/rip1"
+                    android:id="@+id/sat_id"
+
+                    android:background="@drawable/back"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="15dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/sat_logo"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
+                    <TextView
+                        android:layout_marginBottom="3dp"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:text="Science and Technology"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center"
+                    android:foreground="@drawable/rip1"
+                    android:id="@+id/private_id"
+                    android:background="@drawable/back"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="15dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/private_logo"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
+                    <TextView
+                        android:layout_marginBottom="3dp"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:text="Private University"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:foreground="@drawable/rip1"
+                    android:id="@+id/agriculture_id"
+                    android:background="@drawable/back"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="15dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/agriculture_logo"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
+                    <TextView
+                        android:layout_marginBottom="3dp"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:text="Agriculture University"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -510,8 +468,8 @@
         app:itemIconPadding="8dp"
         android:visibility="gone"
         app:itemTextColor="@color/white"
-        app:itemIconTint="#FFC107"
-        android:background="@color/back_upper"
+        app:itemIconTint="@color/white"
+        android:background="@color/custom_dialogue"
         android:layout_height="match_parent">
 
     </com.google.android.material.navigation.NavigationView>

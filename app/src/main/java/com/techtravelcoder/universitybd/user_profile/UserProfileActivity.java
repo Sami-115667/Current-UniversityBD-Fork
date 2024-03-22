@@ -1,28 +1,16 @@
 package com.techtravelcoder.universitybd.user_profile;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,8 +19,18 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
@@ -46,15 +44,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.techtravelcoder.universitybd.R;
+
 import com.techtravelcoder.universitybd.activity.SpecificUserNewsPostDetails;
 import com.techtravelcoder.universitybd.activity.UserNewsPostActivity;
 import com.techtravelcoder.universitybd.cgpacalculator.CGPADetailsActivity;
 import com.techtravelcoder.universitybd.cgpacalculator.SemesterActivity;
 import com.techtravelcoder.universitybd.connection.NetworkChangeListener;
-import com.techtravelcoder.universitybd.loginandsignup.SignupActivity;
-import com.techtravelcoder.universitybd.model.NewsModel;
+import com.techtravelcoder.universitybd.model.BloodModel;
 import com.techtravelcoder.universitybd.model.UserModel;
 
 import java.io.IOException;
@@ -62,17 +59,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import es.dmoral.toasty.Toasty;
-
 public class UserProfileActivity extends AppCompatActivity {
+
+
+    BloodModel bloodModel;
 
     NetworkChangeListener networkChangeListener=new NetworkChangeListener();
     String userUniversitySpin,userBloodGroupSpin,userDepartmentSpin;
     private AppCompatSpinner universitySpinner,bloodSpinner,deptSpinner ;
-    private CardView cardView,calcCg,doPost,cgpaDetails;
+    private CardView cardView,calcCg,doPost,cgpaDetails,bloodDonate,businessGrow;
     private Context context;
 
 
@@ -111,6 +109,8 @@ public class UserProfileActivity extends AppCompatActivity {
         activities=findViewById(R.id.tv_activities_id);
         writeHere=findViewById(R.id.tv_write_here_id);
         changeActivity=findViewById(R.id.tv_change_activities);
+        bloodDonate=findViewById(R.id.blood_donner_id);
+        businessGrow=findViewById(R.id.grow_business_id);
 
         calcCg=findViewById(R.id.cgpaCalc);
 
@@ -139,11 +139,26 @@ public class UserProfileActivity extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference();
        // Toast.makeText(this, ""+uid, Toast.LENGTH_SHORT).show();
         firebaseDatabase=FirebaseDatabase.getInstance();
+
         if(postAutherUid.equals(uid)){
             databaseReference=firebaseDatabase.getReference("User Information").child(uid);
             hallRef=FirebaseDatabase.getInstance().getReference("User Information").child(uid);
             progressbar.setVisibility(View.VISIBLE);
             progressbar11.setVisibility(View.VISIBLE);
+
+            bloodDonate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    manageBloodDonate();
+                }
+            });
+            businessGrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    manageBusinessInfo();
+
+                }
+            });
 
             fetchUserData();
 
@@ -216,6 +231,8 @@ public class UserProfileActivity extends AppCompatActivity {
         else {
 
             prf1.setVisibility(View.GONE);
+            gmail.setVisibility(View.GONE);
+            mobile.setVisibility(View.GONE);
             prf2.setVisibility(View.GONE);
             writeHere.setVisibility(View.GONE);
             updateProfile.setVisibility(View.GONE);
@@ -242,6 +259,327 @@ public class UserProfileActivity extends AppCompatActivity {
         }
 
 
+
+    }
+
+    private void manageBusinessInfo() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(UserProfileActivity.this);
+        final View view=getLayoutInflater().inflate(R.layout.business_info_design,null);
+
+        builder.setView(view);
+        AlertDialog alertDialog= builder.create();
+        Drawable drawable= ContextCompat.getDrawable(getApplicationContext(),R.drawable.alert_back);
+        alertDialog.getWindow().setBackgroundDrawable(drawable);
+        alertDialog.show();
+    }
+
+    private void bloodDialogue(int num){
+        if(num==1){
+            AlertDialog.Builder builder = new AlertDialog.Builder(UserProfileActivity.this);
+            final View view = getLayoutInflater().inflate(R.layout.blood_donate_design, null);
+
+            builder.setView(view);
+            AlertDialog alertDialog = builder.create();
+            Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.alert_back);
+            alertDialog.getWindow().setBackgroundDrawable(drawable);
+            alertDialog.show();
+
+            RadioGroup radioGroup = view.findViewById(R.id.blood_radio_group_id);
+            RadioButton yes = view.findViewById(R.id.blood_yes_id);
+            RadioButton no = view.findViewById(R.id.blood_no_id);
+            TextView t1, t2, updateStatus;
+            t1 = view.findViewById(R.id.t1_id);
+            t2 = view.findViewById(R.id.t2_id);
+            EditText basic_info, description;
+            basic_info = view.findViewById(R.id.blood_info_id);
+            description = view.findViewById(R.id.blood_description_id);
+            updateStatus = view.findViewById(R.id.update_status_id);
+
+            radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    RadioButton checkedRadioButton = view.findViewById(checkedId);
+                    String checkedText = checkedRadioButton.getText().toString();
+
+                    if (checkedText.equals("Yes")) {
+                        basic_info.setVisibility(View.VISIBLE);
+                        description.setVisibility(View.VISIBLE);
+                        updateStatus.setVisibility(View.VISIBLE);
+                        t1.setVisibility(View.VISIBLE);
+                        t2.setVisibility(View.VISIBLE);
+                    } else if (checkedText.equals("No")) {
+                        updateStatus.setVisibility(View.VISIBLE);
+                        basic_info.setVisibility(View.GONE);
+                        description.setVisibility(View.GONE);
+                        t1.setVisibility(View.GONE);
+                        t2.setVisibility(View.GONE);
+                    }
+                }
+            });
+            updateStatus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    RadioButton checkedRadioButton = view.findViewById(radioGroup.getCheckedRadioButtonId());
+                    String checkedText = checkedRadioButton.getText().toString();
+
+                    if (checkedText.equals("Yes")) {
+                        String address = basic_info.getText().toString();
+                        String info = description.getText().toString();
+
+                        if ((!address.isEmpty()) && (!info.isEmpty())) {
+                            insertDonationStatus(address, info);
+                            alertDialog.dismiss();
+                        } else {
+                            Toasty.info(getApplicationContext(), "Fill up all options", Toasty.LENGTH_SHORT).show();
+                        }
+                    } else if (checkedText.equals("No")) {
+                        Map<String, Object> map1 = new HashMap<>();
+                        map1.put("status", false);
+                        FirebaseDatabase.getInstance().getReference("User Information")
+                                .child(FirebaseAuth.getInstance().getUid())
+                                .child("blood")
+                                .setValue(map1)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toasty.success(getApplicationContext(), "You've successfully updated your Blood Information", Toasty.LENGTH_SHORT).show();
+                                        alertDialog.dismiss();
+                                    }
+                                });
+
+                    }
+                }
+            });
+        }
+        if(num==2){
+            AlertDialog.Builder builder = new AlertDialog.Builder(UserProfileActivity.this);
+            final View view = getLayoutInflater().inflate(R.layout.blood_donate_design, null);
+
+            builder.setView(view);
+            AlertDialog alertDialog = builder.create();
+            Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.alert_back);
+            alertDialog.getWindow().setBackgroundDrawable(drawable);
+            alertDialog.show();
+
+            RadioGroup radioGroup = view.findViewById(R.id.blood_radio_group_id);
+            RadioButton yes = view.findViewById(R.id.blood_yes_id);
+            RadioButton no = view.findViewById(R.id.blood_no_id);
+            TextView t1, t2, updateStatus;
+            t1 = view.findViewById(R.id.t1_id);
+            t2 = view.findViewById(R.id.t2_id);
+            EditText basic_info, description;
+            basic_info = view.findViewById(R.id.blood_info_id);
+            description = view.findViewById(R.id.blood_description_id);
+            updateStatus = view.findViewById(R.id.update_status_id);
+            basic_info.setVisibility(View.VISIBLE);
+            description.setVisibility(View.VISIBLE);
+            updateStatus.setVisibility(View.VISIBLE);
+            t1.setVisibility(View.VISIBLE);
+            t2.setVisibility(View.VISIBLE);
+            yes.setChecked(true);
+            basic_info.setText(bloodModel.getAddress());
+            description.setText(bloodModel.getDescription());
+
+            radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    RadioButton checkedRadioButton = view.findViewById(checkedId);
+                    String checkedText = checkedRadioButton.getText().toString();
+
+                    if (checkedText.equals("Yes")) {
+                        basic_info.setVisibility(View.VISIBLE);
+                        description.setVisibility(View.VISIBLE);
+                        updateStatus.setVisibility(View.VISIBLE);
+                        t1.setVisibility(View.VISIBLE);
+                        t2.setVisibility(View.VISIBLE);
+                    } else if (checkedText.equals("No")) {
+                        updateStatus.setVisibility(View.VISIBLE);
+                        basic_info.setVisibility(View.GONE);
+                        description.setVisibility(View.GONE);
+                        t1.setVisibility(View.GONE);
+                        t2.setVisibility(View.GONE);
+                    }
+                }
+            });
+            updateStatus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    RadioButton checkedRadioButton = view.findViewById(radioGroup.getCheckedRadioButtonId());
+                    String checkedText = checkedRadioButton.getText().toString();
+
+                    if (checkedText.equals("Yes")) {
+                        String address = basic_info.getText().toString();
+                        String info = description.getText().toString();
+
+                        if ((!address.isEmpty()) && (!info.isEmpty())) {
+                            insertDonationStatus(address, info);
+                            alertDialog.dismiss();
+                        } else {
+                            Toasty.info(getApplicationContext(), "Fill up all options", Toasty.LENGTH_SHORT).show();
+                        }
+                    } else if (checkedText.equals("No")) {
+                        Map<String, Object> map1 = new HashMap<>();
+                        map1.put("status", false);
+                        FirebaseDatabase.getInstance().getReference("User Information")
+                                .child(FirebaseAuth.getInstance().getUid())
+                                .child("blood")
+                                .setValue(map1)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toasty.success(getApplicationContext(), "You've successfully updated your Blood Information", Toasty.LENGTH_SHORT).show();
+                                        alertDialog.dismiss();
+                                    }
+                                });
+
+                    }
+                }
+            });
+        }
+        if(num==3){
+            AlertDialog.Builder builder = new AlertDialog.Builder(UserProfileActivity.this);
+            final View view = getLayoutInflater().inflate(R.layout.blood_donate_design, null);
+
+            builder.setView(view);
+            AlertDialog alertDialog = builder.create();
+            Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.alert_back);
+            alertDialog.getWindow().setBackgroundDrawable(drawable);
+            alertDialog.show();
+
+            RadioGroup radioGroup = view.findViewById(R.id.blood_radio_group_id);
+            RadioButton yes = view.findViewById(R.id.blood_yes_id);
+            RadioButton no = view.findViewById(R.id.blood_no_id);
+            TextView t1, t2, updateStatus;
+            t1 = view.findViewById(R.id.t1_id);
+            t2 = view.findViewById(R.id.t2_id);
+            EditText basic_info, description;
+            basic_info = view.findViewById(R.id.blood_info_id);
+            description = view.findViewById(R.id.blood_description_id);
+            updateStatus = view.findViewById(R.id.update_status_id);
+
+            updateStatus.setVisibility(View.VISIBLE);
+            basic_info.setVisibility(View.GONE);
+            description.setVisibility(View.GONE);
+            t1.setVisibility(View.GONE);
+            t2.setVisibility(View.GONE);
+            no.setChecked(true);
+
+            radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    RadioButton checkedRadioButton = view.findViewById(checkedId);
+                    String checkedText = checkedRadioButton.getText().toString();
+
+                    if (checkedText.equals("Yes")) {
+                        basic_info.setVisibility(View.VISIBLE);
+                        description.setVisibility(View.VISIBLE);
+                        updateStatus.setVisibility(View.VISIBLE);
+                        t1.setVisibility(View.VISIBLE);
+                        t2.setVisibility(View.VISIBLE);
+                    } else if (checkedText.equals("No")) {
+                        updateStatus.setVisibility(View.VISIBLE);
+                        basic_info.setVisibility(View.GONE);
+                        description.setVisibility(View.GONE);
+                        t1.setVisibility(View.GONE);
+                        t2.setVisibility(View.GONE);
+                    }
+                }
+            });
+            updateStatus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    RadioButton checkedRadioButton = view.findViewById(radioGroup.getCheckedRadioButtonId());
+                    String checkedText = checkedRadioButton.getText().toString();
+
+                    if (checkedText.equals("Yes")) {
+                        String address = basic_info.getText().toString();
+                        String info = description.getText().toString();
+
+                        if ((!address.isEmpty()) && (!info.isEmpty())) {
+                            insertDonationStatus(address, info);
+                            alertDialog.dismiss();
+                        } else {
+                            Toasty.info(getApplicationContext(), "Fill up all options", Toasty.LENGTH_SHORT).show();
+                        }
+                    } else if (checkedText.equals("No")) {
+                        Map<String, Object> map1 = new HashMap<>();
+                        map1.put("status", false);
+                        FirebaseDatabase.getInstance().getReference("User Information")
+                                .child(FirebaseAuth.getInstance().getUid())
+                                .child("blood")
+                                .setValue(map1)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toasty.success(getApplicationContext(), "You've successfully updated your Blood Information", Toasty.LENGTH_SHORT).show();
+                                        alertDialog.dismiss();
+                                    }
+                                });
+
+                    }
+                }
+            });
+
+        }
+
+    }
+    private void manageBloodDonate() {
+
+        FirebaseDatabase.getInstance().getReference("User Information")
+                .child(FirebaseAuth.getInstance().getUid())
+                .child("blood")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        bloodModel = snapshot.getValue(BloodModel.class);
+
+                        if (snapshot.exists()) {
+                            if (bloodModel != null) {
+                                if(bloodModel.getStatus().equals(true)){
+
+                                    bloodDialogue(2);
+
+                                }
+                                if(bloodModel.getStatus().equals(false)){
+
+                                    bloodDialogue(3);
+
+                                }
+
+                            }
+                        }
+                        else {
+                            bloodDialogue(1);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(getApplicationContext(), "Database Error Occurred", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+
+
+    }
+
+    private void insertDonationStatus(String address,String info) {
+        Map<String,Object>map=new HashMap<>();
+        map.put("address",address);
+        map.put("description",info);
+        map.put("status",true);
+
+        FirebaseDatabase.getInstance().getReference("User Information").child(FirebaseAuth.getInstance().getUid())
+                .child("blood")
+                .setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toasty.success(getApplicationContext(),"You ,Successfully Update your Blood Information",Toasty.LENGTH_SHORT).show();
+
+                    }
+                });
 
     }
 
@@ -359,6 +697,7 @@ public class UserProfileActivity extends AppCompatActivity {
         uniDept=new ArrayList<>();
 
         uniName.add("Choose your University");
+        uniName.add("Not Provide");
         uniName.add("University of Dhaka");
         uniName.add("University of Barisal");
         uniName.add("Chittagong University");
@@ -422,6 +761,7 @@ public class UserProfileActivity extends AppCompatActivity {
         uniName.add("BSFMSTU");
 
         uniDept.add("Choose your Department");
+        uniDept.add("Not Provide");
         uniDept.add("Department of Islamic History & Culture");
         uniDept.add("Department of Anthropology");
         uniDept.add("Department of Applied Chemistry & Chemical Engineering");
@@ -529,14 +869,19 @@ public class UserProfileActivity extends AppCompatActivity {
 
 
         bloodGroup.add("Choose your blood group");
+        bloodGroup.add("Not Provide");
         bloodGroup.add("A+");bloodGroup.add("A-");bloodGroup.add("O+");bloodGroup.add("O-");
         bloodGroup.add("B+");bloodGroup.add("B-");bloodGroup.add("AB+");bloodGroup.add("AB-");
 
 
 
         ArrayAdapter uniAdapter= new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,uniName);
+        uniAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
         ArrayAdapter bloodAdapter= new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,bloodGroup);
         ArrayAdapter deptAdapter= new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,uniDept);
+        bloodAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
+        deptAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
+
 
 
         universitySpinner.setAdapter(uniAdapter);
@@ -616,31 +961,62 @@ public class UserProfileActivity extends AppCompatActivity {
                             name.setText(userModel.getUserName());
                         }
                         if(userModel.getUserUniversity() != null){
-                            university.setText(userModel.getUserUniversity());
+                            if(userModel.getUserUniversity().equals("nothing") || userModel.getUserUniversity().equals("Not Provide")){
+                                university.setText("University : কোন তথ্য পাওয়া যায়নি");
+                            }else {
+                                university.setText(userModel.getUserUniversity());
+                            }
 
                         }
-                        if(userModel.getUserHall() != null){
-                            hall.setText("Hall : "+userModel.getUserHall());
-                        }
+
+
                         if(userModel.getUserEmail() != null){
                             gmail.setText(userModel.getUserEmail());
                         }
                         if(userModel.getUserPhoneNumber() != null){
-                            mobile.setText(userModel.getUserPhoneNumber());
+                            if(userModel.getUserPhoneNumber().equals("nothing") ||userModel.getUserPhoneNumber().equals("") ){
+                                mobile.setText("Mobile No : কোন তথ্য পাওয়া যায়নি");
+                            }else {
+                                mobile.setText(userModel.getUserPhoneNumber());
+                            }
                         }
                         if(userModel.getUserBloodGroup() != null){
-                            bloodgroup.setText("Blood Group : "+userModel.getUserBloodGroup());
+                            if(userModel.getUserBloodGroup().equals("nothing") || userModel.getUserBloodGroup().equals("Not Provide")){
+                                bloodgroup.setText("Blood Group : কোন তথ্য পাওয়া যায়নি");
+                            }else{
+                                bloodgroup.setText("Blood Group : "+userModel.getUserBloodGroup());
+                            }
                         }
                         if(userModel.getUserDept() != null){
-                        department.setText(userModel.getUserDept());
+                            if(userModel.getUserDept().equals("nothing") || userModel.getUserDept().equals("Not Provide")){
+                                department.setText("Department : কোন তথ্য পাওয়া যায়নি");
+                            }else{
+                                department.setText(userModel.getUserDept());
+                            }
                         }
                         if(userModel.getUserRoom() != null){
-                            roomNumber.setText("Room Number : "+userModel.getUserRoom());
+                            if(userModel.getUserRoom().equals("")){
+                                roomNumber.setText("Room Number : কোন তথ্য পাওয়া যায়নি");
+                            }else{
+                                roomNumber.setText("Room Number : "+userModel.getUserRoom());
+                            }
+                        }else {
+                            roomNumber.setText("Room Number : কোন তথ্য পাওয়া যায়নি");
+                        }
+                        if(userModel.getUserHall() != null){
+                            if(userModel.getUserHall().equals("")){
+                                hall.setText("Hall : কোন তথ্য পাওয়া যায়নি");
+                            }else{
+                                hall.setText("Hall Name : "+userModel.getUserHall());
+                            }
+                        }else {
+                            hall.setText("Hall : কোন তথ্য পাওয়া যায়নি");
                         }
 
                         if(postAutherUid.equals(uid)){
                             updateProfile.setVisibility(View.VISIBLE);
                         }
+
 
 
 
@@ -681,9 +1057,6 @@ public class UserProfileActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
     private void editProfile(String userHall,String userName,String userGmail,String userUniversity,String userMobile,String userBloodgroup,String userDepartment,String userRoomNumber){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -703,9 +1076,32 @@ public class UserProfileActivity extends AppCompatActivity {
         AppCompatButton userProfileUpdate=dialogView.findViewById(R.id.update_profile_id_ab);
 
         e_name.setText(userModel.getUserName());
-        e_hall_name.setText(userModel.getUserHall());
-        e_mobile.setText(userModel.getUserPhoneNumber());
-        e_room_number.setText(userModel.getUserRoom());
+
+        if(userModel.getUserHall()!=null){
+            if(userModel.getUserHall().equals("")){
+                e_hall_name.setHint("add hall room number...");
+            }else{
+                e_hall_name.setText(userModel.getUserHall());
+            }
+        }else{
+            e_room_number.setHint("add hall room number...");
+        }
+
+        if(userModel.getUserPhoneNumber().equals("nothing") || userModel.getUserPhoneNumber().equals("")){
+            e_mobile.setHint("add phone number...");
+        }else{
+            e_mobile.setText(userModel.getUserPhoneNumber());
+        }
+
+        if(userModel.getUserRoom()!=null){
+            if(userModel.getUserRoom().equals("")){
+                e_room_number.setHint("add hall room number...");
+            }else{
+                e_room_number.setText(userModel.getUserRoom());
+            }
+        }else{
+            e_room_number.setHint("add hall room number...");
+        }
 
         spinProblemFix(dialogView);
 
@@ -724,7 +1120,7 @@ public class UserProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(userUniversitySpin.equals("Choose your University")   || userDepartmentSpin.equals("Choose your Department") ||  userBloodGroupSpin.equals("Choose your BloodGroup")
+                if(userUniversitySpin.equals("Choose your University")   || userDepartmentSpin.equals("Choose your Department") ||  userBloodGroupSpin.equals("Choose your blood group")
                 || userUniversitySpin == null || userDepartmentSpin == null || userBloodGroupSpin == null){
                     Toasty.error(getApplicationContext(), "University ,Department or Blood Group is missing...", Toast.LENGTH_SHORT, true).show();
                     Toasty.info(getApplicationContext(), "Fillup missing information...", Toast.LENGTH_SHORT, true).show();
@@ -733,10 +1129,13 @@ public class UserProfileActivity extends AppCompatActivity {
 
                     alertDialog.dismiss();
                     ProgressDialog progressDialog=new ProgressDialog(UserProfileActivity.this);
-                    progressDialog.setTitle("Loading...");
-                    progressDialog.setMessage("Profile is Updating..");
+                    progressDialog.setTitle("ℹ️ℹ️ Loading...");
+                    progressDialog.setMessage("✔✔Profile is Updating !!!");
                     progressDialog.setCancelable(false);
                     progressDialog.show();
+                    Drawable drawable= ContextCompat.getDrawable(getApplicationContext(),R.drawable.alert_back);
+                    progressDialog.getWindow().setBackgroundDrawable(drawable);
+
 
                     Map<String, Object> map = new HashMap<>();
                     map.put("userName", e_name.getText().toString());
@@ -755,174 +1154,19 @@ public class UserProfileActivity extends AppCompatActivity {
                             addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-
-                                }
-                            }).
-                            addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    // Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
-                                    alertDialog.dismiss();
-
-                                }
-                            });
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("Uni").
-                            child(userUniversity).child(FirebaseAuth.getInstance().getUid()).removeValue();
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("Uni").
-                            child(userUniversitySpin).
-                            child(FirebaseAuth.getInstance().getUid()).
-                            updateChildren(map).
-                            addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-
-                                }
-                            }).
-                            addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    // Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
-                                    alertDialog.dismiss();
-
-                                }
-                            });
-
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("Dept").
-                            child(userDepartment).child(FirebaseAuth.getInstance().getUid()).removeValue();
-
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("Dept").
-                            child(userDepartmentSpin).
-                            child(FirebaseAuth.getInstance().getUid()).
-                            updateChildren(map).
-                            addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-
-                                }
-                            }).
-                            addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    // Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
-
-                                }
-                            });
-
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("Blood").
-                            child(userBloodgroup).child(FirebaseAuth.getInstance().getUid()).removeValue();
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("Blood").
-                            child(userBloodGroupSpin).
-                            child(FirebaseAuth.getInstance().getUid()).
-                            updateChildren(map).
-                            addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-
-                                }
-                            }).
-                            addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    // Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
-
-                                }
-                            });
-
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("UniDept").
-                            child(userUniversity).child(userDepartment).child(FirebaseAuth.getInstance().getUid()).removeValue();
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("UniDept").
-                            child(userUniversitySpin).child(userDepartmentSpin).
-                            child(FirebaseAuth.getInstance().getUid()).
-                            updateChildren(map).
-                            addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-
-                                }
-                            }).
-                            addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    // Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
-
-                                }
-                            });
-
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("UniBlood").
-                            child(userUniversity).child(userBloodgroup).child(FirebaseAuth.getInstance().getUid()).removeValue();
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("UniBlood").
-                            child(userUniversitySpin).child(userBloodGroupSpin).
-                            child(FirebaseAuth.getInstance().getUid()).
-                            updateChildren(map).
-                            addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-
-                                }
-                            }).
-                            addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    // Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
-
-                                }
-                            });
-
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("DeptBlood").
-                            child(userDepartment).child(userBloodgroup).child(FirebaseAuth.getInstance().getUid()).removeValue();
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("DeptBlood").
-                            child(userDepartmentSpin).child(userBloodGroupSpin).
-                            child(FirebaseAuth.getInstance().getUid()).
-                            updateChildren(map).
-                            addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-
-                                }
-                            }).
-                            addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    // Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
-
-                                }
-                            });
-
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("UniDeptBlood").
-                            child(userUniversity).child(userDepartment).child(userBloodgroup).child(FirebaseAuth.getInstance().getUid()).removeValue();
-
-                    FirebaseDatabase.getInstance().getReference("Search").child("UniDeptBlood").
-                            child(userUniversitySpin).child(userDepartmentSpin).child(userBloodGroupSpin).
-                            child(FirebaseAuth.getInstance().getUid()).
-                            updateChildren(map).
-                            addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
                                     progressDialog.dismiss();
-                                    Toasty.success(getApplicationContext(),"Successfully Update",Toasty.LENGTH_SHORT).show();
-                                    alertDialog.dismiss();
+
                                 }
                             }).
                             addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(getApplicationContext(), "Something wrong...", Toast.LENGTH_SHORT).show();
+                                    // Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show();
+                                    alertDialog.dismiss();
 
                                 }
                             });
+
 
                 }
 
@@ -945,9 +1189,29 @@ public class UserProfileActivity extends AppCompatActivity {
         FrameLayout dept_frm=dialogView.findViewById(R.id.dept_frame_id);
         FrameLayout blood_frm=dialogView.findViewById(R.id.blood_frame_id);
 
-        e_uni_text.setText(userModel.getUserUniversity());
-        e_dept_text.setText(userModel.getUserDept());
-        e_blood_text.setText(userModel.getUserBloodGroup());
+        if(userModel.getUserUniversity().equals("Not Provide")){
+            e_uni_text.setHint("add university...");
+
+        }else{
+            e_uni_text.setText(userModel.getUserUniversity());
+
+        }
+
+        if(userModel.getUserBloodGroup().equals("Not Provide")){
+            e_blood_text.setHint("add blood group...");
+
+        }else{
+            e_blood_text.setText(userModel.getUserBloodGroup());
+
+        }
+
+        if(userModel.getUserDept().equals("Not Provide")){
+            e_dept_text.setHint("add department...");
+
+        }else{
+            e_dept_text.setText(userModel.getUserDept());
+
+        }
 
         universitySpinner.setVisibility(View.GONE);
         deptSpinner.setVisibility(View.GONE);

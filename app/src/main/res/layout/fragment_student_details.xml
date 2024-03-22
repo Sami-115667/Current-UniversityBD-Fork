@@ -8,30 +8,45 @@
     tools:context=".fragment.StudentDetailsFragment"
     android:orientation="vertical">
 
+
     <androidx.appcompat.widget.Toolbar
+        app:subtitleTextColor="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:titleTextColor="@color/black"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/back_pressed"
         android:id="@+id/all_community_tolbar"
-        android:background="@color/service_bar"
+        android:background="@color/back"
         >
-        <TextView
-            android:textSize="18dp"
-            android:layout_marginRight="20dp"
-            android:textColorHint="#473E3E"
-            android:gravity="center_vertical"
-            android:id="@+id/community_search"
-            android:paddingLeft="9dp"
-            android:hint="Search here "
-            android:drawableLeft="@drawable/search_icon"
-            android:background="@drawable/serchbar_background"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"/>
+        <androidx.appcompat.widget.SearchView
 
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="4dp"
+            android:elevation="10dp"
+            android:id="@+id/searchView_stfr"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/serchbar_background"
+            app:queryHint="Search here..."
+            app:iconifiedByDefault="false"
+            />
 
 
     </androidx.appcompat.widget.Toolbar>
+
+
+<!--    <androidx.appcompat.widget.SearchView-->
+<!--        android:elevation="10dp"-->
+<!--        android:id="@+id/searchView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="52dp"-->
+<!--        android:layout_margin="15dp"-->
+<!--        android:background="@drawable/serchbar_background"-->
+<!--        app:queryHint="Search here..."-->
+<!--        app:iconifiedByDefault="false"-->
+
+<!--        />-->
+
 
 
 

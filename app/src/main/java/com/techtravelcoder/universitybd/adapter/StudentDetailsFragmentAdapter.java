@@ -1,5 +1,7 @@
 package com.techtravelcoder.universitybd.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.techtravelcoder.universitybd.R;
 import com.techtravelcoder.universitybd.model.UserModel;
+import com.techtravelcoder.universitybd.user_profile.UserProfileActivity;
 
 import java.util.ArrayList;
 
@@ -20,9 +23,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class StudentDetailsFragmentAdapter extends RecyclerView.Adapter<StudentDetailsFragmentAdapter.AnViewHolder> {
 
     ArrayList<UserModel> list ;
+    Context context;
 
-    public StudentDetailsFragmentAdapter(ArrayList<UserModel> list) {
+    public StudentDetailsFragmentAdapter(ArrayList<UserModel> list,Context context) {
         this.list = list;
+        this.context=context;
     }
 
     @NonNull
@@ -37,22 +42,61 @@ public class StudentDetailsFragmentAdapter extends RecyclerView.Adapter<StudentD
 
         UserModel obj=list.get(position);
         holder.name.setText(obj.getUserName());
-        holder.dept.setText(obj.getUserDept());
         holder.uni.setText(obj.getUserUniversity());
-        holder.bloodGroup.setText(obj.getUserBloodGroup());
-        holder.hallName.setText(obj.getUserHall());
-        holder.roomNumber.setText(obj.getUserRoom());
+
 
         if(obj.getImage1() != null){
             Glide.with(holder.userImage.getContext()).load(obj.getImage1()).into(holder.userImage);
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        boolean visible=obj.isVisible();
-        holder.ll.setVisibility(visible ? View.VISIBLE : View.GONE);
+                Intent intent=new Intent(context, UserProfileActivity.class);
+                intent.putExtra("postAutherId",obj.getUserId());
+                context.startActivity(intent);
+
+
+
+
+            }
+        });
+
+
+        holder.userImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(context, UserProfileActivity.class);
+                intent.putExtra("postAutherId",obj.getUserId());
+                context.startActivity(intent);
+
+            }
+        });
+
+        holder.uni.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(context, UserProfileActivity.class);
+                intent.putExtra("postAutherId",obj.getUserId());
+                context.startActivity(intent);
+
+
+            }
+        });
+
+        //boolean visible=obj.isVisible();
+       // holder.ll.setVisibility(visible ? View.VISIBLE : View.GONE);
 
 
     }
 
+    public void searchLists(ArrayList<UserModel> filterlist) {
+
+        list = filterlist;
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount()
     {
@@ -61,30 +105,25 @@ public class StudentDetailsFragmentAdapter extends RecyclerView.Adapter<StudentD
 
 
     public class AnViewHolder extends RecyclerView.ViewHolder {
-        TextView name,uni,dept,bloodGroup,hallName,roomNumber ;
+        TextView name,uni ;
         CircleImageView userImage ;
-        LinearLayout ll,inu;
+        LinearLayout inu;
         public AnViewHolder(@NonNull View itemView) {
             super(itemView);
 
             inu=itemView.findViewById(R.id.sd_ll);
-            ll=itemView.findViewById(R.id.student_ll);
             name=itemView.findViewById(R.id.sd_name_id_tv);
             uni=itemView.findViewById(R.id.sd_university_id_tv);
-            dept=itemView.findViewById(R.id.sd_dept_id_tv);
-            bloodGroup=itemView.findViewById(R.id.sd_blood_id_tv);
-            hallName=itemView.findViewById(R.id.sd_hall_id_tv);
-            roomNumber=itemView.findViewById(R.id.sd_room_id_tv);
             userImage=itemView.findViewById(R.id.user_image_id);
 
-            inu.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                   UserModel userModel=list.get(getAbsoluteAdapterPosition());
-                   userModel.setVisible(!userModel.isVisible());
-                   notifyItemChanged(getAdapterPosition());
-                }
-            });
+//            inu.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                   UserModel userModel=list.get(getAbsoluteAdapterPosition());
+//                   userModel.setVisible(!userModel.isVisible());
+//                   notifyItemChanged(getAdapterPosition());
+//                }
+//            });
 
         }
     }

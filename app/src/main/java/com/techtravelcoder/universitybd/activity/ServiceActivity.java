@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +34,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
     Spinner specefic_spinner,common_spinner;
     Toolbar toolbar;
     String name ;
-    CardView documentary ,teachers_information ,about_hall,students_community ,pdf_books,current_news,cgpa_calculator ;
+    LinearLayout documentary ,teachers_information ,about_hall,students_community ,pdf_books,current_news,cgpa_calculator ;
 
 
     @Override
@@ -43,7 +44,7 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_service);
         int color= 0;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            color = getColor(R.color.service_bar);
+            color = getColor(R.color.back);
         }
         getWindow().setStatusBarColor(color);
 
@@ -660,20 +661,10 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         documentary=findViewById(R.id.documentary_service_id);
         teachers_information=findViewById(R.id.teachers_info_service_id);
         about_hall=findViewById(R.id.hall_service_id);
-        students_community=findViewById(R.id.students_community_service_id);
-        pdf_books=findViewById(R.id.pdf_books_service_id);
-        current_news=findViewById(R.id.current_news_id);
-        cgpa_calculator=findViewById(R.id.cgpa_calculator_service_id);
 
         documentary.setOnClickListener(this);
         teachers_information.setOnClickListener(this);
         about_hall.setOnClickListener(this);
-        students_community.setOnClickListener(this);
-        pdf_books.setOnClickListener(this);
-        current_news.setOnClickListener(this);
-        cgpa_calculator.setOnClickListener(this);
-
-
 
 
 
@@ -848,22 +839,6 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(intent);
         }
 
-
-
-        if(v.getId()==R.id.cgpa_calculator_service_id){
-            Intent intent=new Intent(getApplicationContext(), SemesterActivity.class);
-            startActivity(intent);
-
-        }
-
-        if(v.getId()==R.id.current_news_id){
-            Intent intent=new Intent(getApplicationContext(),NewsActivity.class);
-            startActivity(intent);
-        }
-        if(v.getId()==R.id.students_community_service_id){
-            Intent intent=new Intent(getApplicationContext(),StudentCommunityActivity.class);
-            startActivity(intent);
-        }
 
     }
 }

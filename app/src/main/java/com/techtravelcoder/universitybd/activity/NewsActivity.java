@@ -212,11 +212,6 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         //name image university
       //  Toast.makeText(this, ""+newsModel.getUid(), Toast.LENGTH_SHORT).show();
 
-
-
-
-
-
         filteredList = new ArrayList<>(list);
 
         editText.addTextChangedListener(new TextWatcher() {

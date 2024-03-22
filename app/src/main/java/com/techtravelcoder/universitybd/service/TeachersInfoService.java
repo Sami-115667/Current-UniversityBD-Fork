@@ -170,9 +170,11 @@ public class TeachersInfoService extends AppCompatActivity {
     private void filter (String text){
         List<TeacherInfoModel> filterList= new ArrayList<>();
         for(TeacherInfoModel obj : list ){
-            if(obj.getDept().toLowerCase().contains(text.toLowerCase())){
+            if(obj.getDepartment().toLowerCase().contains(text.toLowerCase())){
                 filterList.add(obj);
             }
+            Toast.makeText(getApplicationContext(), ""+obj.getDepartment()+" "+list.size(), Toast.LENGTH_SHORT).show();
+
         }
         teacherInfoAdapter.filterList((ArrayList<TeacherInfoModel>) filterList);
     }

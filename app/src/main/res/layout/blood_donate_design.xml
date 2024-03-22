@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="25dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/blood_donate"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:text="✔✔ আপনি কি রক্ত দান করতে ইচ্ছুক ??"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioGroup
+                android:id="@+id/blood_radio_group_id"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/blood_yes_id"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textSize="16sp"/>
+
+                <RadioButton
+
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/blood_no_id"
+                    android:text="No"
+                    android:textSize="16sp"/>
+
+
+            </RadioGroup>
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/t1_id"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:text="✔✔ আপনার ঠিকানা দিন(বিস্তারিত) ??"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/blood_info_id"
+                android:elevation="7dp"
+                android:textSize="16dp"
+                android:textColorHint="#676565"
+                android:textColor="@color/black"
+                android:paddingLeft="11dp"
+                android:hint="বিভাগ/জেলা/থানা..."
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/edit_text_background"
+                android:maxLines="1000"
+                android:inputType="textMultiLine"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"/>
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/t2_id"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:text="✔✔ কিছু ইনফরমেশন দিয়ে সাহায্য করুন "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:visibility="gone"
+                android:elevation="7dp"
+                android:textSize="16dp"
+                android:id="@+id/blood_description_id"
+                android:textColorHint="#676565"
+                android:textColor="@color/black"
+                android:paddingLeft="11dp"
+                android:hint="শেষ কবে রক্ত দিয়েছিলেন...\nকত তারিখ পর্যন্ত
+রক্ত দিতে পারবেন...\nআপনার রক্ত দানের আপডেট..."
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/edit_text_background"
+                android:maxLines="1000"
+                android:inputType="textMultiLine"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"/>
+            <TextView
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/baseline_update_24"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:visibility="visible"
+                android:id="@+id/update_status_id"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2.5"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/service_bar"
+                android:textSize="20dp"
+                android:background="@drawable/serchbar_background"
+                android:foreground="@drawable/rip1"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="Update Blood Status"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>

@@ -46,8 +46,8 @@ public class TeacherInfoAdapter extends RecyclerView.Adapter<TeacherInfoAdapter.
     public void onBindViewHolder(@NonNull TeacherInfoAdapter.MyViewHolder holder, int position) {
         TeacherInfoModel obj=list2.get(position);
         holder.name.setText(obj.getName());
-        holder.unidept.setText(obj.getDept());
-        holder.email.setText(obj.getGmail());
+        holder.unidept.setText(obj.getDepartment());
+        holder.email.setText(obj.getEmail());
         holder.phone.setText(obj.getPhone());
         Glide.with(holder.img.getContext()).load(obj.getImage()).into(holder.img);
 
@@ -55,7 +55,7 @@ public class TeacherInfoAdapter extends RecyclerView.Adapter<TeacherInfoAdapter.
             @Override
             public void onClick(View v) {
                 if (obj != null && holder.emailService != null) {
-                    String to = obj.getGmail();
+                    String to = obj.getDepartment();
                     Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                             "mailto", to, null));
 
@@ -89,10 +89,10 @@ public class TeacherInfoAdapter extends RecyclerView.Adapter<TeacherInfoAdapter.
                 Intent intent= new Intent(context, TeacherDetailsActivity.class);
                 intent.putExtra("name",obj.getName());
                 intent.putExtra("phone",obj.getPhone());
-                intent.putExtra("dept",obj.getDept());
+                intent.putExtra("dept",obj.getDepartment());
                 intent.putExtra("image",obj.getImage());
                 intent.putExtra("bio",obj.getDescription());
-                intent.putExtra("gmail",obj.getGmail());
+                intent.putExtra("gmail",obj.getEmail());
                 context.startActivity(intent);
             }
         });

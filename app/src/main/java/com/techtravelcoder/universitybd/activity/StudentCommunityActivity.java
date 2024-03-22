@@ -17,6 +17,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.techtravelcoder.universitybd.R;
+import com.techtravelcoder.universitybd.fragment.BloodDonnerFragment;
 import com.techtravelcoder.universitybd.fragment.StudentDetailsFragment;
 import com.techtravelcoder.universitybd.user_profile.UserProfileActivity;
 
@@ -34,7 +35,7 @@ public class StudentCommunityActivity extends AppCompatActivity {
 
         int color= 0;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            color = getColor(R.color.service_bar);
+            color = getColor(R.color.back);
         }
         getWindow().setStatusBarColor(color);
 
@@ -63,7 +64,9 @@ public class StudentCommunityActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.linear, selectedFragment).commit();
 
         }
-        if (itemId == R.id.menu_notification_id) {
+        if (itemId == R.id.menu_blood_id) {
+            selectedFragment=new BloodDonnerFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.linear,selectedFragment).commit();
             Toast.makeText(this, "Chat", Toast.LENGTH_SHORT).show();
         }
         if (itemId == R.id.menu_serch_id) {

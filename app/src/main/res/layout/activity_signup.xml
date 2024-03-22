@@ -10,7 +10,7 @@
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="wrap_content"
         android:layout_margin="25dp"
         android:background="@drawable/back"
         android:elevation="20dp"
@@ -88,107 +88,6 @@
                     android:hint="Enter your email"
                     android:inputType="textEmailAddress"
                     android:paddingLeft="5dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Phone Number"
-                    android:textColor="@color/yellow"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/hint_colour"
-                    android:id="@+id/signUpPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/edit_text_background"
-                    android:drawableLeft="@drawable/sign_phone"
-                    android:drawablePadding="5dp"
-                    android:hint="Enter your phone number"
-                    android:inputType="phone"
-                    android:paddingLeft="5dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Chose your University"
-                    android:textColor="@color/yellow"
-                    android:textSize="14sp" />
-
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/edit_text_background"
-                    android:padding="5dp">
-
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/signUpUniversity"
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-                </FrameLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Choose Department"
-                    android:textColor="@color/yellow"
-                    android:textSize="14sp" />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/edit_text_background"
-                    android:padding="5dp">
-
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/signUpUniversityDept"
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-                </FrameLayout>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Chose your blood Group"
-                    android:textColor="@color/yellow"
-                    android:textSize="14sp" />
-
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/edit_text_background"
-                    android:padding="5dp">
-
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/signUpBlood"
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-                </FrameLayout>
 
                 <TextView
                     android:layout_width="wrap_content"

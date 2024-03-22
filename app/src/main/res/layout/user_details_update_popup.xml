@@ -23,6 +23,9 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:layout_marginBottom="3dp"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/sign_name"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:textSize="17dp"
@@ -52,7 +55,11 @@
                 android:paddingLeft="5dp" />
 
             <TextView
-                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/uni"
+                android:layout_marginLeft="17dp"
                 android:textSize="17dp"
                 android:textStyle="bold"
 
@@ -92,7 +99,11 @@
 
 
             <TextView
-                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:drawableLeft="@drawable/set_dept_dr"
+                android:drawablePadding="5dp"
+                android:layout_marginLeft="17dp"
                 android:textSize="17dp"
                 android:textStyle="bold"
                 android:textColor="@color/back"
@@ -130,7 +141,11 @@
             </FrameLayout>
 
             <TextView
-                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/sign_phone"
+                android:layout_marginLeft="17dp"
                 android:textSize="17dp"
                 android:textStyle="bold"
                 android:textColor="@color/back"
@@ -157,7 +172,11 @@
                 android:paddingLeft="5dp" />
 
             <TextView
-            android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:drawableLeft="@drawable/blood"
+                android:drawablePadding="5dp"
+            android:layout_marginLeft="17dp"
             android:textSize="17dp"
             android:textStyle="bold"
             android:textColor="@color/back"
@@ -195,7 +214,11 @@
 
 
             <TextView
-                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/hall_dr"
+                android:layout_marginLeft="17dp"
                 android:textSize="17dp"
                 android:textStyle="bold"
                 android:textColor="@color/back"
@@ -221,11 +244,15 @@
                 android:inputType="textMultiLine"
                 android:paddingLeft="5dp" />
             <TextView
-                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:drawableLeft="@drawable/number_dr"
+                android:drawablePadding="5dp"
+                android:layout_marginLeft="17dp"
                 android:textSize="17dp"
                 android:textStyle="bold"
                 android:textColor="@color/back"
-                android:text="Hall Number"
+                android:text="Room Number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <EditText
@@ -265,7 +292,7 @@
                 android:textColor="@color/white"
                 android:textSize="16dp"
                 android:text="Upadte Profile"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
         </LinearLayout>

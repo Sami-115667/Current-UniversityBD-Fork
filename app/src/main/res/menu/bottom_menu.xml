@@ -8,10 +8,10 @@
         android:icon="@drawable/home"
         android:id="@+id/menu_connect_id"/>
 
-    <item android:title="Chat"
-        android:icon="@drawable/baseline_chat_24"
-        android:id="@+id/menu_notification_id"/>
-    <item android:title="Search"
+    <item android:title="Blood Donner"
+        android:icon="@drawable/blood"
+        android:id="@+id/menu_blood_id"/>
+    <item android:title="BusinessMan"
         android:icon="@drawable/call_back"
         android:id="@+id/menu_serch_id"/>
 </menu>

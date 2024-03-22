@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_marginBottom="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:src="@drawable/business"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"/>
+        <TextView
+            android:fontFamily="serif"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="3dp"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:text="Grow Your Business"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:text="✔✔ আপনার কি নিজস্ব বিজনেস রয়েছে অথবা আপনি কি আপনার বিজনেস কে প্রোমোট করতে চাচ্ছেন ??"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <RadioGroup
+            android:id="@+id/business_group_radio"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/yes_radio_button_business_id"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textSize="16sp"/>
+
+            <RadioButton
+
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/no_radio_button_business_id"
+                android:text="No"
+                android:textSize="16sp"/>
+
+
+        </RadioGroup>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:text="✔✔ বিজনেস এর নাম দিন **"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/business_name_id"
+            android:elevation="7dp"
+            android:textSize="16dp"
+            android:textColorHint="#676565"
+            android:textColor="@color/black"
+            android:paddingLeft="11dp"
+            android:hint="নাম..."
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/edit_text_background"
+            android:maxLines="10"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:text="✔✔ বিজনেস এর কেটাগরি বিস্তারিত লিখুন **"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/business_desc_id"
+            android:autoLink="all"
+            android:elevation="7dp"
+            android:textSize="16dp"
+            android:textColorHint="#676565"
+            android:textColor="@color/black"
+            android:paddingLeft="11dp"
+            android:hint="কেটাগরি..."
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/edit_text_background"
+            android:maxLines="20"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:text="✔✔ Facebook পেজ / আইডি এর লিঙ্ক দিন ** "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/business_fb_link_id"
+            android:autoLink="all"
+            android:elevation="7dp"
+            android:textSize="16dp"
+            android:textColorHint="#676565"
+            android:textColor="@color/black"
+            android:paddingLeft="11dp"
+            android:hint="লিঙ্ক..."
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/edit_text_background"
+            android:maxLines="1000"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:text="✔✔ Youtube এর লিঙ্ক দিন((বাদ্ধতামুলক নয়))"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/business_youtube_id"
+            android:autoLink="all"
+            android:elevation="7dp"
+            android:textSize="16dp"
+            android:textColorHint="#676565"
+            android:textColor="@color/black"
+            android:paddingLeft="11dp"
+            android:hint="লিঙ্ক..."
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/edit_text_background"
+            android:maxLines="1000"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:text="✔✔ ওয়েবসাইট এর লিঙ্ক দিন(বাদ্ধতামুলক নয়)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/business_website_id"
+            android:autoLink="web"
+            android:elevation="7dp"
+            android:textSize="16dp"
+            android:textColorHint="#676565"
+            android:textColor="@color/black"
+            android:paddingLeft="11dp"
+            android:hint="লিঙ্ক..."
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/edit_text_background"
+            android:maxLines="1000"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:text="✔✔WhatsApp নাম্বার দিন (বাদ্ধতামুলক নয়)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/business_whatsapp_id"
+            android:elevation="7dp"
+            android:textSize="16dp"
+            android:textColorHint="#676565"
+            android:textColor="@color/black"
+            android:paddingLeft="11dp"
+            android:hint="WhatsApp নাম্বার..."
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/edit_text_background"
+            android:maxLines="1000"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"/>
+        <TextView
+            android:id="@+id/update_business_info_id"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/baseline_update_24"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/service_bar"
+            android:textSize="20dp"
+            android:background="@drawable/serchbar_background"
+            android:foreground="@drawable/rip1"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:text="Update Business Info"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</ScrollView>

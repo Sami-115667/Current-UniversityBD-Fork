@@ -11,20 +11,21 @@
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         app:titleTextColor="@color/black"
         app:navigationIcon="@drawable/back_pressed"
         android:id="@+id/all_uni_tolbar"
-        android:background="@color/service_bar"
         >
-        <EditText
-            android:id="@+id/search_edittext"
-            android:paddingLeft="9dp"
-            android:hint="Search here "
-            android:drawableLeft="@drawable/search_icon"
-            android:background="@drawable/serchbar_background"
+        <androidx.appcompat.widget.SearchView
+            android:layout_marginBottom="4dp"
+            android:elevation="10dp"
+            android:id="@+id/searchView_all_uni"
             android:layout_width="match_parent"
-            android:layout_height="45dp"/>
+            android:layout_height="45dp"
+            android:background="@drawable/serchbar_background"
+            app:queryHint="Search here..."
+            app:iconifiedByDefault="false"
+            />
 
 
 

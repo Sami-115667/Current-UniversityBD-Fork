@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/edit_text_background"
+            android:background="@drawable/serchbar_background"
             android:backgroundTint="@color/ruby"
             android:foreground="@drawable/uni_background"
             android:paddingLeft="6dp"

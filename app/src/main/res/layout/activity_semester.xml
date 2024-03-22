@@ -33,13 +33,13 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="60dp"
             android:layout_marginLeft="60dp"
-            android:background="@drawable/round_gray"
+            android:background="@drawable/edit_text_background"
             android:layout_width="match_parent"
             android:layout_height="44dp">
             <androidx.appcompat.widget.AppCompatSpinner
                 android:drawSelectorOnTop="true"
                 android:id="@+id/semester_spinner"
-                android:outlineSpotShadowColor="@color/white"
+                android:outlineSpotShadowColor="#515050"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 

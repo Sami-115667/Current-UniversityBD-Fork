@@ -3,6 +3,7 @@
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,6 +33,7 @@ public class AllUniversityActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<UniversityItem> itemList;
     private AllUniversityAdapter adapter ;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +44,7 @@ public class AllUniversityActivity extends AppCompatActivity {
         // this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         int color= 0;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            color = getColor(R.color.service_bar);
+            color = getColor(R.color.back);
         }
         getWindow().setStatusBarColor(color);
 
@@ -48,6 +52,19 @@ public class AllUniversityActivity extends AppCompatActivity {
 
         Toolbar tool = (Toolbar) findViewById(R.id.all_uni_tolbar);
         setSupportActionBar(tool);
+        searchView=findViewById(R.id.searchView_all_uni);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
 
         tool.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +120,34 @@ public class AllUniversityActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void searchList(String newText) {
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                List<UniversityItem>fList=new ArrayList<>();
+                for (UniversityItem obj : itemList) {
+                    //  Toast.makeText(getApplicationContext(), ""+obj.getName()+" "+list.size(), Toast.LENGTH_SHORT).show();
+
+                    if (obj.getUniversity_name().toLowerCase().contains(newText.toLowerCase())) {
+                        fList.add(obj);
+                    }
+
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.searchLists((ArrayList<UniversityItem>) fList);
+
+                    }
+                });
+
+            }
+        },10);
+
+
+    }
+
 
     private void nationalUniversity() {
         recyclerView=findViewById(R.id.all_university_rv_id);
