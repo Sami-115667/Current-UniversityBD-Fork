@@ -1,5 +1,7 @@
 # 🌟 Bangladesh University Android Application 🌟
 
+This project was collaboratively developed by a team of 3 members. My contributions focused on implementing key features such as the CGPA Calculator,  Business Profile Creation, and the Post Management Module (including create, update, and delete functionality). I also worked extensively on UI design and Firebase integration to ensure seamless data flow and user interaction across the application.
+
 **Bangladesh University App** is a comprehensive platform providing all information about universities in Bangladesh. 🎓  
 Students can connect, collaborate, and share knowledge while accessing essential features like a CGPA calculator, blood donation, and more! 🌐
 
@@ -74,25 +76,36 @@ Students can connect, collaborate, and share knowledge while accessing essential
 ---
 
 ## 🌐 GitHub Repository  
-🔗 **[GitHub Profile Link](https://github.com/RlM100always)**  
+🔗 **[GitHub Profile Link](https://github.com/Sami-115667  )**  
 
 
 
 ## 👨‍💻 Developed By  
+<a href="https://www.linkedin.com/in/md-shamsur-rahman-sami-0a677b246/  " target="_blank">
+  <img src="https://avatars.githubusercontent.com/u/109974472?v=4" width="80" align="left">
+</a>
+
+**Md Shamsur Rahman Sami**  
+
+
+[![Linkedin](https://img.shields.io/badge/-LinkedIn-0077B5?logo=linkedin&logoColor=white&style=for-the-badge)](https://www.linkedin.com/in/md-shamsur-rahman-sami-0a677b246/  )
+
 <a href="https://www.linkedin.com/in/rlm100always/" target="_blank">
   <img src="https://avatars.githubusercontent.com/u/109984220?v=4" width="80" align="left">
 </a>
 
-**Md Rakib Hossain**  
+**Md Rakib Hossain** 
 
-[![Facebook](https://img.shields.io/badge/-Facebook-1877F2?logo=facebook&logoColor=white&style=for-the-badge)](https://www.facebook.com/rlm100always/)
+
 [![Linkedin](https://img.shields.io/badge/-LinkedIn-0077B5?logo=linkedin&logoColor=white&style=for-the-badge)](https://www.linkedin.com/in/rlm100always/)
+
+
 
 
 
 ## 📝 License  
 ```
-Copyright 2024 RlM100Always(Md Rakib Hossain)
+Copyright 2024 (Md Shamsur Rahman Sami)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
